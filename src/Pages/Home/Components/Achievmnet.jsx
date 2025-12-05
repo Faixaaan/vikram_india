@@ -12,7 +12,7 @@ const Achievmnet = () => {
                 backgroundImage: `url(${AchievmentBanner})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                padding: { xs: "60px 0px", md: "80px 40px 60px 40px" },
+                padding: { xs: "60px 0px", md: "80px 0px 60px 0px" },
                 borderTop: "1px solid #1E1E1E",
                 minHeight: { xs: "500px", md: "600px" },
                 display: "flex",

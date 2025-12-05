@@ -53,7 +53,7 @@ const Media = () => {
                 width: '100%', overflow: 'hidden', backgroundImage: `url(${MediaBanner})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                padding: { xs: "30px 0px", md: "60px 40px 60px 40px" },
+                padding: { xs: "30px 0px", md: "60px 0px 60px 0px" },
                 borderTop: "1px solid #1E1E1E",
                 minHeight: "400px",
                 display:"flex",

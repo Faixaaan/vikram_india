@@ -1,15 +1,32 @@
 import React, { useState, useRef } from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
-import BannerImg from "../../../Assets/Banner.png";
+import BannerImg1 from "../../../Assets/Module_mounting_banner.jpg";
+import BannerImg2 from "../../../Assets/Banner.png";
+import BannerImg3 from "../../../Assets/galvanizationBanner.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const headings = [
-    { title: "Module Mounting Structure", no: "01" },
-    { title: "Hot Dip Galvanizing", no: "02" },
-    { title: "Tea Processing Machinery", no: "03" }
+const bannerData = [
+    { 
+        title: "Module Mounting Structure", 
+        no: "01",
+        image: BannerImg1,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    { 
+        title: "Hot Dip Galvanizing", 
+        no: "02",
+        image: BannerImg3,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    { 
+        title: "Tea Processing Machinery", 
+        no: "03",
+        image: BannerImg2,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
 ];
 
 const Banner = () => {
@@ -27,13 +44,13 @@ const Banner = () => {
                 loop={false}
                 style={{ width: "100%", height: "100%" }}
             >
-                {headings.map((item, index) => (
+                {bannerData.map((item, index) => (
                     <SwiperSlide key={index}>
                         <Box
                             sx={{
                                 width: "100%",
                                 height: { xs: "420px", sm: "480px", md: "520px" },
-                                backgroundImage: `url(${BannerImg})`,
+                                backgroundImage: `url(${item.image})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 position: "relative",
@@ -54,7 +71,7 @@ const Banner = () => {
                             >
                                 {/* LEFT — 3 Headings */}
                                 <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" } }}>
-                                    {headings.map((h, i) => (
+                                    {bannerData.map((h, i) => (
                                         <Box
                                             sx={{ mb: "22px", cursor: "pointer" }}
                                             key={i}
@@ -119,13 +136,15 @@ const Banner = () => {
                                     <Typography
                                         sx={{
                                             fontSize: { xs: "20px", sm: "26px", md: "40px" },
-                                            fontWeight: 400,
-                                            minWidth: { md: "800px" },
+                                            fontWeight: 700,
+                                            minWidth: { md: "850px" },
                                             fontFamily: "Open Sans",
                                             lineHeight: "120%",
+                                            color:"#fff",
+                                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)"
                                         }}
                                     >
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        {item.description}
                                     </Typography>
 
                                     <Button

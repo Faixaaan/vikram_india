@@ -15,7 +15,7 @@ const Footer = () => {
                     backgroundImage: `url(${BgImg})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    padding: { xs: "30px 15px", md: "60px 40px 30px 40px" },
+                    padding: { xs: "30px 15px", md: "60px 0px 30px 0px" },
                     borderTop: "1px solid #1E1E1E",
                     marginLeft: "calc(-50vw + 50%)",
                 }}

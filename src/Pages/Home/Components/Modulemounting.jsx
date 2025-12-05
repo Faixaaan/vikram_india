@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import ModuleImage from '../../../Assets/Module_img.png';
+import TeaProcessing from '../../../Assets/tea-processing.jpg';
+import Galvanization from '../../../Assets/galvanization.jpg';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
@@ -22,28 +24,28 @@ const ModuleMounting = () => {
         },
         {
             id: 2,
-            title: "Module Mounting Structure",
-            image: ModuleImage,
+            title: "Tea Processing Machineries",
+            image: TeaProcessing,
             features: [
-                "Single and Double pole structure",
-                "Double pole structure with struts",
-                "Seasonal structure with unique turn buckle mechanism tilting",
-                "Solar parking structure",
-                "Pre-galvanized structure for solar projects",
-                "Double pole seasonal tilting and static structure with struts"
+                "Withering troughs for controlled leaf moisture reduction",
+                "CTC and orthodox rolling machines for precise leaf shaping",
+                "Fluid bed and conventional dryers for uniform tea drying",
+                "Sorting, grading & cleaning systems for quality refinement",
+                "Tea fermentation units ensuring optimal oxidation",
+                "Flavor-locking packaging and sealing equipment"
             ]
         },
         {
             id: 3,
-            title: "Module Mounting Structure",
-            image: ModuleImage,
+            title: "Hot Dip Galvanization",
+            image: Galvanization,
             features: [
-                "Single and Double pole structure",
-                "Double pole structure with struts",
-                "Seasonal structure with unique turn buckle mechanism tilting",
-                "Solar parking structure",
-                "Pre-galvanized structure for solar projects",
-                "Double pole seasonal tilting and static structure with struts"
+                "Corrosion-resistant coating for long-lasting metal protection",
+                "High-temperature zinc immersion ensuring complete surface coverage",
+                "Superior durability against harsh weather and chemical exposure",
+                "Uniform metallurgical bonding for enhanced structural strength",
+                "Ideal for industrial, construction, and outdoor applications",
+                "Low-maintenance, cost-effective protection with extended service life"
             ]
         }
     ];
