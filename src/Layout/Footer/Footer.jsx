@@ -202,6 +202,7 @@ const Footer = () => {
                             "Manufacturing Facilities",
                             "CSR",
                             "Media",
+                            "Blog",
                             "Career",
                         ].map((item) => (
                             <Typography

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 const headings = [
     { title: "Module Mounting Structure", no: "01" },
-    { title: "Module Mounting Structure", no: "02" },
+    { title: "Hot Dip Galvanizing", no: "02" },
     { title: "Tea Processing Machinery", no: "03" }
 ];
 

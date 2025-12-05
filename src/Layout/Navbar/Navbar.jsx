@@ -24,6 +24,7 @@ const pages = [
   { title: "CSR", link: "/csr" },
   { title: "MEDIA", link: "/media" },
   { title: "CAREERS", link: "/careers" },
+  { title: "Blogs", link: "/blogs" },
   { title: "CONTACT US", link: "/contact" },
 ];
 
@@ -113,7 +114,7 @@ const Navbar = () => {
             </Box>
 
             {/* DESKTOP MENU */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
               {pages.map((item) =>
                 item.title === "PRODUCTS AND SERVICES" ? (
                   <Box
