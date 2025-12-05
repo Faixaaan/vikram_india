@@ -70,7 +70,7 @@ const Banner = () => {
                                 }}
                             >
                                 {/* LEFT — 3 Headings */}
-                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" }, display: { xs: "none", md: "block" } }}>
+                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" }, display: { xs: "none", md: "block" },marginTop:"64px" }}>
                                     {bannerData.map((h, i) => (
                                         <Box
                                             sx={{ mb: "22px", cursor: "pointer" }}

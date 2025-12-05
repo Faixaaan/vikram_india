@@ -18,7 +18,7 @@ const Achievmnet = () => {
                 backgroundImage: `url(${AchievmentBanner})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                padding: { xs: "60px 0px", md: "80px 0px 60px 0px" },
+                padding: { xs: "30px 0px", md: "80px 0px 60px 0px" },
                 borderTop: "1px solid #1E1E1E",
                 minHeight: { xs: "500px", md: "600px" },
                 display: "flex",
@@ -56,15 +56,9 @@ const Achievmnet = () => {
                                     display: "inline-block",
                                     pb: "10px",
                                     position: "relative",
-                                    "&::after": {
-                                        content: "''",
-                                        position: "absolute",
-                                        left: "0%",           // centers the 70% line
-                                        bottom: 0,
-                                        width: "70%",          // <-- Your required border width
-                                        height: "2px",
-                                        backgroundColor: "#000",
-                                    }
+                                    textAlign:{xs:"center",md:"left"},
+                                    width:"100%"
+                                    
                                 }}
                             >
                                 Our Achievements
@@ -82,7 +76,7 @@ const Achievmnet = () => {
                                     fontFamily: 'Open Sans',
                                     maxWidth: { xs: '100%', md: '90%', lg: '120%' },
                                     marginBottom: { xs: 1, md: 0 },
-                                    textAlign: "left",
+                                    textAlign: {md:"left",xs:"center"},
                                     fontWeight: "400"
                                 }}
                             >
@@ -104,7 +98,7 @@ const Achievmnet = () => {
                                     fontFamily: 'Open Sans',
                                     maxWidth: { xs: '100%', md: '90%', lg: '120%' },
                                     marginBottom: { xs: 1, md: 0 },
-                                    textAlign: "left",
+                                    textAlign: {md:"left",xs:"center"},
                                     fontWeight: "400"
                                 }}
                             >
@@ -117,7 +111,8 @@ const Achievmnet = () => {
                             <Button
                                 variant="contained"
                                 sx={{
-                                    background: "#1E1E1E",
+                                    
+                                    background: "linear-gradient(to bottom, #000, #EE1D25)",
 
                                     padding: { xs: "10px 30px", md: "12px 35px" },
                                     textTransform: "none",
@@ -125,12 +120,13 @@ const Achievmnet = () => {
                                     fontWeight: "600",
                                     fontFamily: 'Open Sans',
                                     '&:hover': {
-                                        background: "linear-gradient(to bottom, #000, #EE1D25)",
+                                        background: "#1E1E1E",
                                         transform: 'translateY(-2px)',
                                         boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
                                     },
                                     transition: 'all 0.3s ease-in-out',
-                                    marginTop: { xs: 1, md: 2 }
+                                    marginTop: { xs: 1, md: 2 },
+                                    marginInline:{xs:"auto",sm:"0px"}
                                 }}
                                 onClick={handleComingsoon}
                             >

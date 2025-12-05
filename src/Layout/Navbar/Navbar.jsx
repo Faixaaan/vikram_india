@@ -127,7 +127,7 @@ const Navbar = () => {
                       sx={{
                         fontSize: "16px",
                         color: "#000000",
-                        fontWeight: 400,
+                        fontWeight: "600",
                         "&:hover": { color: "#d32f2f" },
                         fontFamily: "Open Sans",
                       }}
@@ -196,7 +196,7 @@ const Navbar = () => {
                     sx={{
                       fontSize: "16px",
                       color: "#000000",
-                      fontWeight: 400,
+                      fontWeight: "600",
                       "&:hover": { color: "#d32f2f" },
                       fontFamily: "Open Sans",
                     }}
