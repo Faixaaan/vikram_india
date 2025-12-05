@@ -116,7 +116,7 @@ const ModuleMounting = () => {
 
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }}>
-                            <Box sx={{ height: "500px" }}>
+                            <Box sx={{ height: {md:"500px",xs:"500px",sm:"600px"} }}>
                                 <Box
                                     component="img"
                                     src={slide.image}
@@ -168,7 +168,7 @@ const liStyle = {
 
 const arrowLeft = {
     position: "absolute",
-    bottom: {md:"28px",xs:"58px"},
+    bottom: {md:"28px",xs:"40px"},
     left: {md:"35%",xs:"38%"},
     fontSize: "42px",
     cursor: "pointer",
@@ -177,7 +177,7 @@ const arrowLeft = {
 
 const arrowRight = {
     position: "absolute",
-    bottom: {md:"28px",xs:"58px"},
+    bottom: {md:"28px",xs:"40px"},
     left: {md:"38%",xs:"48%"},
     fontSize: "42px",
     cursor: "pointer",

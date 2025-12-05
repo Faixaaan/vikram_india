@@ -122,7 +122,7 @@ const Media = () => {
                                     {/* Right Side - Content */}
                                     <Box
                                         sx={{
-                                            width: { xs: '100%', md: '60%' },
+                                            width: { xs: 'auto', md: '60%' },
                                             padding: { xs: '20px', md: '30px' },
                                             display: 'flex',
                                             flexDirection: 'column',
@@ -161,7 +161,7 @@ const Media = () => {
                                                 sx={{
                                                     color: '#999',
                                                     display: 'block',
-                                                    marginBottom: '20px',
+                                                    marginBottom: '0px',
                                                     fontFamily:"Open Sans"
                                                 }}
                                             >
