@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Grid, Button } from '@mui/material';
-import ModuleImage from '../../../Assets/Module_img.png';
+import ModuleImage from '../../../Assets/Module_img.jpg';
 import TeaProcessing from '../../../Assets/tea-processing.jpg';
 import Galvanization from '../../../Assets/galvanization.jpg';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -192,7 +192,10 @@ const ModuleMounting = () => {
 
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }} sx={{ order: { xs: 1, sm: 2, md: 2 } }}>
-                            <Box sx={{ maxHeight: { md: "520px",sm: "600px"  }, maxHeight: { xs: "312px" } }}>
+                            <Box sx={{
+                                maxHeight: { xs: "312px", sm: "600px", md: "520px" },
+                               
+                            }}>
                                 <Box
                                     component="img"
                                     src={slide.image}
@@ -202,7 +205,7 @@ const ModuleMounting = () => {
                                         height: "100%",
                                         objectFit: "cover",
                                         backgroundSize: "cover",
-                                        backgroundPosition: "center"
+                                        backgroundPosition: "top"
                                     }}
                                 />
                             </Box>
