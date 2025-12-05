@@ -5,8 +5,48 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const ModuleMounting = () => {
-    // You want 3 slides but SAME content
-    const slides = [1, 2, 3];
+    // All slides have SAME content for now (easy to change later)
+    const slides = [
+        {
+            id: 1,
+            title: "Module Mounting Structure",
+            image: ModuleImage,
+            features: [
+                "Single and Double pole structure",
+                "Double pole structure with struts",
+                "Seasonal structure with unique turn buckle mechanism tilting",
+                "Solar parking structure",
+                "Pre-galvanized structure for solar projects",
+                "Double pole seasonal tilting and static structure with struts"
+            ]
+        },
+        {
+            id: 2,
+            title: "Module Mounting Structure",
+            image: ModuleImage,
+            features: [
+                "Single and Double pole structure",
+                "Double pole structure with struts",
+                "Seasonal structure with unique turn buckle mechanism tilting",
+                "Solar parking structure",
+                "Pre-galvanized structure for solar projects",
+                "Double pole seasonal tilting and static structure with struts"
+            ]
+        },
+        {
+            id: 3,
+            title: "Module Mounting Structure",
+            image: ModuleImage,
+            features: [
+                "Single and Double pole structure",
+                "Double pole structure with struts",
+                "Seasonal structure with unique turn buckle mechanism tilting",
+                "Solar parking structure",
+                "Pre-galvanized structure for solar projects",
+                "Double pole seasonal tilting and static structure with struts"
+            ]
+        }
+    ];
 
     const [index, setIndex] = useState(0);
 
@@ -30,12 +70,12 @@ const ModuleMounting = () => {
                     transition: "all 0.6s ease"
                 }}
             >
-                {slides.map((_, i) => (
+                {slides.map((slide, i) => (
                     <Grid
-                        key={i}
+                        key={slide.id}
                         container
                         sx={{
-                            width: `${100 / slides.length}%`, // FIX: Each slide should take equal width
+                            width: `${100 / slides.length}%`,
                             flexShrink: 0
                         }}
                     >
@@ -59,16 +99,13 @@ const ModuleMounting = () => {
                                         fontFamily: "Open Sans"
                                     }}
                                 >
-                                    Module Mounting Structure
+                                    {slide.title}
                                 </Typography>
 
                                 <ul>
-                                    <li style={liStyle}>Single and Double pole structure</li>
-                                    <li style={liStyle}>Double pole structure with struts</li>
-                                    <li style={liStyle}>Seasonal structure with unique turn buckle mechanism tilting</li>
-                                    <li style={liStyle}>Solar parking structure</li>
-                                    <li style={liStyle}>Pre-galvanized structure for solar projects</li>
-                                    <li style={liStyle}>Double pole seasonal tilting and static structure with struts</li>
+                                    {slide.features.map((feature, idx) => (
+                                        <li key={idx} style={liStyle}>{feature}</li>
+                                    ))}
                                 </ul>
                             </Box>
                         </Grid>
@@ -78,8 +115,8 @@ const ModuleMounting = () => {
                             <Box sx={{ height: "500px" }}>
                                 <Box
                                     component="img"
-                                    src={ModuleImage}
-                                    alt=""
+                                    src={slide.image}
+                                    alt="Module Mounting Structure"
                                     sx={{
                                         width: "100%",
                                         height: "100%",
