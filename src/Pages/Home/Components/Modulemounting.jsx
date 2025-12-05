@@ -249,7 +249,7 @@ const liStyle = {
 
 const arrowLeft = {
     position: "absolute",
-    bottom: { md: "28px", xs: "10px" },
+    bottom: { md: "28px", xs: "0px" },
     left: { md: "42%", xs: "38%" },
     fontSize: "42px",
     cursor: "pointer",
@@ -258,7 +258,7 @@ const arrowLeft = {
 
 const arrowRight = {
     position: "absolute",
-    bottom: { md: "28px", xs: "10px" },
+    bottom: { md: "28px", xs: "0px" },
     left: { md: "44%", xs: "48%" },
     fontSize: "42px",
     cursor: "pointer",
