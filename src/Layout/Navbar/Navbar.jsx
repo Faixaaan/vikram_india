@@ -97,7 +97,7 @@ const Navbar = () => {
   return (
     <>
       <AppBar
-        position="static"
+        position="sticky"
         sx={{
           background: "#fff",
           color: "#000",
@@ -106,7 +106,7 @@ const Navbar = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between",padding:{xs:"0px",md:"0px 16px"} }}>
             
             {/* LOGO */}
             <Box sx={{ display: "flex", alignItems: "center" }}>
