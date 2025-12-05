@@ -88,6 +88,7 @@ const Banner = () => {
                                                     mb: 1,
                                                     fontWeight: 400,
                                                     color: activeIndex === i ? "red" : "#fff",
+                                                    width:"250px"
                                                 }}
                                             >
                                                 {h.title}
