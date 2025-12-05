@@ -8,6 +8,7 @@ import Footer from './Layout/Footer/Footer';
 import Withering from './Layout/Navbar/Dropdown/Withering';
 import Rolling from './Layout/Navbar/Dropdown/Rolling';
 import Fermenting from './Layout/Navbar/Dropdown/Fermenting';
+import PageComing from './Pages/ComingSoon/PageComing';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products/ctc/withering" element={<Withering />} />
          <Route path="/products/ctc/Rolling" element={<Rolling />} />
          <Route path="/products/ctc/Fermenting" element={<Fermenting />} />
+         <Route path="/page-coming-soon" element={<PageComing />} />
       </Routes>
       <Footer/>
     </BrowserRouter>

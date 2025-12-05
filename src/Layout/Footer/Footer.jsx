@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid, Button, Container } from "@mui/material";
 import BgImg from "../../Assets/Footer.png";
 import Logo from '../../Assets/logo 1.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -284,6 +284,7 @@ const Footer = () => {
                 </Grid>
 
                 {/* BOTTOM COPYRIGHT */}
+                <Container maxWidth='xl'>
                 <Box
                     sx={{
                         borderTop: "1px solid #000",
@@ -298,6 +299,7 @@ const Footer = () => {
                     <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600"},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
                     <Typography sx={{fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600"},color:"#000"}}>Design and Developed by Adret Software</Typography>
                 </Box>
+                </Container>
             </Box >
         </>
     );

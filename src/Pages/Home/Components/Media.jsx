@@ -8,6 +8,7 @@ import CardImage2 from '../../../Assets/mediaCard2.png'
 import CardImage3 from '../../../Assets/mediaCard3.png'
 import CardImage4 from '../../../Assets/mediaCard4.png'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { useNavigate } from 'react-router-dom';
 
 const Media = () => {
     // Sample data for cards
@@ -45,6 +46,12 @@ const Media = () => {
             buttonText: "Explore"
         }
     ];
+
+    const navigatee = useNavigate()
+
+  const handleComingsoon = () => {
+    navigatee('/page-coming-soon');
+};
 
     return (
         <>
@@ -193,7 +200,7 @@ const Media = () => {
                     </Grid>
                     
                     <Box sx={{display:"flex",justifyContent:"center",mt:4}}>
-                    <Button sx={{color:"#fff",fontFamily:"Open Sans",fontWeight:"700",borderBottom:"1px slid white"}}>
+                    <Button sx={{color:"#fff",fontFamily:"Open Sans",fontWeight:"700",borderBottom:"1px slid white"}} onClick={handleComingsoon}>
                         Know More <ArrowDropDownIcon/>
                     </Button>
                     </Box>

@@ -90,7 +90,8 @@ const ModuleMounting = () => {
                                     marginLeft: { md: "35px", xs: "0px" },
                                     display: "flex",
                                     flexDirection: "column",
-                                    justifyContent: "center"
+                                    justifyContent: "flex-start",
+                                    marginTop:{md:"15px",xs:"0px"}
                                 }}
                             >
                                 <Typography
@@ -116,7 +117,7 @@ const ModuleMounting = () => {
 
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }}>
-                            <Box sx={{ height: {md:"500px",xs:"500px",sm:"600px"} }}>
+                            <Box sx={{ height: {md:"520px",xs:"500px",sm:"600px"} }}>
                                 <Box
                                     component="img"
                                     src={slide.image}
@@ -169,7 +170,7 @@ const liStyle = {
 const arrowLeft = {
     position: "absolute",
     bottom: {md:"28px",xs:"40px"},
-    left: {md:"35%",xs:"38%"},
+    left: {md:"42%",xs:"38%"},
     fontSize: "42px",
     cursor: "pointer",
     color: "#fff"
@@ -178,7 +179,7 @@ const arrowLeft = {
 const arrowRight = {
     position: "absolute",
     bottom: {md:"28px",xs:"40px"},
-    left: {md:"38%",xs:"48%"},
+    left: {md:"44%",xs:"48%"},
     fontSize: "42px",
     cursor: "pointer",
     color: "#fff"

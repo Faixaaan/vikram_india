@@ -9,56 +9,64 @@ import unilever from "../../../Assets/tata.png";
 import amalgamated from "../../../Assets/unilever.png";
 import appee from "../../../Assets/tata.png"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link, useNavigate } from "react-router-dom";
 
 const logos = [tata, adani, sterling, unilever, amalgamated, appee];
 
 const OurClient = () => {
+  const navigatee = useNavigate()
+
+  const handleComingsoon = () => {
+    navigatee('/page-coming-soon');
+};
   return (
-    <Box sx={{ width: "100%", py: {md:6,xs:4}, backgroundColor: "#fff" }}>
+    <Box sx={{ width: "100%", py: { md: 6, xs: 4 }, backgroundColor: "#fff" }}>
       <Container maxWidth='xl'>
         {/* Heading */}
         <Typography
           variant="h5"
           align="center"
-          sx={{ fontWeight: 700, mb: 3,fontSize:{xs:"32px",md:"40px"},fontFamily:"Open Sans",marginBottom:{md:"10px",xs:"40px"} }}
+          sx={{ fontWeight: 700, mb: 3, fontSize: { xs: "32px", md: "40px" }, fontFamily: "Open Sans", marginBottom: { md: "10px", xs: "40px" } }}
         >
-          Our Client
+          Our Clients
         </Typography>
 
         {/* Blue Bordered Logo Box */}
-        
-          <Grid container spacing={2} justifyContent="center" alignItems="center">
-            {logos.map((logo, index) => (
-              <Grid
-                item
-                size={{xs: 6,sm: 4,md: 2}}
-              
-                
-                key={index}
-                display="flex"
-                justifyContent="center"
-              >
-                <Box
-                  component="img"
-                  src={logo}
-                  alt={`client-logo-${index}`}
-                  sx={{
-                    width: "120px",
-                    height: "auto",
-                    objectFit: "contain",
-                  }}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        
+
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
+          {logos.map((logo, index) => (
+            <Grid
+              item
+              size={{ xs: 6, sm: 4, md: 2 }}
+
+
+              key={index}
+              display="flex"
+              justifyContent="center"
+            >
+              <Box
+                component="img"
+                src={logo}
+                alt={`client-logo-${index}`}
+                sx={{
+                  width: "120px",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
+            </Grid>
+          ))}
+        </Grid>
+
         {/* Know More */}
-        <Box sx={{ textAlign: "center", mt: 2 }}>
+        <Box sx={{ textAlign: "center", mt: 2 }} onClick={handleComingsoon}>
           <Typography
             variant="body1"
-            sx={{ fontSize: "16px", fontWeight: 600, cursor: "pointer",textDecoration:"underline",display:"flex",justifyContent:"center",alignItems:"center" }}
+            sx={{ fontSize: "16px", fontWeight: 600, cursor: "pointer", textDecoration: "underline", display: "flex", justifyContent: "center", alignItems: "center" }}
+             
           >
-            Know More <ArrowDropDownIcon/>
+            
+              Know More <ArrowDropDownIcon /> 
           </Typography>
         </Box>
       </Container>

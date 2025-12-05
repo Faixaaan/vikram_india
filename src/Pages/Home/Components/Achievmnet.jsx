@@ -2,8 +2,14 @@ import React from 'react'
 import AchievmentBanner from '../../../Assets/Achievment-Banner.png'
 import { Box, Container, Typography, Button } from '@mui/material'
 import '../../../App.css'
+import { useNavigate } from 'react-router-dom'
 
 const Achievmnet = () => {
+    const navigatee = useNavigate()
+
+    const handleComingsoon = () => {
+        navigatee('/page-coming-soon');
+    };
     return (
         <>
             <Box sx={{
@@ -112,7 +118,7 @@ const Achievmnet = () => {
                                 variant="contained"
                                 sx={{
                                     background: "#1E1E1E",
-                                    
+
                                     padding: { xs: "10px 30px", md: "12px 35px" },
                                     textTransform: "none",
                                     fontSize: { xs: "14px", md: "16px" },
@@ -126,6 +132,7 @@ const Achievmnet = () => {
                                     transition: 'all 0.3s ease-in-out',
                                     marginTop: { xs: 1, md: 2 }
                                 }}
+                                onClick={handleComingsoon}
                             >
                                 Know More
                             </Button>
