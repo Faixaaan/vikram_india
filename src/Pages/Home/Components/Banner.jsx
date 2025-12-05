@@ -9,20 +9,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const bannerData = [
-    { 
-        title: "Module Mounting Structure", 
+    {
+        title: "Module Mounting Structure",
         no: "01",
         image: BannerImg1,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    { 
-        title: "Hot Dip Galvanizing", 
+    {
+        title: "Hot Dip Galvanizing",
         no: "02",
         image: BannerImg3,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    { 
-        title: "Tea Processing Machinery", 
+    {
+        title: "Tea Processing Machinery",
         no: "03",
         image: BannerImg2,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -70,7 +70,7 @@ const Banner = () => {
                                 }}
                             >
                                 {/* LEFT — 3 Headings */}
-                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" } }}>
+                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" }, display: { xs: "none", md: "block" } }}>
                                     {bannerData.map((h, i) => (
                                         <Box
                                             sx={{ mb: "22px", cursor: "pointer" }}
@@ -122,26 +122,30 @@ const Banner = () => {
                                 {/* CENTER CONTENT */}
                                 <Box
                                     sx={{
-                                        textAlign: { xs: "left", sm: "center", md: "center" },
+                                        textAlign: { xs: "center", sm: "center", md: "center" },
                                         color: "#000",
                                         position: { md: "absolute" },
-                                        top: { md: "43%" },
+                                        top: { md: "43%",xs:"80px" },
                                         left: { md: "55%" },
                                         transform: { md: "translate(-50%, -50%)" },
                                         zIndex: 2,
-                                        mt: { xs: 4, md: 0 },
-                                        width: { xs: "100%", md: "auto" },
+                                        mt: { xs: "85px", md: 0 },
+                                        width: { xs: "100%", md: "auto",sm:"auto" },
+
+                                        // ⭐ ONLY for phone/tablet — centers horizontally
+                                        mx: { xs: "auto", sm: "auto", md: "0" },
+                                        textAlign: { xs: "center", sm: "center", md: "center" },
                                     }}
                                 >
                                     <Typography
                                         sx={{
-                                            fontSize: { xs: "20px", sm: "26px", md: "40px" },
+                                            fontSize: { xs: "31px", sm: "26px", md: "40px" },
                                             fontWeight: 700,
-                                            minWidth: { md: "850px" },
+                                            minWidth: { md: "850px" },  // ⭐ desktop only (unchanged)
                                             fontFamily: "Open Sans",
                                             lineHeight: "120%",
-                                            color:"#fff",
-                                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)"
+                                            color: "#fff",
+                                            textShadow: "6px 6px 6px rgba(0, 0, 0, 0.9)",
                                         }}
                                     >
                                         {item.description}
@@ -165,6 +169,7 @@ const Banner = () => {
                                         Get a Quote
                                     </Button>
                                 </Box>
+
                             </Container>
                         </Box>
                     </SwiperSlide>

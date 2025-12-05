@@ -87,7 +87,7 @@ const ModuleMounting = () => {
                                 sx={{
                                     minHeight: "440px",
                                     padding: "30px 0px",
-                                    marginLeft: { md: "35px", xs: "15px" },
+                                    marginLeft: { md: "35px", xs: "0px" },
                                     display: "flex",
                                     flexDirection: "column",
                                     justifyContent: "center"
@@ -95,10 +95,12 @@ const ModuleMounting = () => {
                             >
                                 <Typography
                                     sx={{
-                                        fontSize: { md: "40px", xs: "36px" },
+                                        fontSize: { md: "40px", xs: "34px" },
                                         color: "#fff",
                                         fontWeight: "700",
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Open Sans",
+                                        textAlign:{xs:"center",md:"left"},
+                                        marginBottom:{xs:"20px",md:"0px"}
                                     }}
                                 >
                                     {slide.title}
@@ -156,16 +158,17 @@ const ModuleMounting = () => {
 
 const liStyle = {
     color: "#fff",
-    fontSize: "20px",
+    fontSize: {md:"20px",xs:"18px"},
     fontFamily: "Open Sans",
     paddingBottom: "10px",
     fontWeight: "600",
-    fontStyle: "italic"
+    fontStyle: "italic",
+    marginTop:{xs:"20px",md:"0px"}
 };
 
 const arrowLeft = {
     position: "absolute",
-    bottom: "28px",
+    bottom: {md:"28px",xs:"58px"},
     left: {md:"35%",xs:"38%"},
     fontSize: "42px",
     cursor: "pointer",
@@ -174,7 +177,7 @@ const arrowLeft = {
 
 const arrowRight = {
     position: "absolute",
-    bottom: "28px",
+    bottom: {md:"28px",xs:"58px"},
     left: {md:"38%",xs:"48%"},
     fontSize: "42px",
     cursor: "pointer",

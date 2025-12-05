@@ -14,13 +14,13 @@ const logos = [tata, adani, sterling, unilever, amalgamated, appee];
 
 const OurClient = () => {
   return (
-    <Box sx={{ width: "100%", py: 6, backgroundColor: "#fff" }}>
+    <Box sx={{ width: "100%", py: {md:6,xs:4}, backgroundColor: "#fff" }}>
       <Container maxWidth='xl'>
         {/* Heading */}
         <Typography
           variant="h5"
           align="center"
-          sx={{ fontWeight: 700, mb: 3,fontSize:"40px",fontFamily:"Open Sans",marginBottom:{md:"10px",xs:"60px"} }}
+          sx={{ fontWeight: 700, mb: 3,fontSize:{xs:"32px",md:"40px"},fontFamily:"Open Sans",marginBottom:{md:"10px",xs:"40px"} }}
         >
           Our Client
         </Typography>

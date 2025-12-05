@@ -149,7 +149,7 @@ const Testimonial = () => {
         variant="h2" 
         sx={{ 
           textAlign: 'center',
-          fontSize: { xs: "1.75rem", md: "2.5rem" },
+          fontSize: { xs: "2rem", md: "2.5rem" },
           fontWeight: "bold",
           marginBottom: "40px",
           color: "#000",
