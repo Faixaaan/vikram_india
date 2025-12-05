@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Button } from '@mui/material';
 import ModuleImage from '../../../Assets/Module_img.png';
 import TeaProcessing from '../../../Assets/tea-processing.jpg';
 import Galvanization from '../../../Assets/galvanization.jpg';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import moduleBackground from '../../../Assets/moduleBackground.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const ModuleMounting = () => {
     // All slides have SAME content for now (easy to change later)
@@ -59,6 +61,11 @@ const ModuleMounting = () => {
     const prevSlide = () => {
         if (index > 0) setIndex(index - 1);
     };
+    const navigatee = useNavigate()
+
+    const handleComingsoon = () => {
+        navigatee('/page-coming-soon');
+    };
 
     return (
         <Box sx={{ position: "relative", overflow: "hidden" }}>
@@ -82,16 +89,54 @@ const ModuleMounting = () => {
                         }}
                     >
                         {/* LEFT TEXT SECTION */}
-                        <Grid size={{ xs: 12, sm: 6 }} sx={{ backgroundColor: "#000000B5" }}>
+                        <Grid
+                            size={{ xs: 12, sm: 6 }}
+                            sx={{
+                                order: { xs: 2, sm: 1, md: 1 },
+                                position: "relative",
+                                overflow: "hidden",
+                            }}
+                        >
+                            {/* Background Image */}
                             <Box
                                 sx={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundImage: `url(${moduleBackground})`, // OR use another image
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    zIndex: 1,
+                                }}
+                            />
+
+                            {/* Dark Overlay */}
+                            <Box
+                                sx={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                    background: "rgba(0,0,0,0.7)",
+                                    zIndex: 2,
+                                }}
+                            />
+
+                            {/* Content */}
+                            <Box
+                                sx={{
+                                    position: "relative",
+                                    zIndex: 3,
                                     minHeight: "440px",
                                     padding: "30px 0px",
                                     marginLeft: { md: "35px", xs: "0px" },
                                     display: "flex",
                                     flexDirection: "column",
                                     justifyContent: "flex-start",
-                                    marginTop:{md:"15px",xs:"0px"}
+                                    marginTop: { md: "15px", xs: "0px" },
                                 }}
                             >
                                 <Typography
@@ -100,8 +145,8 @@ const ModuleMounting = () => {
                                         color: "#fff",
                                         fontWeight: "700",
                                         fontFamily: "Open Sans",
-                                        textAlign:{xs:"center",md:"left"},
-                                        marginBottom:{xs:"20px",md:"0px"}
+                                        textAlign: { xs: "center", md: "left" },
+                                        marginBottom: { xs: "20px", md: "0px" },
                                     }}
                                 >
                                     {slide.title}
@@ -109,15 +154,45 @@ const ModuleMounting = () => {
 
                                 <ul>
                                     {slide.features.map((feature, idx) => (
-                                        <li key={idx} style={liStyle}>{feature}</li>
+                                        <li key={idx} style={liStyle}>
+                                            {feature}
+                                        </li>
                                     ))}
                                 </ul>
+                                {/* Know More Button */}
+                                {/* <Box sx={{width:"100%",display:"flex",justifyContent:"center"}}>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    background: "#fff",
+                                    color:"#000",
+                                    padding: { xs: "10px 30px", md: "10px 30px" },
+                                    textTransform: "none",
+                                    fontSize: { xs: "14px", md: "16px" },
+                                    fontWeight: "600",
+                                    fontFamily: 'Open Sans',
+                                    '&:hover': {
+                                        background: "linear-gradient(to bottom, #000, #EE1D25)",
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                                        color:"#fff"
+                                    },
+                                    transition: 'all 0.3s ease-in-out',
+                                    marginTop: { xs: 1, md: 2 },
+                                    width:"160px"
+                                }}
+                                onClick={handleComingsoon}
+                            >
+                                Know More
+                            </Button>
+                            </Box> */}
                             </Box>
                         </Grid>
 
+
                         {/* RIGHT IMAGE SECTION */}
-                        <Grid size={{ xs: 12, sm: 6 }}>
-                            <Box sx={{ height: {md:"520px",xs:"500px",sm:"600px"} }}>
+                        <Grid size={{ xs: 12, sm: 6 }} sx={{ order: { xs: 1, sm: 2, md: 2 } }}>
+                            <Box sx={{ maxHeight: { md: "520px",sm: "600px"  }, maxHeight: { xs: "312px" } }}>
                                 <Box
                                     component="img"
                                     src={slide.image}
@@ -125,7 +200,9 @@ const ModuleMounting = () => {
                                     sx={{
                                         width: "100%",
                                         height: "100%",
-                                        objectFit: "cover"
+                                        objectFit: "cover",
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center"
                                     }}
                                 />
                             </Box>
@@ -140,7 +217,7 @@ const ModuleMounting = () => {
                     onClick={prevSlide}
                     sx={arrowLeft}
                 >
-                   <ChevronLeftIcon sx={{fontSize:"42px"}}/>
+                    <ChevronLeftIcon sx={{ fontSize: "42px" }} />
                 </Box>
             )}
 
@@ -150,7 +227,7 @@ const ModuleMounting = () => {
                     onClick={nextSlide}
                     sx={arrowRight}
                 >
-                    <ChevronRightIcon sx={{fontSize:"42px"}}/> 
+                    <ChevronRightIcon sx={{ fontSize: "42px" }} />
                 </Box>
             )}
         </Box>
@@ -159,18 +236,18 @@ const ModuleMounting = () => {
 
 const liStyle = {
     color: "#fff",
-    fontSize: {md:"20px",xs:"18px"},
+    fontSize: { md: "20px", xs: "18px" },
     fontFamily: "Open Sans",
     paddingBottom: "10px",
     fontWeight: "600",
     fontStyle: "italic",
-    marginTop:{xs:"20px",md:"0px"}
+    marginTop: { xs: "20px", md: "0px" }
 };
 
 const arrowLeft = {
     position: "absolute",
-    bottom: {md:"28px",xs:"40px"},
-    left: {md:"42%",xs:"38%"},
+    bottom: { md: "28px", xs: "10px" },
+    left: { md: "42%", xs: "38%" },
     fontSize: "42px",
     cursor: "pointer",
     color: "#fff"
@@ -178,8 +255,8 @@ const arrowLeft = {
 
 const arrowRight = {
     position: "absolute",
-    bottom: {md:"28px",xs:"40px"},
-    left: {md:"44%",xs:"48%"},
+    bottom: { md: "28px", xs: "10px" },
+    left: { md: "44%", xs: "48%" },
     fontSize: "42px",
     cursor: "pointer",
     color: "#fff"
