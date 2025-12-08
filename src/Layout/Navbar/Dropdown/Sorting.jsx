@@ -17,20 +17,18 @@ import {
     TableRow,
     Paper,
     Container,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import FanImage from "../../../Assets/logo 1.png"; // update your image
+import DryingImag from "../../../Assets/Drying_img.jpg"; // update your image
 import '../../../App.css'
+import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import controllerImage from "../../../Assets/rolling.jpg";
+import CFM from '../../../Assets/sorting_batch.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import humidation1 from "../../../Assets/regulate1.png";
-import humidation2 from "../../../Assets/regulate2.png";
-import leafSizer from '../../../Assets/leaf-sizer.jpg'
+import speed_fiber from '../../../Assets/slow-speed.jpg'
+import vibro_screen from '../../../Assets/vibro-screen.jpg'
+
 
 const leftMenu = [
     "WITHERING",
@@ -44,7 +42,7 @@ const leftMenu = [
     "UTILITIES",
 ];
 
-const Rolling = () => {
+const Sorting = () => {
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -55,7 +53,7 @@ const Rolling = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary">ROLLING</Typography>
+                    <Typography color="text.primary">SORTING</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -113,10 +111,10 @@ const Rolling = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "ROLLING" ? "#d32f2f" : "transparent",
-                                        color: item === "ROLLING" ? "#fff" : "#000",
+                                        backgroundColor: item === "SORTING" ? "#d32f2f" : "transparent",
+                                        color: item === "SORTING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "ROLLING" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "SORTING" ? "#c62828" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
@@ -144,52 +142,25 @@ const Rolling = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            ROLLING
+                            SORTING
                         </Typography>
 
-                        <Grid container spacing={2}>
-                            {/* Left Description */}
-                            <Grid item xs={12} md={8}>
-                                <Typography sx={{ mb: 2, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}>
-                                    The aero-dynamically designed Axial Flow Fans from Vikram India are
-                                    made of high quality aluminium alloy and are suitable for different
-                                    sizes of withering troughs. These fans ensure uniformity of withering,
-                                    reduce power consumption and are tested for vibration, noise levels,
-                                    air delivery and static pressure.
-                                </Typography>
 
-                                <Typography sx={{ mb: 3, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}>
-                                    Vikram also offers Centrifugal Fans and Induced Draught Fans in
-                                    different sizes as per the customer's requirement.
-                                </Typography>
-                            </Grid>
-
-                            {/* Right Image */}
-                            <Grid item xs={12} md={4}>
-                                <Box
-                                    component="img"
-                                    src={FanImage}
-                                    alt="Axial Flow Fan"
-                                    sx={{
-                                        width: "100%",
-                                        borderRadius: "4px",
-                                        border: "1px solid #ddd",
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
 
                         {/* Technical Specification Table */}
+                        {/* Technical Specifications */}
                         <Typography
                             sx={{
                                 fontSize: "20px",
                                 fontWeight: 600,
                                 mt: 4,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Open Sans",
+                                display: "flex",
+                                alignItems: "center"
                             }}
                         >
-                            Rolling
+                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
                         </Typography>
 
                         <Accordion sx={{ mt: 2 }}>
@@ -198,7 +169,7 @@ const Rolling = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Weigh Feeder
+                                    Auto Batch Weigher
                                 </Typography>
                             </AccordionSummary>
 
@@ -210,8 +181,7 @@ const Rolling = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                            The invention was carried out with an objective of automating the dryer to facilitate minimal operator intervention, consistency of drying and Energy efficiency.
-
+                                            The Auto Batch Weigher from Vikram is a microprocessor based, single load cell weighing system that ensures accurate and reliable weighing of tea from the dryer mouth. The unit is computer compatible and is fitted with a battery to withstand power fluctuations.
 
                                         </Typography>
                                     </Grid>
@@ -220,7 +190,7 @@ const Rolling = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={controllerImage}
+                                            src={CFM}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -234,132 +204,122 @@ const Rolling = () => {
                                 {/* SPACING */}
                                 <Box mt={3} />
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Automatic, Exposure Control, Temperature Control and Moisture Control to ensure consistent quality.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        High precision sensor load cells improve weighing accuracy.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Skirt board avoids flooding and spillage of material.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        Volumetric feed provision in case of emergency.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        Feed setting possible from main panel as well as from local panel at field.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        All parameters can be viewed on HMI screen.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Due to double stage of weigh feeder, the 1st stage can receive excessive uneven load, resulting 2nd stage can maintain high accuracy level.
-                                    </Typography>
-
-                                </Box>
-
-
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Typography
-                                    variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
-                                >
-                                   Regulated Feed Unit
-
+                                <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
+                                    Features :
                                 </Typography>
-                            </AccordionSummary>
 
-                            <AccordionDetails>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        System accuracy is better than ± 0.025.
+                                    </Typography>
 
-                                {/* TOP SECTION : TEXT + IMAGE */}
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        Digital circuitry for error - free operation.
+                                    </Typography>
 
-                                <Grid container spacing={3} alignItems="flex-start">
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                    {/* LEFT TEXT */}
-                                    <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
-                                        <Box
-                                            component="img"
-                                            src={humidation1}
-                                            alt="VFBD Machine"
-                                            sx={{
-                                                width: "100%",
-                                                maxWidth: "250px",
-                                                borderRadius: "8px",
-                                            }}
-                                        />
-                                        <Typography sx={{fontFamily:"Open Sans"}}>
-                                            Drawing of Gravimetric Weigh Feeder
-                                        </Typography>
-                                    </Grid>
+                                        Easy and minimum maintenance.
+                                    </Typography>
 
-                                    {/* RIGHT IMAGE */}
-                                    <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
-                                        <Box
-                                            component="img"
-                                            src={humidation2}
-                                            alt="VFBD Machine"
-                                            sx={{
-                                                width: "100%",
-                                                maxWidth: "250px",
-                                                borderRadius: "8px",
-                                            }}
-                                        />
-                                         <Typography sx={{fontFamily:"Open Sans"}}>
-                                            Picture of Gravimetric Weigh Feeder
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
+                                        Saves floor space and cost of labour.
+                                    </Typography>
 
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                {/* SPACING */}
-                                <Box mt={3} />
+                                        Battery in SMPS to withstand power fluctuations.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Built in real time clock and battery back up to continue sequential operation during power failure.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Digital display of total weight and current weight.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Dust proof cabinet for the electronic controller for trouble free operation. Glass window for easy viewing of displays.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Facility for resetting totalized weight.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Unit is computer compatible.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                       Alarm hooter incorporated in enunciation mode in case of Power Failure.
+                                    </Typography>
+
+                                </Box>
+
 
 
 
                             </AccordionDetails>
                         </Accordion>
+                        <Typography
+                            sx={{
+                                fontSize: "20px",
+                                fontWeight: 600,
+                                mt: 4,
+                                mb: 2,
+                                fontFamily: "Open Sans",
+                                display: "flex",
+                                alignItems: "center"
+                            }}
+                        >
+                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> Pre-Sorters
+                        </Typography>
+
                         <Accordion sx={{ mt: 2 }}>
                             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Leaf Sizer
+                                    Slow Speed Fibre Extractor
                                 </Typography>
                             </AccordionSummary>
 
@@ -371,8 +331,7 @@ const Rolling = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                            Leaf Sizer used for shredding tea leaves consists of a cylinder in which the main shaft with knives (blades) rotates at a speed of 2500 rpm. Shredding reduces volume of tea leaves and enables manufacturers to load larger quantity of leaves into the Rotor Vane, making the process more cost-effective. The machine also helps in the efficient mixing of RC material with the withered leaf, especially in the CTC type of processing.
-
+                                            Slow speed fibre extractors cum tea sorters eliminate rubbing effects and ensure clean tea without any loss of bloom. Vikram has developed this machine after extensive trials at tea gardens. Total power requirement is between 1 Hp - 2 Hp. The machine is easy to install and occupies less floor space.
 
                                         </Typography>
                                     </Grid>
@@ -381,7 +340,7 @@ const Rolling = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={leafSizer}
+                                            src={speed_fiber}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -395,11 +354,151 @@ const Rolling = () => {
                                 {/* SPACING */}
                                 <Box mt={3} />
 
+                               
                                 
 
 
+
+
                             </AccordionDetails>
                         </Accordion>
+<Typography
+                            sx={{
+                                fontSize: "20px",
+                                fontWeight: 600,
+                                mt: 4,
+                                mb: 2,
+                                fontFamily: "Open Sans",
+                                display: "flex",
+                                alignItems: "center"
+                            }}
+                        >
+                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
+                        </Typography>
+
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    Trinic Sorters
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                          Vikram's Vibro Screen Sorters are specially designed for efficient sorting of tea grades at a low operating cost. The machine ensures a continuous flow of production without any need for resorting. The decks are easily accessible for cleaning and inspection, ensuring perfect quality tea at the end of the production chain.
+
+                                        </Typography>
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={vibro_screen}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "260px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+                                <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
+                                Salient Features :
+                                </Typography>
+
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                       Low Operating Cost.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        No Transmitted Vibration.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        High Capacity, Minimum space.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Minimum Screen Blinding.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Grades sorted efficiently into perfect sizes.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Re-sorting not necessary, Ensures continuous flow of production.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Easily accessible openings for cleaning and inspection for all the decks.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        No bloom loss of grains.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                       Nearly maintenance free.
+                                    </Typography>
+
+                                </Box>
+                               
+                              
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+
                     </Grid>
                 </Grid>
             </Container>
@@ -407,4 +506,4 @@ const Rolling = () => {
     );
 };
 
-export default Rolling;
+export default Sorting;

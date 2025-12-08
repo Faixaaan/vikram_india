@@ -17,11 +17,20 @@ import {
     TableRow,
     Paper,
     Container,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import FanImage from "../../../Assets/logo 1.png"; // update your image
 import '../../../App.css'
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import controllerImage from "../../../Assets/fermenting.jpg";
+import humidation1 from "../../../Assets/humidation-img.jpg";
+import humidation2 from "../../../Assets/humidationn.image.jpg";
+import CFM from '../../../Assets/CFM.jpg'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const leftMenu = [
     "WITHERING",
@@ -183,46 +192,207 @@ const Fermenting = () => {
                             Technical Specifications
                         </Typography>
 
-                        <TableContainer component={Paper} sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}>
-                            <Table sx={{ minWidth: 650 }}>
-                                <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
-                                    <TableRow>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Impeller Diameter</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Motor</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Flow Rate</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Velocity</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Static Pressure</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Total Pressure</TableCell>
-                                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Shaft BHP</TableCell>
-                                    </TableRow>
-                                </TableHead>
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    Single/ Double Stage Continuous Fermenting Machine (Belt / Tray)
+                                </Typography>
+                            </AccordionSummary>
 
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell>VAF - 403</TableCell>
-                                        <TableCell>106 cm</TableCell>
-                                        <TableCell>3 HP</TableCell>
-                                        <TableCell>19000 cfm</TableCell>
-                                        <TableCell>11.1 m/sec</TableCell>
-                                        <TableCell>0.75 inch</TableCell>
-                                        <TableCell>19.9</TableCell>
-                                        <TableCell>2.6 hp</TableCell>
-                                    </TableRow>
+                            <AccordionDetails>
 
-                                    <TableRow>
-                                        <TableCell>VAF - 483</TableCell>
-                                        <TableCell>119 cm</TableCell>
-                                        <TableCell>3 HP</TableCell>
-                                        <TableCell>23500 cfm</TableCell>
-                                        <TableCell>9.5 m/sec</TableCell>
-                                        <TableCell>0.71 inch</TableCell>
-                                        <TableCell>18.0</TableCell>
-                                        <TableCell>2.9 hp</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                            Vikram India has developed Continuous Fermenting Machines (CFM) to suit the needs of different clients under different conditions of operation globally. In the process, the Company has achieved significant benchmarks like development of the widest, 52 inch, CTC unit in 2000 and later a 56 inch one in 2008. These CFMs are available as - a single or multi stage unit, horizontal or inclined or a combination of both.
+
+
+                                        </Typography>
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={controllerImage}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "260px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+                                <Typography sx={{ color: "red", fontSize: "18px", fontWeight: "18" }}>
+                                    PES Belt CFM Features
+                                </Typography>
+
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 2 }}>
+                                    <Typography sx={{ color: "#000", fontWeight: "600", mb: 1 }}>
+
+                                        M/C Load Capability
+                                    </Typography>
+                                    <Typography>
+
+                                        The fermenter trays with standard supplied motor are designed to sustain a loading of upto 8 kgs of macerated leaf/ sq. ft. area.
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 2 }}>
+                                    <Typography sx={{ color: "#000", fontWeight: "600", mb: 1 }}>
+
+                                        Stainless Steel Trays
+                                    </Typography>
+                                    <Typography>
+
+                                        Heavy Duty, wide, perforated Stainless Steel Trays allow the humidified air through the leaf for proper fermentation as well as cooling of tea bed.
+
+                                    </Typography>
+                                </Box>
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    CFM Auto Controller
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                            The new and automated CFM machine has been designed for Energy Savings in excess of 40% when compared with any traditional machine. The automated operations of the machine also ensure consistent quality and reduced manpower involvement, reducing the running cost of the machine to a considerable extent this brand new CFM is designed for uninterrupted operations round the year.
+
+
+                                        </Typography>
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={CFM}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "260px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+
+
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Fully Automated Operations through VFD with PLC.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Automatic, Exposure Control, Temperature Control and Moisture Control to ensure consistent quality.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Dedicated VFD auto control ensure the speed of mesh belt depend on ambient temperature.
+                                    </Typography>
+
+                                </Box>
+
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    Humidification System
+
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                {/* TOP SECTION : TEXT + IMAGE */}
+
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
+                                        <Box
+                                            component="img"
+                                            src={humidation1}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "360px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
+                                        <Box
+                                            component="img"
+                                            src={humidation2}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "360px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
                     </Grid>
                 </Grid>
             </Container>
