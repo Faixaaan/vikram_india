@@ -30,6 +30,9 @@ import Range3 from '../../../Assets/range3.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import speed_fiber from '../../../Assets/slow-speed.jpg'
 import vibro_screen from '../../../Assets/vibro-screen.jpg'
+import Blizzard from '../../../Assets/Blizzard.jpg'
+import Milling from '../../../Assets/Auto_miling.jpg'
+import sharp_edge from '../../../Assets/sharp-edge.png'
 
 
 const leftMenu = [
@@ -282,10 +285,10 @@ const Workshop = () => {
 
                                 <Grid container spacing={3} alignItems="flex-start">
 
-                                    
+
 
                                     {/* RIGHT IMAGE */}
-                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="center" sx={{mt:6}}>
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="center" sx={{ mt: 6 }}>
                                         <Box
                                             component="img"
                                             src={Range3}
@@ -299,11 +302,377 @@ const Workshop = () => {
                                         <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Open Sans", fontSize: "16px" }}>
                                             Lathe Cum Chasing Machine
                                         </Typography>
-                                        
+
                                     </Grid>
                                 </Grid>
 
                                 {/* SPACING */}
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    Blizzard - CNC Based Automatic Milling cum Chasing Machine
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                            Blizzard - the latest addition to Vikram's wide range of Roller Sharpening machinery, executes all the operations of CTC roller sharpening in one setting with a high level of accuracy. Constructed using best quality stainless steel and ceramic inserts, Blizzard delivers durability with high performance, thereby increasing productivity.
+
+
+
+
+                                        </Typography>
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={Blizzard}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "260px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+                                </Grid>
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+                                <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
+                                    CNC Milling cum Grooving With Manual operation
+                                </Typography>
+
+
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Sharpening of circumferential as well as helical grooves of any specification, length and diameter of roller with quality finish and accuracy by the application of CNC controller.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Dual mode application facility i.e. provision of both automatic and manual operation system for roller sharpening.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Machine can also be used for CNC lathe works with high accuracy.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        To ensure quality and accuracy of sharpening by the application of CNC controller.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        To prevent multi-equipment application and ensure one setting finish for all the operations.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        High speed operations to reduce cutting time and increase productivity.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        To reduce high skilled man power requirement
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        To reduce setting time in comparison to multi machine operation.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Final adjustment of depth of cut to ensure minimum metal cutting and longer life of segment.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Extremely silent running by modern electronically regulated drive technology.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        High precision technology at every stage to ensure perfect vibration free and nose free performance.
+                                    </Typography>
+
+                                </Box>
+                                <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2, mt: 2 }}>
+                                    Special feature:
+
+                                </Typography>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Dual mode application facility i.e. provision of both automatic and manual operation system for roller sharpening.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        It can be operated with Remote Control System from anywhere and any distance by network system.
+                                    </Typography>
+
+                                </Box>
+
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                    Helix Auto Milling Cum Manual Grooving
+                                </Typography>
+
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                <Typography
+                                    variant=""
+                                    sx={{ fontWeight: 400, fontFamily: "Open Sans", }}
+                                >
+                                    To make good rollers we need good machine with better control on engineering application. To implement good engineering practice we need a higher accuracy level which can be achieved by modern technical practice like Helix Automatic Milling Cum Manual chasing Machine.
+                                </Typography>
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start" mt={4}>
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="left">
+                                        <Box
+                                            component="img"
+                                            src={Milling}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "280px",
+                                                borderRadius: "8px",
+                                            }}
+                                        />
+                                    </Grid>
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                            A high quality roller which ultimately makes a Good Tea.
+
+
+
+
+                                        </Typography>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                            Sharpening of circumferential as well as helical grooves Odd & Even of 50, 55, 60, 65, 70, 80, and 100, also length and diameter of roller with quality finish and accuracy can be done by the application of Automatic system.
+
+
+
+
+                                        </Typography>
+                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                            Special feature: Dual mode application facility i.e. provision of both automatic and manual operation system for roller Chasing.
+
+
+
+                                        </Typography>
+                                    </Grid>
+
+
+                                </Grid>
+
+                                {/* SPACING */}
+                                <Box mt={3} />
+
+
+
+
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        The machine performs all the operations with high accuracy, high productivity and minimum skill.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        High speed operations.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Reduced highly skilled manpower requirement.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                        Reduces setting time in comparison to multi machine operation.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                       Sharpen circumferential as well as helical grooves of any specification, length and diameter of rollers with quality finish and accuracy in sharpening.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Extremely smooth operation by modern.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                      Electronically regulated drive technology for milling.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Vibration-free and noise - free performance.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                       Dual mode application facility i.e. provision for automatic operation for milling and manual operation of chasing.
+                                    </Typography>
+
+                                </Box>
+                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                    <ChevronRightIcon sx={{ color: "red" }} />
+                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+
+                                        Better quality of finished product. No buds and cutting chips on the cutting edges of the rollers which ensures better cutting of tea leaves, no heat generation due to metal to metal friction and ultimately no loss in liquor quality of the finished tea.
+                                    </Typography>
+
+                                </Box>
+                                
+                                
+                                
+
+
+
+
+
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{ mt: 2 }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                >
+                                   Sharp-Edge - Range of Roller Sharpening Equipment
+                                </Typography>
+
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+
+                                
+                                {/* TOP SECTION : TEXT + IMAGE */}
+                                <Grid container spacing={3} alignItems="flex-start" mt={4}>
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="left">
+                                        <Box
+                                            component="img"
+                                            src={sharp_edge}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                maxWidth: "280px",
+                                                borderRadius: "8px",
+                                            }}
+                                        /> 
+                                        <Typography sx={{textAlign:"center",mt:"20px",fontWeight:"600",fontFamily:"Open Sans"}}>
+                                            Sharp-Edge - Range of Roller Sharpening Equipment
+                                        </Typography>
+                                    </Grid>
+
+                                    
+
+
+                                </Grid>
+
+                              
+                                
+                                
+
 
 
 
