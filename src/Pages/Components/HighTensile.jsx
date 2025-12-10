@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Grid,
@@ -44,6 +44,9 @@ const img = [
 ]
 
 const HighTensile = () => {
+    useEffect(() => {
+              window.scrollTo(0, 0);
+          }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -168,7 +171,7 @@ const HighTensile = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: {md:"20px",xs:"16px"},
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
@@ -236,7 +239,7 @@ const HighTensile = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: {md:"20px",xs:"16px"},
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
@@ -273,7 +276,7 @@ const HighTensile = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: {md:"20px",xs:"16px"},
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}

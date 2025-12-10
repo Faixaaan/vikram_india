@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Grid,
@@ -44,6 +44,10 @@ const img = [
 ]
 
 const Manufacturing = () => {
+
+    useEffect(() => {
+              window.scrollTo(0, 0);
+          }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -175,7 +179,7 @@ const Manufacturing = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: {md:"20px",xs:"16px"},
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
@@ -235,7 +239,7 @@ const Manufacturing = () => {
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                    <Typography sx={{ fontSize: "20px", fontWeight: 500, fontFamily: "Open Sans" }}>
+                                    <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 500, fontFamily: "Open Sans" }}>
                                         Image Gallery
                                     </Typography>
                                 </AccordionSummary>
@@ -269,7 +273,7 @@ const Manufacturing = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: {md:"20px",xs:"16px"},
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}

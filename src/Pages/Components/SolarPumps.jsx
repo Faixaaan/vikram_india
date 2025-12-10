@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Grid,
@@ -55,6 +55,9 @@ const img = [
 ]
 
 const Product = () => {
+    useEffect(() => {
+              window.scrollTo(0, 0);
+          }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -191,7 +194,7 @@ const Product = () => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize:{md:"20px",xs:"16px"},
                                             fontWeight: 600,
                                             fontFamily: "Open Sans"
                                         }}
@@ -249,7 +252,7 @@ const Product = () => {
                                         borderBottom: "1px solid #eee",
                                         borderRadius: "8px"
                                     }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                        <Typography sx={{ fontSize: "20px", fontWeight: 600, fontFamily: "Open Sans" }}>
+                                        <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 600, fontFamily: "Open Sans" }}>
                                             Shallow Well Submersible Pumps
                                         </Typography>
                                     </AccordionSummary>
@@ -357,7 +360,7 @@ const Product = () => {
                                         borderBottom: "1px solid #eee",
                                         borderRadius: "8px"
                                     }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                        <Typography sx={{ fontSize: "20px", fontWeight: 600, fontFamily: "Open Sans" }}>
+                                        <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 600, fontFamily: "Open Sans" }}>
                                             Deep Well Surface Pumps (AC)
                                         </Typography>
                                     </AccordionSummary>

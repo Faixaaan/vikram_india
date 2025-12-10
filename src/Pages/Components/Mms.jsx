@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -33,6 +33,9 @@ const leftMenu = [
 ];
 
 const Introduction = () => {
+  useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth='xl'>
@@ -151,7 +154,7 @@ const Introduction = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                <Typography fontSize="18px" fontWeight={600}>
+                <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 600 }}>
                   About Vikram India Limited
                 </Typography>
               </AccordionSummary>
