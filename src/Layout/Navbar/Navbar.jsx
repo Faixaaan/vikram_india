@@ -132,13 +132,13 @@ const Navbar = () => {
                               display: "block",
                               padding: "10px 10px",
                               textDecoration: "none",
-                              color: location.pathname === product.link ? "#d32f2f" : "#000", // Red if active
+                              color:  "#000", // Red if active
                               fontSize: "16px",
                               fontFamily: "Open Sans",
-                              fontWeight: location.pathname === product.link ? "600" : "400",
-                              backgroundColor: location.pathname === product.link ? "#fdeaea" : "transparent", // Light red bg
+                              fontWeight: location.pathname === product.link ? "400" : "400",
+                              backgroundColor:  "transparent", // Light red bg
                               "&:hover": {
-                                backgroundColor: "#f5f5f5",
+                                backgroundColor: "#FFB6C1",
                               }
                             }}
                           >
@@ -190,7 +190,7 @@ const Navbar = () => {
                     onClick={() => setOpenProductsMobile(!openProductsMobile)}
                     sx={{
                       color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
-                      backgroundColor: isActiveRoute(item.link) ? "#fdeaea" : "transparent",
+                      backgroundColor:"transparent",
                       borderLeft: isActiveRoute(item.link) ? "4px solid #d32f2f" : "none",
                     }}
                   >
@@ -215,11 +215,11 @@ const Navbar = () => {
                             display: "block",
                             padding: "8px 25px",
                             textDecoration: "none",
-                            color: location.pathname === item.link ? "#d32f2f" : "#000",
+                            color: "#000",
                             fontSize: "14px",
                             fontWeight: location.pathname === item.link ? 600 : 400,
                             backgroundColor: location.pathname === item.link ? "#fdeaea" : "transparent",
-                            borderLeft: location.pathname === item.link ? "3px solid #d32f2f" : "none",
+                            
                           }}
                         >
                           {item.name}

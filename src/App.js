@@ -21,9 +21,14 @@ import HighTensile from './Pages/Components/HighTensile';
 import SolarPumps from './Pages/Components/SolarPumps';
 import Product from './Pages/Components/Product';
 import ProcessingCard from './Pages/TeaProcessingCard/Index';
+import { useEffect } from 'react';
 
 
 function App() {
+
+  useEffect(() => {
+          window.scrollTo(0, 0);
+      }, []);
   return (
     <BrowserRouter>
       <Navbar />

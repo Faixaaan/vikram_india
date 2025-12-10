@@ -60,11 +60,11 @@ const cardData = [
 ];
 
 const ProcessingCard = () => {
-   
+
 
     const navigate = useNavigate();
 
-    const handleClick = ()=>{
+    const handleClick = () => {
         navigate('/products/ctc/withering')
     }
 
@@ -120,7 +120,7 @@ const ProcessingCard = () => {
                                         transform: 'translateY(-4px)',
                                         boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
                                     },
-                                    cursor:"pointer"
+                                    cursor: "pointer"
                                 }}
                                 onClick={handleClick}
                             >
@@ -131,13 +131,17 @@ const ProcessingCard = () => {
                                     image={card.image}
                                     alt={card.title}
                                     sx={{
-                                        
+
                                         width: '100%',
                                     }}
                                 />
 
                                 {/* Card Content */}
-                                <CardContent sx={{ flexGrow: 1, p: 2 }}>
+                                <CardContent sx={{
+                                    flexGrow: 1, p: 2, '&:hover': {
+                                        backgroundColor:"#e5e5e5"
+                                    },
+                                }}>
                                     <Typography
                                         gutterBottom
                                         variant="h6"
@@ -149,13 +153,13 @@ const ProcessingCard = () => {
                                             color: '#333',
                                             mb: 1,
                                             textAlign: 'center'
-                                            
+
                                         }}
                                     >
                                         {card.title}
                                     </Typography>
 
-                                    
+
                                 </CardContent>
                             </Card>
                         </Grid>
