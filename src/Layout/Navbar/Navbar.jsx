@@ -218,7 +218,7 @@ const Navbar = () => {
                             color: "#000",
                             fontSize: "14px",
                             fontWeight: location.pathname === item.link ? 600 : 400,
-                            backgroundColor: location.pathname === item.link ? "#fdeaea" : "transparent",
+                            backgroundColor: "transparent",
                             
                           }}
                         >
