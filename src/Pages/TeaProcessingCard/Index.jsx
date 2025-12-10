@@ -119,7 +119,8 @@ const ProcessingCard = () => {
                                     '&:hover': {
                                         transform: 'translateY(-4px)',
                                         boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
-                                    }
+                                    },
+                                    cursor:"pointer"
                                 }}
                                 onClick={handleClick}
                             >
