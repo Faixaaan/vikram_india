@@ -45,9 +45,12 @@ const img = [
 
 const Manufacturing = () => {
 
-    useEffect(() => {
-              window.scrollTo(0, 0);
-          }, []);
+   useEffect(() => {
+       window.scrollTo({
+           top: 0,
+           behavior: "smooth"
+       });
+   }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>

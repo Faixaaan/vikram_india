@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Grid,
@@ -41,6 +41,12 @@ const leftMenu = [
 ];
 
 const Drying = () => {
+   useEffect(() => {
+       window.scrollTo({
+           top: 0,
+           behavior: "smooth"
+       });
+   }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
