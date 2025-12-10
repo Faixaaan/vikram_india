@@ -333,7 +333,7 @@ const Product = () => {
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                    <Typography  sx={{fontSize:"20px",fontWeight:"600",fontFamily:"Open Sans"}}>Image Gallery</Typography>
+                                    <Typography sx={{ fontSize: "20px", fontWeight: "600", fontFamily: "Open Sans" }}>Image Gallery</Typography>
                                 </AccordionSummary>
 
                                 <AccordionDetails>
@@ -396,10 +396,11 @@ const Product = () => {
                                                     sx={{
                                                         boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
                                                         borderRadius: "10px",
-                                                        overflow: "hidden"
+                                                        overflowX: { xs: "auto", md: "visible" }, // 🔥 Mobile scroll
+                                                        display: "block"
                                                     }}
                                                 >
-                                                    <Table sx={{ borderCollapse: "separate", borderSpacing: 0 }}>
+                                                    <Table sx={{ borderCollapse: "separate", borderSpacing: 0, minWidth: "600px" }}>
                                                         <TableHead>
                                                             <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
                                                                 <TableCell
@@ -466,6 +467,7 @@ const Product = () => {
                                                         </TableBody>
                                                     </Table>
                                                 </TableContainer>
+
                                             </Grid>
 
                                             {/* RIGHT SIDE IMAGE */}
@@ -515,10 +517,15 @@ const Product = () => {
                                                     sx={{
                                                         boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
                                                         borderRadius: "10px",
-                                                        overflow: "hidden"
+                                                        overflow: "hidden",
+                                                        overflowX: "auto" // For horizontal scrolling on small screens
                                                     }}
                                                 >
-                                                    <Table sx={{ borderCollapse: "separate", borderSpacing: 0 }}>
+                                                    <Table sx={{
+                                                        borderCollapse: "separate",
+                                                        borderSpacing: 0,
+                                                        minWidth: { xs: "300px", sm: "auto" } // Ensure minimum width on mobile
+                                                    }}>
                                                         <TableHead>
                                                             <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
                                                                 <TableCell
@@ -526,7 +533,9 @@ const Product = () => {
                                                                         fontWeight: 700,
                                                                         borderRight: "1px solid #e0e0e0",
                                                                         borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
                                                                     }}
                                                                 >
                                                                     Description
@@ -536,7 +545,9 @@ const Product = () => {
                                                                         fontWeight: 700,
                                                                         borderRight: "1px solid #e0e0e0",
                                                                         borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
                                                                     }}
                                                                 >
                                                                     Minimum
@@ -545,7 +556,9 @@ const Product = () => {
                                                                     sx={{
                                                                         fontWeight: 700,
                                                                         borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
                                                                     }}
                                                                 >
                                                                     Maximum
@@ -571,8 +584,9 @@ const Product = () => {
                                                                             sx={{
                                                                                 borderRight: cellIndex < 2 ? "1px solid #eee" : "none",
                                                                                 borderBottom: "1px solid #eee",
-                                                                                fontSize: "14px",
-                                                                                paddingY: "10px"
+                                                                                fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                                                                                padding: { xs: "8px", sm: "9px", md: "10px" },
+                                                                                lineHeight: 1.4
                                                                             }}
                                                                         >
                                                                             {cell}

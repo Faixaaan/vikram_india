@@ -149,11 +149,7 @@ const Sorting = () => {
 
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
-                        <Typography
-                             sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
-                        </Typography>
+                        
 
                         <Accordion sx={{
                             background: "#fff",
@@ -171,7 +167,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Auto Batch Weigher
+                                     Jigger Shifter
                                 </Typography>
                             </AccordionSummary>
 
@@ -182,6 +178,9 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
+                                            Auto Batch Weigher
+                                        </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
                                             The Auto Batch Weigher from Vikram is a microprocessor based, single load cell weighing system that ensures accurate and reliable weighing of tea from the dryer mouth. The unit is computer compatible and is fitted with a battery to withstand power fluctuations.
 
@@ -301,11 +300,7 @@ const Sorting = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> Pre-Sorters
-                        </Typography>
+                       
 
                         <Accordion sx={{
                             background: "#fff",
@@ -323,7 +318,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Slow Speed Fibre Extractor
+                                   Pre-Sorters
                                 </Typography>
                             </AccordionSummary>
 
@@ -334,6 +329,9 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
+                                             Slow Speed Fibre Extractor
+                                        </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
                                             Slow speed fibre extractors cum tea sorters eliminate rubbing effects and ensure clean tea without any loss of bloom. Vikram has developed this machine after extensive trials at tea gardens. Total power requirement is between 1 Hp - 2 Hp. The machine is easy to install and occupies less floor space.
 
@@ -366,11 +364,7 @@ const Sorting = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Typography
-                             sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
-                        </Typography>
+                        
 
                         <Accordion sx={{
                                 background: "#fff",
@@ -399,6 +393,9 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
+                                            Trinic Sorters
+                                        </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
                                             Vikram's Vibro Screen Sorters are specially designed for efficient sorting of tea grades at a low operating cost. The machine ensures a continuous flow of production without any need for resorting. The decks are easily accessible for cleaning and inspection, ensuring perfect quality tea at the end of the production chain.
 

@@ -237,19 +237,19 @@ const Product = () => {
                             <Box mt={3}>
 
 
-                                <Accordion  sx={{
+                                <Accordion sx={{
                                     background: "#fff",
                                     boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
                                     borderRadius: "8px",
                                     "&:before": { display: "none" },
                                     mt: 4
                                 }}>
-                                    <AccordionSummary   sx={{
+                                    <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
                                         borderBottom: "1px solid #eee",
                                         borderRadius: "8px"
                                     }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                        <Typography sx={{ fontSize: "20px", fontWeight: 600,fontFamily:"Open Sans" }}>
+                                        <Typography sx={{ fontSize: "20px", fontWeight: 600, fontFamily: "Open Sans" }}>
                                             Shallow Well Submersible Pumps
                                         </Typography>
                                     </AccordionSummary>
@@ -260,7 +260,7 @@ const Product = () => {
                                         <Grid container spacing={2}>
 
                                             {/* LEFT SIDE TABLE */}
-                                            <Grid item size={{xs:12,md:8}}>
+                                            <Grid item size={{ xs: 12, md: 8 }}>
                                                 <TableContainer
                                                     component={Paper}
                                                     sx={{
@@ -335,7 +335,7 @@ const Product = () => {
                                             </Grid>
 
                                             {/* RIGHT SIDE IMAGE */}
-                                            <Grid item size={{xs:12,md:4}}>
+                                            <Grid item size={{ xs: 12, md: 4 }}>
                                                 <img
                                                     src={structure4}
                                                     style={{ width: "100%", borderRadius: "6px" }}
@@ -345,19 +345,19 @@ const Product = () => {
                                         </Grid>
                                     </AccordionDetails>
                                 </Accordion>
-                                <Accordion  sx={{
+                                <Accordion sx={{
                                     background: "#fff",
                                     boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
                                     borderRadius: "8px",
                                     "&:before": { display: "none" },
                                     mt: 4
                                 }}>
-                                    <AccordionSummary   sx={{
+                                    <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
                                         borderBottom: "1px solid #eee",
                                         borderRadius: "8px"
                                     }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                        <Typography sx={{ fontSize: "20px", fontWeight: 600,fontFamily:"Open Sans" }}>
+                                        <Typography sx={{ fontSize: "20px", fontWeight: 600, fontFamily: "Open Sans" }}>
                                             Deep Well Surface Pumps (AC)
                                         </Typography>
                                     </AccordionSummary>
@@ -367,126 +367,139 @@ const Product = () => {
                                         {/* YOUR FULL GRID INSIDE ACCORDION */}
                                         <Grid container spacing={2} mt={4}>
 
-                                    {/* LEFT SIDE TABLE */}
-                                    <Grid item size={{ xs: 12, md: 8 }}>
-                                        <TableContainer
-                                            component={Paper}
-                                            sx={{
-                                                boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
-                                                borderRadius: "10px",
-                                                overflow: "hidden"
-                                            }}
-                                        >
-                                            <Table sx={{ borderCollapse: "separate", borderSpacing: 0 }}>
-                                                <TableHead>
-                                                    <TableRow>
-                                                        <TableCell
-                                                            colSpan={5}
-                                                            sx={{
-                                                                fontSize: "16px",
-                                                                fontWeight: 700,
-                                                                textAlign: "center",
-                                                                backgroundColor: "#e9eef6",
-                                                                padding: "14px",
-                                                                borderBottom: "2px solid #d4d4d4",
-                                                            }}
-                                                        >
-                                                            Deep Well Surface Pumps (AC)
-                                                        </TableCell>
-                                                    </TableRow>
-                                                </TableHead>
-
-                                                <TableHead>
-                                                    <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
-                                                        <TableCell
-                                                            sx={{
-                                                                fontWeight: 700,
-                                                                borderRight: "1px solid #e0e0e0",
-                                                                borderBottom: "2px solid #e0e0e0",
-                                                                fontSize: "15px"
-                                                            }}
-                                                        >
-                                                            Description (AC)
-                                                        </TableCell>
-                                                        <TableCell
-                                                            sx={{
-                                                                fontWeight: 700,
-                                                                borderRight: "1px solid #e0e0e0",
-                                                                borderBottom: "2px solid #e0e0e0",
-                                                                fontSize: "15px"
-                                                            }}
-                                                        >
-                                                            Model-I
-                                                        </TableCell>
-                                                        <TableCell
-                                                            sx={{
-                                                                fontWeight: 700,
-                                                                borderBottom: "2px solid #e0e0e0",
-                                                                fontSize: "15px"
-                                                            }}
-                                                        >
-                                                            Model-II
-                                                        </TableCell>
-                                                        <TableCell
-                                                            sx={{
-                                                                fontWeight: 700,
-                                                                borderBottom: "2px solid #e0e0e0",
-                                                                fontSize: "15px"
-                                                            }}
-                                                        >
-                                                            Model-III
-                                                        </TableCell>
-
-                                                    </TableRow>
-                                                </TableHead>
-
-                                                <TableBody>
-                                                    {[
-                                                        ["PV arrary (WP)", "900", "1800", "2700",],
-                                                        ["Moter capacity (HP).", "1", "2", "3",],
-                                                        ["Water output (LPD)", "81,000", "1,62,000", "2,43,000",],
-                                                        ["Head (Mtrs.)", "10", "10", "10",],
-
-                                                    ].map((row, index) => (
-                                                        <TableRow
-                                                            key={index}
-                                                            sx={{
-                                                                "&:hover": { backgroundColor: "#fafafa" }
-                                                            }}
-                                                        >
-                                                            {row.map((cell, cellIndex) => (
+                                            {/* LEFT SIDE TABLE */}
+                                            <Grid item size={{ xs: 12, md: 8 }}>
+                                                <TableContainer
+                                                    component={Paper}
+                                                    sx={{
+                                                        boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
+                                                        borderRadius: "10px",
+                                                        overflow: "hidden",
+                                                        overflowX: "auto"
+                                                    }}
+                                                >
+                                                    <Table sx={{
+                                                        borderCollapse: "separate",
+                                                        borderSpacing: 0,
+                                                        minWidth: { xs: "400px", sm: "auto" }
+                                                    }}>
+                                                        <TableHead>
+                                                            <TableRow>
                                                                 <TableCell
-                                                                    key={cellIndex}
+                                                                    colSpan={4}
                                                                     sx={{
-                                                                        borderRight: cellIndex < 4 ? "1px solid #eee" : "none",
-                                                                        borderBottom: "1px solid #eee",
-                                                                        fontSize: "14px",
-                                                                        paddingY: "10px"
+                                                                        fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                                                                        fontWeight: 700,
+                                                                        textAlign: "center",
+                                                                        backgroundColor: "#e9eef6",
+                                                                        padding: { xs: "10px", sm: "12px", md: "14px" },
+                                                                        borderBottom: "2px solid #d4d4d4",
                                                                     }}
                                                                 >
-                                                                    {cell}
+                                                                    Deep Well Surface Pumps (AC)
                                                                 </TableCell>
+                                                            </TableRow>
+                                                        </TableHead>
+
+                                                        <TableHead>
+                                                            <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
+                                                                <TableCell
+                                                                    sx={{
+                                                                        fontWeight: 700,
+                                                                        borderRight: "1px solid #e0e0e0",
+                                                                        borderBottom: "2px solid #e0e0e0",
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
+                                                                    }}
+                                                                >
+                                                                    Description (AC)
+                                                                </TableCell>
+                                                                <TableCell
+                                                                    sx={{
+                                                                        fontWeight: 700,
+                                                                        borderRight: "1px solid #e0e0e0",
+                                                                        borderBottom: "2px solid #e0e0e0",
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
+                                                                    }}
+                                                                >
+                                                                    Model-I
+                                                                </TableCell>
+                                                                <TableCell
+                                                                    sx={{
+                                                                        fontWeight: 700,
+                                                                        borderRight: "1px solid #e0e0e0",
+                                                                        borderBottom: "2px solid #e0e0e0",
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
+                                                                    }}
+                                                                >
+                                                                    Model-II
+                                                                </TableCell>
+                                                                <TableCell
+                                                                    sx={{
+                                                                        fontWeight: 700,
+                                                                        borderBottom: "2px solid #e0e0e0",
+                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
+                                                                        whiteSpace: "nowrap"
+                                                                    }}
+                                                                >
+                                                                    Model-III
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        </TableHead>
+
+                                                        <TableBody>
+                                                            {[
+                                                                ["PV array (WP)", "900", "1800", "2700"],
+                                                                ["Motor capacity (HP)", "1", "2", "3"],
+                                                                ["Water output (LPD)", "81,000", "1,62,000", "2,43,000"],
+                                                                ["Head (Mtrs.)", "10", "10", "10"],
+                                                            ].map((row, index) => (
+                                                                <TableRow
+                                                                    key={index}
+                                                                    sx={{
+                                                                        "&:hover": { backgroundColor: "#fafafa" }
+                                                                    }}
+                                                                >
+                                                                    {row.map((cell, cellIndex) => (
+                                                                        <TableCell
+                                                                            key={cellIndex}
+                                                                            sx={{
+                                                                                borderRight: cellIndex < 3 ? "1px solid #eee" : "none",
+                                                                                borderBottom: "1px solid #eee",
+                                                                                fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                                                                                padding: { xs: "8px", sm: "9px", md: "10px" },
+                                                                                lineHeight: 1.4
+                                                                            }}
+                                                                        >
+                                                                            {cell}
+                                                                        </TableCell>
+                                                                    ))}
+                                                                </TableRow>
                                                             ))}
-                                                        </TableRow>
-                                                    ))}
-                                                </TableBody>
-                                            </Table>
-                                        </TableContainer>
+                                                        </TableBody>
+                                                    </Table>
+                                                </TableContainer>
 
-                                    </Grid>
+                                            </Grid>
 
-                                    {/* RIGHT SIDE IMAGE */}
-                                    <Grid item size={{ xs: 12, md: 4 }}>
-                                        <img src={structure5} style={{ width: "100%", borderRadius: "6px" }} />
-                                    </Grid>
+                                            {/* RIGHT SIDE IMAGE */}
+                                            <Grid item size={{ xs: 12, md: 4 }}>
+                                                <img src={structure5} style={{ width: "100%", borderRadius: "6px" }} />
+                                            </Grid>
 
-                                    {/* BELOW CONTENT FULL WIDTH */}
+                                            {/* BELOW CONTENT FULL WIDTH */}
 
 
-                                </Grid>
+                                        </Grid>
                                     </AccordionDetails>
                                 </Accordion>
-                                
+
 
                             </Box>
 
