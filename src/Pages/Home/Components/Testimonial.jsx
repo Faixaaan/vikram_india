@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Box, Typography, Card, CardContent, IconButton, Avatar } from "@mui/material";
+import { Box, Typography, Card, CardContent, IconButton, Avatar, Button, Modal } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import '../../../App.css'
 import avatar1 from '../../../Assets/Ellipse 14.png'
 import avatar2 from '../../../Assets/Ellipse 15.png'
 import avatar3 from '../../../Assets/Ellipse 16.png'
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+
 
   // Sample testimonial data with images
   const testimonials = [
@@ -54,7 +58,7 @@ const Testimonial = () => {
       country: "Germany",
       content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       rating: 4,
-      image:avatar3
+      image: avatar3
     },
     {
       id: 6,
@@ -109,13 +113,13 @@ const Testimonial = () => {
   const totalSlides = Math.ceil(testimonials.length / cardsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex >= totalSlides - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex <= 0 ? totalSlides - 1 : prevIndex - 1
     );
   };
@@ -138,22 +142,23 @@ const Testimonial = () => {
     );
   };
 
+
   return (
-    <Box sx={{ 
+    <Box sx={{
       padding: { xs: "30px 15px", md: "60px 40px" },
       backgroundColor: "#fff",
       position: 'relative'
     }}>
       {/* Section Header */}
-      <Typography 
-        variant="h2" 
-        sx={{ 
+      <Typography
+        variant="h2"
+        sx={{
           textAlign: 'center',
           fontSize: { xs: "2rem", md: "2.5rem" },
           fontWeight: "bold",
           marginBottom: "40px",
           color: "#000",
-          fontFamily:"Open Sans"
+          fontFamily: "Open Sans"
         }}
       >
         Testimonials
@@ -161,7 +166,7 @@ const Testimonial = () => {
 
       {/* Carousel Container */}
       <Box sx={{ position: 'relative', maxWidth: '1200px', margin: '0 auto' }}>
-        
+
         {/* Navigation Buttons - Hide on mobile when only 1 card */}
         {cardsPerView > 1 && (
           <>
@@ -206,7 +211,7 @@ const Testimonial = () => {
         )}
 
         {/* Carousel Content */}
-        <Box sx={{ 
+        <Box sx={{
           overflow: 'hidden',
           width: '100%',
           padding: '10px 0'
@@ -218,20 +223,20 @@ const Testimonial = () => {
             width: `${totalSlides * 100}%`
           }}>
             {testimonials.map((testimonial) => (
-              <Box 
+              <Box
                 key={testimonial.id}
-                sx={{ 
+                sx={{
                   flex: `0 0 ${100 / (totalSlides * cardsPerView)}%`,
                   padding: { xs: '0 8px', sm: '0 12px', md: '0 15px' },
                   boxSizing: 'border-box'
                 }}
               >
-                <Card 
-                  sx={{ 
+                <Card
+                  sx={{
                     borderRadius: '12px',
-                    backgroundColor:"#0A0A0DD6",
+                    backgroundColor: "#0A0A0DD6",
                     padding: { xs: '15px', sm: '20px' },
-                    height: { xs: 'auto', sm: '230px' },
+                    height: { xs: 'auto', sm: '250px' },
                     display: 'flex',
                     flexDirection: 'column',
                     transition: 'transform 0.3s ease-in-out',
@@ -239,13 +244,13 @@ const Testimonial = () => {
                       transform: 'translateY(-5px)',
                       boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                     },
-                    width:{sm:"230px",xs:"90%"}
+                    width: { sm: "230px", xs: "90%" }
                   }}
                 >
                   {/* First Section: Left Image + Right Info */}
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
                     gap: { xs: '12px', sm: '15px' },
                     marginBottom: { xs: '15px', sm: '20px' }
                   }}>
@@ -253,57 +258,57 @@ const Testimonial = () => {
                     <Avatar
                       src={testimonial.image}
                       alt={testimonial.name}
-                      sx={{ 
-                        width: { xs: 50, sm: 60, md: 70 }, 
-                        height: { xs: 50, sm: 60, md: 70 } 
+                      sx={{
+                        width: { xs: 50, sm: 60, md: 70 },
+                        height: { xs: 50, sm: 60, md: 70 }
                       }}
                     />
 
                     {/* Right Side - Name, Country, Ratings */}
                     <Box sx={{ flex: 1 }}>
-                      <Typography 
+                      <Typography
                         variant="h6"
                         sx={{
                           fontWeight: 'bold',
                           color: '#FFFFFF',
                           fontSize: { xs: '14px', sm: '16px', md: '18px' },
                           marginBottom: '4px',
-                          fontFamily:"Kaisei Decol"
+                          fontFamily: "Kaisei Decol"
                         }}
                       >
                         {testimonial.name}
                       </Typography>
-                      
-                      <Typography 
+
+                      <Typography
                         variant="body2"
                         sx={{
                           color: '#fff',
                           fontSize: { xs: '12px', sm: '13px', md: '14px' },
                           marginBottom: '8px',
-                          fontFamily:"Kaisei Decol"
+                          fontFamily: "Kaisei Decol"
                         }}
                       >
                         {testimonial.country}
                       </Typography>
-                      
+
                       {/* Ratings */}
                       {renderStars(testimonial.rating)}
                     </Box>
                   </Box>
 
                   {/* Second Section: Content */}
-                  <CardContent sx={{ 
-                    padding: 0, 
+                  <CardContent sx={{
+                    padding: 0,
                     flexGrow: 1,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between'
                   }}>
-                    <Typography 
+                    <Typography
                       variant="body2"
                       sx={{
                         color: '#fff',
-                       
+
                         lineHeight: { xs: '1.4', sm: '1.6' },
                         display: '-webkit-box',
                         WebkitLineClamp: { xs: 3, sm: 4 },
@@ -311,11 +316,50 @@ const Testimonial = () => {
                         overflow: 'hidden',
                         fontSize: { xs: '13px', sm: '14px', md: '15px' },
                         flexGrow: 1,
-                        fontFamily:"Kaisei Decol"
+                        fontFamily: "Kaisei Decol"
                       }}
                     >
                       "{testimonial.content}"
                     </Typography>
+
+                    <Box sx={{
+                      display: "flex", justifyContent: "flex-start", alignItems: "center", mt: 2, width: "150px", height: "40px", backgroundColor: "rgba(255, 255, 255, 0.15)", // Glassy white tint
+                      backdropFilter: "blur(10px)", // Glass blur effect
+                      border: "1px solid rgba(255, 255, 255, 0.25)", padding: "1px 5px", borderRadius: "20px",
+                      cursor: "pointer",
+                      '&:hover': {
+                        backgroundColor: "rgba(255, 255, 255, 0.25)", // Slightly more opaque on hover
+                      }
+
+                    }} onClick={() => {
+                      setSelectedTestimonial(testimonial);
+                      setOpenModal(true);
+                    }}>
+                      <div
+                        style={{
+                          width: 35,
+                          height: 35,
+                          borderRadius: "50%",
+                          background: "#fff",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          cursor: "pointer",
+
+
+                        }}
+
+
+                        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                      >
+                        <PlayArrowIcon sx={{ color: "#c00", fontSize: 22 }} />
+                      </div>
+                      <Typography sx={{ fontSize: "14px", color: "#fff", fontFamily: "Open Sans", ml: 1 }}>
+                        Watch Review
+                      </Typography>
+                    </Box>
+
 
                   </CardContent>
                 </Card>
@@ -325,7 +369,7 @@ const Testimonial = () => {
         </Box>
 
         {/* Dots Indicator */}
-        <Box sx={{ 
+        <Box sx={{
           display: 'flex',
           justifyContent: 'center',
           gap: '8px',
@@ -347,6 +391,76 @@ const Testimonial = () => {
           ))}
         </Box>
       </Box>
+
+      {/* POPUP MODAL */}
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="testimonial-modal"
+        aria-describedby="testimonial-video"
+      >
+        <Box sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: { xs: '90%', sm: '80%', md: '60%' },
+          bgcolor: 'white',
+          borderRadius: '10px',
+          boxShadow: 24,
+          p: { xs: 2, sm: 3 },
+        }}>
+
+          {/* Close Button */}
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button
+              onClick={() => setOpenModal(false)}
+              sx={{ fontWeight: "bold", color: "black" }}
+            >
+              X
+            </Button>
+          </Box>
+
+          {/* NAME + COUNTRY */}
+          {selectedTestimonial && (
+            <Box sx={{ textAlign: "center", mb: 2 }}>
+              <Typography variant="h5" sx={{ fontFamily: "Kaisei Decol", fontWeight: "bold" }}>
+                {selectedTestimonial.name}
+              </Typography>
+              <Typography variant="body1" sx={{ fontFamily: "Kaisei Decol", color: "#555" }}>
+                {selectedTestimonial.country}
+              </Typography>
+            </Box>
+          )}
+
+          {/* VIDEO RESPONSIVE */}
+          <Box sx={{
+            position: "relative",
+            width: "100%",
+            paddingTop: "56.25%", // 16:9 ratio
+            borderRadius: "10px",
+            overflow: "hidden",
+            background: "#000"
+          }}>
+            {selectedTestimonial && (
+              <video
+                src='https://www.w3schools.com/html/mov_bbb.mp4'
+                controls
+                autoPlay
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%"
+                }}
+              />
+            )}
+          </Box>
+
+        </Box>
+      </Modal>
+
     </Box>
   );
 };

@@ -111,10 +111,10 @@ const Sorting = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "SORTING" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "SORTING" ? "green" : "transparent",
                                         color: item === "SORTING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "SORTING" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "SORTING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
@@ -150,21 +150,23 @@ const Sorting = () => {
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
                         <Typography
-                            sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mt: 4,
-                                mb: 2,
-                                fontFamily: "Open Sans",
-                                display: "flex",
-                                alignItems: "center"
-                            }}
+                             sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
                         </Typography>
 
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -289,7 +291,7 @@ const Sorting = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                       Alarm hooter incorporated in enunciation mode in case of Power Failure.
+                                        Alarm hooter incorporated in enunciation mode in case of Power Failure.
                                     </Typography>
 
                                 </Box>
@@ -300,21 +302,23 @@ const Sorting = () => {
                             </AccordionDetails>
                         </Accordion>
                         <Typography
-                            sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mt: 4,
-                                mb: 2,
-                                fontFamily: "Open Sans",
-                                display: "flex",
-                                alignItems: "center"
-                            }}
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> Pre-Sorters
                         </Typography>
 
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -354,30 +358,32 @@ const Sorting = () => {
                                 {/* SPACING */}
                                 <Box mt={3} />
 
-                               
-                                
+
+
 
 
 
 
                             </AccordionDetails>
                         </Accordion>
-<Typography
-                            sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mt: 4,
-                                mb: 2,
-                                fontFamily: "Open Sans",
-                                display: "flex",
-                                alignItems: "center"
-                            }}
+                        <Typography
+                             sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Jigger Shifter
                         </Typography>
 
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                            <AccordionSummary sx={{
+                                    backgroundColor: "#f8f8f8",
+                                    borderBottom: "1px solid #eee",
+                                    borderRadius: "8px"
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -394,7 +400,7 @@ const Sorting = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                          Vikram's Vibro Screen Sorters are specially designed for efficient sorting of tea grades at a low operating cost. The machine ensures a continuous flow of production without any need for resorting. The decks are easily accessible for cleaning and inspection, ensuring perfect quality tea at the end of the production chain.
+                                            Vikram's Vibro Screen Sorters are specially designed for efficient sorting of tea grades at a low operating cost. The machine ensures a continuous flow of production without any need for resorting. The decks are easily accessible for cleaning and inspection, ensuring perfect quality tea at the end of the production chain.
 
                                         </Typography>
                                     </Grid>
@@ -418,12 +424,12 @@ const Sorting = () => {
                                 <Box mt={3} />
 
                                 <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
-                                Salient Features :
+                                    Salient Features :
                                 </Typography>
 
                                 <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
                                     <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                       Low Operating Cost.
+                                        Low Operating Cost.
                                     </Typography>
 
                                 </Box>
@@ -486,12 +492,12 @@ const Sorting = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                       Nearly maintenance free.
+                                        Nearly maintenance free.
                                     </Typography>
 
                                 </Box>
-                               
-                              
+
+
 
 
 
@@ -505,5 +511,24 @@ const Sorting = () => {
         </Box>
     );
 };
+
+const headingStyle = {
+    fontSize: "20px",
+    fontWeight: 600,
+    mt: 4,
+    mb: 2,
+    fontFamily: "Open Sans",
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+    px: 2,
+    py: 1.5,
+    borderTop: "3px solid #e5e5e5",
+    borderBottom: "3px solid #e5e5e5",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+    borderRadius: "6px",
+    background: "#fff"
+};
+
 
 export default Sorting;

@@ -111,10 +111,10 @@ const Quality = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "QUALITY CONTROL EQUIPMENT" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "QUALITY CONTROL EQUIPMENT" ? "green" : "transparent",
                                         color: item === "QUALITY CONTROL EQUIPMENT" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "QUALITY CONTROL EQUIPMENT" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "QUALITY CONTROL EQUIPMENT" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}

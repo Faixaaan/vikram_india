@@ -24,57 +24,17 @@ const pages = [
   { title: "CSR", link: "/csr" },
   { title: "MEDIA", link: "/media" },
   { title: "CAREERS", link: "/careers" },
-  { title: "Blogs", link: "/blogs" },
+  { title: "Blog", link: "/blogs" },
   { title: "CONTACT US", link: "/contact" },
 ];
 
 // PRODUCT MENU WITH PATH LINKS
 const productDropdown = [
-  {
-    heading: "CTC Tea Processing Machinery",
-    items: [
-      { name: "Withering", link: "/products/ctc/withering" },
-      { name: "Rolling", link: "/products/ctc/rolling" },
-      { name: "Fermenting", link: "/products/ctc/fermenting" },
-      { name: "Drying", link: "/products/ctc/drying" },
-      { name: "Sorting", link: "/products/ctc/sorting" },
-      { name: "Packing", link: "/products/ctc/packing" },
-      { name: "Workshop Equipment", link: "/products/ctc/workshop-equipment" },
-      { name: "Quality Control Equipment", link: "/products/ctc/quality-control" },
-      { name: "Utilities", link: "/products/ctc/utilities" },
-    ],
-  },
-  {
-    heading: "Orthodox Tea Processing Machinery",
-    items: [
-      { name: "Withering", link: "/products/orthodox/withering" },
-      { name: "Rolling", link: "/products/orthodox/rolling" },
-      { name: "Fermenting", link: "/products/orthodox/fermenting" },
-      { name: "Drying", link: "/products/orthodox/drying" },
-      { name: "Sorting", link: "/products/orthodox/sorting" },
-      { name: "Packing", link: "/products/orthodox/packing" },
-    ],
-  },
-  {
-    heading: "Green Tea Processing Machinery",
-    items: [
-      { name: "Steaming", link: "/products/green/steaming" },
-      { name: "Rolling", link: "/products/green/rolling" },
-      { name: "Drying", link: "/products/green/drying" },
-      { name: "Sorting", link: "/products/green/sorting" },
-      { name: "Packing", link: "/products/green/packing" },
-    ],
-  },
-  {
-    heading: "Garden & Plantation Equipment",
-    items: [
-      { name: "Harvester", link: "/products/garden/harvester" },
-      { name: "Foreign Object Remover", link: "/products/garden/foreign-object-remover" },
-      { name: "Plucking Machine", link: "/products/garden/plucking-machine" },
-      { name: "Tea Ingredients Analyzer", link: "/products/garden/ingredients-analyzer" },
-    ],
-  },
+  { name: "Module Mounting Structure", link: "/products/ctc/introduction" },
+  { name: "Hot Dip Galvanization", link: "/products/ctc/introduction" },
+  { name: "Tea Processing Machinery", link: "/products/processing-card" },
 ];
+
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -106,8 +66,8 @@ const Navbar = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar sx={{ display: "flex", justifyContent: "space-between",padding:{xs:"0px",md:"0px 16px"} }}>
-            
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: { xs: "0px", md: "0px 16px" } }}>
+
             {/* LOGO */}
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <img src={Logo} alt="Vikram India" style={{ width: 200, height: "auto" }} />
@@ -120,10 +80,10 @@ const Navbar = () => {
                   <Box
                     key={item.title}
                     sx={{ position: "relative" }}
-                    onClick={(e) => e.stopPropagation()}
+                    onMouseEnter={() => setOpenProductsDesktop(true)}
+                    onMouseLeave={() => setOpenProductsDesktop(false)}
                   >
                     <Button
-                      onClick={() => setOpenProductsDesktop(!openProductsDesktop)}
                       sx={{
                         fontSize: "16px",
                         color: "#000000",
@@ -137,53 +97,33 @@ const Navbar = () => {
 
                     {openProductsDesktop && (
                       <Box
-                        onClick={(e) => e.stopPropagation()}
                         sx={{
                           position: "absolute",
-                          top: "60px",
-                          left: "-200px",
+                          top: "42px",
+                          left: 0,
                           background: "#fff",
                           boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
-                          padding: "20px",
-                          display: "grid",
-                          gridTemplateColumns: "repeat(4, 1fr)",
-                          gap: "30px",
-                          zIndex: 999,
-                          width: "900px",
                           borderTop: "3px solid #d32f2f",
+                          padding: "10px 0",
+                          width: "250px",
+                          zIndex: 999,
                         }}
                       >
-                        {productDropdown.map((col) => (
-                          <Box key={col.heading}>
-                            <h4
-                              style={{
-                                color: "#d32f2f",
-                                fontSize: "18px",
-                                marginBottom: "10px",
-                                fontWeight: 700,
-                                fontFamily: "Open Sans",
-                              }}
-                            >
-                              {col.heading}
-                            </h4>
-
-                            {col.items.map((i) => (
-                              <Link
-                                key={i.name}
-                                to={i.link}
-                                style={{
-                                  margin: "5px 0",
-                                  fontSize: "16px",
-                                  display: "block",
-                                  textDecoration: "none",
-                                  color: "#000",
-                                  fontFamily: "Open Sans",
-                                }}
-                              >
-                                {i.name}
-                              </Link>
-                            ))}
-                          </Box>
+                        {productDropdown.map((product) => (
+                          <Link
+                            key={product.name}
+                            to={product.link}
+                            style={{
+                              display: "block",
+                              padding: "10px 10px",
+                              textDecoration: "none",
+                              color: "#000",
+                              fontSize: "16px",
+                              fontFamily: "Open Sans",
+                            }}
+                          >
+                            {product.name}
+                          </Link>
                         ))}
                       </Box>
                     )}
@@ -205,6 +145,7 @@ const Navbar = () => {
                   </Button>
                 )
               )}
+
             </Box>
 
             {/* MOBILE BUTTON */}
@@ -222,7 +163,7 @@ const Navbar = () => {
             {pages.map((item) =>
               item.title === "PRODUCTS AND SERVICES" ? (
                 <React.Fragment key={item.title}>
-                  
+
                   <ListItem button onClick={() => setOpenProductsMobile(!openProductsMobile)}>
                     <ListItemText
                       primary={item.title}
@@ -235,37 +176,23 @@ const Navbar = () => {
 
                   {openProductsMobile && (
                     <Box sx={{ paddingLeft: 3 }}>
-                      {productDropdown.map((col) => (
-                        <Box key={col.heading} sx={{ marginBottom: "15px" }}>
-                          <p
-                            style={{
-                              fontWeight: "bold",
-                              fontSize: "14px",
-                              color: "#d32f2f",
-                              marginBottom: "5px",
-                            }}
-                          >
-                            {col.heading}
-                          </p>
-
-                          {col.items.map((i) => (
-                            <Link
-                              key={i.name}
-                              to={i.link}
-                              onClick={handleDrawerToggle}
-                              style={{
-                                fontSize: "13px",
-                                margin: "3px 0",
-                                display: "block",
-                                textDecoration: "none",
-                                color: "#000",
-                              }}
-                            >
-                              {i.name}
-                            </Link>
-                          ))}
-                        </Box>
+                      {productDropdown.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.link}
+                          onClick={handleDrawerToggle}
+                          style={{
+                            display: "block",
+                            padding: "8px 25px",
+                            textDecoration: "none",
+                            color: "#000",
+                            fontSize: "14px",
+                          }}
+                        >
+                          {item.name}
+                        </Link>
                       ))}
+
                     </Box>
                   )}
                 </React.Fragment>

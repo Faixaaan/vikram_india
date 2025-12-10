@@ -107,10 +107,10 @@ const Withering = () => {
                   to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "WITHERING" ? "#d32f2f" : "transparent",
+                    backgroundColor: item === "WITHERING" ? "green" : "transparent",
                     color: item === "WITHERING" ? "#fff" : "#000",
                     "&:hover": {
-                      backgroundColor: item === "WITHERING" ? "#c62828" : "#f5f5f5",
+                      backgroundColor: item === "WITHERING" ? "green" : "#f5f5f5",
                     },
                     fontFamily: "Open Sans"
                   }}
@@ -144,7 +144,7 @@ const Withering = () => {
             <Grid container spacing={2}>
               {/* Left Description */}
               <Grid item xs={12} md={8}>
-                <Typography sx={{ mb: 2, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}>
+                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
                   The aero-dynamically designed Axial Flow Fans from Vikram India are
                   made of high quality aluminium alloy and are suitable for different
                   sizes of withering troughs. These fans ensure uniformity of withering,
@@ -152,7 +152,7 @@ const Withering = () => {
                   air delivery and static pressure.
                 </Typography>
 
-                <Typography sx={{ mb: 3, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}>
+                <Typography sx={{ mb: 3, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
                   Vikram also offers Centrifugal Fans and Induced Draught Fans in
                   different sizes as per the customer's requirement.
                 </Typography>
@@ -187,8 +187,18 @@ const Withering = () => {
               Technical Specifications
             </Typography>
 
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontWeight: 600, fontFamily: "Open Sans" }}>
                   View Technical Specifications
                 </Typography>

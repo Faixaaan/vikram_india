@@ -1,0 +1,229 @@
+import React from "react";
+import {
+  Box,
+  Grid,
+  Typography,
+  List,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  Breadcrumbs,
+  Link as MLink,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Paper,
+  Container,
+} from "@mui/material";
+
+import { Link } from "react-router-dom";
+import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
+import '../../App.css'
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+
+const leftMenu = [
+  "INTRODUCTION",
+  "MANUFACTURING AND QUALITY",
+  "MANUFACTURING WITH HIGH TENSILE IS PROJECT",
+  "PRODUCTS",
+  "SOLAR PUMPS (AC PUMPS)",
+
+];
+
+const Introduction = () => {
+  return (
+    <Box sx={{ padding: { xs: 2, md: 4 } }}>
+      <Container maxWidth='xl'>
+        {/* Breadcrumb */}
+        <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+          <MLink component={Link} to="/" underline="hover" color="inherit">
+            Home
+          </MLink>
+          <Typography color="inherit">Product & Services</Typography>
+          <Typography color="text.primary">Module Mounting Structure</Typography>
+          <Typography color="text.primary">Introduction</Typography>
+        </Breadcrumbs>
+
+        {/* PAGE TITLE */}
+        <Typography
+          sx={{
+            fontSize: "28px",
+            fontWeight: 700,
+            mb: 1,
+            color: "#000",
+            textTransform: "uppercase",
+            fontFamily: "Open Sans"
+          }}
+        >
+          Module Mounting Structure
+        </Typography>
+
+        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
+          Setting global benchmarks in tea processing machinery industry
+        </Typography>
+
+        <Grid container spacing={3}>
+          {/* Left Sidebar */}
+          <Grid item size={{ xs: 12, md: 3 }}>
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: "15px",
+                mb: 2,
+                textTransform: "uppercase",
+                fontFamily: "Open Sans"
+              }}
+            >
+              Product & Services
+            </Typography>
+
+            <Divider sx={{ mb: 2 }} />
+
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: "14px",
+                mb: 1,
+                color: "#d32f2f",
+                fontFamily: "Open Sans"
+              }}
+            >
+              Module Mounting Structure
+            </Typography>
+
+            <List sx={{ border: "1px solid #ddd" }}>
+              {leftMenu.map((item) => (
+                <ListItemButton
+                  key={item}
+                  component={Link}
+                  to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
+                  sx={{
+                    borderBottom: "1px solid #eee",
+                    backgroundColor: item === "INTRODUCTION" ? "green" : "transparent",
+                    color: item === "INTRODUCTION" ? "#fff" : "#000",
+                    "&:hover": {
+                      backgroundColor: item === "INTRODUCTION" ? "green" : "#f5f5f5",
+                    },
+                    fontFamily: "Open Sans"
+                  }}
+                >
+                  <ListItemText
+                    primary={item}
+                    primaryTypographyProps={{
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontFamily: "Open Sans"
+                    }}
+                  />
+                </ListItemButton>
+              ))}
+            </List>
+          </Grid>
+
+          {/* Right Content Section */}
+          <Grid item size={{ xs: 12, md: 9 }}>
+            <Typography
+              sx={{
+                fontSize: "24px",
+                fontWeight: 600,
+                mb: 2,
+                fontFamily: "Open Sans"
+              }}
+            >
+              Introduction
+            </Typography>
+
+
+            {/* Introduction */}
+
+
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
+                <Typography fontSize="18px" fontWeight={600}>
+                  About Vikram India Limited
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+
+                <Box>
+                  <Grid container spacing={2}>
+                    <Grid item size={{xs:12,md:7}}>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Open Sans",
+                          textAlign: "justify"
+                        }}
+                      >
+                        Vikram India Limited ( VIL) is one of leading manufacturer and exporter
+                        of complete line of tea processing machineries across the globe since
+                        1974. Its unwavering focus on providing premium quality to its customer
+                        in one of the key drivers for its remarkable success. Vikram Group has
+                        diversified into different business sectors such as manufacturing of Tea
+                        Processing Machinery, Textiles, EPC Solutions and the green industry of
+                        Solar Power projects. Vikram India Limited has an ISO 9001-2008
+                        Certification.
+                      </Typography>
+                    </Grid>
+
+                    <Grid item size={{xs:12,md:5}}>
+                      <img src={mmsStructure} alt=""
+                        style={{ width: "100%", borderRadius: "6px" }}
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      fontFamily: "Open Sans",
+                      textAlign: "justify",
+                      mt: 1
+                    }}
+                  >
+                    The present capacity of Vikram India ltd, Howrah plant is 24000/- MT per
+                    Annum of Module Mounting structur( M MS ) along with the upcoming HOT DIP
+                    Galvanizing facility . The plant has provision for increasing its capacity
+                    by double in shortest time. We are manufacturing MMS in an eco-friendly
+                    environment and we are also a member of INDIALEAD ZINC DEVELOPMENT
+                    ASSOCIATION ( ILZDA ).
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      fontFamily: "Open Sans",
+                      textAlign: "justify",
+                      mt: 2
+                    }}
+                  >
+                    It also offers customized Project Consultancy Services and Training,
+                    presently involved in manufacturing of Module Mounting Structure ( MMS ) for
+                    mounting the solar panel based at Dhulagarh, Howrah in West Bengal. Vikram
+                    Solar is the flagship company of the Vikram Group.
+                  </Typography>
+                </Box>
+
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+};
+
+export default Introduction;

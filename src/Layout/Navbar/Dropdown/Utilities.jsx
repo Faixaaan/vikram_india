@@ -111,10 +111,10 @@ const Utilities = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "UTILITIES" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "UTILITIES" ? "green" : "transparent",
                                         color: item === "UTILITIES" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "UTILITIES" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "UTILITIES" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}

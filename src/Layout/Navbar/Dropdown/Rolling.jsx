@@ -78,7 +78,7 @@ const Rolling = () => {
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }}>    ``
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -113,10 +113,10 @@ const Rolling = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "ROLLING" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "ROLLING" ? "green" : "transparent",
                                         color: item === "ROLLING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "ROLLING" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "ROLLING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
@@ -192,8 +192,18 @@ const Rolling = () => {
                             Rolling
                         </Typography>
 
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -292,8 +302,18 @@ const Rolling = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -353,8 +373,18 @@ const Rolling = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion sx={{ mt: 2 }}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                            <AccordionSummary sx={{
+                                    backgroundColor: "#f8f8f8",
+                                    borderBottom: "1px solid #eee",
+                                    borderRadius: "8px"
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}

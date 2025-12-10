@@ -111,10 +111,10 @@ const Packing = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PACKING" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "PACKING" ? "green" : "transparent",
                                         color: item === "PACKING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "PACKING" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "PACKING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}

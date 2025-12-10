@@ -15,6 +15,13 @@ import Utilities from './Layout/Navbar/Dropdown/Utilities';
 import PageComing from './Pages/ComingSoon/PageComing';
 import Quality from './Layout/Navbar/Dropdown/Quality';
 import Workshop from './Layout/Navbar/Dropdown/Workshop';
+import Introduction from './Pages/Components/Mms';
+import Manufacturing from './Pages/Components/Manufacturing';
+import HighTensile from './Pages/Components/HighTensile';
+import SolarPumps from './Pages/Components/SolarPumps';
+import Product from './Pages/Components/Product';
+import ProcessingCard from './Pages/TeaProcessingCard/Index';
+
 
 function App() {
   return (
@@ -32,6 +39,12 @@ function App() {
         <Route path="/products/ctc/utilities" element={<Utilities />} />
         <Route path="/products/ctc/quality-control-equipment" element={<Quality />} />
         <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
+        <Route path="/products/ctc/introduction" element={<Introduction />} />
+        <Route path="/products/ctc/manufacturing-and-quality" element={<Manufacturing />} />
+        <Route path="/products/ctc/manufacturing-with-high-tensile-is-project" element={<HighTensile />} />
+        <Route path="/products/ctc/products" element={<Product />} />
+        <Route path="/products/ctc/solar-pumps-(ac-pumps)" element={<SolarPumps />} />
+        <Route path="/products/processing-card" element={<ProcessingCard />} />
         <Route path="/page-coming-soon" element={<PageComing />} />
       </Routes>
       <Footer />

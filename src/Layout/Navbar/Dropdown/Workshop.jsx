@@ -116,10 +116,10 @@ const Workshop = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "WORKSHOP EQUIPMENT" ? "#d32f2f" : "transparent",
+                                        backgroundColor: item === "WORKSHOP EQUIPMENT" ? "green" : "transparent",
                                         color: item === "WORKSHOP EQUIPMENT" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "WORKSHOP EQUIPMENT" ? "#c62828" : "#f5f5f5",
+                                            backgroundColor: item === "WORKSHOP EQUIPMENT" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
