@@ -105,6 +105,9 @@ const Footer = () => {
                                     padding: "8px 25px",
                                     textTransform: "none",
                                     fontSize: "15px",
+                                     "&:hover": {
+                                                background: "linear-gradient(to bottom, #a00000, #600000)",
+                                            },
                                 }}
                             >
                                 Get a Quote

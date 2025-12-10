@@ -408,14 +408,14 @@ const Testimonial = () => {
           bgcolor: 'white',
           borderRadius: '10px',
           boxShadow: 24,
-          p: { xs: 2, sm: 3 },
+          p: { xs: 2, sm: 2 },
         }}>
 
           {/* Close Button */}
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button
               onClick={() => setOpenModal(false)}
-              sx={{ fontWeight: "bold", color: "black" }}
+              sx={{ fontWeight: "bold", color: "#fff",backgroundColor:"#CA0B00",borderRadius:"12%" }}
             >
               X
             </Button>

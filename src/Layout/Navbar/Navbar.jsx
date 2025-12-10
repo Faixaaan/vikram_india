@@ -12,7 +12,7 @@ import {
   Container,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Added useLocation
 import Logo from "../../Assets/logo 1.png";
 import "../../App.css";
 
@@ -35,16 +35,30 @@ const productDropdown = [
   { name: "Tea Processing Machinery", link: "/products/processing-card" },
 ];
 
-
 const Navbar = () => {
+  const location = useLocation(); // Get current route
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  // FIXED — separate states for desktop & mobile
   const [openProductsDesktop, setOpenProductsDesktop] = useState(false);
   const [openProductsMobile, setOpenProductsMobile] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  // Check if a route is active (including nested routes)
+  const isActiveRoute = (route) => {
+    // Special handling for products dropdown items
+    if (productDropdown.some(item => item.link === location.pathname)) {
+      return route === "/products" || route === "/products/";
+    }
+    
+    // For exact matches
+    if (location.pathname === route) return true;
+    
+    // For parent routes (e.g., /products matches /products/...)
+    if (route !== "/" && location.pathname.startsWith(route + "/")) return true;
+    
+    return false;
   };
 
   // close desktop dropdown when clicking outside
@@ -86,10 +100,11 @@ const Navbar = () => {
                     <Button
                       sx={{
                         fontSize: "16px",
-                        color: "#000000",
+                        color: isActiveRoute(item.link) ? "#d32f2f" : "#000000", // Red if active
                         fontWeight: "600",
                         "&:hover": { color: "#d32f2f" },
                         fontFamily: "Open Sans",
+                        Color: isActiveRoute(item.link) ? "2px solid #d32f2f" : "none", // Optional underline
                       }}
                     >
                       {item.title}
@@ -117,9 +132,14 @@ const Navbar = () => {
                               display: "block",
                               padding: "10px 10px",
                               textDecoration: "none",
-                              color: "#000",
+                              color: location.pathname === product.link ? "#d32f2f" : "#000", // Red if active
                               fontSize: "16px",
                               fontFamily: "Open Sans",
+                              fontWeight: location.pathname === product.link ? "600" : "400",
+                              backgroundColor: location.pathname === product.link ? "#fdeaea" : "transparent", // Light red bg
+                              "&:hover": {
+                                backgroundColor: "#f5f5f5",
+                              }
                             }}
                           >
                             {product.name}
@@ -135,10 +155,11 @@ const Navbar = () => {
                     to={item.link}
                     sx={{
                       fontSize: "16px",
-                      color: "#000000",
+                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000000", // Red if active
                       fontWeight: "600",
                       "&:hover": { color: "#d32f2f" },
                       fontFamily: "Open Sans",
+                       // Optional underline
                     }}
                   >
                     {item.title}
@@ -164,12 +185,21 @@ const Navbar = () => {
               item.title === "PRODUCTS AND SERVICES" ? (
                 <React.Fragment key={item.title}>
 
-                  <ListItem button onClick={() => setOpenProductsMobile(!openProductsMobile)}>
+                  <ListItem 
+                    button 
+                    onClick={() => setOpenProductsMobile(!openProductsMobile)}
+                    sx={{
+                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
+                      backgroundColor: isActiveRoute(item.link) ? "#fdeaea" : "transparent",
+                      borderLeft: isActiveRoute(item.link) ? "4px solid #d32f2f" : "none",
+                    }}
+                  >
                     <ListItemText
                       primary={item.title}
                       primaryTypographyProps={{
-                        fontWeight: 600,
+                        fontWeight: isActiveRoute(item.link) ? 700 : 600,
                         fontSize: "15px",
+                        color: "inherit",
                       }}
                     />
                   </ListItem>
@@ -185,14 +215,16 @@ const Navbar = () => {
                             display: "block",
                             padding: "8px 25px",
                             textDecoration: "none",
-                            color: "#000",
+                            color: location.pathname === item.link ? "#d32f2f" : "#000",
                             fontSize: "14px",
+                            fontWeight: location.pathname === item.link ? 600 : 400,
+                            backgroundColor: location.pathname === item.link ? "#fdeaea" : "transparent",
+                            borderLeft: location.pathname === item.link ? "3px solid #d32f2f" : "none",
                           }}
                         >
                           {item.name}
                         </Link>
                       ))}
-
                     </Box>
                   )}
                 </React.Fragment>
@@ -203,12 +235,18 @@ const Navbar = () => {
                   component={Link}
                   to={item.link}
                   onClick={handleDrawerToggle}
+                  sx={{
+                    color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
+                    backgroundColor: isActiveRoute(item.link) ? "#fdeaea" : "transparent",
+                    borderLeft: isActiveRoute(item.link) ? "4px solid #d32f2f" : "none",
+                  }}
                 >
                   <ListItemText
                     primary={item.title}
                     primaryTypographyProps={{
-                      fontWeight: 600,
+                      fontWeight: isActiveRoute(item.link) ? 700 : 600,
                       fontSize: "15px",
+                      color: "inherit",
                     }}
                   />
                 </ListItem>
