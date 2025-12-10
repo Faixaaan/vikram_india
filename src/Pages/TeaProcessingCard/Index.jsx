@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Grid,
@@ -60,6 +60,12 @@ const cardData = [
 ];
 
 const ProcessingCard = () => {
+     useEffect(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }, []);
 
 
     const navigate = useNavigate();
