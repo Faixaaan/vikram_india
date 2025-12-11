@@ -5,6 +5,7 @@ import Logo from '../../Assets/logo 1.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -294,13 +295,15 @@ const Footer = () => {
                         mt: 4,
                         pt: 2,
                         display: "flex",
-                        justifyContent: {md:"space-between",xs:"center"},
+                        justifyContent: {sm:"space-between",xs:"center"},
                         flexWrap: "wrap",
                         fontSize: "14px",
                     }}
                 >
-                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600",fontSize:{}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
-                    <Typography sx={{fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600"},color:"#000"}}>Design and Developed by Adret Software</Typography>
+                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600",fontSize:{xs:"14px",md:"16px"}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
+                    <Link to="" style={{textDecoration:"none"}}>
+                    <Typography sx={{textAlign:"center",fontfamily:"Open Sans",fontWeight:{md:"700",xs:"500"},color:"#000",fontSize:{xs:"14px",md:"16px"}}}>Design and Developed by Adret Software</Typography>
+                    </Link>
                 </Box>
                 </Container>
             </Box >
