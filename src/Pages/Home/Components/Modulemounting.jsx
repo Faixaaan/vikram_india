@@ -193,7 +193,7 @@ const ModuleMounting = () => {
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }} sx={{ order: { xs: 1, sm: 2, md: 2 } }}>
                             <Box sx={{
-                                maxHeight: { xs: "312px", sm: "100%", md: "520px" },
+                                maxHeight: { xs: "312px", sm: "600px", md: "520px" },
                                
                             }}>
                                 <Box
@@ -202,8 +202,8 @@ const ModuleMounting = () => {
                                     alt="Module Mounting Structure"
                                     sx={{
                                         width: "100%",
-                                        height: "auto",
-                                        objectFit: "cover",
+                                        height: "600px",
+                                        
                                         backgroundSize: "cover",
                                         backgroundPosition: "top"
                                     }}
