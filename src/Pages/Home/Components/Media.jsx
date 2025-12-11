@@ -65,7 +65,8 @@ const Media = () => {
                 minHeight: "400px",
                 display:"flex",
                 flexDirection:"column",
-                justifyContent:"center"
+                justifyContent:"center",
+                alignItems:"center"
                 
             }}>
 
@@ -103,7 +104,7 @@ const Media = () => {
                                             transform: 'translateY(-5px)',
                                             boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                                         },
-                                        width:{md:"520px",xs:"350px"}
+                                        width:{md:"520px",xs:"100%"}
                                     }}
                                     
                                 >

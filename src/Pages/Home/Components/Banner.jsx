@@ -142,11 +142,14 @@ const Banner = () => {
                                         sx={{
                                             fontSize: { xs: "31px", sm: "26px", md: "40px" },
                                             fontWeight: 700,
-                                            minWidth: { md: "850px" },  // ⭐ desktop only (unchanged)
+                                            minWidth: { md: "850px",sm:"75%" },
+                                            maxWidth: { md: "850px",sm:"75%" },  // ⭐ desktop only (unchanged)
                                             fontFamily: "Open Sans",
                                             lineHeight: "120%",
                                             color: "#fff",
                                             textShadow: "6px 6px 6px rgba(0, 0, 0, 0.9)",
+                                            margin:"0px auto",
+                                            textAlign:"center"
                                         }}
                                     >
                                         {item.description}

@@ -299,7 +299,7 @@ const Footer = () => {
                         fontSize: "14px",
                     }}
                 >
-                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600"},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
+                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600",fontSize:{}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
                     <Typography sx={{fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600"},color:"#000"}}>Design and Developed by Adret Software</Typography>
                 </Box>
                 </Container>
