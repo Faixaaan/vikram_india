@@ -244,7 +244,7 @@ const Testimonial = () => {
                       transform: 'translateY(-5px)',
                       boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                     },
-                    width: { sm: "290px", xs: "90%" }
+                    width: { sm: "290px", xs: "90%",md:"230px" }
                   }}
                 >
                   {/* First Section: Left Image + Right Info */}
