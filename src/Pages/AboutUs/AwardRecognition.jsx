@@ -1,0 +1,361 @@
+import React, { useEffect } from "react";
+import {
+    Box,
+    Grid,
+    Typography,
+    List,
+    ListItemButton,
+    ListItemText,
+    Divider,
+    Breadcrumbs,
+    Link as MLink,
+    Container,
+} from "@mui/material";
+
+import { Link } from "react-router-dom";
+import '../../App.css'
+import group1 from '../../Assets/hk-chaudhary.png'
+import group2 from '../../Assets/anil-chowdhury.png'
+import group3 from '../../Assets/ulpi-gupta.png'
+import group4 from '../../Assets/soumen-chatterjee.png'
+import group5 from '../../Assets/subir-chawdhury.png'
+import group6 from '../../Assets/somenath-saharoy.png'
+import BgImage from '../../Assets/vision-bg.jpg'
+import QMS from '../../Assets/Qms.jpg'
+import EMS from '../../Assets/ems.jpg'
+import OHSAS from '../../Assets/ohsas.jpg'
+import signature from '../../Assets/signature.jpg'
+
+
+
+
+const leftMenu = [
+    "GROUP PROFILE",
+    "COMPANY PROFILE",
+    "VISION & MISSION",
+    "MANAGEMENT TEAM",
+    "ROC COMPLIANCE ANNUAL RETURN",
+    "AWARD AND RECOGNITION",
+    "RESEARCH AND DEVELOPMENT",
+    "QUALITY POLICY",
+    "CLIENTELE",
+    "TESTIMONIAL",
+
+
+];
+
+
+
+const AwardRecognition = () => {
+
+
+    const Imgee = [
+        { src: QMS, alt: "qms" },
+        { src: EMS, alt: "ems" },
+        { src: OHSAS, alt: "ohsas" }
+    ]
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
+    return (
+        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+            <Container maxWidth='xl'>
+                {/* Breadcrumb */}
+                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                        Home
+                    </MLink>
+                    <Typography color="inherit">About Us</Typography>
+
+                    <Typography color="text.primary">AWARD AND RECOGNITION</Typography>
+                </Breadcrumbs>
+
+                {/* PAGE TITLE */}
+                <Typography
+                    sx={{
+                        fontSize: "28px",
+                        fontWeight: 700,
+                        mb: 1,
+                        color: "#000",
+                        textTransform: "uppercase",
+                        fontFamily: "Open Sans"
+                    }}
+                >
+                    AWARD AND RECOGNITION
+                </Typography>
+
+                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
+                    Creating value through diverse businesses
+                </Typography>
+
+                <Grid container spacing={3}>
+                    {/* Left Sidebar */}
+                    <Grid item size={{ xs: 12, md: 3 }}>
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: "15px",
+                                mb: 2,
+                                textTransform: "uppercase",
+                                fontFamily: "Open Sans"
+                            }}
+                        >
+                            Product & Services
+                        </Typography>
+
+                        <Divider sx={{ mb: 2 }} />
+
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: "14px",
+                                mb: 1,
+                                color: "#d32f2f",
+                                fontFamily: "Open Sans"
+                            }}
+                        >
+                            AWARD AND RECOGNITION
+                        </Typography>
+
+                        <List sx={{ border: "1px solid #ddd" }}>
+                            {leftMenu.map((item) => (
+                                <ListItemButton
+                                    key={item}
+                                    component={Link}
+                                    to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    sx={{
+                                        borderBottom: "1px solid #eee",
+                                        backgroundColor: item === "AWARD AND RECOGNITION" ? "green" : "transparent",
+                                        color: item === "AWARD AND RECOGNITION" ? "#fff" : "#000",
+                                        "&:hover": {
+                                            backgroundColor: item === "AWARD AND RECOGNITION" ? "green" : "#f5f5f5",
+                                        },
+                                        fontFamily: "Open Sans"
+                                    }}
+                                >
+                                    <ListItemText
+                                        primary={item}
+                                        primaryTypographyProps={{
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            fontFamily: "Open Sans"
+                                        }}
+                                    />
+                                </ListItemButton>
+                            ))}
+                        </List>
+                    </Grid>
+
+                    {/* Right Content Section */}
+                    <Grid item size={{ xs: 12, md: 9 }}>
+                        <Typography
+                            sx={{
+                                fontSize: "24px",
+                                fontWeight: 600,
+                                mb: 2,
+                                fontFamily: "Open Sans",
+                                textTransform: "uppercase"
+                            }}
+                        >
+                            AWARD AND RECOGNITION
+                        </Typography>
+
+                        <Typography
+                        sx={{
+                                fontSize: "20px",
+                                fontWeight: 600,
+                                mb: 2,
+                                fontFamily: "Open Sans",
+                                textTransform: "uppercase",
+                                color:"#ee1d25"
+                            }}>
+                            Shields received from EEPC, Kolkata
+                        </Typography>
+
+
+                        {/* Introduction */}
+
+
+                        <Box>
+
+
+                            {/* profile picture box */}
+
+                            <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group1} />
+                                    </Grid>
+
+                                    
+
+                                </Grid>
+
+                            </Box>
+
+                            <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group2} />
+                                    </Grid>
+
+                                    
+
+                                </Grid>
+
+                            </Box>
+                            <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group3} />
+                                    </Grid>
+
+                                    
+
+                                </Grid>
+
+                            </Box>
+
+                            <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group4} />
+                                    </Grid>
+
+                                    
+
+                                </Grid>
+
+                            </Box>
+                             <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group5} />
+                                    </Grid>
+
+                                    <Grid size={{ xs: 12, md: 8.6 }} >
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
+                                            Mr. Subir Chowdhury
+                                        </Typography>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
+                                         General Manager - Sales
+                                            
+                                        </Typography>
+                                        
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                          He is a commerce graduate from Burdwan University and MBA in marketing from IGNOU, Delhi and having 25 years of experience in marketing of tea processing machinery industries. He looks after the marketing of the tea processing machinery in India.
+                                        </Typography>
+                                        
+
+                                        
+                                    </Grid>
+
+                                </Grid>
+
+                            </Box>
+                             <Box sx={{
+                                mt: 4,
+                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                borderRadius: "12px",
+                                p: 3,
+                                background: "#fff"
+                            }}>
+                                <Grid container spacing={2} mt={2}>
+                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                        <img src={group6} />
+                                    </Grid>
+
+                                    <Grid size={{ xs: 12, md: 8.6 }} >
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
+                                            Somenath Saharoy
+                                        </Typography>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
+                                         AGM - International Marketing
+                                            
+                                        </Typography>
+                                        
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                         He is a commerce graduate from Calcutta University and Master in International Business from Federation of Indian Export Organisation. He has 20 years of experience in Tea Processing Machinery industry. He is responsible for marketing of Tea Processing Machineries worldwide.
+                                        </Typography>
+                                        
+
+                                        
+                                    </Grid>
+
+                                </Grid>
+
+                            </Box>
+                            
+                            
+
+
+
+                            {/* text */}
+
+
+
+
+
+
+                        </Box>
+
+                    </Grid>
+                </Grid>
+            </Container>
+        </Box>
+    );
+};
+
+const headingStyle = {
+    fontSize: "16px",
+    fontWeight: 400,
+    mt: 2,
+    mb: 2,
+    fontFamily: "Open Sans",
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+    px: 2,
+    py: 1.5,
+    borderTop: "3px solid #e5e5e5",
+    borderBottom: "3px solid #e5e5e5",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+    borderRadius: "6px",
+    background: "#fff"
+};
+
+export default AwardRecognition;

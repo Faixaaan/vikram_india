@@ -22,6 +22,11 @@ import SolarPumps from './Pages/Components/SolarPumps';
 import Product from './Pages/Components/Product';
 import ProcessingCard from './Pages/TeaProcessingCard/Index';
 import { useEffect } from 'react';
+import GroupProfile from './Pages/AboutUs/Profile';
+import CompanyProfile from './Pages/AboutUs/CompanyProfile';
+import VisionMission from './Pages/AboutUs/VisionMission';
+import ManagementTeam from './Pages/AboutUs/ManagmentTeam';
+import AwardRecognition from './Pages/AboutUs/AwardRecognition';
 
 
 function App() {
@@ -50,6 +55,11 @@ function App() {
         <Route path="/products/ctc/products" element={<Product />} />
         <Route path="/products/ctc/solar-pumps-(ac-pumps)" element={<SolarPumps />} />
         <Route path="/products/processing-card" element={<ProcessingCard />} />
+        <Route path="/about/group-profile" element={<GroupProfile />} />
+        <Route path="/about/company-profile" element={<CompanyProfile />} />
+         <Route path="/about/vision-&-mission" element={<VisionMission />} />
+          <Route path="/about/management-team" element={<ManagementTeam />} />
+          <Route path="/about/award-and-recognition" element={<AwardRecognition />} />
         <Route path="/page-coming-soon" element={<PageComing />} />
       </Routes>
       <Footer />
