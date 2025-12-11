@@ -174,7 +174,7 @@ const Testimonial = () => {
               onClick={prevSlide}
               sx={{
                 position: 'absolute',
-                left: { xs: '-5px', sm: '-10px', md: '-40px' },
+                left: { xs: '-5px', sm: '-13px', md: '-40px' },
                 top: '50%',
                 transform: 'translateY(-50%)',
                 backgroundColor: 'white',
@@ -227,7 +227,7 @@ const Testimonial = () => {
                 key={testimonial.id}
                 sx={{
                   flex: `0 0 ${100 / (totalSlides * cardsPerView)}%`,
-                  padding: { xs: '0 8px', sm: '0 12px', md: '0 15px' },
+                  padding: { xs: '0 8px', sm: '0 19px', md: '0 15px' },
                   boxSizing: 'border-box'
                 }}
               >
@@ -244,7 +244,7 @@ const Testimonial = () => {
                       transform: 'translateY(-5px)',
                       boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                     },
-                    width: { sm: "230px", xs: "90%" }
+                    width: { sm: "290px", xs: "90%" }
                   }}
                 >
                   {/* First Section: Left Image + Right Info */}

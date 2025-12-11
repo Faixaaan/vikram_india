@@ -130,7 +130,7 @@ const Banner = () => {
                                         left: { md: "55%" },
                                         transform: { md: "translate(-50%, -50%)" },
                                         zIndex: 2,
-                                        mt: { xs: "85px", md: 0 },
+                                        mt: { xs: "85px", md: 0,sm:"150px" },
                                         width: { xs: "100%", md: "auto",sm:"auto" },
 
                                         // ⭐ ONLY for phone/tablet — centers horizontally

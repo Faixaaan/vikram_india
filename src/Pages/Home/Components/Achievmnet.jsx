@@ -126,7 +126,7 @@ const Achievmnet = () => {
                                     },
                                     transition: 'all 0.3s ease-in-out',
                                     marginTop: { xs: 1, md: 2 },
-                                    marginInline:{xs:"auto",sm:"0px"}
+                                    marginInline:{xs:"auto",md:"0px"}
                                 }}
                                 onClick={handleComingsoon}
                             >

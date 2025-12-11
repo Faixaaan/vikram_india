@@ -193,7 +193,7 @@ const ModuleMounting = () => {
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }} sx={{ order: { xs: 1, sm: 2, md: 2 } }}>
                             <Box sx={{
-                                maxHeight: { xs: "312px", sm: "500px", md: "520px" },
+                                maxHeight: { xs: "312px", sm: "100%", md: "520px" },
                                
                             }}>
                                 <Box
@@ -202,7 +202,7 @@ const ModuleMounting = () => {
                                     alt="Module Mounting Structure"
                                     sx={{
                                         width: "100%",
-                                        height: "100%",
+                                        height: "auto",
                                         objectFit: "cover",
                                         backgroundSize: "cover",
                                         backgroundPosition: "top"
@@ -259,7 +259,7 @@ const arrowLeft = {
 const arrowRight = {
     position: "absolute",
     bottom: { md: "28px", xs: "0px" },
-    left: { md: "44%", xs: "48%" },
+    left: { md: "44%", xs: "48%",sm:"44%" },
     fontSize: "42px",
     cursor: "pointer",
     color: "#fff"
