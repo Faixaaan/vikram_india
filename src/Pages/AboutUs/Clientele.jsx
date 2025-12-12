@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -10,16 +10,31 @@ import {
     Breadcrumbs,
     Link as MLink,
     Container,
+    Pagination,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/company-ring.jpg'
-import group2 from '../../Assets/earning-image.png'
-import BgImage from '../../Assets/earning-background.jpg'
-import QMS from '../../Assets/Qms.jpg'
-import EMS from '../../Assets/ems.jpg'
-import OHSAS from '../../Assets/ohsas.jpg'
+import group1 from '../../Assets/clientel.jpg'
+import client1 from '../../Assets/McLeod-russel.gif'
+import client2 from '../../Assets/tata.png'
+import client3 from '../../Assets/amalgamated-plantation.gif'
+import client4 from '../../Assets/unilever.png'
+import client5 from '../../Assets/kenya-tea.gif'
+import client6 from '../../Assets/swire-group.gif'
+import client7 from '../../Assets/goodrick.gif'
+import client8 from '../../Assets/duncans.gif'
+import client9 from '../../Assets/eastern-produce.gif'
+import client10 from '../../Assets/willianson-tea.gif'
+import client11 from '../../Assets/a.v.thomas.gif'
+import client12 from '../../Assets/andrew-yule.gif'
+import client13 from '../../Assets/apeejay.png'
+import client14 from '../../Assets/assam-company.gif'
+import client15 from '../../Assets/gillanders-arbuthnot.gif'
+import client16 from '../../Assets/dalmia-tea-plantation-and-industries-ltd.gif'
+
+
+
 
 
 
@@ -41,14 +56,36 @@ const leftMenu = [
 
 
 
-const CompanyProfile = () => {
+const Clientele = () => {
+
+    const clientLogos = [
+        { img: client1, name: "McLeod Russel (India) Ltd." },
+        { img: client2, name: "Tata Tea group" },
+        { img: client3, name: "Amalgamated Plantations" },
+        { img: client4, name: "Unilever Group" },
+
+        { img: client5, name: "KTDA (Kenya Tea Development Agency Ltd.)" },
+        { img: client6, name: "Swire Group (Finlays)" },
+        { img: client7, name: "Goodricke Group" },
+        { img: client8, name: "Duncans" },
+
+        { img: client9, name: "Eastern Produce Group" },
+        { img: client10, name: "Williamson Tea" },
+        { img: client11, name: "A V Thomas & Co." },
+        { img: client12, name: "Andrew Yule & Co. Ltd." },
+
+        { img: client13, name: "Apeejay Group" },
+        { img: client14, name: "Assam Co. Ltd." },
+        { img: client15, name: "Gillanders Arbuthnot & Co." },
+        { img: client16, name: "Dalmia Tea Plantation & Industries Ltd." },
+    ];
 
 
-    const Imgee = [
-        { src: QMS, alt: "qms" },
-        { src: EMS, alt: "ems" },
-        { src: OHSAS, alt: "ohsas" }
-    ]
+    const [page, setPage] = useState(1);
+
+
+
+
 
     useEffect(() => {
         window.scrollTo({
@@ -66,7 +103,7 @@ const CompanyProfile = () => {
                     </MLink>
                     <Typography color="inherit">About Us</Typography>
 
-                    <Typography color="text.primary">COMPANY PROFILE</Typography>
+                    <Typography color="text.primary">CLIENTELE</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -80,7 +117,7 @@ const CompanyProfile = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    COMPANY PROFILE
+                    CLIENTELE
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -113,12 +150,12 @@ const CompanyProfile = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            COMPANY PROFILE
+                            CLIENTELE
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "COMPANY PROFILE";
+                                const isActive = item === "CLIENTELE";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -186,115 +223,129 @@ const CompanyProfile = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 1,
                                 fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                textTransform: "uppercase",
+
                             }}
                         >
-                            COMPANY PROFILE
+                            CLIENTELE
                         </Typography>
-
+                        <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", color: "#df0000" }}>
+                            Building relationships across the globe
+                        </Typography>
 
                         {/* Introduction */}
 
 
                         <Box>
-                            <Grid container spacing={2}>
-                                <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "18px", fontFamily: "Open Sans", textAlign: "justify", fontWeight: "600", lineHeight: "120%" }}>
-                                        Vikram India, an ISO 9001:2008 certified company, has been on a path of continuous growth and progress since its inception, consolidating its position through product innovation and commitment to excellence.
-                                    </Typography>
-                                </Grid>
 
-                            </Grid>
-
-                            {/* profile picture box */}
-
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
+                            <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
-
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "300", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginTop: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
-                                    </Grid>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
                                         <img src={group1} />
                                     </Grid>
-                                </Grid>
-
-                            </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 0,
-
-                                backgroundSize: "cover",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "center",
-                                backgroundColor: "#fff", // fallback
-                                padding: "20px 20px 0px 20px"
-                            }}>
-                                <Grid container spacing={2} mt={4}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
-                                    </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Earning the trust and confidence of people for the last four decades, Vikram India has established a strong position within the tea machinery industry.
+                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
+                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
                                         </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            From setting up its first plant in Ghusuri, Howrah near Kolkata, the Company has come a long way. With the help of its panel of experienced engineers and tea technocrats, Vikram India offers complete solution - from plucking to packaging, to its prestigious clients worldwide.
-
-
+                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
+                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
+                                        </Typography>
+                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginTop: "15px", fontWeight: "500", color: "#121111ff" }}>
+                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
                                         </Typography>
                                     </Grid>
                                 </Grid>
+
                             </Box>
 
-                            {/* text */}
 
-                            <Box sx={{ mt: 4 }}>
-
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}>
-                                    Vikram India's unwavering focus on providing premium quality products to its customers is one of the key drivers for its remarkable success.
+                            {/* profile picture box */}
+                            <Box sx={{ mt: 6 }}>
+                                <Typography
+                                    sx={{
+                                        fontSize: "22px",
+                                        fontWeight: 600,
+                                        mb: 2,
+                                        fontFamily: "Open Sans",
+                                        textTransform: "capitalize",
+                                    }}
+                                >
+                                    The list includes the following
                                 </Typography>
-                                <Typography sx={{ fontSize: "20px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "18px" }}>
-                                    Using state-of-the-art technology, its dedicated R&D team helps the Company in product innovation and incorporation of efficient manufacturing techniques.
-                                </Typography>
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "20px" }}>
-                                    Vikram India also offers customized Project Consultancy Services and Training Packages to its clients. It has successfully completed prestigious turnkey projects from concept to commissioning covering civil, electrical and tea blending equipment and also provided technical know-how for various projects in India and all over the world. As its operations expand and spread, the Company through its ethical practices and social commitments continues to contribute towards the development of tea industry worldwide.
-                                </Typography>
-                            </Box>
 
-                            {/* image  */}
+                                <Grid container spacing={3}>
+                                    {clientLogos
+                                        .slice((page - 1) * 12, (page - 1) * 12 + 12)
+                                        .map((item, index) => (
+                                            <Grid
+                                                item
+                                                size={{ xs: 12, sm: 4, md: 3 }}
+                                                key={index}
+                                                sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+                                            >
+                                                {/* Logo Box */}
+                                                <Box
+                                                    sx={{
+                                                        width: "100%",
+                                                        maxWidth: "150px",
+                                                        p: 2,
+                                                        borderRadius: "10px",
+                                                        background: "#fff",
+                                                        boxShadow: "0 4px 12px rgba(0,0,0,0.10)",
+                                                        textAlign: "center",
+                                                        transition: "0.3s",
+                                                        "&:hover": {
+                                                            transform: "translateY(-5px)",
+                                                            boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                                                        },
+                                                    }}
+                                                >
+                                                    <img
+                                                        src={item.img}
+                                                        alt={item.name}
+                                                        style={{
+                                                            width: "100%",
+                                                            height: "80px",
+                                                            objectFit: "contain",
+                                                        }}
+                                                    />
+                                                </Box>
 
-                            <Grid container spacing={2} mt={6}>
-                                {
-                                    Imgee.map((img) => {
-                                        return (
-                                            <Grid size={{ xs: 12, sm: 4 }}>
-                                                <Link to=''>
-                                                    <img src={img.src} alt={img.alt} />
-                                                </Link>
+                                                {/* Title BELOW the box */}
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "14px",
+                                                        mt: 1.5,
+                                                        textAlign: "center",
+                                                        fontFamily: "Open Sans",
+                                                        width: "100%",
+                                                        maxWidth: "180px",
+                                                    }}
+                                                >
+                                                    {item.name}
+                                                </Typography>
                                             </Grid>
-                                        )
-                                    })
-                                }
-                            </Grid>
+                                        ))}
+                                </Grid>
+
+
+                                {/* PAGINATION */}
+                                <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                                    <Pagination
+                                        count={Math.ceil(clientLogos.length / 12)}
+                                        page={page}
+                                        onChange={(e, value) => setPage(value)}
+                                        color="primary"
+                                        size="large"
+                                        shape="rounded"
+                                    />
+                                </Box>
+                            </Box>
+
+
+
 
 
                         </Box>
@@ -324,4 +375,4 @@ const headingStyle = {
     background: "#fff"
 };
 
-export default CompanyProfile;
+export default Clientele;

@@ -71,7 +71,7 @@ const ManagementTeam = () => {
                     </MLink>
                     <Typography color="inherit">About Us</Typography>
 
-                    <Typography color="text.primary">MANAGEMENT TEAM</Typography>
+                    <Typography color="text.primary" >Manangement Team</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -122,32 +122,67 @@ const ManagementTeam = () => {
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
-                            {leftMenu.map((item) => (
-                                <ListItemButton
-                                    key={item}
-                                    component={Link}
-                                    to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
-                                    sx={{
-                                        borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "MANAGEMENT TEAM" ? "green" : "transparent",
-                                        color: item === "MANAGEMENT TEAM" ? "#fff" : "#000",
-                                        "&:hover": {
-                                            backgroundColor: item === "MANAGEMENT TEAM" ? "green" : "#f5f5f5",
-                                        },
-                                        fontFamily: "Open Sans"
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary={item}
-                                        primaryTypographyProps={{
-                                            fontSize: "14px",
-                                            fontWeight: 500,
+                            {leftMenu.map((item) => {
+                                const isActive = item === "MANAGEMENT TEAM";
+
+                                // Special case for PDF link
+                                if (item === "ROC COMPLIANCE ANNUAL RETURN") {
+                                    return (
+                                        <ListItemButton
+                                            key={item}
+                                            component="a"
+                                            href="https://www.vikramindia.in/pdf/roc-compliance-annual-return.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{
+                                                borderBottom: "1px solid #eee",
+                                                backgroundColor: "transparent",
+                                                color: "#000",
+                                                "&:hover": { backgroundColor: "#f5f5f5" },
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        >
+                                            <ListItemText
+                                                primary={item}
+                                                primaryTypographyProps={{
+                                                    fontSize: "14px",
+                                                    fontWeight: 500,
+                                                    fontFamily: "Open Sans"
+                                                }}
+                                            />
+                                        </ListItemButton>
+                                    );
+                                }
+
+                                // Default items
+                                return (
+                                    <ListItemButton
+                                        key={item}
+                                        component={Link}
+                                        to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
+                                        sx={{
+                                            borderBottom: "1px solid #eee",
+                                            backgroundColor: isActive ? "green" : "transparent",
+                                            color: isActive ? "#fff" : "#000",
+                                            "&:hover": {
+                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                            },
                                             fontFamily: "Open Sans"
                                         }}
-                                    />
-                                </ListItemButton>
-                            ))}
+                                    >
+                                        <ListItemText
+                                            primary={item}
+                                            primaryTypographyProps={{
+                                                fontSize: "14px",
+                                                fontWeight: 500,
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        />
+                                    </ListItemButton>
+                                );
+                            })}
                         </List>
+
                     </Grid>
 
                     {/* Right Content Section */}
@@ -165,13 +200,13 @@ const ManagementTeam = () => {
                         </Typography>
 
                         <Typography
-                        sx={{
+                            sx={{
                                 fontSize: "20px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Open Sans",
                                 textTransform: "uppercase",
-                                color:"#ee1d25"
+                                color: "#ee1d25"
                             }}>
                             Board Members
                         </Typography>
@@ -201,11 +236,15 @@ const ManagementTeam = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
                                             Mr. H.K. Chaudhary
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
                                             Chairman Cum Managing Director <br />
+
+                                        </Typography>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676", }}>
+
                                             Vikram Group
                                         </Typography>
-                                        
+
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
                                             Sri Hari Krishna Chaudhary is the Chairman Cum Managing Director of Vikram Group of Industries. Under his able guidance and charismatic leadership, Vikram Group has achieved unprecedented success in business and philanthropy. By establishing Vikram Solar Pvt. Ltd., Sri H. K. Chaudhary has ventured into the Renewable Energy sector to explore and fulfill the growing energy needs of India.
                                         </Typography>
@@ -213,7 +252,7 @@ const ManagementTeam = () => {
                                             He has contributed immensely to the cause of spreading education among underprivileged sections of the society living in villages and semi urban areas thereby building ethical corporations in India. Sri H. K. Chaudhary is associated with different trusts and educational institutions in different capacities. He is the founder trustee and Chairman of Kalyan Bharati Trust under the aegis of which The Heritage School, Heritage Institute of Technology (Engineering studies), The Heritage Academy (Management studies), Heritage Business School and Heritage Law College are managed successfully. He is also the founder trustee and Chairman of Ballaram Hanumandas Charitable Trust, Bahal, Haryana. He has established BRCM Public Schools namely Vidyagram, a fully residential and co-educational English medium school and Gyankunj, an English medium day school and a fully residential and co-educational Engineering College named BRCM College of Engineering and Technology in Haryana. Apart from this, he is also the Chairman of Agrasain Balika Siksha Sadan, a premier girls school in Liluah, Howrah, Joint Vice President of Sri Sri Academy, Alipore, Kolkata and founder trustee of Agrasain Seva Samity and Agrasain Education Trust.
                                         </Typography>
 
-                                        
+
                                     </Grid>
 
                                 </Grid>
@@ -236,11 +275,11 @@ const ManagementTeam = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
                                             Mr. Anil Chaudhary
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
-                                            Vice Chairman 
-                                            
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
+                                            Vice Chairman
+
                                         </Typography>
-                                        
+
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
                                             Mr. Anil Chaudhary is a first class BE Electrical from Bangalore University and an MBA from Jadavpur University. With over 19 years of experience in engineering projects and tea manufacturing, he is currently managing Vikram Group's textile division in Surat, Gujarat.
                                         </Typography>
@@ -248,7 +287,7 @@ const ManagementTeam = () => {
                                             Anil Chaudhary serves on the Board of many of the Vikram Group of companies. He is a member of Technical Education Society of India, Institute of Engineers, Engineering Export Promotion Council and CII-SSI Committee.
                                         </Typography>
 
-                                        
+
                                     </Grid>
 
                                 </Grid>
@@ -267,20 +306,20 @@ const ManagementTeam = () => {
                                     </Grid>
 
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#000" }}>
                                             Mr. Ulpi Gupta
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
                                             CEO
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                           He is a Chartered Accountant and his strength lies in accounts, finance and commercial matters. He has been associated with the Vikram group for over 10 years and with his leadership quality he has helped the Company excel to the next stage.
-                                        </Typography>
-                                        
 
-                                        
+                                        </Typography>
+
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            He is a Chartered Accountant and his strength lies in accounts, finance and commercial matters. He has been associated with the Vikram group for over 10 years and with his leadership quality he has helped the Company excel to the next stage.
+                                        </Typography>
+
+
+
                                     </Grid>
 
                                 </Grid>
@@ -303,23 +342,23 @@ const ManagementTeam = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
                                             Mr. Soumen Chatterjee
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
                                             General Manager - Works (Engineering Division)
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                          He is a Diploma in Mechanical Engineering from Ramakrishna Mission Shilpapith, having 17 years of experience in Tea Processing Machinery Industries. He is responsible for Design and Drawing of Tea Processing Machinery along with managing, coordinating and executing all production strategies.
-                                        </Typography>
-                                        
 
-                                        
+                                        </Typography>
+
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            He is a Diploma in Mechanical Engineering from Ramakrishna Mission Shilpapith, having 17 years of experience in Tea Processing Machinery Industries. He is responsible for Design and Drawing of Tea Processing Machinery along with managing, coordinating and executing all production strategies.
+                                        </Typography>
+
+
+
                                     </Grid>
 
                                 </Grid>
 
                             </Box>
-                             <Box sx={{
+                            <Box sx={{
                                 mt: 4,
                                 boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
                                 borderRadius: "12px",
@@ -335,23 +374,23 @@ const ManagementTeam = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
                                             Mr. Subir Chowdhury
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
-                                         General Manager - Sales
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                          He is a commerce graduate from Burdwan University and MBA in marketing from IGNOU, Delhi and having 25 years of experience in marketing of tea processing machinery industries. He looks after the marketing of the tea processing machinery in India.
-                                        </Typography>
-                                        
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
+                                            General Manager - Sales
 
-                                        
+                                        </Typography>
+
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            He is a commerce graduate from Burdwan University and MBA in marketing from IGNOU, Delhi and having 25 years of experience in marketing of tea processing machinery industries. He looks after the marketing of the tea processing machinery in India.
+                                        </Typography>
+
+
+
                                     </Grid>
 
                                 </Grid>
 
                             </Box>
-                             <Box sx={{
+                            <Box sx={{
                                 mt: 4,
                                 boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
                                 borderRadius: "12px",
@@ -367,24 +406,24 @@ const ManagementTeam = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
                                             Somenath Saharoy
                                         </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
-                                         AGM - International Marketing
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                         He is a commerce graduate from Calcutta University and Master in International Business from Federation of Indian Export Organisation. He has 20 years of experience in Tea Processing Machinery industry. He is responsible for marketing of Tea Processing Machineries worldwide.
-                                        </Typography>
-                                        
+                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
+                                            AGM - International Marketing
 
-                                        
+                                        </Typography>
+
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            He is a commerce graduate from Calcutta University and Master in International Business from Federation of Indian Export Organisation. He has 20 years of experience in Tea Processing Machinery industry. He is responsible for marketing of Tea Processing Machineries worldwide.
+                                        </Typography>
+
+
+
                                     </Grid>
 
                                 </Grid>
 
                             </Box>
-                            
-                            
+
+
 
 
 

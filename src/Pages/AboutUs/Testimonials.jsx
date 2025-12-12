@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -10,6 +10,7 @@ import {
     Breadcrumbs,
     Link as MLink,
     Container,
+    Pagination,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -37,7 +38,52 @@ const leftMenu = [
 
 
 
-const GroupProfile = () => {
+const Testimonials = () => {
+
+    const testimonials = [
+        {
+            text: "Very impressive setup, good workmanship and encouraging improvements in the machines.",
+            name: "Mr. Ranjit Chaliha - Green Gold (Assam)"
+        },
+        {
+            text: "Impressive manufacturing set-up with quality control.",
+            name: "Mr. Alok Vira - Assam Company"
+        },
+        {
+            text: "Good team to work with",
+            name: "Mr. C. M. Khong - McLeod Russel"
+        },
+        {
+            text: "Very impressive setup.",
+            name: "Mr. J. S. Kandal - Amalgamated Plantation"
+        },
+        {
+            text: "Very impressive setup, good workmanship and encouraging improvements in the machines.",
+            name: "Mr. Ranjit Chaliha - Green Gold (Assam)"
+        },
+        {
+            text: "Impressive manufacturing set-up with quality control.",
+            name: "Mr. Alok Vira - Assam Company"
+        },
+        {
+            text: "Good team to work with",
+            name: "Mr. C. M. Khong - McLeod Russel"
+        },
+        {
+            text: "Very impressive setup.",
+            name: "Mr. J. S. Kandal - Amalgamated Plantation"
+        }
+    ];
+
+    const [page, setPage] = useState(1);
+
+    const testimonialsPerPage = 4;
+    const startIndex = (page - 1) * testimonialsPerPage;
+    const endIndex = startIndex + testimonialsPerPage;
+
+    const paginatedTestimonials = testimonials.slice(startIndex, endIndex);
+
+
 
     useEffect(() => {
         window.scrollTo({
@@ -55,7 +101,7 @@ const GroupProfile = () => {
                     </MLink>
                     <Typography color="inherit">About Us</Typography>
 
-                    <Typography color="text.primary">Group Profile</Typography>
+                    <Typography color="text.primary">TESTIMONIAL</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -69,7 +115,7 @@ const GroupProfile = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    GROUP PROFILE
+                    TESTIMONIAL
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -102,12 +148,12 @@ const GroupProfile = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            GROUP PROFILE
+                            TESTIMONIAL
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "GROUP PROFILE";
+                                const isActive = item === "TESTIMONIAL";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -175,57 +221,78 @@ const GroupProfile = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 1,
                                 fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                textTransform: "uppercase",
+
                             }}
                         >
-                            Group Profile
+                            TESTIMONIAL
                         </Typography>
-
+                        <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", color: "#df0000" }}>
+                            Helping us grow from strength to strength
+                        </Typography>
 
                         {/* Introduction */}
 
 
                         <Box>
-                            <Grid container spacing={2}>
-                                <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        Growing from strength to strength over the last four decades, <strong> the Vikram Group is inspired by a strong heritage and nurtures a mission to serve the world by diversifying its business,</strong> strengthening its brand identity, exceeding customer expectations through quality and service, enriching its production and promoting itself as a responsible corporate citizen.
-                                    </Typography>
-                                </Grid>
 
-                            </Grid>
 
                             {/* profile picture box */}
 
-                            <Box sx={{ mt: 4 }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group1} />
+                            {paginatedTestimonials.map((item, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        mt: 4,
+                                        p: 3,
+                                        borderRadius: "12px",
+                                        background: "#ffffff",
+                                        boxShadow: "0px 4px 15px rgba(0,0,0,0.10)",
+                                    }}
+                                >
+                                    <Grid container spacing={2} mt={2}>
+                                        <Grid size={{ xs: 12, md: 12 }}>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "22px",
+                                                    lineHeight: "140%",
+                                                    fontWeight: "500",
+                                                    color: "#121111",
+                                                    fontFamily: "Open Sans",
+                                                    textAlign: { xs: "center", sm: "left" }
+                                                }}
+                                            >
+                                                “ {item.text} ”
+                                            </Typography>
+
+                                            <Typography
+                                                sx={{
+                                                    textAlign: { sm: "right", xs: "center" },
+                                                    marginTop: "10px",
+                                                    fontFamily: "Open Sans"
+                                                }}
+                                            >
+                                                {item.name}
+                                            </Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
-                                        <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid container spacing={2} mt={4}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Vikram Group is manned by a highly capable team of professionals which has supported its momentous growth.
-                                        </Typography>
-                                        <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            Through its state-of-the-art research facilities and product innovations and a network of offices and distributors across the globe, Vikram Group has diversified into different business sectors such as manufacturing of Tea Processing Machinery, Textiles, EPC Solutions and the green industry of Solar Power. Balancing the interests of shareholders, employees and civil society, the Group has successfully created a business empire.
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
+                                </Box>
+                            ))}
+
+
+
+
+                            <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                                <Pagination
+                                    count={Math.ceil(testimonials.length / testimonialsPerPage)}
+                                    page={page}
+                                    onChange={(e, value) => setPage(value)}
+                                    color="primary"
+                                    size="large"
+                                    shape="rounded"
+                                />
                             </Box>
 
 
@@ -258,4 +325,4 @@ const headingStyle = {
     background: "#fff"
 };
 
-export default GroupProfile;
+export default Testimonials;

@@ -118,32 +118,67 @@ const VisionMission = () => {
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
-                            {leftMenu.map((item) => (
-                                <ListItemButton
-                                    key={item}
-                                    component={Link}
-                                    to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
-                                    sx={{
-                                        borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "VISION & MISSION" ? "green" : "transparent",
-                                        color: item === "VISION & MISSION" ? "#fff" : "#000",
-                                        "&:hover": {
-                                            backgroundColor: item === "VISION & MISSION" ? "green" : "#f5f5f5",
-                                        },
-                                        fontFamily: "Open Sans"
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary={item}
-                                        primaryTypographyProps={{
-                                            fontSize: "14px",
-                                            fontWeight: 500,
+                            {leftMenu.map((item) => {
+                                const isActive = item === "VISION & MISSION";
+
+                                // Special case for PDF link
+                                if (item === "ROC COMPLIANCE ANNUAL RETURN") {
+                                    return (
+                                        <ListItemButton
+                                            key={item}
+                                            component="a"
+                                            href="https://www.vikramindia.in/pdf/roc-compliance-annual-return.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{
+                                                borderBottom: "1px solid #eee",
+                                                backgroundColor: "transparent",
+                                                color: "#000",
+                                                "&:hover": { backgroundColor: "#f5f5f5" },
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        >
+                                            <ListItemText
+                                                primary={item}
+                                                primaryTypographyProps={{
+                                                    fontSize: "14px",
+                                                    fontWeight: 500,
+                                                    fontFamily: "Open Sans"
+                                                }}
+                                            />
+                                        </ListItemButton>
+                                    );
+                                }
+
+                                // Default items
+                                return (
+                                    <ListItemButton
+                                        key={item}
+                                        component={Link}
+                                        to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
+                                        sx={{
+                                            borderBottom: "1px solid #eee",
+                                            backgroundColor: isActive ? "green" : "transparent",
+                                            color: isActive ? "#fff" : "#000",
+                                            "&:hover": {
+                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                            },
                                             fontFamily: "Open Sans"
                                         }}
-                                    />
-                                </ListItemButton>
-                            ))}
+                                    >
+                                        <ListItemText
+                                            primary={item}
+                                            primaryTypographyProps={{
+                                                fontSize: "14px",
+                                                fontWeight: 500,
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        />
+                                    </ListItemButton>
+                                );
+                            })}
                         </List>
+
                     </Grid>
 
                     {/* Right Content Section */}
@@ -185,7 +220,7 @@ const VisionMission = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#ee1d25" }}>
                                             Our Mission
                                         </Typography>
-                                        <Typography variant="p" sx={{ fontFamily: "Open Sans", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "600", lineHeight: "120%", color: "#121111ff" }}>
+                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
                                             Our aim is to combine technology, managerial skills, innovation, experience, judgment and responsibility to provide the added value which ensures customer satisfaction.
                                         </Typography>
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
@@ -195,13 +230,13 @@ const VisionMission = () => {
                                             We are committed to ensure the progressive evolution of tea processing machinery by continuously interacting with tea industry and on-going research and development in tea technology around the world. We aim to keep this in sharper focus and develop in each and every member of Vikram the highest degree of self-esteem and pride, at being fortunate to serve this industry.
                                         </Typography>
 
-                                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px",flexDirection:{xs:"column",md:"row"} }}>
+                                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
                                             <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
                                                 Vikram India Limited <br />
                                                 April 02. 2001 <br />
                                                 Kolkata, India
                                             </Typography>
-                                            <Box sx={{marginTop:{xs:"20px",sm:"0px"}}}>
+                                            <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
                                                 <img src={signature} alt="" />
                                             </Box>
                                         </Box>
@@ -216,7 +251,7 @@ const VisionMission = () => {
                                     boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
                                     borderRadius: "12px",
                                     p: 4,
-                                    backgroundImage: `url(${BgImage})`,
+
                                     backgroundSize: "contain",
                                     backgroundRepeat: "no-repeat",
                                     backgroundPosition: "right bottom",
@@ -232,21 +267,21 @@ const VisionMission = () => {
                                                 fontWeight: 600,
                                                 mb: 2,
                                                 color: "#ee1d25",
-                                                fontFamily:"Open Sans"
+                                                fontFamily: "Open Sans"
                                             }}
                                         >
-                                           Group Vision
+                                            Group Vision
                                         </Typography>
                                         <Typography
                                             sx={{
-                                                fontSize: "20px",
-                                                fontWeight: 500,
+                                                fontSize: "16px",
+                                                fontWeight: 400,
                                                 mb: 2,
                                                 color: "#121111",
-                                                fontFamily:"Open Sans"
+                                                fontFamily: "Open Sans"
                                             }}
                                         >
-                                           To Vikram Group, 'Vision is in Action' and in order to transfer the vision to reality we have to put together - innovation, technology, skill, experience, management and analysis in perfect proportion.
+                                            To Vikram Group, 'Vision is in Action' and in order to transfer the vision to reality we have to put together - innovation, technology, skill, experience, management and analysis in perfect proportion.
                                         </Typography>
 
                                         <Typography
@@ -256,10 +291,10 @@ const VisionMission = () => {
                                                 textAlign: "justify",
                                                 fontWeight: 400,
                                                 color: "#121111",
-                                                fontFamily:"Open Sans"
+                                                fontFamily: "Open Sans"
                                             }}
                                         >
-                                           Here, customer satisfaction is considered to be the stimulus as well as the working capital. Be it in tea manufacturing, textile industry, solar power or as an EPC solution provider - Vikram has acted towards an international standard of R&D and technology; has induced a high level of excellence in products and has prioritized cost, responsibility and accountability.
+                                            Here, customer satisfaction is considered to be the stimulus as well as the working capital. Be it in tea manufacturing, textile industry, solar power or as an EPC solution provider - Vikram has acted towards an international standard of R&D and technology; has induced a high level of excellence in products and has prioritized cost, responsibility and accountability.
 
 
                                         </Typography>
@@ -275,7 +310,7 @@ const VisionMission = () => {
                                             alignItems: "flex-end",
                                         }}
                                     >
-                                        <img src={group2} alt="" style={{ width: "100%", height: "auto",marginBottom:"0px" }} />
+                                        <img src={group2} alt="" style={{ width: "100%", height: "auto", marginBottom: "0px" }} />
                                     </Grid>
                                 </Grid>
                             </Box>

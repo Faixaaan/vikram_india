@@ -14,12 +14,13 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/company-ring.jpg'
-import group2 from '../../Assets/earning-image.png'
-import BgImage from '../../Assets/earning-background.jpg'
+import group1 from '../../Assets/chairman-policy.png'
+import group2 from '../../Assets/vision-boy.png'
+import BgImage from '../../Assets/vision-bg.jpg'
 import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
+import signature from '../../Assets/signature.jpg'
 
 
 
@@ -41,7 +42,7 @@ const leftMenu = [
 
 
 
-const CompanyProfile = () => {
+const QualityPolicy = () => {
 
 
     const Imgee = [
@@ -66,7 +67,7 @@ const CompanyProfile = () => {
                     </MLink>
                     <Typography color="inherit">About Us</Typography>
 
-                    <Typography color="text.primary">COMPANY PROFILE</Typography>
+                    <Typography color="text.primary">QUALITY POLICY</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -80,7 +81,7 @@ const CompanyProfile = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    COMPANY PROFILE
+                    QUALITY POLICY
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -113,12 +114,12 @@ const CompanyProfile = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            COMPANY PROFILE
+                            QUALITY POLICY
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "COMPANY PROFILE";
+                                const isActive = item === "QUALITY POLICY";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -186,12 +187,16 @@ const CompanyProfile = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans",
                                 textTransform: "uppercase"
                             }}
                         >
-                            COMPANY PROFILE
+                            QUALITY POLICY
+                        </Typography>
+
+                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans" }}>
+                            Exceeding customer expectations
                         </Typography>
 
 
@@ -199,14 +204,7 @@ const CompanyProfile = () => {
 
 
                         <Box>
-                            <Grid container spacing={2}>
-                                <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "18px", fontFamily: "Open Sans", textAlign: "justify", fontWeight: "600", lineHeight: "120%" }}>
-                                        Vikram India, an ISO 9001:2008 certified company, has been on a path of continuous growth and progress since its inception, consolidating its position through product innovation and commitment to excellence.
-                                    </Typography>
-                                </Grid>
 
-                            </Grid>
 
                             {/* profile picture box */}
 
@@ -218,83 +216,44 @@ const CompanyProfile = () => {
                                 background: "#fff"
                             }}>
                                 <Grid container spacing={2} mt={2}>
-
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "300", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginTop: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "lrft" }, alignItems: "flex-start" }} >
                                         <img src={group1} />
                                     </Grid>
+
+                                    <Grid size={{ xs: 12, md: 8 }} >
+
+                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}>
+                                            "We at VIKRAM INDIA LIMITED confirm that customer satisfaction, timely delivery and sales growth are our motto in the manufacture and sale of various types of Tea Processing Machines and Spares.
+                                        </Typography>
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            We are committed to continual improvement & shall strive for improving the effectiveness of the quality management systems as far as possible.
+                                        </Typography>
+                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
+                                            The entire system shall be reviewed periodically to judge its merit in relation to our operation."
+                                        </Typography>
+
+                                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
+                                            <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
+                                                Dated: 26.06.2002
+                                            </Typography>
+                                            <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
+                                                <img src={signature} alt="" />
+                                            </Box>
+                                        </Box>
+                                    </Grid>
+
                                 </Grid>
 
                             </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 0,
-
-                                backgroundSize: "cover",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "center",
-                                backgroundColor: "#fff", // fallback
-                                padding: "20px 20px 0px 20px"
-                            }}>
-                                <Grid container spacing={2} mt={4}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Earning the trust and confidence of people for the last four decades, Vikram India has established a strong position within the tea machinery industry.
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            From setting up its first plant in Ghusuri, Howrah near Kolkata, the Company has come a long way. With the help of its panel of experienced engineers and tea technocrats, Vikram India offers complete solution - from plucking to packaging, to its prestigious clients worldwide.
 
 
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Box>
+
 
                             {/* text */}
 
-                            <Box sx={{ mt: 4 }}>
 
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}>
-                                    Vikram India's unwavering focus on providing premium quality products to its customers is one of the key drivers for its remarkable success.
-                                </Typography>
-                                <Typography sx={{ fontSize: "20px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "18px" }}>
-                                    Using state-of-the-art technology, its dedicated R&D team helps the Company in product innovation and incorporation of efficient manufacturing techniques.
-                                </Typography>
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "20px" }}>
-                                    Vikram India also offers customized Project Consultancy Services and Training Packages to its clients. It has successfully completed prestigious turnkey projects from concept to commissioning covering civil, electrical and tea blending equipment and also provided technical know-how for various projects in India and all over the world. As its operations expand and spread, the Company through its ethical practices and social commitments continues to contribute towards the development of tea industry worldwide.
-                                </Typography>
-                            </Box>
 
-                            {/* image  */}
 
-                            <Grid container spacing={2} mt={6}>
-                                {
-                                    Imgee.map((img) => {
-                                        return (
-                                            <Grid size={{ xs: 12, sm: 4 }}>
-                                                <Link to=''>
-                                                    <img src={img.src} alt={img.alt} />
-                                                </Link>
-                                            </Grid>
-                                        )
-                                    })
-                                }
-                            </Grid>
 
 
                         </Box>
@@ -324,4 +283,4 @@ const headingStyle = {
     background: "#fff"
 };
 
-export default CompanyProfile;
+export default QualityPolicy;

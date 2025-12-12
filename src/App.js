@@ -27,13 +27,18 @@ import CompanyProfile from './Pages/AboutUs/CompanyProfile';
 import VisionMission from './Pages/AboutUs/VisionMission';
 import ManagementTeam from './Pages/AboutUs/ManagmentTeam';
 import AwardRecognition from './Pages/AboutUs/AwardRecognition';
+import Testimonials from './Pages/AboutUs/Testimonials';
+import Clientele from './Pages/AboutUs/Clientele';
+import QualityPolicy from './Pages/AboutUs/QualityPolicy';
+import Research from './Pages/AboutUs/Research';
+import Facilities from './Pages/Facilities/Facilities';
 
 
 function App() {
 
   useEffect(() => {
-          window.scrollTo(0, 0);
-      }, []);
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <BrowserRouter>
       <Navbar />
@@ -57,10 +62,15 @@ function App() {
         <Route path="/products/processing-card" element={<ProcessingCard />} />
         <Route path="/about/group-profile" element={<GroupProfile />} />
         <Route path="/about/company-profile" element={<CompanyProfile />} />
-         <Route path="/about/vision-&-mission" element={<VisionMission />} />
-          <Route path="/about/management-team" element={<ManagementTeam />} />
-          <Route path="/about/award-and-recognition" element={<AwardRecognition />} />
+        <Route path="/about/vision-&-mission" element={<VisionMission />} />
+        <Route path="/about/management-team" element={<ManagementTeam />} />
+        <Route path="/about/award-and-recognition" element={<AwardRecognition />} />
+        <Route path="/about/testimonial" element={<Testimonials />} />
+        <Route path="/about/clientele" element={<Clientele />} />
+        <Route path="/about/quality-policy" element={<QualityPolicy />} />
+        <Route path="/about/research-and-development" element={<Research />} />
         <Route path="/page-coming-soon" element={<PageComing />} />
+         <Route path="/facilities" element={<Facilities />} />
       </Routes>
       <Footer />
     </BrowserRouter>

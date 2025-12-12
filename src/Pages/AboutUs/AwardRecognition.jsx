@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -10,21 +10,29 @@ import {
     Breadcrumbs,
     Link as MLink,
     Container,
+    Pagination,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/hk-chaudhary.png'
-import group2 from '../../Assets/anil-chowdhury.png'
-import group3 from '../../Assets/ulpi-gupta.png'
-import group4 from '../../Assets/soumen-chatterjee.png'
-import group5 from '../../Assets/subir-chawdhury.png'
-import group6 from '../../Assets/somenath-saharoy.png'
-import BgImage from '../../Assets/vision-bg.jpg'
 import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
-import signature from '../../Assets/signature.jpg'
+import award1 from '../../Assets/eepcaward2016-17-thumb.png'
+import award2 from '../../Assets/eepcaward2014-15-thumb.png'
+import award3 from '../../Assets/eepcaward2013-14-thumb.png'
+import award4 from '../../Assets/thumbbb.png'
+import award5 from '../../Assets/EEPC-thumb.png'
+import award6 from '../../Assets/thumbe.png'
+import cert1 from '../../Assets/eepc-2016-17-cert.jpg'
+import cert2 from '../../Assets/eepc-2014-15-cert.jpg'
+import cert3 from '../../Assets/eepc-2013-14-cert.jpg'
+import cert4 from '../../Assets/2012-13-cert.jpg'
+import cert5 from '../../Assets/2011-12-cert.jpg'
+import cert6 from '../../Assets/2010-11-cert.jpg'
+import cert7 from '../../Assets/2008-09-cert.jpg'
+
+
 
 
 
@@ -48,12 +56,50 @@ const leftMenu = [
 
 const AwardRecognition = () => {
 
+    const [page, setPage] = useState(1);
+    const [pagee, setPagee] = useState(1);
 
-    const Imgee = [
-        { src: QMS, alt: "qms" },
-        { src: EMS, alt: "ems" },
-        { src: OHSAS, alt: "ohsas" }
-    ]
+
+    const clientLogos = [
+        { img: award1, name: "EEPCIndia Star Performer 2016-2017" },
+        { img: award2, name: "EEPCIndia Star Performer 2014-2015" },
+        { img: award3, name: "EEPCIndia Star Performer 2013-2014" },
+        { img: award4, name: "EEPCIndia Star Performer 2012-2013" },
+
+        { img: award5, name: "Award by Engineering Export Promotion Council" },
+        { img: award6, name: "EEPCIndia Star Performer 2011-2012" },
+        { img: award1, name: "EEPCIndia Star Performer 2016-2017" },
+        { img: award2, name: "EEPCIndia Star Performer 2014-2015" },
+        { img: award3, name: "EEPCIndia Star Performer 2013-2014" },
+        { img: award4, name: "EEPCIndia Star Performer 2012-2013" },
+
+        { img: award5, name: "Award by Engineering Export Promotion Council" },
+        { img: award6, name: "EEPCIndia Star Performer 2011-2012" },
+
+    ];
+
+    const certificates = [
+        { img: cert1, name: "2016-2017" },
+        { img: cert2, name: "2014-2015" },
+        { img: cert3, name: "2013-2014" },
+        { img: cert4, name: "2012-2013" },
+
+        { img: cert5, name: "2011-12" },
+        { img: cert6, name: "2010-2011" },
+        { img: cert7, name: "2008-2009" },
+        { img: cert1, name: "2016-2017" },
+        { img: cert2, name: "2014-2015" },
+        { img: cert3, name: "2013-2014" },
+        { img: cert4, name: "2012-2013" },
+
+        { img: cert5, name: "2011-12" },
+        { img: cert6, name: "2010-2011" },
+        { img: cert7, name: "2008-2009" },
+
+
+
+
+    ];
 
     useEffect(() => {
         window.scrollTo({
@@ -122,32 +168,67 @@ const AwardRecognition = () => {
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
-                            {leftMenu.map((item) => (
-                                <ListItemButton
-                                    key={item}
-                                    component={Link}
-                                    to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
-                                    sx={{
-                                        borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "AWARD AND RECOGNITION" ? "green" : "transparent",
-                                        color: item === "AWARD AND RECOGNITION" ? "#fff" : "#000",
-                                        "&:hover": {
-                                            backgroundColor: item === "AWARD AND RECOGNITION" ? "green" : "#f5f5f5",
-                                        },
-                                        fontFamily: "Open Sans"
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary={item}
-                                        primaryTypographyProps={{
-                                            fontSize: "14px",
-                                            fontWeight: 500,
+                            {leftMenu.map((item) => {
+                                const isActive = item === "AWARD AND RECOGNITION";
+
+                                // Special case for PDF link
+                                if (item === "ROC COMPLIANCE ANNUAL RETURN") {
+                                    return (
+                                        <ListItemButton
+                                            key={item}
+                                            component="a"
+                                            href="https://www.vikramindia.in/pdf/roc-compliance-annual-return.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{
+                                                borderBottom: "1px solid #eee",
+                                                backgroundColor: "transparent",
+                                                color: "#000",
+                                                "&:hover": { backgroundColor: "#f5f5f5" },
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        >
+                                            <ListItemText
+                                                primary={item}
+                                                primaryTypographyProps={{
+                                                    fontSize: "14px",
+                                                    fontWeight: 500,
+                                                    fontFamily: "Open Sans"
+                                                }}
+                                            />
+                                        </ListItemButton>
+                                    );
+                                }
+
+                                // Default items
+                                return (
+                                    <ListItemButton
+                                        key={item}
+                                        component={Link}
+                                        to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
+                                        sx={{
+                                            borderBottom: "1px solid #eee",
+                                            backgroundColor: isActive ? "green" : "transparent",
+                                            color: isActive ? "#fff" : "#000",
+                                            "&:hover": {
+                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                            },
                                             fontFamily: "Open Sans"
                                         }}
-                                    />
-                                </ListItemButton>
-                            ))}
+                                    >
+                                        <ListItemText
+                                            primary={item}
+                                            primaryTypographyProps={{
+                                                fontSize: "14px",
+                                                fontWeight: 500,
+                                                fontFamily: "Open Sans"
+                                            }}
+                                        />
+                                    </ListItemButton>
+                                );
+                            })}
                         </List>
+
                     </Grid>
 
                     {/* Right Content Section */}
@@ -156,171 +237,185 @@ const AwardRecognition = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans",
                                 textTransform: "uppercase"
                             }}
                         >
                             AWARD AND RECOGNITION
                         </Typography>
-
-                        <Typography
-                        sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase",
-                                color:"#ee1d25"
-                            }}>
-                            Shields received from EEPC, Kolkata
+                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans", borderBottom: "1px solid #000", pb: 2 }}>
+                            Creating industry benchmarks
                         </Typography>
+
+
 
 
                         {/* Introduction */}
 
 
-                        <Box>
+                        <Box sx={{ mt: 2, }}>
+
+                            <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
+                                Shields received from EEPC, Kolkata
+                            </Typography>
+                            <Typography sx={{ fontWeight: "400", fontSize: "16px", fontFamily: "Open Sans", marginTop: "10px" }}>
+                                Over the years, Vikram India has secured several prestigious awards and the Company continues on its path of success and excellence. Some of these awards are showcased below
+                            </Typography>
 
 
                             {/* profile picture box */}
 
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group1} />
-                                    </Grid>
+                            <Box sx={{ mt: 4 }}>
 
-                                    
+                                <Grid container spacing={3}>
+                                    {clientLogos
+                                        .slice((page - 1) * 8, (page - 1) * 8 + 8)
+                                        .map((item, index) => (
+                                            <Grid
+                                                item
+                                                size={{ xs: 12, sm: 4, md: 3 }}
+                                                key={index}
+                                                sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+                                            >
+                                                {/* Logo Box */}
+                                                <Box
+                                                    sx={{
+                                                        width: "100%",
+                                                        maxWidth: "150px",
+                                                        p: 2,
+                                                        borderRadius: "10px",
+                                                        background: "#fff",
+                                                        boxShadow: "0 4px 12px rgba(0,0,0,0.10)",
+                                                        textAlign: "center",
+                                                        transition: "0.3s",
+                                                        "&:hover": {
+                                                            transform: "translateY(-5px)",
+                                                            boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                                                        },
+                                                    }}
+                                                >
+                                                    <img
+                                                        src={item.img}
+                                                        alt={item.name}
+                                                        style={{
+                                                            width: "100%",
+                                                            height: "120px",
+                                                            objectFit: "contain",
+                                                        }}
+                                                    />
+                                                </Box>
 
+                                                {/* Title BELOW the box */}
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "14px",
+                                                        mt: 1.5,
+                                                        textAlign: "center",
+                                                        fontFamily: "Open Sans",
+                                                        width: "100%",
+                                                        maxWidth: "180px",
+                                                    }}
+                                                >
+                                                    {item.name}
+                                                </Typography>
+                                            </Grid>
+                                        ))}
                                 </Grid>
-
+                                <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                                    <Pagination
+                                        count={Math.ceil(clientLogos.length / 8)}
+                                        page={page}
+                                        onChange={(e, value) => setPage(value)}
+                                        color="primary"
+                                        size="large"
+                                        shape="rounded"
+                                    />
+                                </Box>
                             </Box>
 
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group2} />
+                            <Box sx={{ mt: 6 }}>
+                                <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
+                                    Awards received for Export Excellence from EEPC, Kolkata
+                                </Typography>
+
+
+
+                                {/* profile picture box */}
+
+                                <Box sx={{ mt: 4 }}>
+
+                                    <Grid container spacing={3}>
+                                        {certificates
+                                            .slice((pagee - 1) * 8, (pagee - 1) * 8 + 8)
+                                            .map((item, index) => (
+                                                <Grid
+                                                    item
+                                                    size={{ xs: 12, sm: 4, md: 3 }}
+                                                    key={index}
+                                                    sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+                                                >
+                                                    {/* Logo Box */}
+                                                    <Box
+                                                        sx={{
+                                                            width: "100%",
+                                                            maxWidth: "150px",
+                                                            p: 2,
+                                                            borderRadius: "10px",
+                                                            background: "#fff",
+                                                            boxShadow: "0 4px 12px rgba(0,0,0,0.10)",
+                                                            textAlign: "center",
+                                                            transition: "0.3s",
+                                                            "&:hover": {
+                                                                transform: "translateY(-5px)",
+                                                                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                                                            },
+                                                        }}
+                                                    >
+                                                        <img
+                                                            src={item.img}
+                                                            alt={item.name}
+                                                            style={{
+                                                                width: "100%",
+                                                                height: "120px",
+                                                                objectFit: "contain",
+                                                            }}
+                                                        />
+                                                    </Box>
+
+                                                    {/* Title BELOW the box */}
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: "14px",
+                                                            mt: 1.5,
+                                                            textAlign: "center",
+                                                            fontFamily: "Open Sans",
+                                                            width: "100%",
+                                                            maxWidth: "180px",
+                                                        }}
+                                                    >
+                                                        {item.name}
+                                                    </Typography>
+                                                </Grid>
+                                            ))}
                                     </Grid>
-
-                                    
-
-                                </Grid>
-
+                                </Box>
                             </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group3} />
-                                    </Grid>
 
-                                    
 
-                                </Grid>
 
+                            {/* PAGINATION */}
+                            <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                                <Pagination
+                                    count={Math.ceil(certificates.length / 8)}
+                                    page={pagee}
+                                    onChange={(e, value) => setPagee(value)}
+                                    color="primary"
+                                    size="large"
+                                    shape="rounded"
+                                />
                             </Box>
 
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group4} />
-                                    </Grid>
-
-                                    
-
-                                </Grid>
-
-                            </Box>
-                             <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group5} />
-                                    </Grid>
-
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
-                                            Mr. Subir Chowdhury
-                                        </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
-                                         General Manager - Sales
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                          He is a commerce graduate from Burdwan University and MBA in marketing from IGNOU, Delhi and having 25 years of experience in marketing of tea processing machinery industries. He looks after the marketing of the tea processing machinery in India.
-                                        </Typography>
-                                        
-
-                                        
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
-                             <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group6} />
-                                    </Grid>
-
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
-                                            Somenath Saharoy
-                                        </Typography>
-                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676" }}>
-                                         AGM - International Marketing
-                                            
-                                        </Typography>
-                                        
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                         He is a commerce graduate from Calcutta University and Master in International Business from Federation of Indian Export Organisation. He has 20 years of experience in Tea Processing Machinery industry. He is responsible for marketing of Tea Processing Machineries worldwide.
-                                        </Typography>
-                                        
-
-                                        
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
-                            
-                            
 
 
 

@@ -10,12 +10,18 @@ import {
     Breadcrumbs,
     Link as MLink,
     Container,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/group-profile-01.jpg'
+import group1 from '../../Assets/research.jpg'
 import group2 from '../../Assets/group-profile-02.jpg'
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
 
@@ -37,7 +43,7 @@ const leftMenu = [
 
 
 
-const GroupProfile = () => {
+const Research = () => {
 
     useEffect(() => {
         window.scrollTo({
@@ -55,7 +61,7 @@ const GroupProfile = () => {
                     </MLink>
                     <Typography color="inherit">About Us</Typography>
 
-                    <Typography color="text.primary">Group Profile</Typography>
+                    <Typography color="text.primary">Research And Development</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -69,7 +75,7 @@ const GroupProfile = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    GROUP PROFILE
+                    RESEARCH AND DEVELOPMENT
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -102,12 +108,12 @@ const GroupProfile = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            GROUP PROFILE
+                            RESEARCH AND DEVELOPMENT
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "GROUP PROFILE";
+                                const isActive = item === "RESEARCH AND DEVELOPMENT";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -175,23 +181,32 @@ const GroupProfile = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans",
                                 textTransform: "uppercase"
                             }}
                         >
-                            Group Profile
+                            RESEARCH AND DEVELOPMENT
+                        </Typography>
+                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans", borderBottom: "1px solid #000", pb: 2 }}>
+                            Combining knowledge and technology
                         </Typography>
 
 
                         {/* Introduction */}
 
 
-                        <Box>
+                        <Box sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        Growing from strength to strength over the last four decades, <strong> the Vikram Group is inspired by a strong heritage and nurtures a mission to serve the world by diversifying its business,</strong> strengthening its brand identity, exceeding customer expectations through quality and service, enriching its production and promoting itself as a responsible corporate citizen.
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}>
+                                        Vikram India takes pride in its spirit of innovation and product development processes, setting high quality standards to build the brand that consumers trust. Vikram India's R&D motto is -
+                                    </Typography>
+                                    <Typography sx={{ fontSize: "22px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px", fontWeight: "600" }}>
+                                        "Technological improvements must satisfy the related scientific objectives."
+                                    </Typography>
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}>
+                                        Using state-of-the-art technology, the Company's R&D Department is manned by highly proficient and skilled engineers, each backed up with years of hands-on experience in design, development, operation and maintenance of tea processing machinery.
                                     </Typography>
                                 </Grid>
 
@@ -201,32 +216,93 @@ const GroupProfile = () => {
 
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "left" } }} >
                                         <img src={group1} />
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
+                                    <Grid size={{ xs: 12, md: 8 }} >
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#121111ff" }}>
+                                            The Company's dedicated R&D team constantly engages in knowledge exchange programs with various tea research institutes across India and abroad for scientific inputs, to improve its products and processes.
                                         </Typography>
-                                        <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff", marginBottom: "25px" }}>
+                                            It collects and analyses the feedback received from existing customers as well as technicians who operate Vikram India's machines, to ensure delivery of premium quality products to its customers.
                                         </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid container spacing={2} mt={4}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Vikram Group is manned by a highly capable team of professionals which has supported its momentous growth.
-                                        </Typography>
-                                        <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            Through its state-of-the-art research facilities and product innovations and a network of offices and distributors across the globe, Vikram Group has diversified into different business sectors such as manufacturing of Tea Processing Machinery, Textiles, EPC Solutions and the green industry of Solar Power. Balancing the interests of shareholders, employees and civil society, the Group has successfully created a business empire.
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
+                                            Vikram India's well-organized and efficient R&D platform has helped its research team to set several significant benchmarks in the tea processing machinery segment.
                                         </Typography>
                                     </Grid>
                                 </Grid>
+
                             </Box>
+
+                            <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 8
+                            }}>
+                                <AccordionSummary sx={{
+                                    backgroundColor: "#f8f8f8",
+                                    borderBottom: "1px solid #eee",
+                                    borderRadius: "8px"
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
+                                    <Typography
+                                        sx={{
+                                            fontSize: { md: "20px", xs: "16px" },
+                                            fontWeight: 500,
+                                            fontFamily: "Open Sans"
+                                        }}
+                                    >
+                                        Latest success on R&D
+                                    </Typography>
+                                </AccordionSummary>
+
+                                <AccordionDetails>
+                                    {/* CONTENT INSIDE ACCORDION */}
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Use of optical imaging in roller matching inspection unit
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        CNC fully automatic Milling cum Grooving machine of CTC Rollers
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of Auto Milling Machine with conventional chasing attachment
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Application of intelligent monitoring and controlling systems during maceration, fermentation and drying processes
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of customized fermenting machines to suit different operational methods
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of widest [56"] CTC machines with vibration amplitude reduced to almost zero
+                                    </Typography>
+
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of specially designed Auto Tracking System for CFMs for improved and hygienic operation through zero adjustment and negligible spillage
+                                    </Typography>
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of wide (60") Vibro Screen for more output and better grading
+                                    </Typography>
+                                    <Typography sx={headingStyle}>
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
+                                        Manufacturing of Continuous Withering Machine for both Physical and Chemical Withering
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
 
 
 
@@ -258,4 +334,4 @@ const headingStyle = {
     background: "#fff"
 };
 
-export default GroupProfile;
+export default Research;

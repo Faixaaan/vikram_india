@@ -18,7 +18,7 @@ import "../../App.css";
 
 const pages = [
   { title: "HOME", link: "/" },
-  { title: "ABOUT US", link: "/about" },
+  { title: "ABOUT US", link: "/about/group-profile" },
   { title: "PRODUCTS AND SERVICES", link: "/products" },
   { title: "FACILITIES", link: "/facilities" },
   { title: "CSR", link: "/csr" },
@@ -29,11 +29,7 @@ const pages = [
 ];
 
 // ABOUT US DROPDOWN
-const aboutDropdown = [
-  { name: "Group Profile", link: "/about/group-profile" },
-  { name: "Company Profile", link: "/about/company-profile" },
-  { name: "Vision & Mission", link: "/about/vision-mission" },
-];
+
 
 // PRODUCT DROPDOWN
 const productDropdown = [
@@ -61,9 +57,7 @@ const Navbar = () => {
     if (productDropdown.some(item => item.link === location.pathname)) {
       return route === "/products" || route === "/products/";
     }
-    if (aboutDropdown.some(item => item.link === location.pathname)) {
-      return route === "/about" || route === "/about/";
-    }
+    
     if (location.pathname === route) return true;
     if (route !== "/" && location.pathname.startsWith(route + "/")) return true;
     return false;
@@ -99,61 +93,7 @@ const Navbar = () => {
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
               {pages.map((item) => {
                 // ABOUT US DROPDOWN
-                if (item.title === "ABOUT US") {
-                  return (
-                    <Box
-                      key={item.title}
-                      sx={{ position: "relative" }}
-                      onMouseEnter={() => setOpenAboutDesktop(true)}
-                      onMouseLeave={() => setOpenAboutDesktop(false)}
-                    >
-                      <Button
-                        sx={{
-                          fontSize: "16px",
-                          color: isActiveRoute(item.link) ? "#d32f2f" : "#000000",
-                          fontWeight: "600",
-                          "&:hover": { color: "#d32f2f" },
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        {item.title}
-                      </Button>
-
-                      {openAboutDesktop && (
-                        <Box
-                          sx={{
-                            position: "absolute",
-                            top: "42px",
-                            left: 0,
-                            background: "#fff",
-                            boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
-                            borderTop: "3px solid #d32f2f",
-                            padding: "10px 0",
-                            width: "180px",
-                            zIndex: 999,
-                          }}
-                        >
-                          {aboutDropdown.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              to={sub.link}
-                              style={{
-                                display: "block",
-                                padding: "10px 10px",
-                                textDecoration: "none",
-                                color: "#000",
-                                fontSize: "16px",
-                                fontFamily: "Open Sans",
-                              }}
-                            >
-                              {sub.name}
-                            </Link>
-                          ))}
-                        </Box>
-                      )}
-                    </Box>
-                  );
-                }
+                
 
                 // PRODUCT DROPDOWN
                 if (item.title === "PRODUCTS AND SERVICES") {
@@ -266,26 +206,7 @@ const Navbar = () => {
                       />
                     </ListItem>
 
-                    {openAboutMobile && (
-                      <Box sx={{ paddingLeft: 3 }}>
-                        {aboutDropdown.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            to={sub.link}
-                            onClick={handleDrawerToggle}
-                            style={{
-                              display: "block",
-                              padding: "8px 25px",
-                              textDecoration: "none",
-                              color: "#000",
-                              fontSize: "14px",
-                            }}
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </Box>
-                    )}
+                    
                   </React.Fragment>
                 );
               }
