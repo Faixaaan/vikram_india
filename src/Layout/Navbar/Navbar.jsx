@@ -23,9 +23,9 @@ const pages = [
   { title: "FACILITIES", link: "/facilities" },
   { title: "CSR", link: "/csr" },
   { title: "MEDIA", link: "/media" },
-  { title: "CAREERS", link: "/careers" },
+  { title: "CAREERS", link: "/careers/working-with-us" },
   { title: "Blog", link: "/blogs" },
-  { title: "CONTACT US", link: "/contact" },
+  { title: "CONTACT US", link: "/contact/addresses" },
 ];
 
 // ABOUT US DROPDOWN
