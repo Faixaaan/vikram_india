@@ -22,7 +22,7 @@ const pages = [
   { title: "PRODUCTS AND SERVICES", link: "/products" },
   { title: "FACILITIES", link: "/facilities" },
   { title: "CSR", link: "/csr" },
-  { title: "MEDIA", link: "/media" },
+  { title: "MEDIA", link: "/media/news" },
   { title: "CAREERS", link: "/careers/working-with-us" },
   { title: "Blog", link: "/blogs" },
   { title: "CONTACT US", link: "/contact/addresses" },

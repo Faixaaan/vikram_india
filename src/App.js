@@ -35,6 +35,13 @@ import Adresses from "./Pages/ContactUs/Addresses";
 import QueryForm from "./Pages/ContactUs/QueryForm";
 import WorkingCareer from "./Pages/Carreers/Working.career";
 import ApplyOnline from "./Pages/Carreers/ApplyOnline";
+import Blog from "./Pages/Blog/Blog";
+import BlogDetail from "./Pages/Blog/BlogDetails";
+import News from "./Pages/Media/News";
+import Gallery from "./Pages/Media/Gallery";
+import Download from "./Pages/Media/Donwload";
+import CSR from "./Pages/Csr/Csr";
+
 
 function App() {
   useEffect(() => {
@@ -91,6 +98,12 @@ function App() {
         <Route path="/contact/query-form" element={<QueryForm />} />
         <Route path="/careers/working-with-us" element={<WorkingCareer />} />
         <Route path="/careers/apply-now" element={<ApplyOnline />} />
+        <Route path="/blogs" element={<Blog />} />
+         <Route path="/blogs/blog-detail" element={<BlogDetail />} />
+         <Route path="/media/news" element={<News />} />
+         <Route path="/media/photo-gallery" element={<Gallery />} />
+           <Route path="/media/download" element={<Download />} />
+            <Route path="/csr" element={<CSR />} />
       </Routes>
       <Footer />
     </BrowserRouter>

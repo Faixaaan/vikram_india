@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)https://www.vikramindia.in/media/photo_gallery-03.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Machines and Manufacturing Facilities - Photo Gallery | Vikram India</title>
+<meta name="description" content="Vikram India is leading manufacturer &amp; exporter of tea processing machinery for CTC, Orthodox and green tea across India and worldwide. Have a look at the photo gallery of Vikram tea machinery &amp; its manufacturing facilities.">
+<meta name="keywords" content="Vikram tea machinery, manufacturing facilities, Vikram India, tea processing machinery, CTC tea processing machinery, orthodox tea machinery, green tea processing machinery">
+<link href="./machine-big-05_files/common-style.css" rel="stylesheet" type="text/css">
+<link href="./machine-big-05_files/content-style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./machine-big-05_files/js"></script><script async="" src="./machine-big-05_files/analytics.js.download"></script><script type="text/javascript" src="./machine-big-05_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./machine-big-05_files/ga.js.download"></script>
+
+<!-- start tab section -->
+<script type="text/javascript">
+    $(document).ready(function(){
+	$('.tabs a:first').addClass('tabActive');
+	$('.tabcontent').hide();
+	$('.tabcontent:first').show();
+	
+	$('.tabs a').click(function(){
+		$('.tabs a').removeClass('tabActive');
+		$(this).addClass('tabActive');
+		
+		var aa = $(this).attr('href');
+		$('.tabcontent').hide();
+		$(aa).fadeIn();
+		return false
+		})	
+		
+		
+    });
+  </script>
+<!-- end tab section -->
+
+
+</head>
+<body>
+<script type="text/javascript" src="./machine-big-05_files/pagehighlight.js.download"></script>
+<script type="text/javascript">
+$(function(){
+	$('#cuntry').click( 
+function (ee) {
+
+$('.relatedSiteList').slideToggle(200);
+$(this).find('span').toggle();
+ee.stopPropagation();
+
+}); 
+	
+$(document).click(function(){
+$('.relatedSiteList:visible').slideUp();
+$('#cuntry span').hide();
+});
+	});
+</script>
+
+<script type="text/javascript">
+$(function(){
+    
+    $('.dropmenu').hide();
+    $('.topNav > li').hover(
+    function(){
+    if($(this).find('.dropmenu').length>0){
+        $(this).find('.dropmenu').stop(true,true).slideDown(200);
+        $(this).prepend("<span class='dparrow'></span>");
+         }
+        },
+    function(){
+        $(this).find('.dropmenu').stop(true,true).hide();
+        $('.dparrow').remove();
+        }
+    )
+    
+   
+    
+    })
+
+</script>
+
+<link type="text/css" href="./machine-big-05_files/colorbox.css" rel="stylesheet">
+<script type="text/javascript" src="./machine-big-05_files/jquery.colorbox-min.js.download"></script>
+<script type="text/javascript">
+			$(document).ready(function(){
+				$("a[rel='flink']").colorbox();
+				$(".example").colorbox({iframe:true, innerWidth:820, innerHeight:780});
+				$(".example").colorbox();
+				$(".example2").colorbox({iframe:true, innerWidth:780, innerHeight:520});
+			});
+			
+</script> 
+<!--End Color box-->
+<div class="topPanel">
+  <div class="pageCenter">
+    <ul class="topNav"> 
+      <li><a href="https://www.vikramindia.in/">Home</a></li>
+      <li><a href="javascript:void(0)">about us</a>
+     
+      <div class="dropmenu aboutmenu" style="width: 569px; left: -1px; display: none;">
+            <ul class="dmList">
+                        <li><a href="https://www.vikramindia.in/about-us/group-profile.aspx">Group Profile</a></li>
+                        <li><a href="https://www.vikramindia.in/about-us/company-profile.aspx">Company Profile</a></li>
+                        <li><a href="https://www.vikramindia.in/about-us/vission-mission.aspx">Vision &amp; Mission</a></li>
+                        <li><a href="https://www.vikramindia.in/about-us/management-team.aspx">Management Team</a></li>
+                        <li><a href="https://www.vikramindia.in/pdf/roc-compliance-annual-return.pdf" target="_blank">ROC Compliance - Annual Return</a></li>
+                        <!--<li><a href="#">Milestones</a></li>-->
+                        </ul>
+            
+            <ul class="dmList">
+            <li><a href="https://www.vikramindia.in/about-us/award-and-recognition.aspx">Awards &amp; Recognitions</a></li>
+            <li><a href="https://www.vikramindia.in/about-us/research-and-development.aspx">Research &amp; Development</a></li>
+            <li><a href="https://www.vikramindia.in/about-us/quality-policy.aspx">Quality policy</a></li>
+            <li><a href="https://www.vikramindia.in/about-us/clientel.aspx">Clientele</a></li>
+            <li><a href="https://www.vikramindia.in/about-us/testimonial.aspx">Testimonials</a></li>
+            </ul>  
+             <div class="dropmenuImageHolder"><img src="./machine-big-05_files/dpImg1.jpg" style="padding-bottom:14px;" alt="Tea Garden" title="Tea Garden"> <img src="./machine-big-05_files/dpImg2.jpg" alt="Tea Machinery" title="Tea Machinery"> </div>        
+          </div>
+      </li>
+  	  <li><a href="https://www.vikramindia.in/manufacturing-facilities/manufacturing-facilities.aspx"> manufacturing facilities</a></li>
+      <li><a href="javascript:void(0)">product &amp; services</a>
+     
+      <div class="dropmenu productmenu" style="width: 920px; left: -358px; display: none;">
+      		<p class="teamach">Tea Processing Machinery</p>
+            <ul class="dmList">
+            <p>CTC Tea Processing Machinery</p>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/withering.aspx">Withering</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/rolling.aspx">Rolling</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/fermenting.aspx">Fermenting</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/drying.aspx">Drying</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/sorting.aspx">Sorting</a></li>
+            </ul>
+            <ul class="dmList" style=" top:33px;">
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/packing.aspx">Packing</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/workshop-equipment.aspx">Workshop Equipment</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/quality-control-equipment.aspx">Quality Control Equipment</a></li>
+            <li><a href="https://www.vikramindia.in/product/ctc-tea/utilities.aspx">Utilities</a></li>
+            </ul>
+            
+            <ul class="dmList">
+            <p>Orthodox Tea Processing Machinery</p>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-withering.aspx">Withering</a></li>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-rolling.aspx">Rolling</a></li>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-fermenting.aspx">Fermenting</a></li>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-drying.aspx">Drying</a></li>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-sorting.aspx">Sorting</a></li>
+            <li><a href="https://www.vikramindia.in/product/orthodox/orthodox-packing.aspx">Packing</a></li>
+            </ul> 
+            
+            <ul class="dmList">
+            <p>Green Tea Processing Machinery</p>
+            <li><a href="https://www.vikramindia.in/product/green-tea/green-tea-steaming.aspx">Steaming</a></li>
+            <li><a href="https://www.vikramindia.in/product/green-tea/green-tea-rolling.aspx">Rolling</a></li>
+            <li><a href="https://www.vikramindia.in/product/green-tea/green-tea-drying.aspx">Drying</a></li>
+            <li><a href="https://www.vikramindia.in/product/green-tea/green-tea-sorting.aspx">Sorting</a></li>
+            <li><a href="https://www.vikramindia.in/product/green-tea/green-tea-packing.aspx">Packing</a></li>
+            </ul>
+            
+            <ul class="dmList" style="margin-right:0px;">
+            <p>Garden and Plantation Equipment</p>
+            <li><a href="https://www.vikramindia.in/product/garden-plantation-equipments/garden-plantation-equipments.aspx#harvester">Harvester</a></li>
+            <li><a href="https://www.vikramindia.in/product/garden-plantation-equipments/garden-plantation-equipments.aspx#foreign">Foreign Object Remover</a></li>
+            <li><a href="https://www.vikramindia.in/product/garden-plantation-equipments/garden-plantation-equipments.aspx#plucking">Plucking Machine</a></li>
+            <li><a href="https://www.vikramindia.in/product/garden-plantation-equipments/garden-plantation-equipments.aspx#ingredients">Tea Ingredients Analyzer</a></li>
+            </ul>
+            
+            <ul class="dmList" style="margin-right:0px;">
+            <p class="none"><a href="https://www.vikramindia.in/product/services.aspx">Services</a></p>
+            </ul>  
+            <div style="clear:both"></div>
+            <div> <p class="teamach">Module Mounting Structure</p></div>  
+            <ul class="dmList">
+            <li><a href="https://www.vikramindia.in/product/module-mounting-structure/introduction.aspx">Introduction</a></li>
+            </ul>              
+            <ul class="dmList" style=" top:0px;">
+            <li><a href="https://www.vikramindia.in/product/module-mounting-structure/manufacturing-quality.aspx">Manufacturing and Quality</a></li>
+            </ul>
+            <ul class="dmList" style=" top:0px;">
+            <li><a href="https://www.vikramindia.in/product/module-mounting-structure/manufacturing-is-products.aspx">Manufacturing with high tensile IS products</a></li>
+            </ul>   
+            <ul class="dmList" style=" top:0px;">
+            <li><a href="https://www.vikramindia.in/product/module-mounting-structure/product.aspx">Product</a></li>
+            </ul>
+            <ul class="dmList" style=" top:0px;">
+            <li><a href="https://www.vikramindia.in/product/module-mounting-structure/solar-pumps.aspx">Solar Pumps (AC Pumps)</a></li>
+            </ul>  
+             <!--<div class="dropmenuImageHolder"><img src="/images/menu/dpImg1.jpg" style="padding-bottom:14px;" /> <img src="/images/menu/dpImg2.jpg" /></div>  -->       
+          </div>
+          
+      </li>
+      <li><a href="https://www.vikramindia.in/social-commitment/social-commitment.aspx">social commitment</a></li>
+      <li><a href="javascript:void(0)">media</a>
+     
+      <div class="dropmenu" style="width: 380px; left: -353px; display: none;">
+            <ul class="dmList">
+            <li><a href="https://www.vikramindia.in/media/news.aspx">News</a></li>
+            <li><a href="https://www.vikramindia.in/media/photo_gallery.aspx">Photo Gallery</a></li>
+            <li><a href="https://www.vikramindia.in/media/download.aspx">Download</a></li>
+            </ul>
+             <div class="dropmenuImageHolder"><img src="./machine-big-05_files/dpImg3.jpg" alt="Tea Processing Machinery" title="Tea Processing Machinery"></div>        
+          </div>
+      </li> 
+      <li><a href="javascript:void(0)">careers</a>
+      
+      <div class="dropmenu" style="width: 380px; left: -340px; display: none;">
+            <ul class="dmList">
+            <li><a href="https://www.vikramindia.in/careers/working-with-us.aspx">Working with Us</a></li>
+            <li><a href="https://www.vikramindia.in/careers/apply-online.aspx">Apply Online</a></li>
+            </ul>
+             <div class="dropmenuImageHolder"><img src="./machine-big-05_files/dpImg4.jpg" alt="CTC machine" title="CTC machine"> </div>        
+          </div>
+      </li>
+	  <li><a href="http://blog.vikramindia.in/">Blog</a></li>
+      <li><a href="javascript:void(0)">contact us</a>
+      
+      <div class="dropmenu" style="width: 380px; left: -316px; display: none;">
+            <ul class="dmList">
+            <li><a href="https://www.vikramindia.in/contact-us/address.aspx">Addresses</a></li>
+            <li><a href="https://www.vikramindia.in/contact-us/query-form.aspx">Query form</a></li>
+            </ul>
+             <div class="dropmenuImageHolder"><img src="./machine-big-05_files/dpImg5.jpg" alt="CTC Rollers Machine" title="CTC Rollers Machine"> </div>        
+          </div>
+      </li>
+    </ul>
+  </div><!-- topNav end-->
+  
+  
+  
+  
+  
+  
+  <div class="pageCenter"><h1 class="logo"><a href="https://www.vikramindia.in/"><img src="./machine-big-05_files/logo.gif" alt="Vikram India Limited" title="Vikram India Limited"></a></h1><!-- logo-->
+    
+    <div class="relatedSite" id="cuntry"><a href="https://www.vikramindia.in/media/photo_gallery-03.aspx#">Related Websites</a>          
+          <span style="display: none;"></span>
+          <ul class="relatedSiteList" style="width: 167px; display: none;">
+          <li><a href="http://www.vikramsolar.com/" target="_blank">Vikram Solar</a></li>
+          <li><a href="http://www.brcm.edu.in/" target="_blank">BRCM</a></li>
+          <li><a href="http://www.brcmschool.edu.in/" target="_blank">BRCM School</a></li>
+          <li><a href="http://www.brcmcet.edu.in/" target="_blank">BRCM CET</a></li>
+         </ul>
+          
+        </div><!-- related site -->
+        
+    <div class="clear"></div>
+  </div>
+</div><!-- top panel end-->
+
+<div class="contentWraper">
+  <div class="pageCenter">
+  
+    <div class="contLeftCollumn"><h2 class="sectionName">Media</h2>
+    
+      <ul class="leftNav">
+      <li><a href="https://www.vikramindia.in/media/news.aspx">News</a></li>
+      <li><a href="https://www.vikramindia.in/media/photo_gallery.aspx">Photo Gallery</a></li>
+      <li><a href="https://www.vikramindia.in/media/download.aspx">Download</a></li>
+      </ul>
+
+    </div><!-- contLeftCollumn end -->
+    
+    
+    <div class="contRightCollumn">
+      <div class="bredcrumb"><a href="https://www.vikramindia.in/">Home</a><span>Media</span><b>Photo Gallery</b></div><!-- bredcrumb end -->
+      <h2 class="pageName">Photo Gallery<em style="text-transform:none;">Our heritage captured in photographs</em></h2><!-- page name -->
+      
+      <h3 style="background:none;">Machines and manufacturing facilities &nbsp;&nbsp;<img src="./machine-big-05_files/down-arrow.jpg" border="0" alt="" align="absmiddle"></h3>
+      	
+      <ul style="width:694px;overflow:hidden;">
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-01.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-01.jpg" border="0" alt="Vikram Tea Machinery" title="Vikram Tea Machinery"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-02.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-02.jpg" border="0" alt="CTC Roller" title="CTC Roller"></a>
+            </li>
+            <li class="photogallery-thumb-subsection" style="margin-right:0px;">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-03.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-03.jpg" border="0" alt="Tea Factory Machinery" title="Tea Factory Machinery"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-04.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-04.jpg" border="0" alt="Tea Fermentation machine" title="Tea Fermentation machine"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="./machine-big-05_files/img-big-05.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-05.jpg" border="0" alt="Tea Processing Machinery" title="Tea Processing Machinery"></a>
+            </li>
+            <li class="photogallery-thumb-subsection" style="margin-right:0px;">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-06.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-06.jpg" border="0" alt="Emerald CTC Machine" title="Emerald CTC Machine"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-07.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-07.jpg" border="0" alt="Accura CTC machine" title="Accura CTC machine"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-08.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-08.jpg" border="0" alt="Tea Withering Machine" title="Tea Withering Machine"></a>
+            </li>
+            <li class="photogallery-thumb-subsection" style="margin-right:0px;">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-09.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-09.jpg" border="0" alt="Belt CFM" title="Belt CFM"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-10.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-10.jpg" border="0" alt="Continuous Fermenting Machine (CFM)" title="Continuous Fermenting Machine (CFM)"></a>
+            </li>
+            <li class="photogallery-thumb-subsection">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-11.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-11.jpg" border="0" alt="Vibro Screen Sorters" title="Vibro Screen Sorters"></a>
+            </li>
+            <li class="photogallery-thumb-subsection" style="margin-right:0px;">
+            <a href="https://www.vikramindia.in/media/images/album-03/img-big-12.jpg" rel="flink" title="" class="cboxElement"><span></span>
+            <img src="./machine-big-05_files/img-thumb-12.jpg" border="0" alt="CTC tea Withering" title="CTC tea Withering"></a>
+            </li>
+      </ul>
+      
+     
+    </div><!-- contRightCollumn end -->
+    <div class="clear"></div>
+  </div><!-- pageCenter end -->
+</div><!-- contentWraper end-->
+
+
+<div class="pageCenter footerPanel">
+  <div class="left">
+    <div class="footerLink"><a href="https://www.vikramindia.in/sitemap.aspx">sitemap</a> / <a href="https://www.vikramindia.in/disclaimer.aspx" class="example2 cboxElement">Disclaimer</a> / <a href="https://www.vikramindia.in/privacy-policy.aspx" class="example2 cboxElement">Privacy policy</a></div>
+    All rights reserved. © 2015 Vikram India Ltd.
+  </div>
+
+
+</div><!-- footerPanel end -->
+
+
+
+<div id="cboxOverlay" style="opacity: 0.9; cursor: pointer; display: block;"></div><div id="colorbox" class="" style="padding-bottom: 0px; padding-right: 0px; top: 38px; left: 169px; position: absolute; width: 642px; height: 482px; opacity: 1; cursor: auto; display: block;"><div id="cboxWrapper" style="height: 482px; width: 642px;"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left; width: 642px;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left; height: 482px;"></div><div id="cboxContent" style="float: left; width: 642px; height: 482px;"><div id="cboxLoadedContent" style="width: 640px; overflow: auto; height: 480px;"><img class="cboxPhoto" src="https://www.vikramindia.in/media/images/album-03/img-big-06.jpg" style="cursor: pointer; float: none;"></div><div id="cboxLoadingOverlay" style="float: left; display: none;"></div><div id="cboxLoadingGraphic" style="float: left; display: none;"></div><div id="cboxTitle" style="float: left; display: block;"></div><div id="cboxCurrent" style="float: left; display: block;">image 6 of 12</div><div id="cboxNext" style="float: left; display: block;">next</div><div id="cboxPrevious" style="float: left; display: block;">previous</div><div id="cboxSlideshow" style="float: left; display: none;"></div><div id="cboxClose" style="float: left;">close</div></div><div id="cboxMiddleRight" style="float: left; height: 482px;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left; width: 642px;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div></body></html>

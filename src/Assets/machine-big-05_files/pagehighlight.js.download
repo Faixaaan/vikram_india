@@ -1,0 +1,195 @@
+// JavaScript Document
+
+$(function(){
+	
+/*
+$('.leftNav li > ul').hide();
+
+$('.leftNav > li').hover(
+function(){$(this).find('ul').stop(true, true).slideDown()},
+function(){$(this).find("ul:not('.show')").stop(true, true).slideUp()}
+
+)
+*/
+	
+	
+ var pageName = (function() {
+		  var a = window.location.href,
+		  b = a.lastIndexOf("/");
+		  return a.substr(b + 1);
+	  } ());
+//
+
+
+var getLeftLinks = null;
+var y=parseInt($('.leftNav > li').length+5);
+
+for(var z=1; z<y+1; z+=1){
+	
+	getLeftLinks = []; 
+$('.leftNav > li:nth-child('+z+')').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            getLeftLinks.push($c);
+        });		
+        for (i = 0; i < getLeftLinks.length; i++) {
+            if (pageName == getLeftLinks[i]) {
+				$(".leftNav > li:nth-child("+z+") a:eq("+i+")").addClass('leftnavA');
+				$(".leftNav li:nth-child("+z+") strong").addClass('leftnavA');
+				$(".leftNav > li:nth-child("+z+") ul").show();
+				$(".leftNav > li ul").removeClass('show');
+				$(".leftNav > li:nth-child("+z+") ul").addClass('show');
+            }
+        }
+	getLeftLinks = null;
+	}
+	
+	
+	
+	var getLeftLinks = null;
+var y=$('.leftLink > li').length;
+for(var z=1; z<y+1; z+=1){
+	
+	getLeftLinks = []; 
+$('.leftLink > li:nth-child('+z+')').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            getLeftLinks.push($c);
+        });		
+        for (i = 0; i < getLeftLinks.length; i++) {
+            if (pageName == getLeftLinks[i]) {
+				$(".leftLink > li:nth-child("+z+") a:eq("+i+")").addClass('leftnavActive');
+				$(".leftLink li:nth-child("+z+") strong").addClass('leftnavActive2');
+				$(".leftLink > li:nth-child("+z+") ul").show();
+				$(".leftLink > li ul").removeClass('show');
+				$(".leftLink > li:nth-child("+z+") ul").addClass('show');
+
+            }
+        }
+	getLeftLinks = null;
+	}
+	
+//top menu highlight start	
+	
+/*--------------For About us--------------*/	
+
+var aboutus = []; 
+$('.nav > li:nth-child(1)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            aboutus.push($c);
+        });
+        for (i = 0; i < aboutus.length; i++) {
+            if (pageName == aboutus[i]) {
+				$(".nav > li:nth-child(1)").addClass('active');
+            }
+        }
+		
+
+/*--------------For Manufacturing Facilities--------------*/
+
+var product = []; 
+$('.nav > li:nth-child(2)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            product.push($c);
+        });
+        for (i = 0; i < product.length; i++) {
+            if (pageName == product[i]) {
+				$(".nav > li:nth-child(2)").addClass('active');
+            }
+        }
+		
+		
+		
+/*--------------For Product & Services--------------*/
+
+var facilities = []; 
+$('.nav > li:nth-child(3)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            facilities.push($c);
+        });
+        for (i = 0; i < facilities.length; i++) {
+            if (pageName == facilities[i]) {
+				$(".nav > li:nth-child(3)").addClass('active');
+            }
+        }
+		
+		
+		
+		
+/*--------------For Social Commitment--------------*/
+
+var quality = []; 
+$('.nav > li:nth-child(4)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            quality.push($c);
+        });
+        for (i = 0; i < quality.length; i++) {
+            if (pageName == quality[i]) {
+				$(".nav > li:nth-child(4)").addClass('active');
+            }
+        }
+		
+		
+		
+/*--------------For Media--------------*/
+
+var media = []; 
+$('.nav > li:nth-child(5)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            media.push($c);
+        });
+        for (i = 0; i < media.length; i++) {
+            if (pageName == media[i]) {
+				$(".nav > li:nth-child(5)").addClass('active');
+            }
+        }
+		
+		
+		
+/*--------------For Careers--------------*/
+
+var csr = []; 
+$('.nav > li:nth-child(6)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            csr.push($c);
+        });
+        for (i = 0; i < csr.length; i++) {
+            if (pageName == csr[i]) {
+				$(".nav > li:nth-child(6)").addClass('active');
+            }
+        }
+		
+		
+/*--------------For Contact Us--------------*/
+
+var contact = []; 
+$('.nav > li:nth-child(7)').find("a").each(function() {
+			var $a = $(this).attr('href');
+	      var $b = $a.lastIndexOf("/");
+		  var $c = $a.substr($b + 1);	
+            contact.push($c);
+        });
+        for (i = 0; i < contact.length; i++) {
+            if (pageName == contact[i]) {
+				$(".nav > li:nth-child(7)").addClass('active');
+            }
+        }
+		
+		
+
+
+	})
