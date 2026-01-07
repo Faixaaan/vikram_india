@@ -66,6 +66,8 @@ import glimpse13 from '../../Assets/glimpse-big-13.jpg'
 import glimpse14 from '../../Assets/glimpse-big-14.jpg'
 import receiving1 from '../../Assets/receiving-big-01.jpg'
 import exportt from '../../Assets/export-big-01.jpg'
+import { endpoints } from "../../Api/EndPoints/endpoints";
+import { axiosInstance } from "../../Api/Axios/axios";
 
 
 const leftMenu = ["NEWS", "PHOTO GALLERY", "DOWNLOAD"];
@@ -102,7 +104,20 @@ const Gallery = () => {
         },
     ];
 
+    const [mediaData,setMediaData] = useState([])
+    
+        const fetchMediaData = async ()=>{
+            try{
+              const res = await axiosInstance.get(endpoints.Media.galleryCategory)
+              setMediaData(res?.data?.data)
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+
     useEffect(() => {
+        fetchMediaData()
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
 
@@ -220,10 +235,10 @@ const Gallery = () => {
                             </Typography>
 
                             <Grid container spacing={3}>
-                                {clientLogos.map((item, index) => (
+                                {mediaData.map((item, index) => (
                                     <Grid item xs={12} sm={4} md={4} key={index}>
                                         <Box
-                                            onClick={() => handleOpen(item.images)}
+                                            onClick={() => handleOpen(item.thumbnail)}
                                             sx={{
                                                 maxWidth: "250px",
                                                 mx: "auto",
@@ -241,7 +256,7 @@ const Gallery = () => {
                                             }}
                                         >
                                             <img
-                                                src={item.images[0]}
+                                                src={item.thumbnail}
                                                 alt={item.name}
                                                 style={{
                                                     width: "250px",
@@ -260,7 +275,7 @@ const Gallery = () => {
                                                 maxWidth:"200px"
                                             }}
                                         >
-                                            {item.name}
+                                            {item.category}
                                         </Typography>
                                         </Box>
                                     </Grid>

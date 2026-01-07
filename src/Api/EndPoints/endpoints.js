@@ -21,6 +21,7 @@ export const endpoints ={
       getAwardRecognitionCmsData:"/about-award-image-category"
     },
     Media:{
-        getMediaDownload:"/media-downloads"
+        getMediaDownload:"/media-downloads",
+        galleryCategory:"/media-gallery-categories"
     }
 }
