@@ -65,18 +65,18 @@ function App() {
           element={<Quality />}
         />
         <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
-        <Route path="/products/ctc/introduction" element={<Introduction />} />
+        <Route path="/products/introduction" element={<Introduction />} />
         <Route
-          path="/products/ctc/manufacturing-and-quality"
+          path="/products/manufacturing-and-quality"
           element={<Manufacturing />}
         />
         <Route
-          path="/products/ctc/manufacturing-with-high-tensile-is-project"
+          path="/products/manufacturing-with-high-tensile-is-project"
           element={<HighTensile />}
         />
-        <Route path="/products/ctc/products" element={<Product />} />
+        <Route path="/products/products" element={<Product />} />
         <Route
-          path="/products/ctc/solar-pumps-(ac-pumps)"
+          path="/products/solar-pumps-(ac-pumps)"
           element={<SolarPumps />}
         />
         <Route path="/products/processing-card" element={<ProcessingCard />} />

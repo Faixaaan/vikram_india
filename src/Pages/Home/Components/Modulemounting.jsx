@@ -1,67 +1,39 @@
-import React, { useState } from 'react';
-import { Box, Typography, Grid, Button } from '@mui/material';
-import ModuleImage from '../../../Assets/Module_img.jpg';
-import TeaProcessing from '../../../Assets/tea-processing.jpg';
-import Galvanization from '../../../Assets/galvanization.jpg';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, Grid } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import moduleBackground from '../../../Assets/moduleBackground.jpg'
 import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../../../Api/Axios/axios';
+import { endpoints } from '../../../Api/EndPoints/endpoints';
 
 const ModuleMounting = () => {
-    // All slides have SAME content for now (easy to change later)
-    const slides = [
-        {
-            id: 1,
-            title: "Module Mounting Structure",
-            image: ModuleImage,
-            features: [
-                "Single and Double pole structure",
-                "Double pole structure with struts",
-                "Seasonal structure with unique turn buckle mechanism tilting",
-                "Solar parking structure",
-                "Pre-galvanized structure for solar projects",
-                "Double pole seasonal tilting and static structure with struts"
-            ]
-        },
-        {
-            id: 2,
-            title: "Tea Processing Machineries",
-            image: TeaProcessing,
-            features: [
-                "Withering troughs for controlled leaf moisture reduction",
-                "CTC and orthodox rolling machines for precise leaf shaping",
-                "Fluid bed and conventional dryers for uniform tea drying",
-                "Sorting, grading & cleaning systems for quality refinement",
-                "Tea fermentation units ensuring optimal oxidation",
-                "Flavor-locking packaging and sealing equipment"
-            ]
-        },
-        {
-            id: 3,
-            title: "Hot Dip Galvanization",
-            image: Galvanization,
-            features: [
-                "Corrosion-resistant coating for long-lasting metal protection",
-                "High-temperature zinc immersion ensuring complete surface coverage",
-                "Superior durability against harsh weather and chemical exposure",
-                "Uniform metallurgical bonding for enhanced structural strength",
-                "Ideal for industrial, construction, and outdoor applications",
-                "Low-maintenance, cost-effective protection with extended service life"
-            ]
-        }
-    ];
 
     const [index, setIndex] = useState(0);
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Banner.getBannerCarsousel);
+            setData(res?.data?.data || []);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const nextSlide = () => {
-        if (index < slides.length - 1) setIndex(index + 1);
+        if (index < data.length - 1) setIndex(index + 1);
     };
 
     const prevSlide = () => {
         if (index > 0) setIndex(index - 1);
     };
-    const navigatee = useNavigate()
+
+    const navigatee = useNavigate();
 
     const handleComingsoon = () => {
         navigatee('/page-coming-soon');
@@ -74,17 +46,17 @@ const ModuleMounting = () => {
             <Box
                 sx={{
                     display: "flex",
-                    width: `${slides.length * 100}%`,
-                    transform: `translateX(-${index * (100 / slides.length)}%)`,
+                    width: `${data.length * 100}%`,
+                    transform: `translateX(-${index * (100 / data.length)}%)`,
                     transition: "all 0.6s ease"
                 }}
             >
-                {slides.map((slide, i) => (
+                {data.map((slide) => (
                     <Grid
                         key={slide.id}
                         container
                         sx={{
-                            width: `${100 / slides.length}%`,
+                            width: `${100 / data.length}%`,
                             flexShrink: 0
                         }}
                     >
@@ -105,7 +77,7 @@ const ModuleMounting = () => {
                                     left: 0,
                                     width: "100%",
                                     height: "100%",
-                                    backgroundImage: `url(${moduleBackground})`, // OR use another image
+                                    backgroundImage: `url(${moduleBackground})`,
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
                                     zIndex: 1,
@@ -152,58 +124,30 @@ const ModuleMounting = () => {
                                     {slide.title}
                                 </Typography>
 
+                                {/* DESCRIPTION AS STRING ONLY */}
                                 <ul>
-                                    {slide.features.map((feature, idx) => (
-                                        <li key={idx} style={liStyle}>
-                                            {feature}
-                                        </li>
-                                    ))}
+                                    <li style={liStyle}>
+                                        {slide.description
+                                            ?.replace(/^\[|\]$/g, '')
+                                            .replace(/"/g, '')}
+                                    </li>
                                 </ul>
-                                {/* Know More Button */}
-                                {/* <Box sx={{width:"100%",display:"flex",justifyContent:"center"}}>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    background: "#fff",
-                                    color:"#000",
-                                    padding: { xs: "10px 30px", md: "10px 30px" },
-                                    textTransform: "none",
-                                    fontSize: { xs: "14px", md: "16px" },
-                                    fontWeight: "600",
-                                    fontFamily: 'Open Sans',
-                                    '&:hover': {
-                                        background: "linear-gradient(to bottom, #000, #EE1D25)",
-                                        transform: 'translateY(-2px)',
-                                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                                        color:"#fff"
-                                    },
-                                    transition: 'all 0.3s ease-in-out',
-                                    marginTop: { xs: 1, md: 2 },
-                                    width:"160px"
-                                }}
-                                onClick={handleComingsoon}
-                            >
-                                Know More
-                            </Button>
-                            </Box> */}
+
                             </Box>
                         </Grid>
-
 
                         {/* RIGHT IMAGE SECTION */}
                         <Grid size={{ xs: 12, sm: 6 }} sx={{ order: { xs: 1, sm: 2, md: 2 } }}>
                             <Box sx={{
                                 maxHeight: { xs: "312px", sm: "600px", md: "520px" },
-                               
                             }}>
                                 <Box
                                     component="img"
                                     src={slide.image}
-                                    alt="Module Mounting Structure"
+                                    alt={slide.title}
                                     sx={{
                                         width: "100%",
                                         height: "600px",
-                                        
                                         backgroundSize: "cover",
                                         backgroundPosition: "top"
                                     }}
@@ -214,22 +158,16 @@ const ModuleMounting = () => {
                 ))}
             </Box>
 
-            {/* LEFT ARROW - Only show when NOT on first slide (index > 0) */}
+            {/* LEFT ARROW */}
             {index > 0 && (
-                <Box
-                    onClick={prevSlide}
-                    sx={arrowLeft}
-                >
+                <Box onClick={prevSlide} sx={arrowLeft}>
                     <ChevronLeftIcon sx={{ fontSize: "42px" }} />
                 </Box>
             )}
 
-            {/* RIGHT ARROW - Only show when NOT on last slide (index < slides.length - 1) */}
-            {index < slides.length - 1 && (
-                <Box
-                    onClick={nextSlide}
-                    sx={arrowRight}
-                >
+            {/* RIGHT ARROW */}
+            {index < data.length - 1 && (
+                <Box onClick={nextSlide} sx={arrowRight}>
                     <ChevronRightIcon sx={{ fontSize: "42px" }} />
                 </Box>
             )}
@@ -251,7 +189,6 @@ const arrowLeft = {
     position: "absolute",
     bottom: { md: "28px", xs: "0px" },
     left: { md: "42%", xs: "38%" },
-    fontSize: "42px",
     cursor: "pointer",
     color: "#fff"
 };
@@ -259,8 +196,7 @@ const arrowLeft = {
 const arrowRight = {
     position: "absolute",
     bottom: { md: "28px", xs: "0px" },
-    left: { md: "44%", xs: "48%",sm:"44%" },
-    fontSize: "42px",
+    left: { md: "44%", xs: "48%", sm: "44%" },
     cursor: "pointer",
     color: "#fff"
 };

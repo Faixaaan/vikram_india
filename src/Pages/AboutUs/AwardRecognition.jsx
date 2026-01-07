@@ -31,6 +31,8 @@ import cert4 from '../../Assets/2012-13-cert.jpg'
 import cert5 from '../../Assets/2011-12-cert.jpg'
 import cert6 from '../../Assets/2010-11-cert.jpg'
 import cert7 from '../../Assets/2008-09-cert.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -58,6 +60,37 @@ const AwardRecognition = () => {
 
     const [page, setPage] = useState(1);
     const [pagee, setPagee] = useState(1);
+    const [cmsData, setCmsData] = useState([])
+    const [secondCmsData, setCmsSecondData] = useState([])
+    const [ImageData,setImageData] = useState([])
+
+
+    const fetchImageData = async () => {
+        try {
+            const res = await axiosInstance.get(
+                endpoints.AboutUs.getAwardRecognitionCmsData
+            );
+
+            const imageRes = await axiosInstance.get(endpoints.AboutUs.getAwardRecognition)
+
+            setImageData(imageRes?.data?.data)
+
+            const apiArray = res?.data?.data || [];
+
+            // Convert array → object
+            const cmsObject = apiArray.length ? apiArray[0] : null;
+
+             const cmssobject = apiArray.length ? apiArray[1] : null;
+             setCmsSecondData(cmssobject)
+            setCmsData(cmsObject);
+
+            console.log(cmsObject, 'cmsObject');
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+
 
 
     const clientLogos = [
@@ -102,6 +135,7 @@ const AwardRecognition = () => {
     ];
 
     useEffect(() => {
+        fetchImageData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -257,10 +291,15 @@ const AwardRecognition = () => {
                         <Box sx={{ mt: 2, }}>
 
                             <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
-                                Shields received from EEPC, Kolkata
+                                {cmsData?.category_title}
                             </Typography>
-                            <Typography sx={{ fontWeight: "400", fontSize: "16px", fontFamily: "Open Sans", marginTop: "10px" }}>
-                                Over the years, Vikram India has secured several prestigious awards and the Company continues on its path of success and excellence. Some of these awards are showcased below
+                            <Typography sx={{ fontWeight: "400", fontSize: "16px", fontFamily: "Open Sans", marginTop: "10px" }}
+                              dangerouslySetInnerHTML={{
+        __html: cmsData?.category_desc
+    }}
+                            
+                            >
+                               
                             </Typography>
 
 
@@ -269,7 +308,7 @@ const AwardRecognition = () => {
                             <Box sx={{ mt: 4 }}>
 
                                 <Grid container spacing={3}>
-                                    {clientLogos
+                                    {ImageData
                                         .slice((page - 1) * 8, (page - 1) * 8 + 8)
                                         .map((item, index) => (
                                             <Grid
@@ -296,7 +335,7 @@ const AwardRecognition = () => {
                                                     }}
                                                 >
                                                     <img
-                                                        src={item.img}
+                                                        src={item.image}
                                                         alt={item.name}
                                                         style={{
                                                             width: "100%",
@@ -317,14 +356,14 @@ const AwardRecognition = () => {
                                                         maxWidth: "180px",
                                                     }}
                                                 >
-                                                    {item.name}
+                                                    {item.award_title}
                                                 </Typography>
                                             </Grid>
                                         ))}
                                 </Grid>
                                 <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                     <Pagination
-                                        count={Math.ceil(clientLogos.length / 8)}
+                                        count={Math.ceil(ImageData.length / 8)}
                                         page={page}
                                         onChange={(e, value) => setPage(value)}
                                         color="primary"
@@ -336,7 +375,7 @@ const AwardRecognition = () => {
 
                             <Box sx={{ mt: 6 }}>
                                 <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
-                                    Awards received for Export Excellence from EEPC, Kolkata
+                                    {secondCmsData?.category_title}
                                 </Typography>
 
 

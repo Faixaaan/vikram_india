@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
 import BannerImg1 from "../../../Assets/Module_mounting_banner.jpg";
 import BannerImg2 from "../../../Assets/Banner.png";
@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 const bannerData = [
     {
@@ -33,6 +35,23 @@ const Banner = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef(null);
 
+    const [data, SetData] = useState([]);
+
+    const fethData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Banner.getBanner);
+           
+            SetData(res?.data?.data)
+        }
+        catch (err) {
+            console.log('error')
+        }
+    }
+
+    useEffect(() => {
+        fethData()
+    }, [])
+
     return (
         <Box sx={{ position: "relative" }}>
 
@@ -44,7 +63,7 @@ const Banner = () => {
                 loop={false}
                 style={{ width: "100%", height: "100%" }}
             >
-                {bannerData.map((item, index) => (
+                {data?.map((item, index) => (
                     <SwiperSlide key={index}>
                         <Box
                             sx={{
@@ -70,8 +89,8 @@ const Banner = () => {
                                 }}
                             >
                                 {/* LEFT — 3 Headings */}
-                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" }, display: { xs: "none", md: "block" },marginTop:"64px" }}>
-                                    {bannerData.map((h, i) => (
+                                <Box sx={{ color: "#fff", zIndex: 2, width: { xs: "100%", md: "auto" }, display: { xs: "none", md: "block" }, marginTop: "64px" }}>
+                                    {data.map((h, i) => (
                                         <Box
                                             sx={{ mb: "22px", cursor: "pointer" }}
                                             key={i}
@@ -88,10 +107,10 @@ const Banner = () => {
                                                     mb: 1,
                                                     fontWeight: 400,
                                                     color: activeIndex === i ? "red" : "#fff",
-                                                    width:"250px"
+                                                    width: "250px"
                                                 }}
                                             >
-                                                {h.title}
+                                                {h?.subtitle}
                                             </Typography>
 
                                             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -126,12 +145,12 @@ const Banner = () => {
                                         textAlign: { xs: "center", sm: "center", md: "center" },
                                         color: "#000",
                                         position: { md: "absolute" },
-                                        top: { md: "43%",xs:"80px" },
+                                        top: { md: "43%", xs: "80px" },
                                         left: { md: "55%" },
                                         transform: { md: "translate(-50%, -50%)" },
                                         zIndex: 2,
-                                        mt: { xs: "85px", md: 0,sm:"150px" },
-                                        width: { xs: "100%", md: "auto",sm:"auto" },
+                                        mt: { xs: "85px", md: 0, sm: "150px" },
+                                        width: { xs: "100%", md: "auto", sm: "auto" },
 
                                         // ⭐ ONLY for phone/tablet — centers horizontally
                                         mx: { xs: "auto", sm: "auto", md: "0" },
@@ -142,17 +161,17 @@ const Banner = () => {
                                         sx={{
                                             fontSize: { xs: "31px", sm: "26px", md: "40px" },
                                             fontWeight: 700,
-                                            minWidth: { md: "850px",sm:"75%" },
-                                            maxWidth: { md: "850px",sm:"75%" },  // ⭐ desktop only (unchanged)
+                                            minWidth: { md: "850px", sm: "75%" },
+                                            maxWidth: { md: "850px", sm: "75%" },  // ⭐ desktop only (unchanged)
                                             fontFamily: "Open Sans",
                                             lineHeight: "120%",
                                             color: "#fff",
                                             textShadow: "6px 6px 6px rgba(0, 0, 0, 0.9)",
-                                            margin:"0px auto",
-                                            textAlign:"center"
+                                            margin: "0px auto",
+                                            textAlign: "center"
                                         }}
                                     >
-                                        {item.description}
+                                        {item.title}
                                     </Typography>
 
                                     <Button

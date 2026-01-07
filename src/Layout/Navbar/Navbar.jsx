@@ -33,8 +33,8 @@ const pages = [
 
 // PRODUCT DROPDOWN
 const productDropdown = [
-  { name: "Module Mounting Structure", link: "/products/ctc/introduction" },
-  { name: "Hot Dip Galvanization", link: "/products/ctc/introduction" },
+  { name: "Module Mounting Structure", link: "/products/introduction" },
+  { name: "Hot Dip Galvanization", link: "/products/introduction" },
   { name: "Tea Processing Machinery", link: "/products/processing-card" },
 ];
 

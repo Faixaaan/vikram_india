@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -25,6 +25,8 @@ import structure2 from '../../Assets/mm-structure-02.jpg'
 import structure3 from '../../Assets/mm-structure-03.jpg'
 import structure4 from '../../Assets/mm-structure-04.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -45,7 +47,23 @@ const img = [
 
 const Manufacturing = () => {
 
+    const [imageData ,setImageData] = useState([])
+
+
+    const fetchImageData = async()=>{
+        try{
+            const res = await axiosInstance.get(endpoints.ModuleMounting.getModuleMountingManufaturing)
+            
+            setImageData(res?.data?.data)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+
    useEffect(() => {
+    fetchImageData()
        window.scrollTo({
            top: 0,
            behavior: "smooth"
@@ -116,7 +134,7 @@ const Manufacturing = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "MANUFACTURING AND QUALITY" ? "green" : "transparent",
@@ -249,10 +267,10 @@ const Manufacturing = () => {
 
                                 <AccordionDetails>
                                     <Grid container spacing={2}>
-                                        {img.map((item, i) => (
+                                        {imageData?.map((item, i) => (
                                             <Grid item size={{xs:12,md:4}} key={i}>
                                                 <img
-                                                    src={item.img}
+                                                    src={item.image}
                                                     style={{ width: "100%", borderRadius: "8px" }}
                                                     alt=""
                                                 />

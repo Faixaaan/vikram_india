@@ -126,7 +126,7 @@ const Product = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "SOLAR PUMPS (AC PUMPS)" ? "green" : "transparent",

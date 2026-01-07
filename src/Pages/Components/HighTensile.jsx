@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -26,6 +26,8 @@ import structure1 from '../../Assets/tensile-1.jpg'
 import structure2 from '../../Assets/tensile-2.jpg'
 
 import structure4 from '../../Assets/tensile-03.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -44,7 +46,25 @@ const img = [
 ]
 
 const HighTensile = () => {
+    
+     const [imageData ,setImageData] = useState([])
+    
+    
+        const fetchImageData = async()=>{
+            try{
+                const res = await axiosInstance.get(endpoints.ModuleMounting.getHighTensile)
+                
+                setImageData(res?.data?.data)
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+    
+
+
     useEffect(() => {
+        fetchImageData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -115,7 +135,7 @@ const HighTensile = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "MANUFACTURING WITH HIGH TENSILE IS PROJECT" ? "green" : "transparent",
@@ -253,10 +273,10 @@ const HighTensile = () => {
 
                                 <AccordionDetails>
                                     <Grid container spacing={2}>
-                                        {img.map((item, index) => (
+                                        {imageData?.map((item, index) => (
                                             <Grid item size={{ xs: 12, md: 4 }} key={index}>
                                                 <img
-                                                    src={item.img}
+                                                    src={item.image}
                                                     style={{ width: "100%", borderRadius: "8px" }}
                                                 />
                                             </Grid>

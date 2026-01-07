@@ -32,6 +32,8 @@ import client13 from '../../Assets/apeejay.png'
 import client14 from '../../Assets/assam-company.gif'
 import client15 from '../../Assets/gillanders-arbuthnot.gif'
 import client16 from '../../Assets/dalmia-tea-plantation-and-industries-ltd.gif'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -83,11 +85,28 @@ const Clientele = () => {
 
     const [page, setPage] = useState(1);
 
+    
+        const [clientData, setClientData] = useState([])
+    
+    
+        const fetchImageData = async () => {
+            try {
+                const res = await axiosInstance.get(endpoints.AboutUs.clientImage)
+                
+                setClientData(res?.data?.data)
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+    
+
 
 
 
 
     useEffect(() => {
+        fetchImageData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -276,7 +295,7 @@ const Clientele = () => {
                                 </Typography>
 
                                 <Grid container spacing={3}>
-                                    {clientLogos
+                                    {clientData
                                         .slice((page - 1) * 12, (page - 1) * 12 + 12)
                                         .map((item, index) => (
                                             <Grid
@@ -303,7 +322,7 @@ const Clientele = () => {
                                                     }}
                                                 >
                                                     <img
-                                                        src={item.img}
+                                                        src={item.image}
                                                         alt={item.name}
                                                         style={{
                                                             width: "100%",
@@ -324,7 +343,7 @@ const Clientele = () => {
                                                         maxWidth: "180px",
                                                     }}
                                                 >
-                                                    {item.name}
+                                                    {item.title}
                                                 </Typography>
                                             </Grid>
                                         ))}
@@ -334,7 +353,7 @@ const Clientele = () => {
                                 {/* PAGINATION */}
                                 <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                     <Pagination
-                                        count={Math.ceil(clientLogos.length / 12)}
+                                        count={Math.ceil(clientData.length / 12)}
                                         page={page}
                                         onChange={(e, value) => setPage(value)}
                                         color="primary"

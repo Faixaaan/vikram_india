@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -24,15 +24,34 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import group2 from "../../Assets/working-01.jpg";
 import group3 from '../../Assets/working-02.jpg'
 import group4 from '../../Assets/working-03.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const WorkingCareer = () => {
+
+  const [carrerData, setCarrerData] = useState([])
+
+  const fetchCarrerData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.Career.getCarrers)
+      console.log(res?.data, 'careerdata')
+      setCarrerData(res?.data?.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    fetchCarrerData()
   }, []);
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
@@ -146,168 +165,68 @@ const WorkingCareer = () => {
 
             {/* Introduction */}
 
-            <Box
-              sx={{
-                mt: 4,
-                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                borderRadius: "12px",
-                p: 0,
-
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundColor: "#fff", // fallback
-                padding: "20px 20px 0px 20px",
-              }}
-            >
-              <Grid container spacing={2} mt={4}>
-                <Grid
-                  size={{ xs: 12, md: 4 }}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                >
-                  <img src={group2} />
-                </Grid>
-                <Grid size={{ xs: 12, md: 8 }}>
-                  <Typography
+            {
+              carrerData?.map((item,i) => {
+                return (
+                  <Box
                     sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      lineHeight: "120%",
-                      marginBottom: "15px",
-                      fontWeight: "500",
-                      color: "#121111ff",
+                      mt: 4,
+                      boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                      borderRadius: "12px",
+                      p: 0,
+
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      backgroundColor: "#fff", // fallback
+                      padding: "20px 20px 0px 20px",
                     }}
+                    key={i}
                   >
-                    In keeping with the mission, values and operating principles
-                    of Vikram Group, we believe in creating a work environment
-                    that values and respects every member of our team.
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      textAlign: "justify",
-                      marginTop: "15px!important",
-                      fontWeight: "400",
-                      lineHeight: "120%",
-                      color: "#121111ff",
-                    }}
-                  >
-                    Over the years it has been our constant endeavour to ensure
-                    continual development of our team members - spiritually,
-                    physically, emotionally and intellectually.
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Box>
-
-            {/* next card */}
-             <Box
-              sx={{
-                mt: 4,
-                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                borderRadius: "12px",
-                p: 0,
-
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundColor: "#fff", // fallback
-                padding: "20px 20px 0px 20px",
-              }}
-            >
-              <Grid container spacing={2} mt={4}>
-                <Grid
-                  size={{ xs: 12, md: 4 }}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                >
-                  <img src={group3} />
-                </Grid>
-                <Grid size={{ xs: 12, md: 8 }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      lineHeight: "120%",
-                      marginBottom: "15px",
-                      fontWeight: "500",
-                      color: "#121111ff",
-                    }}
-                  >
-                   We aim at producing leaders and not mere workers. By providing the platform to learn through a comprehensive framework of training and employee engagement initiatives, we provide perfect opportunity for personal and professional growth.
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      textAlign: "justify",
-                      marginTop: "15px!important",
-                      fontWeight: "400",
-                      lineHeight: "120%",
-                      color: "#121111ff",
-                    }}
-                  >
-                   Our employees get to take on daily challenges, new responsibilities and work with professionals from across the globe.
-
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Box>
-
-            {/* third card */}
-            <Box
-              sx={{
-                mt: 4,
-                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                borderRadius: "12px",
-                p: 0,
-
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundColor: "#fff", // fallback
-                padding: "20px 20px 0px 20px",
-              }}
-            >
-              <Grid container spacing={2} mt={4}>
-                <Grid
-                  size={{ xs: 12, md: 4 }}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                >
-                  <img src={group4} />
-                </Grid>
-                <Grid size={{ xs: 12, md: 8 }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      lineHeight: "120%",
-                      marginBottom: "15px",
-                      fontWeight: "500",
-                      color: "#121111ff",
-                    }}
-                  >
-                   At Vikram we believe in nurturing and retaining the best talent by inculcating a culture of learning, performing, developing creativity and teamwork.
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "",
-                      fontSize: "18px",
-                      textAlign: "justify",
-                      marginTop: "15px!important",
-                      fontWeight: "400",
-                      lineHeight: "120%",
-                      color: "#121111ff",
-                    }}
-                  >
-                   Here you would not just be working for a living; you will be a part of the global team that is focused on making a difference in the everyday lives of people. If you think you embody these values then this is the place for you and your career.
+                    <Grid container spacing={2} mt={4}>
+                      <Grid
+                        size={{ xs: 12, md: 4 }}
+                        sx={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <img src={item?.image} />
+                      </Grid>
+                      <Grid size={{ xs: 12, md: 8 }}>
+                        <Typography
+                          sx={{
+                            fontFamily: "",
+                            fontSize: "18px",
+                            lineHeight: "120%",
+                            marginBottom: "15px",
+                            fontWeight: "500",
+                            color: "#121111ff",
+                          }}
+                        >
+                          {item?.description}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontFamily: "",
+                            fontSize: "18px",
+                            textAlign: "justify",
+                            marginTop: "15px!important",
+                            fontWeight: "400",
+                            lineHeight: "120%",
+                            color: "#121111ff",
+                          }}
+                        >
+                          Over the years it has been our constant endeavour to ensure
+                          continual development of our team members - spiritually,
+                          physically, emotionally and intellectually.
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                )
+              })
+            }
 
 
 
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Box>
           </Grid>
         </Grid>
       </Container>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -35,6 +35,8 @@ import structure3 from '../../Assets/product-03.jpg'
 
 import structure4 from '../../Assets/product-04.jpg'
 import structure5 from '../../Assets/product-05.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -54,7 +56,25 @@ const img = [
 ]
 
 const Product = () => {
+
+   const [imageData ,setImageData] = useState([])
+      
+      
+          const fetchImageData = async()=>{
+              try{
+                  const res = await axiosInstance.get(endpoints.ModuleMounting.getProductData)
+                  
+                  setImageData(res?.data?.data)
+              }
+              catch(err){
+                  console.log(err)
+              }
+          }
+      
+
+
    useEffect(() => {
+    fetchImageData()
        window.scrollTo({
            top: 0,
            behavior: "smooth"
@@ -125,7 +145,7 @@ const Product = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "PRODUCTS" ? "green" : "transparent",
@@ -345,10 +365,10 @@ const Product = () => {
                                 <AccordionDetails>
 
                                     <Grid container spacing={2}>
-                                        {img.map((item, index) => (
+                                        {imageData?.map((item, index) => (
                                             <Grid item size={{ xs: 12, md: 4 }} key={index}>
                                                 <img
-                                                    src={item.img}
+                                                    src={item.image}
                                                     style={{
                                                         width: "100%",
                                                         borderRadius: "8px",
