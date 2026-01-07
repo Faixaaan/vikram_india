@@ -19,5 +19,8 @@ export const endpoints ={
       clientImage:"about-client-image",
       getAwardRecognition:"/about-award-image",
       getAwardRecognitionCmsData:"/about-award-image-category"
+    },
+    Media:{
+        getMediaDownload:"/media-downloads"
     }
 }

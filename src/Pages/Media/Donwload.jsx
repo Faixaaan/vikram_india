@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -30,6 +30,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import client1 from '../../Assets/mm-structure-brochure.jpg'
 import client2 from '../../Assets/tea-machinery-division.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -45,7 +47,20 @@ const Download = () => {
        
        
     ];
+
+    const [mediaData,setMediaData] = useState([])
+
+    const fetchMediaData = async ()=>{
+        try{
+          const res = await axiosInstance.get(endpoints.Media.getMediaDownload)
+          setMediaData(res?.data?.data)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     useEffect(() => {
+        fetchMediaData()
         window.scrollTo({
             top: 0,
             behavior: "smooth",
@@ -177,7 +192,7 @@ const Download = () => {
                             </Typography>
 
                             <Grid container spacing={3}>
-                                {clientLogos.map((item, index) => (
+                                {mediaData.map((item, index) => (
                                     <Grid
                                         item
                                         size={{ xs: 12, sm: 4, md: 4 }}
@@ -186,7 +201,7 @@ const Download = () => {
                                     >
                                         {/* Logo Box */}
                                         <Box
-                                        onClick={() => window.open(item.link, "_blank")}
+                                        onClick={() => window.open(item.download_file, "_blank")}
                                             sx={{
                                                 width: "auto",
                                                 maxWidth: "250px",
@@ -204,7 +219,7 @@ const Download = () => {
                                             }}
                                         >
                                             <img
-                                                src={item.img}
+                                                src={item.thumbnail}
                                                 alt={item.name}
                                                 style={{
                                                     width: "250px",
@@ -225,7 +240,7 @@ const Download = () => {
                                                 maxWidth: "180px",
                                             }}
                                         >
-                                            {item.name}
+                                            {item.description}
                                         </Typography>
                                     </Grid>
                                 ))}
