@@ -25,6 +25,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const leftMenu = ["ADDRESSES", "QUERY FORM"];
 
 const Adresses = () => {
+  
+  
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -204,6 +208,8 @@ const Adresses = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
+
+            {/* map  */}
             <Accordion
               sx={{
                 background: "#fff",

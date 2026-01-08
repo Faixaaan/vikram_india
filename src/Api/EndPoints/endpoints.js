@@ -29,6 +29,9 @@ export const endpoints ={
    },
    AboutUs:{
      getBlockData:"/blog"
+   },
+   contactUs:{
+     getContactUsData:"/contact-address-category"
    }
 
 
