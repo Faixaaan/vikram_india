@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import blogImage from "../../Assets/blog.jpg";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const blogs = [
   {
@@ -42,6 +44,27 @@ const blogs = [
 const Blog = () => {
   const [tab, setTab] = useState(0);
   const navigate = useNavigate();
+  const [data,setData] = useState([])
+
+
+  const fetchBlogData = async ()=>{
+    try{
+       const res = await axiosInstance.get(endpoints.AboutUs.getBlockData)
+       console.log(res?.data?.data,'blogData')
+       setData(res?.data?.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+   fetchBlogData();
+  },[])
+
+
+
+
 
   const filteredBlogs =
     tab === 0
@@ -57,7 +80,7 @@ const Blog = () => {
         {/* LEFT – BLOG LIST */}
         <Grid item xs={12} md={8} size={{ xs: 12, md: 8 }}>
           <Grid container spacing={4}>
-            {blogs.map((blog) => (
+            {data?.map((blog) => (
               <Grid item key={blog.id} size={{ xs: 12, sm: 6 }}>
                 <Card
                   sx={{
@@ -88,7 +111,7 @@ const Blog = () => {
                         fontWeight: 600
                       }}
                     >
-                      {blog.date}
+                      {blog.created_at}
                     </Box>
 
                     {/* Category */}
@@ -107,7 +130,7 @@ const Blog = () => {
                         fontFamily: "Open Sans"
                       }}
                     >
-                      {blog.category}
+                      {blog.category_id}
                     </Box>
                   </Box>
 
@@ -126,7 +149,7 @@ const Blog = () => {
                       color="text.secondary"
                       sx={{ fontFamily: "Open Sans", fontSize: "14px" }}
                     >
-                      {blog.description}
+                      {blog.excerpt}
                     </Typography>
 
                     <Button
@@ -136,7 +159,7 @@ const Blog = () => {
                         textTransform: "none",
                         fontFamily: "Open Sans"
                       }}
-                      onClick={() => navigate(`/blogs/blog-detail`)}
+                      onClick={() => navigate(`/blogs/blog-detail/${blog?.slug}`)}
                     >
                       Read More →
                     </Button>

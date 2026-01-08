@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 
 // Import your images
@@ -6,8 +6,30 @@ import BackgroundLeft from '../../../Assets/left-side-int.png'
 import BackgroundRight from '../../../Assets/right-side-int.png'
 import CenterLogo from '../../../Assets/eye 1.png'
 import centerlogoLeft from '../../../Assets/left-card.png'
+import { axiosInstance } from '../../../Api/Axios/axios'
+import { endpoints } from '../../../Api/EndPoints/endpoints'
 
 const Initiatives = () => {
+   
+  const [data,setdata] = useState([]);
+
+  const fetchData = async () =>{
+     try{
+        const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
+        console.log(res?.data?.data,'cmsHome')
+        setdata(res?.data?.data)
+     }
+     catch(err){
+        console.log(err)
+     }
+  }
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+
+
   return (
     <>
       <Box sx={{ 
@@ -20,7 +42,7 @@ const Initiatives = () => {
           sx={{
             width: '50%',
             height: '450px',
-            backgroundImage: `url(${BackgroundLeft})`,
+            backgroundImage: `url(${data?.sec3left_bg_img})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -46,7 +68,7 @@ const Initiatives = () => {
             alignItems:"center"
           }}>
             <img 
-              src={centerlogoLeft} 
+              src={data?.sec3left_icon_img} 
               alt="Logo" 
               style={{
                 width: '70px',
@@ -74,7 +96,7 @@ const Initiatives = () => {
                 fontFamily: 'Open Sans'
               }}
             >
-              Left Initiative
+              {data?.sec3left_title}
             </Typography>
             <Typography 
               variant="body1"
@@ -86,7 +108,7 @@ const Initiatives = () => {
                 color:"#000"
               }}
             >
-              This is the content for the left side initiative. It describes the purpose and goals of this particular program.
+             {data?.sec3left_description}
             </Typography>
           </Box>
         </Box>
@@ -96,7 +118,7 @@ const Initiatives = () => {
           sx={{
             width: '50%',
             height: '450px',
-            backgroundImage: `url(${BackgroundRight})`,
+            backgroundImage: `url(${data?.sec3right_bg_img})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -122,7 +144,7 @@ const Initiatives = () => {
             alignItems:"center"
           }}>
             <img 
-              src={CenterLogo} 
+              src={data?.sec3right_icon_img} 
               alt="Logo" 
               style={{
                 width: '60px',
@@ -150,7 +172,7 @@ const Initiatives = () => {
                 fontFamily: 'Open Sans, sans-serif'
               }}
             >
-              Right Initiative
+              {data?.sec3right_title}
             </Typography>
             <Typography 
               variant="body1"
@@ -161,7 +183,7 @@ const Initiatives = () => {
                 lineHeight: 1.6
               }}
             >
-              This is the content for the right side initiative. It explains the objectives and outcomes of this specific program.
+              {data?.sec3right_description}
             </Typography>
           </Box>
         </Box>

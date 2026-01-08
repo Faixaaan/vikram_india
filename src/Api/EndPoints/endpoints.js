@@ -23,5 +23,14 @@ export const endpoints ={
     Media:{
         getMediaDownload:"/media-downloads",
         galleryCategory:"/media-gallery-categories"
-    }
+    },
+   HomeCms:{
+      getHomeCms:"/page/home"
+   },
+   AboutUs:{
+     getBlockData:"/blog"
+   }
+
+
+
 }

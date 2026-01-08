@@ -1,21 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AchievmentBanner from '../../../Assets/Achievment-Banner.png'
 import { Box, Container, Typography, Button } from '@mui/material'
 import '../../../App.css'
 import { useNavigate } from 'react-router-dom'
+import { axiosInstance } from '../../../Api/Axios/axios'
+import { endpoints } from '../../../Api/EndPoints/endpoints'
 
 const Achievmnet = () => {
     const navigatee = useNavigate()
+    const [data, setdata] = useState([]);
 
     const handleComingsoon = () => {
         navigatee('/page-coming-soon');
     };
+
+
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
+            console.log(res?.data?.data, 'cmsHome')
+            setdata(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
     return (
         <>
             <Box sx={{
                 width: '100%',
                 overflow: 'hidden',
-                backgroundImage: `url(${AchievmentBanner})`,
+                backgroundImage: `url(${data?.sec4img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 padding: { xs: "30px 0px", md: "80px 0px 60px 0px" },
@@ -56,12 +76,12 @@ const Achievmnet = () => {
                                     display: "inline-block",
                                     pb: "10px",
                                     position: "relative",
-                                    textAlign:{xs:"center",md:"left"},
-                                    width:"100%"
-                                    
+                                    textAlign: { xs: "center", md: "left" },
+                                    width: "100%"
+
                                 }}
                             >
-                                Our Achievements
+                                {data?.sec4title}
                             </Typography>
 
 
@@ -76,42 +96,19 @@ const Achievmnet = () => {
                                     fontFamily: 'Open Sans',
                                     maxWidth: { xs: '100%', md: '90%', lg: '120%' },
                                     marginBottom: { xs: 1, md: 0 },
-                                    textAlign: {md:"left",xs:"center"},
+                                    textAlign: { md: "left", xs: "center" },
                                     fontWeight: "400"
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vivamus elit elit, cursus quis nibh hendrerit, aliquam
-                                placerat lacus. Suspendisse non quam a quam males
-                                uada viverra. Nunc vestibulum neque ac ex hendrerit
-                                gravida. Praesent ac turpis risus. Ut eget rutrum quam.
-                                Aliquam tempor enim aliquet consectetur tincidunt.
-                                Integer rutrum congue nisi ut tincidunt.
+                                {data?.sec4description}
                             </Typography>
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    fontSize: { xs: '1rem', sm: '1.1rem', md: '20px' },
-                                    color: '#000',
-                                    lineHeight: { xs: '1.6', md: '100%' },
-
-                                    fontFamily: 'Open Sans',
-                                    maxWidth: { xs: '100%', md: '90%', lg: '120%' },
-                                    marginBottom: { xs: 1, md: 0 },
-                                    textAlign: {md:"left",xs:"center"},
-                                    fontWeight: "400"
-                                }}
-                            >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vivamus elit elit, cursus quis nibh hendrerit, aliquam
-                                placerat lacus.
-                            </Typography>
+                            
 
                             {/* Know More Button */}
                             <Button
                                 variant="contained"
                                 sx={{
-                                    
+
                                     background: "linear-gradient(to bottom, #000, #EE1D25)",
 
                                     padding: { xs: "10px 30px", md: "12px 35px" },
@@ -126,7 +123,7 @@ const Achievmnet = () => {
                                     },
                                     transition: 'all 0.3s ease-in-out',
                                     marginTop: { xs: 1, md: 2 },
-                                    marginInline:{xs:"auto",md:"0px"}
+                                    marginInline: { xs: "auto", md: "0px" }
                                 }}
                                 onClick={handleComingsoon}
                             >
