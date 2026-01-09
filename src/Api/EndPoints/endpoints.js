@@ -31,7 +31,13 @@ export const endpoints ={
      getBlockData:"/blog"
    },
    contactUs:{
-     getContactUsData:"/contact-address-category"
+     getContactUsData:"/contact-address"
+   },
+   homeMedia:{
+     getHomeMediaData:"/home-media"
+   },
+   Blog:{
+      getBlogData:"/blog-details"
    }
 
 

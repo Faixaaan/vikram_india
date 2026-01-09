@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -11,6 +11,9 @@ import {
   Container
 } from "@mui/material";
 import blogImage from "../../Assets/blog.jpg";
+import { useParams } from "react-router-dom";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const recentPosts = [
   "How Industry 4.0 Is Changing Manufacturing",
@@ -20,6 +23,30 @@ const recentPosts = [
 ];
 
 const BlogDetail = () => {
+
+  const { slug } = useParams(); 
+
+  const [blogDetailData, setBlogDetailData] = useState({})
+
+
+  const fetchBlogData = async ()=>{
+     try{
+       const res = await axiosInstance.get(`${endpoints.Blog.getBlogData}/${slug}`);
+       setBlogDetailData(res?.data?.data)
+       console.log(res?.data?.data,'blog_detail_data')
+     }
+     catch(err){
+        console.log(err)
+     }
+  }
+
+  useEffect(()=>{
+    fetchBlogData()
+  },[slug])
+
+  
+
+
   return (
     <Box sx={{ py: 6, px: { xs: 2, md: 6 }, background: "#f9f9f9" }}>
       <Container maxWidth="xl">
@@ -35,7 +62,7 @@ const BlogDetail = () => {
             >
               <CardMedia
                 component="img"
-                image={blogImage}
+                image={blogDetailData?.image}
                 alt="Blog"
                 sx={{
                   height: { xs: 240, md: 420 }
@@ -65,7 +92,7 @@ const BlogDetail = () => {
                       color: "text.secondary"
                     }}
                   >
-                    May 21, 2025
+                   {blogDetailData?.created_at}
                   </Typography>
                 </Box>
 
@@ -78,25 +105,15 @@ const BlogDetail = () => {
                     mb: 3
                   }}
                 >
-                  Test 2
+                  {blogDetailData?.title}
                 </Typography>
 
                 {/* Content */}
                 <Typography sx={contentStyle}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s.
+                  {blogDetailData?.description}
                 </Typography>
 
-                <Typography sx={contentStyle}>
-                  It has survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged.
-                </Typography>
-
-                <Typography sx={contentStyle}>
-                  This static page can later be converted to a dynamic blog
-                  detail page using APIs or CMS.
-                </Typography>
+                
 
                 <Divider sx={{ my: 4 }} />
 

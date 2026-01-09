@@ -99,7 +99,7 @@ function App() {
         <Route path="/careers/working-with-us" element={<WorkingCareer />} />
         <Route path="/careers/apply-now" element={<ApplyOnline />} />
         <Route path="/blogs" element={<Blog />} />
-         <Route path="/blogs/blog-detail" element={<BlogDetail />} />
+         <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
          <Route path="/media/news" element={<News />} />
          <Route path="/media/photo-gallery" element={<Gallery />} />
            <Route path="/media/download" element={<Download />} />

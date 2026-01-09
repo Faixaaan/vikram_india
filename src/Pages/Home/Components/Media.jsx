@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MediaBanner from '../../../Assets/MediaBanner.png'
 import { Box, Typography, Grid, Card, CardContent, Button, Container } from "@mui/material";
 
@@ -9,6 +9,9 @@ import CardImage3 from '../../../Assets/mediaCard3.png'
 import CardImage4 from '../../../Assets/mediaCard4.png'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../../../Api/Axios/axios';
+import { endpoints } from '../../../Api/EndPoints/endpoints';
+import { useEffect } from 'react';
 
 const Media = () => {
     // Sample data for cards
@@ -48,10 +51,24 @@ const Media = () => {
     ];
 
     const navigatee = useNavigate()
+    const [mediaData, setMediaData] = useState([])
 
-  const handleComingsoon = () => {
-    navigatee('/page-coming-soon');
-};
+    const fetchMediaData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.homeMedia.getHomeMediaData)
+            setMediaData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        fetchMediaData()
+    }, [])
+
+    const handleComingsoon = () => {
+        navigatee('/page-coming-soon');
+    };
 
     return (
         <>
@@ -63,15 +80,15 @@ const Media = () => {
                 padding: { xs: "30px 0px", md: "60px 0px 60px 0px" },
                 borderTop: "1px solid #1E1E1E",
                 minHeight: "400px",
-                display:"flex",
-                flexDirection:"column",
-                justifyContent:"center",
-                alignItems:"center"
-                
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center"
+
             }}>
 
                 {/* Banner Section - FIXED */}
-               <Container maxWidth='lg'>
+                <Container maxWidth='lg'>
                     <Typography
                         variant="h1"
                         sx={{
@@ -79,24 +96,24 @@ const Media = () => {
                             fontSize: { xs: "2rem", md: "40px" },
                             fontWeight: "bold",
                             textAlign: "center",
-                            mb:6,
-                            fontFamily:"Open Sans",
-                            lineHeight:"100%"
+                            mb: 6,
+                            fontFamily: "Open Sans",
+                            lineHeight: "100%"
                         }}
                     >
-                        Media 
+                        Media
                     </Typography>
-              
-                  
-                
+
+
+
                     <Grid container spacing={4}>
-                        {cardsData.map((card) => (
-                            <Grid item  size={{xs:12,sm:6}} key={card.id}>
+                        {mediaData?.map((card) => (
+                            <Grid item size={{ xs: 12, sm: 6 }} key={card.id}>
                                 <Card
                                     sx={{
                                         display: 'flex',
                                         flexDirection: { xs: 'column', md: 'row' },
-                                        
+
                                         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                                         overflow: 'hidden',
                                         transition: 'transform 0.3s ease-in-out',
@@ -104,9 +121,9 @@ const Media = () => {
                                             transform: 'translateY(-5px)',
                                             boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                                         },
-                                        width:{md:"520px",xs:"100%"}
+                                        width: { md: "520px", xs: "100%" }
                                     }}
-                                    
+
                                 >
                                     {/* Left Side - Image */}
                                     <Box
@@ -146,7 +163,7 @@ const Media = () => {
                                                     marginBottom: '10px',
                                                     color: '#333',
                                                     fontSize: { xs: '1.25rem', md: '1.5rem' },
-                                                    fontFamily:"Open Sans"
+                                                    fontFamily: "Open Sans"
                                                 }}
                                             >
                                                 {card.title}
@@ -158,7 +175,7 @@ const Media = () => {
                                                     color: '#666',
                                                     marginBottom: '15px',
                                                     fontSize: { xs: '0.9rem', md: '1rem' },
-                                                    fontFamily:"Open Sans"
+                                                    fontFamily: "Open Sans"
                                                 }}
                                             >
                                                 {card.description}
@@ -170,7 +187,7 @@ const Media = () => {
                                                     color: '#999',
                                                     display: 'block',
                                                     marginBottom: '0px',
-                                                    fontFamily:"Open Sans"
+                                                    fontFamily: "Open Sans"
                                                 }}
                                             >
                                                 {card.date}
@@ -199,14 +216,14 @@ const Media = () => {
                             </Grid>
                         ))}
                     </Grid>
-                    
-                    <Box sx={{display:"flex",justifyContent:"center",mt:4}}>
-                    <Button sx={{color:"#fff",fontFamily:"Open Sans",fontWeight:"700",borderBottom:"1px slid white"}} onClick={handleComingsoon}>
-                        Know More <ArrowDropDownIcon/>
-                    </Button>
+
+                    <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                        <Button sx={{ color: "#fff", fontFamily: "Open Sans", fontWeight: "700", borderBottom: "1px slid white" }} onClick={handleComingsoon}>
+                            Know More <ArrowDropDownIcon />
+                        </Button>
                     </Box>
-                    </Container>
-                
+                </Container>
+
             </Box>
         </>
     )

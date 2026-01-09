@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -21,15 +21,31 @@ import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const leftMenu = ["ADDRESSES", "QUERY FORM"];
 
 const Adresses = () => {
-  
-  
+
+  const [contactData, setContactData] = useState([])
+
+  const fetchContactData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.contactUs.getContactUsData);
+
+      setContactData(res?.data?.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+
 
 
   useEffect(() => {
+    fetchContactData()
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -204,517 +220,153 @@ const Adresses = () => {
                     </Grid>
                   </Grid>
 
-                  
+
                 </Box>
               </AccordionDetails>
             </Accordion>
 
             {/* map  */}
-            <Accordion
-              sx={{
-                background: "#fff",
-                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                borderRadius: "8px",
-                "&:before": { display: "none" },
-                mt: 4,
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  backgroundColor: "#f8f8f8",
-                  borderBottom: "1px solid #eee",
-                  borderRadius: "8px",
-                }}
-                expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-              >
-                <Typography
-                  sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                >
-                  Corporate Office
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box>
-                  <Typography></Typography>
-                  <Grid container spacing={2} sx={{ mt: 4 }}>
-                    <Grid size={{ xs: 12, md: 6 }}>
+            {
+              contactData?.map((item) => {
+                return (
+                  <Accordion
+                    sx={{
+                      background: "#fff",
+                      boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                      borderRadius: "8px",
+                      "&:before": { display: "none" },
+                      mt: 4,
+                    }}
+                  >
+                    <AccordionSummary
+                      sx={{
+                        backgroundColor: "#f8f8f8",
+                        borderBottom: "1px solid #eee",
+                        borderRadius: "8px",
+                      }}
+                      expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
+                    >
                       <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
+                        sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
                       >
-                        Tobacco House
+                        {item?.category}
                       </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          1, Old Court House Corner Kolkata-700 001 West Bengal
-                          India
-                        </li>
+                    </AccordionSummary>
 
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Phone No. + 91 33 2230 7299 (4 lines)
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            info@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                    <Grid size={{ xs: 12, md: 6 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        Office/Works
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Vill : Jaladhulaguri, N.D.T. Complex
-                        </li>
+                    <AccordionDetails>
+                      <Box>
+                        <Typography></Typography>
+                        <Grid container spacing={2} sx={{ mt: 4 }}>
+                          <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: "600",
+                                fontFamily: "Open Sans",
+                              }}
+                            >
+                              {item?.name}
+                            </Typography>
+                            <ul style={{ padding: "0px" }}>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                {item?.location}
+                              </li>
 
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          New Karala P.O. Dhulaguri P.S. Sankarail Dist. Howrah
-                          -711 302 West Bengal India
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion
-              sx={{
-                background: "#fff",
-                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                borderRadius: "8px",
-                "&:before": { display: "none" },
-                mt: 4,
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  backgroundColor: "#f8f8f8",
-                  borderBottom: "1px solid #eee",
-                  borderRadius: "8px",
-                }}
-                expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-              >
-                <Typography
-                  sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                >
-                  Regional Offices
-                </Typography>
-              </AccordionSummary>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Phone No. + 91 33 2230 7299 
+                              </li>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Email:{" "}
+                                <span style={{ color: "red" }}>
+                                  {item?.email}
+                                </span>
+                              </li>
+                            </ul>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: "600",
+                                fontFamily: "Open Sans",
+                              }}
+                            >
+                              Office/Works
+                            </Typography>
+                            <ul style={{ padding: "0px" }}>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Vill : Jaladhulaguri, N.D.T. Complex
+                              </li>
 
-              <AccordionDetails>
-                <Box>
-                  <Typography></Typography>
-                  <Grid container spacing={2} sx={{ mt: 4 }}>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        Siliguri Office
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mr. Sachin Kansal Green Town, D-3, Bankimnagar
-                          Sarkarpara, 2nd Mile, Sevoke Road Siliguri - 734001,
-                          District : Darjeeling West Bengal
-                        </li>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                New Karala P.O. Dhulaguri P.S. Sankarail Dist. Howrah
+                                -711 302 West Bengal India
+                              </li>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Email:{" "}
+                                <span style={{ color: "red" }}>
+                                  sales@vikramindia.in
+                                </span>
+                              </li>
+                            </ul>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </AccordionDetails>
+                  </Accordion>
+                )
+              })
+            }
 
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Phone No. +9733078213
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            sachin.kansal@vikramindia.in ,sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        Tinsukia Office
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mr. P K Verma Makum Road, Udyog Nagar, District :
-                          Tinsukia P. O. : Sukhanpukhuri - 786 146 Assam
-                        </li>
-
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mobile : 9435037404
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            prakash.verma@vikramindia.in, sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                       Coimbatore office
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                            Mr. A.Jagathesan
-16, Vetrivelava Nagar
-Sengalipalayam, NGGO colony P.O.
-Via -Thudiyalur, Coimbatore - 641022,
-Tamil Nadu
-                        </li>
-
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mobile :  9843021965
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                             a.jagathesan@vikramindia.in, sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion
-              sx={{
-                background: "#fff",
-                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                borderRadius: "8px",
-                "&:before": { display: "none" },
-                mt: 4,
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  backgroundColor: "#f8f8f8",
-                  borderBottom: "1px solid #eee",
-                  borderRadius: "8px",
-                }}
-                expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-              >
-                <Typography
-                  sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                >
-                  Liasioning Offices
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box>
-                  <Typography></Typography>
-                  <Grid container spacing={2} sx={{ mt: 4 }}>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        Dhaka, Bangladesh
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Contact Person : Mr. Iqbal Chowdhury
-                        </li>
-
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mobile: + 880 2 9119078
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                        Nairobi, Kenya
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Contact Person : Boniface Kinyua
-                        </li>
-
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mobile : +254 725218142, 734455650
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                            boniface.kinyua@vikramindia.in, sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontWeight: "600",
-                          fontFamily: "Open Sans",
-                        }}
-                      >
-                       Colombo, Sri Lanka
-                      </Typography>
-                      <ul style={{ padding: "0px" }}>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                           Contact Person : Mr. Upali Abeywickrema - MD
-                        </li>
-
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Mobile :   + 94 4 515660
-                        </li>
-                        <li
-                          style={{
-                            listStyle: "none",
-                            fontSize: "16px",
-                            fontFamily: "Open Sans",
-                            fontWeight: "600",
-                            marginTop: "8px",
-                          }}
-                        >
-                          Email:{" "}
-                          <span style={{ color: "red" }}>
-                             sales@vikramindia.in
-                          </span>
-                        </li>
-                      </ul>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
+            
           </Grid>
         </Grid>
       </Container>
