@@ -18,7 +18,9 @@ export const endpoints = {
     getHighTensile: "/module-mounting-high-tensile-image",
     getProductData: "module-mounting-product-image",
     Introduction:"/page/module_mounting_introduction",
-    CmsModuleMounting:"/page/module_mounting_manufacturing"
+    CmsModuleMounting:"/page/module_mounting_manufacturing",
+    solarPumps:"/page/module_mounting_solar_pump",
+    products:"/page/module_mounting_product"
   },
   
   Media: {
@@ -58,6 +60,11 @@ export const endpoints = {
   },
   facilities:{
      getFacilitiesData:"/page/facilities"
+  },
+  teaProcessingMachinery:{
+    drying:"/page/ctc_tea_processing_drying",
+    withering:"/page/ctc_tea_processing_withering",
+    rolling:"/page/ctc_tea_processing_rolling"
   }
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -36,6 +36,8 @@ import structure3 from '../../Assets/product-03.jpg'
 
 import structure4 from '../../Assets/solar-01.jpg'
 import structure5 from '../../Assets/solar-02.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -55,7 +57,23 @@ const img = [
 ]
 
 const Product = () => {
+   
+    const [data,setData] = useState({})
+
+    const fetchSolarPumpsData = async()=>{
+        try{
+            const res = await axiosInstance.get(endpoints.ModuleMounting.solarPumps);
+            setData(res?.data?.data)
+            
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+
     useEffect(() => {
+        fetchSolarPumpsData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -85,7 +103,7 @@ const Product = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    SOLAR PUMPS (AC PUMPS)
+                    {data?.title}
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -160,7 +178,7 @@ const Product = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            SOLAR PUMPS (AC PUMPS)
+                            {data?.title}
                         </Typography>
 
 
@@ -171,7 +189,7 @@ const Product = () => {
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
                                     <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        Our AC solar pumps solution are offers submersible pumps with energy efficient duty points ranging from 1m3/hrs to 280m3/hr. Each pump size is available with an optional number of stages to match the corresponding duty point. As a standard , all the pumps and motors are made of IS2062 grade with 80 micron surface to protect the risk of rust, when pumping ordinary cold water with chlorine content. These pumps can be used in both horizontal and vertical operation, depending on the site condition.
+                                       {data?.solar_desc}
                                     </Typography>
                                 </Grid>
 
@@ -202,7 +220,7 @@ const Product = () => {
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Additional Features of Vikram India Limited's Solar AC Pumps below:
+                                        {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 

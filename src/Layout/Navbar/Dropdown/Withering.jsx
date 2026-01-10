@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -24,6 +24,8 @@ import FanImage from "../../../Assets/logo 1.png"; // update your image
 import '../../../App.css'
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -39,7 +41,20 @@ const leftMenu = [
 ];
 
 const Withering = () => {
+
+   const [data,setData] = useState([])
+  
+    const fetchDryingData = async()=>{
+       try{
+           const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+           setData(res?.data?.data)
+       }
+       catch(err){
+          console.log(err)
+       }
+    }
   useEffect(() => {
+    fetchDryingData()
       window.scrollTo({
           top: 0,
           behavior: "smooth"
@@ -144,31 +159,27 @@ const Withering = () => {
                 fontFamily: "Open Sans"
               }}
             >
-              Withering
+              {data?.section1_title}
             </Typography>
 
             <Grid container spacing={2}>
               {/* Left Description */}
               <Grid item xs={12} md={8}>
-                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
-                  The aero-dynamically designed Axial Flow Fans from Vikram India are
-                  made of high quality aluminium alloy and are suitable for different
-                  sizes of withering troughs. These fans ensure uniformity of withering,
-                  reduce power consumption and are tested for vibration, noise levels,
-                  air delivery and static pressure.
+                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}
+                dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                
+                >
+                  
                 </Typography>
 
-                <Typography sx={{ mb: 3, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
-                  Vikram also offers Centrifugal Fans and Induced Draught Fans in
-                  different sizes as per the customer's requirement.
-                </Typography>
+                
               </Grid>
 
               {/* Right Image */}
               <Grid item xs={12} md={4}>
                 <Box
                   component="img"
-                  src={FanImage}
+                  src={data?.image}
                   alt="Axial Flow Fan"
                   sx={{
                     width: "100%",
@@ -190,7 +201,7 @@ const Withering = () => {
                 fontFamily: "Open Sans",
               }}
             >
-              Technical Specifications
+              {data?.section2_title}
             </Typography>
 
             <Accordion sx={{

@@ -57,29 +57,32 @@ const img = [
 
 const Product = () => {
 
-   const [imageData ,setImageData] = useState([])
-      
-      
-          const fetchImageData = async()=>{
-              try{
-                  const res = await axiosInstance.get(endpoints.ModuleMounting.getProductData)
-                  
-                  setImageData(res?.data?.data)
-              }
-              catch(err){
-                  console.log(err)
-              }
-          }
-      
+    const [imageData, setImageData] = useState([])
+    const [data, setData] = useState({})
 
 
-   useEffect(() => {
-    fetchImageData()
-       window.scrollTo({
-           top: 0,
-           behavior: "smooth"
-       });
-   }, []);
+    const fetchImageData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.ModuleMounting.getProductData)
+            const resData = await axiosInstance.get(endpoints.ModuleMounting.products);
+            setData(resData?.data?.data)
+
+            setImageData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
+
+    useEffect(() => {
+        fetchImageData()
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -179,7 +182,7 @@ const Product = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            PRODUCTS
+                            {data?.title}
                         </Typography>
 
 
@@ -189,8 +192,11 @@ const Product = () => {
                         <Box>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        We manufacture different sizes of Column, Rafters, "C" & "Z" Purlins, Struts, Bracing Angle, Cleat Short and Tie Angle etc.. We designed as per IS norms, our product are of advanced quality. We can provide hot dip galvanized to a thickness of 80 to 120 Micron.
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}
+                                    dangerouslySetInnerHTML={{ __html: data?.product_desc }}
+                                    
+                                    >
+                                       
                                     </Typography>
                                 </Grid>
 
@@ -291,7 +297,7 @@ const Product = () => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
+                                            fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 600,
                                             fontFamily: "Open Sans"
                                         }}
@@ -359,7 +365,7 @@ const Product = () => {
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                    <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: "600", fontFamily: "Open Sans" }}>Image Gallery</Typography>
+                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Open Sans" }}>Image Gallery</Typography>
                                 </AccordionSummary>
 
                                 <AccordionDetails>
@@ -403,7 +409,7 @@ const Product = () => {
                                     >
                                         <Typography
                                             sx={{
-                                                fontSize: {md:"20px",xs:"16px"},
+                                                fontSize: { md: "20px", xs: "16px" },
                                                 fontWeight: 600,
                                                 fontFamily: "Open Sans"
                                             }}
@@ -524,7 +530,7 @@ const Product = () => {
                                     >
                                         <Typography
                                             sx={{
-                                                fontSize: {md:"20px",xs:"16px"},
+                                                fontSize: { md: "20px", xs: "16px" },
                                                 fontWeight: 600,
                                                 fontFamily: "Open Sans"
                                             }}
@@ -656,7 +662,7 @@ const Product = () => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
+                                            fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 600,
                                             fontFamily: "Open Sans"
                                         }}

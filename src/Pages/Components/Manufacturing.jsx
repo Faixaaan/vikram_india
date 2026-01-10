@@ -65,6 +65,8 @@ const Manufacturing = () => {
     }
 
 
+
+
     useEffect(() => {
         fetchImageData()
         window.scrollTo({
@@ -300,7 +302,7 @@ const Manufacturing = () => {
                                                 <Typography sx={headingStyle}
                                                     dangerouslySetInnerHTML={{ __html: data?.section3_list }}
                                                 >
-                                                   
+
 
 
                                                 </Typography>

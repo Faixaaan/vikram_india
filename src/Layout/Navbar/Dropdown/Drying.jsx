@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -26,6 +26,8 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import controllerImage from "../../../Assets/auto_controller.jpg";
 import heatingImage from '../../../Assets/heating-Arrangment.jpg'
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -41,7 +43,22 @@ const leftMenu = [
 ];
 
 const Drying = () => {
+  
+  const [data,setData] = useState([])
+
+  const fetchDryingData = async()=>{
+     try{
+         const res = await axiosInstance.get(endpoints.teaProcessingMachinery.drying);
+         setData(res?.data?.data)
+     }
+     catch(err){
+        console.log(err)
+     }
+  }
+
+
    useEffect(() => {
+    fetchDryingData()
        window.scrollTo({
            top: 0,
            behavior: "smooth"
@@ -71,11 +88,11 @@ const Drying = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    CTC Tea Processing Machinery
+                     {data?.title}
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
+                    {data?.sub_title}
                 </Typography>
 
                 <Grid container spacing={3}>
@@ -104,7 +121,8 @@ const Drying = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            CTC Tea Processing Machinery
+                             CTC Tea Processing Machinery
+                          
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
@@ -146,7 +164,7 @@ const Drying = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            DRYING
+                           {data?.section1_title}
                         </Typography>
 
 
@@ -162,7 +180,7 @@ const Drying = () => {
                                 fontFamily: "Open Sans",
                             }}
                         >
-                            Technical Specifications
+                            {data?.section2_title}
                         </Typography>
 
                         <Accordion sx={{
@@ -181,7 +199,7 @@ const Drying = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Vibratory Fluid Bed Dryers (VFBD)
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -193,7 +211,7 @@ const Drying = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                            Vibratory Fluid Bed Dryer (VFBD) is by far the most efficient and cost effective equipment used for drying tea, both CTC and Orthodox varieties. Vikram's VFBDs are fitted with a specially designed Dual Damper that facilitates the two stage temperature drying process. Fitted with an efficient fiber extraction cyclone system and Dust extraction & re-firing system, this machine helps in the manufacturing of best quality tea.
+                                            {data?.section3_desc}
                                         </Typography>
                                     </Grid>
 
@@ -201,7 +219,7 @@ const Drying = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={DryingImag}
+                                            src={data?.section3_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -269,7 +287,7 @@ const Drying = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    VFBD Auto Controller
+                                    {data?.section4_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -281,7 +299,7 @@ const Drying = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                            The invention was carried out with an objective of automating the dryer to facilitate minimal operator intervention, consistency of drying and Energy efficiency.
+                                           {data?.section4_desc}
 
 
                                         </Typography>
@@ -291,7 +309,7 @@ const Drying = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={controllerImage}
+                                            src={data?.section4_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -325,7 +343,7 @@ const Drying = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                    Heating Arrangment
+                                    {data?.section5_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -337,7 +355,7 @@ const Drying = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                            Vikram's unique 'Eldora' Air Heaters have both, a heat generation unit and a heat exchanger unit ensuring better heat transfer. All cast iron parts are made of special heat resistant and superior quality castings to ensure these easily withstand rise in heat and temperature.
+                                           {data?.section5_desc}
 
 
                                         </Typography>
@@ -347,7 +365,7 @@ const Drying = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={heatingImage}
+                                            src={data?.section5_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
