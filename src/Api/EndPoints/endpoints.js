@@ -64,7 +64,8 @@ export const endpoints = {
   teaProcessingMachinery:{
     drying:"/page/ctc_tea_processing_drying",
     withering:"/page/ctc_tea_processing_withering",
-    rolling:"/page/ctc_tea_processing_rolling"
+    rolling:"/page/ctc_tea_processing_rolling",
+    quality:"/page/ctc_tea_processing_quality"
   }
 
 
