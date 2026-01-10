@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -21,6 +21,8 @@ import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
 import signature from '../../Assets/signature.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -51,7 +53,21 @@ const QualityPolicy = () => {
         { src: OHSAS, alt: "ohsas" }
     ]
 
+     const [data, setData] = useState([]);
+    
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance.get(endpoints.AboutUs.qualityPolicy)
+                setData(res?.data?.data)
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+    
+
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -192,11 +208,11 @@ const QualityPolicy = () => {
                                 textTransform: "uppercase"
                             }}
                         >
-                            QUALITY POLICY
+                            {data?.title}
                         </Typography>
 
                         <Typography sx={{ color: "#df0000", fontFamily: "Open Sans" }}>
-                            Exceeding customer expectations
+                            {data?.sub_title}
                         </Typography>
 
 
@@ -217,27 +233,24 @@ const QualityPolicy = () => {
                             }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "lrft" }, alignItems: "flex-start" }} >
-                                        <img src={group1} />
+                                        <img src={data?.image} />
                                     </Grid>
 
                                     <Grid size={{ xs: 12, md: 8 }} >
 
-                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}>
-                                            "We at VIKRAM INDIA LIMITED confirm that customer satisfaction, timely delivery and sales growth are our motto in the manufacture and sale of various types of Tea Processing Machines and Spares.
+                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.q_policy_desc }}
+                                        >
+                                           
                                         </Typography>
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                            We are committed to continual improvement & shall strive for improving the effectiveness of the quality management systems as far as possible.
-                                        </Typography>
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                            The entire system shall be reviewed periodically to judge its merit in relation to our operation."
-                                        </Typography>
+                                        
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
                                             <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
                                                 Dated: 26.06.2002
                                             </Typography>
                                             <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
-                                                <img src={signature} alt="" />
+                                                <img src={data?.sign_img} alt="" />
                                             </Box>
                                         </Box>
                                     </Grid>

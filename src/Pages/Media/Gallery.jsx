@@ -100,21 +100,24 @@ const Gallery = () => {
         },
         {
             name: "A glimpse of some of our award ceremonies ",
-            images: [glimpse1, glimpse2, glimpse3,glimpse4,glimpse5,glimpse6,glimpse7,glimpse8,glimpse9,glimpse10,glimpse11,glimpse12,glimpse13,glimpse14],
+            images: [glimpse1, glimpse2, glimpse3, glimpse4, glimpse5, glimpse6, glimpse7, glimpse8, glimpse9, glimpse10, glimpse11, glimpse12, glimpse13, glimpse14],
         },
     ];
 
-    const [mediaData,setMediaData] = useState([])
-    
-        const fetchMediaData = async ()=>{
-            try{
-              const res = await axiosInstance.get(endpoints.Media.galleryCategory)
-              setMediaData(res?.data?.data)
-            }
-            catch(err){
-                console.log(err)
-            }
+    const [mediaData, setMediaData] = useState([])
+     const [data,setData] = useState({})
+
+    const fetchMediaData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Media.galleryCategory)
+            const resData = await axiosInstance.get(endpoints.Media.cmsMedia)
+            setData(resData?.data?.data)
+            setMediaData(res?.data?.data)
         }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         fetchMediaData()
@@ -215,11 +218,11 @@ const Gallery = () => {
                                 fontFamily: "Open Sans",
                             }}
                         >
-                            PHOTO GALLERY
+                           {data?.category2_title}
                         </Typography>
 
                         <Typography sx={{ color: "#df0000", fontSize: "14px" }}>
-                            Our heritage captured in photographs
+                            {data?.category2_subtitle}
                         </Typography>
 
                         <Box sx={{ mt: 6 }}>
@@ -231,7 +234,7 @@ const Gallery = () => {
                                     fontFamily: "Open Sans",
                                 }}
                             >
-                                Click on the thumbnails to view the photos
+                                {data?.category2_heading}
                             </Typography>
 
                             <Grid container spacing={3}>
@@ -265,18 +268,18 @@ const Gallery = () => {
                                                 }}
                                             />
                                         </Box>
-                                       <Box sx={{display:"flex",justifyContent:"center",width:"100%"}}>
-                                        <Typography
-                                            sx={{
-                                                fontSize: "14px",
-                                                mt: 1.5,
-                                                textAlign: "center",
-                                                fontFamily: "Open Sans",
-                                                maxWidth:"200px"
-                                            }}
-                                        >
-                                            {item.category}
-                                        </Typography>
+                                        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "14px",
+                                                    mt: 1.5,
+                                                    textAlign: "center",
+                                                    fontFamily: "Open Sans",
+                                                    maxWidth: "200px"
+                                                }}
+                                            >
+                                                {item.category}
+                                            </Typography>
                                         </Box>
                                     </Grid>
                                 ))}

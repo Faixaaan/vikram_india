@@ -32,11 +32,14 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 const WorkingCareer = () => {
 
   const [carrerData, setCarrerData] = useState([])
+  const [data, setData] = useState({})
 
   const fetchCarrerData = async () => {
     try {
       const res = await axiosInstance.get(endpoints.Career.getCarrers)
-      console.log(res?.data, 'careerdata')
+      const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
+      setData(resData?.data?.data)
+      
       setCarrerData(res?.data?.data)
     }
     catch (err) {
@@ -150,7 +153,7 @@ const WorkingCareer = () => {
                 fontFamily: "Open Sans",
               }}
             >
-              Working with Us
+              {data?.contect1_main_title}
             </Typography>
             <Typography
               sx={{
@@ -160,13 +163,13 @@ const WorkingCareer = () => {
                 fontWeight: "400",
               }}
             >
-              Producing a team of leaders
+              {data?.contect1_sub_title}
             </Typography>
 
             {/* Introduction */}
 
             {
-              carrerData?.map((item,i) => {
+              carrerData?.map((item, i) => {
                 return (
                   <Box
                     sx={{

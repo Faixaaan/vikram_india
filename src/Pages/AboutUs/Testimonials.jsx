@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 import '../../App.css'
 import group1 from '../../Assets/group-profile-01.jpg'
 import group2 from '../../Assets/group-profile-02.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -82,10 +84,22 @@ const Testimonials = () => {
     const endIndex = startIndex + testimonialsPerPage;
 
     const paginatedTestimonials = testimonials.slice(startIndex, endIndex);
+    const [data, setData] = useState([]);
+        
+            const fetchData = async () => {
+                try {
+                    const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
+                    setData(res?.data?.data)
+                }
+                catch (err) {
+                    console.log(err)
+                }
+            }
 
 
 
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -241,7 +255,7 @@ const Testimonials = () => {
 
                             {/* profile picture box */}
 
-                            {paginatedTestimonials.map((item, index) => (
+                            {data.map((item, index) => (
                                 <Box
                                     key={index}
                                     sx={{
@@ -264,7 +278,7 @@ const Testimonials = () => {
                                                     textAlign: { xs: "center", sm: "left" }
                                                 }}
                                             >
-                                                “ {item.text} ”
+                                                “ {item.msg} ”
                                             </Typography>
 
                                             <Typography
@@ -286,7 +300,7 @@ const Testimonials = () => {
 
                             <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                 <Pagination
-                                    count={Math.ceil(testimonials.length / testimonialsPerPage)}
+                                    count={Math.ceil(data.length / testimonialsPerPage)}
                                     page={page}
                                     onChange={(e, value) => setPage(value)}
                                     color="primary"

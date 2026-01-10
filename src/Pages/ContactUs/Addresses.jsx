@@ -29,11 +29,13 @@ const leftMenu = ["ADDRESSES", "QUERY FORM"];
 const Adresses = () => {
 
   const [contactData, setContactData] = useState([])
+  const [data, setData] = useState({})
 
   const fetchContactData = async () => {
     try {
       const res = await axiosInstance.get(endpoints.contactUs.getContactUsData);
-
+      const resData = await axiosInstance.get(endpoints.contactUs.cmsContact)
+      setData(resData?.data?.data)
       setContactData(res?.data?.data)
     }
     catch (err) {
@@ -148,7 +150,7 @@ const Adresses = () => {
                 fontFamily: "Open Sans",
               }}
             >
-              ADRESSES
+              {data?.adresses_title}
             </Typography>
             <Typography
               sx={{
@@ -158,7 +160,7 @@ const Adresses = () => {
                 fontWeight: "400",
               }}
             >
-              Our network across the globe
+              {data?.adresses_subtitle}
             </Typography>
 
             {/* Introduction */}
@@ -183,7 +185,7 @@ const Adresses = () => {
                 <Typography
                   sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
                 >
-                  Addresses
+                 {data?.adresses_title}
                 </Typography>
               </AccordionSummary>
 
@@ -192,7 +194,7 @@ const Adresses = () => {
                   <Grid container spacing={2}>
                     <Grid item size={{ xs: 12, md: 5 }}>
                       <img
-                        src={mmsStructure}
+                        src={data?.adresses_image}
                         alt=""
                         style={{
                           width: "100%",
@@ -213,9 +215,7 @@ const Adresses = () => {
                           textAlign: "justify",
                         }}
                       >
-                        With foot prints across India and beyond, Vikram India
-                        has a comprehensive network of various departments and
-                        offices that together aim to deliver the best.
+                        {data?.adresses_descripion}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -289,7 +289,7 @@ const Adresses = () => {
                                   marginTop: "8px",
                                 }}
                               >
-                                Phone No. + 91 33 2230 7299 
+                                Phone No. + 91 33 2230 7299
                               </li>
                               <li
                                 style={{
@@ -366,7 +366,7 @@ const Adresses = () => {
               })
             }
 
-            
+
           </Grid>
         </Grid>
       </Container>

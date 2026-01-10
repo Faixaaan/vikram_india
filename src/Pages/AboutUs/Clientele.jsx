@@ -87,12 +87,14 @@ const Clientele = () => {
 
     
         const [clientData, setClientData] = useState([])
+        const [data,setData] = useState({})
     
     
         const fetchImageData = async () => {
             try {
                 const res = await axiosInstance.get(endpoints.AboutUs.clientImage)
-                
+                const dataRes = await axiosInstance.get(endpoints.AboutUs.clientele )
+                 setData(dataRes?.data?.data)
                 setClientData(res?.data?.data)
             }
             catch (err) {
@@ -248,10 +250,10 @@ const Clientele = () => {
 
                             }}
                         >
-                            CLIENTELE
+                            {data?.title}
                         </Typography>
                         <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", color: "#df0000" }}>
-                            Building relationships across the globe
+                            {data?.sub_title}
                         </Typography>
 
                         {/* Introduction */}
@@ -262,18 +264,16 @@ const Clientele = () => {
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group1} />
+                                        <img src={data?.section1_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
+                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                        
+                                        >
+                                            
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
-                                        </Typography>
-                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginTop: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
+                                    
                                     </Grid>
                                 </Grid>
 

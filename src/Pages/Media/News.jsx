@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -27,11 +27,27 @@ import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const leftMenu = ["NEWS", "PHOTO GALLERY", "DOWNLOAD"];
 
 const News = () => {
+  
+    const [data,setData] = useState({})
+
+    const fetchMediaData =  async () =>{
+        try{
+           const res = await axiosInstance.get(endpoints.Media.cmsMedia)
+           setData(res?.data?.data)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
+        fetchMediaData()
         window.scrollTo({
             top: 0,
             behavior: "smooth",
@@ -134,7 +150,7 @@ const News = () => {
                                 fontFamily: "Open Sans",
                             }}
                         >
-                            NEWS
+                            {data?.category1_title}
                         </Typography>
                         <Typography
                             sx={{
@@ -144,7 +160,7 @@ const News = () => {
                                 fontWeight: "400",
                             }}
                         >
-                            Our presence across media
+                            {data?.category1_subtitle}
                         </Typography>
 
                         {/* Introduction */}
@@ -163,7 +179,7 @@ const News = () => {
                             <Grid container spacing={2}>
                                 <Grid item size={{ xs: 12, md: 4 }}>
                                     <img
-                                        src={mmsStructure}
+                                        src={data?.category1_sec1_image}
                                         alt=""
                                         style={{
                                             width: "100%",
@@ -184,7 +200,7 @@ const News = () => {
                                             textAlign: "justify",
                                         }}
                                     >
-                                        A leading name in the global tea machinery industry, over the years Vikram India has captured headlines for its various accomplishments. From prestigious awards to advertising campaigns, to various CSR initiatives, the media section offers all and more.
+                                    {data?.category1_sec1_desc}
                                     </Typography>
                                 </Grid>
                             </Grid>

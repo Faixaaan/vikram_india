@@ -42,20 +42,23 @@ const leftMenu = ["NEWS", "PHOTO GALLERY", "DOWNLOAD"];
 const Download = () => {
 
     const clientLogos = [
-        { img: client1, name: "Receiving Export Excellence Award for 2016-17 ",link: "https://www.vikramindia.in/media/images/mm-structure-brochure.pdf"   },
-        { img: client2, name: "Receiving Export Excellence Award for 2014-15 from Hon'ble Governer of Tripura ",link: "https://www.vikramindia.in/media/images/mm-structure-brochure.pdf"   },
-       
-       
+        { img: client1, name: "Receiving Export Excellence Award for 2016-17 ", link: "https://www.vikramindia.in/media/images/mm-structure-brochure.pdf" },
+        { img: client2, name: "Receiving Export Excellence Award for 2014-15 from Hon'ble Governer of Tripura ", link: "https://www.vikramindia.in/media/images/mm-structure-brochure.pdf" },
+
+
     ];
 
-    const [mediaData,setMediaData] = useState([])
+    const [mediaData, setMediaData] = useState([])
+    const [data, setData] = useState({})
 
-    const fetchMediaData = async ()=>{
-        try{
-          const res = await axiosInstance.get(endpoints.Media.getMediaDownload)
-          setMediaData(res?.data?.data)
+    const fetchMediaData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Media.getMediaDownload)
+            const resData = await axiosInstance.get(endpoints.Media.cmsMedia)
+            setData(resData?.data?.data)
+            setMediaData(res?.data?.data)
         }
-        catch(err){
+        catch (err) {
             console.log(err)
         }
     }
@@ -163,7 +166,7 @@ const Download = () => {
                                 fontFamily: "Open Sans",
                             }}
                         >
-                            DOWNLOAD
+                           {data?.category3_title}
                         </Typography>
                         <Typography
                             sx={{
@@ -173,7 +176,7 @@ const Download = () => {
                                 fontWeight: "400",
                             }}
                         >
-                            Our heritage captured in photographs
+                            {data?.category3_subtitle}
                         </Typography>
 
                         {/* Introduction */}
@@ -188,7 +191,7 @@ const Download = () => {
                                     textTransform: "capitalize",
                                 }}
                             >
-                                Click on the thumbnails to Download
+                                {data?.category3_heading}
                             </Typography>
 
                             <Grid container spacing={3}>
@@ -201,7 +204,7 @@ const Download = () => {
                                     >
                                         {/* Logo Box */}
                                         <Box
-                                        onClick={() => window.open(item.download_file, "_blank")}
+                                            onClick={() => window.open(item.download_file, "_blank")}
                                             sx={{
                                                 width: "auto",
                                                 maxWidth: "250px",
@@ -215,7 +218,7 @@ const Download = () => {
                                                     transform: "translateY(-5px)",
                                                     boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
                                                 },
-                                                cursor:"pointer"
+                                                cursor: "pointer"
                                             }}
                                         >
                                             <img

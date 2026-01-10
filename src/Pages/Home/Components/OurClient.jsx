@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Grid, Paper, Container } from "@mui/material";
 
 // Import images
@@ -10,11 +10,29 @@ import amalgamated from "../../../Assets/unilever.png";
 import appee from "../../../Assets/tata.png"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link, useNavigate } from "react-router-dom";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
+import { axiosInstance } from '../../../Api/Axios/axios';
 
 const logos = [tata, adani, sterling, unilever, amalgamated, appee];
 
 const OurClient = () => {
   const navigatee = useNavigate()
+
+  const [data,setData] = useState([]);
+
+  const fetchClientData = async ()=>{
+     try{
+       const res = await axiosInstance.get(endpoints.HomeCms.client)
+       setData(res?.data?.data)
+     }
+     catch(err){
+        console.log(err)
+     }
+  }
+
+  useEffect(()=>{
+fetchClientData()
+  },[])
 
   const handleComingsoon = () => {
     navigatee('/page-coming-soon');
@@ -34,7 +52,7 @@ const OurClient = () => {
         {/* Blue Bordered Logo Box */}
 
         <Grid container spacing={2} justifyContent="center" alignItems="center">
-          {logos.map((logo, index) => (
+          {data?.map((logo, index) => (
             <Grid
               item
               size={{ xs: 6, sm: 4, md: 2 }}
@@ -46,7 +64,7 @@ const OurClient = () => {
             >
               <Box
                 component="img"
-                src={logo}
+                src={logo?.image}
                 alt={`client-logo-${index}`}
                 sx={{
                   width: "120px",

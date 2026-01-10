@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -21,6 +21,8 @@ import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
 import '../../App.css'
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -33,7 +35,20 @@ const leftMenu = [
 ];
 
 const Introduction = () => {
+
+  const [data, setData] = useState([]);
+      
+          const fetchData = async () => {
+              try {
+                  const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+                  setData(res?.data?.data)
+              }
+              catch (err) {
+                  console.log(err)
+              }
+          }
   useEffect(() => {
+    fetchData()
       window.scrollTo({
           top: 0,
           behavior: "smooth"
@@ -138,7 +153,7 @@ const Introduction = () => {
                 fontFamily: "Open Sans"
               }}
             >
-              Introduction
+              {data?.title}
             </Typography>
 
 
@@ -158,7 +173,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
                 <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 600 }}>
-                  About Vikram India Limited
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -186,7 +201,7 @@ const Introduction = () => {
                     </Grid>
 
                     <Grid item size={{xs:12,md:5}}>
-                      <img src={mmsStructure} alt=""
+                      <img src={data?.section1_image} alt=""
                         style={{ width: "100%", borderRadius: "6px" }}
                       />
                     </Grid>
@@ -199,13 +214,9 @@ const Introduction = () => {
                       textAlign: "justify",
                       mt: 1
                     }}
+                     dangerouslySetInnerHTML={{ __html: data?.section1_desc1 }}
                   >
-                    The present capacity of Vikram India ltd, Howrah plant is 24000/- MT per
-                    Annum of Module Mounting structur( M MS ) along with the upcoming HOT DIP
-                    Galvanizing facility . The plant has provision for increasing its capacity
-                    by double in shortest time. We are manufacturing MMS in an eco-friendly
-                    environment and we are also a member of INDIALEAD ZINC DEVELOPMENT
-                    ASSOCIATION ( ILZDA ).
+                    
                   </Typography>
 
                   <Typography
@@ -215,11 +226,9 @@ const Introduction = () => {
                       textAlign: "justify",
                       mt: 2
                     }}
+                     dangerouslySetInnerHTML={{ __html: data?.section1_desc2 }}
                   >
-                    It also offers customized Project Consultancy Services and Training,
-                    presently involved in manufacturing of Module Mounting Structure ( MMS ) for
-                    mounting the solar panel based at Dhulagarh, Howrah in West Bengal. Vikram
-                    Solar is the flagship company of the Vikram Group.
+                   
                   </Typography>
                 </Box>
 

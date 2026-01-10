@@ -37,10 +37,13 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 const CSR = () => {
 
     const [casrData, setCsrData] = useState([]);
+    const [data,setData] = useState({})
 
     const fetchCsrData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.Csr.getCsrData);
+            const cmsRes = await axiosInstance.get(endpoints.Csr.cmsCsrData)
+            setData(cmsRes?.data?.data)
             setCsrData(res?.data?.data)
         }
         catch (err) {
@@ -88,10 +91,10 @@ const CSR = () => {
                     <Grid size={{ xs: 12, md: 3 }}>
                         <Box sx={{ padding: { md: "40px 0px", xs: "15px 0px" } }}>
                             <Typography sx={{ fontFamily: "Open Sans", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
-                                Social Commitment
+                                {data?.left_title}
                             </Typography>
                             <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                "Vikram India goes beyond business to reach out to the weaker sections of the society and aims to create a happy and healthy community."
+                                {data?.left_description}
                             </Typography>
                         </Box>
                     </Grid>
@@ -106,7 +109,7 @@ const CSR = () => {
                                 fontFamily: "Open Sans",
                             }}
                         >
-                            Social Commitment
+                            {data?.main_title}
                         </Typography>
                         <Typography
                             sx={{
@@ -117,7 +120,7 @@ const CSR = () => {
                                 pb: 4
                             }}
                         >
-                            Nurturing communities for a brighter tomorrow
+                            {data?.sub_title}
                         </Typography>
 
                         <Divider />
@@ -131,7 +134,7 @@ const CSR = () => {
                                 pb: 4
                             }}
                         >
-                            Guided by the principles of environment sustainability, developing the community and our people, we are committed to build a brighter tomorrow.
+                            {data?.description}
                         </Typography>
 
                         <Divider />
@@ -144,7 +147,7 @@ const CSR = () => {
                                 pt: 2
                             }}
                         >
-                            Initiating Green Power in tea industry
+                            {data?.heading}
                         </Typography>
 
                         {/* Introduction */}

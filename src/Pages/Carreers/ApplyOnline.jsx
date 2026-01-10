@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -26,11 +26,28 @@ import mmsStructure from "../../Assets/apply-online.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const ApplyOnline = () => {
+  const [data, setData] = useState({})
+
+  const fetchCarrerData = async () => {
+    try {
+
+      const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
+      setData(resData?.data?.data)
+
+
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
   useEffect(() => {
+    fetchCarrerData()
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -41,87 +58,87 @@ const ApplyOnline = () => {
       <Container maxWidth="xl">
         {/* Breadcrumb */}
         <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
-                  <MLink component={Link} to="/" underline="hover" color="inherit">
-                    Home
-                  </MLink>
-                  <Typography color="inherit">Careers</Typography>
-        
-                  <Typography color="text.primary">APPLY NOW</Typography>
-                </Breadcrumbs>
-        
-                {/* PAGE TITLE */}
-                <Typography
+          <MLink component={Link} to="/" underline="hover" color="inherit">
+            Home
+          </MLink>
+          <Typography color="inherit">Careers</Typography>
+
+          <Typography color="text.primary">APPLY NOW</Typography>
+        </Breadcrumbs>
+
+        {/* PAGE TITLE */}
+        <Typography
+          sx={{
+            fontSize: "28px",
+            fontWeight: 700,
+            mb: 1,
+            color: "#000",
+            textTransform: "uppercase",
+            fontFamily: "Open Sans",
+          }}
+        >
+          CAREERS
+        </Typography>
+
+        <Grid container spacing={3}>
+          {/* Left Sidebar */}
+          <Grid item size={{ xs: 12, md: 3 }}>
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: "15px",
+                mb: 2,
+                textTransform: "uppercase",
+                fontFamily: "Open Sans",
+              }}
+            >
+              APPLY NOW
+            </Typography>
+
+            <Divider sx={{ mb: 2 }} />
+
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: "14px",
+                mb: 1,
+                color: "#d32f2f",
+                fontFamily: "Open Sans",
+              }}
+            >
+              CAREERS
+            </Typography>
+
+            <List sx={{ border: "1px solid #ddd" }}>
+              {leftMenu.map((item) => (
+                <ListItemButton
+                  key={item}
+                  component={Link}
+                  to={`/careers/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
-                    fontSize: "28px",
-                    fontWeight: 700,
-                    mb: 1,
-                    color: "#000",
-                    textTransform: "uppercase",
+                    borderBottom: "1px solid #eee",
+                    backgroundColor:
+                      item === "APPLY NOW" ? "green" : "transparent",
+                    color: item === "APPLY NOW" ? "#fff" : "#000",
+                    "&:hover": {
+                      backgroundColor:
+                        item === "APPLY NOW" ? "green" : "#f5f5f5",
+                    },
                     fontFamily: "Open Sans",
                   }}
                 >
-                  CAREERS
-                </Typography>
-        
-                <Grid container spacing={3}>
-                  {/* Left Sidebar */}
-                  <Grid item size={{ xs: 12, md: 3 }}>
-                    <Typography
-                      sx={{
-                        fontWeight: 700,
-                        fontSize: "15px",
-                        mb: 2,
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans",
-                      }}
-                    >
-                      APPLY NOW
-                    </Typography>
-        
-                    <Divider sx={{ mb: 2 }} />
-        
-                    <Typography
-                      sx={{
-                        fontWeight: 700,
-                        fontSize: "14px",
-                        mb: 1,
-                        color: "#d32f2f",
-                        fontFamily: "Open Sans",
-                      }}
-                    >
-                      CAREERS
-                    </Typography>
-        
-                    <List sx={{ border: "1px solid #ddd" }}>
-                      {leftMenu.map((item) => (
-                        <ListItemButton
-                          key={item}
-                          component={Link}
-                          to={`/careers/${item.toLowerCase().replace(/ /g, "-")}`}
-                          sx={{
-                            borderBottom: "1px solid #eee",
-                            backgroundColor:
-                              item === "APPLY NOW" ? "green" : "transparent",
-                            color: item === "APPLY NOW" ? "#fff" : "#000",
-                            "&:hover": {
-                              backgroundColor:
-                                item === "APPLY NOW" ? "green" : "#f5f5f5",
-                            },
-                            fontFamily: "Open Sans",
-                          }}
-                        >
-                          <ListItemText
-                            primary={item}
-                            primaryTypographyProps={{
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              fontFamily: "Open Sans",
-                            }}
-                          />
-                        </ListItemButton>
-                      ))}
-                    </List>
-                  </Grid>
+                  <ListItemText
+                    primary={item}
+                    primaryTypographyProps={{
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontFamily: "Open Sans",
+                    }}
+                  />
+                </ListItemButton>
+              ))}
+            </List>
+          </Grid>
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
@@ -133,7 +150,7 @@ const ApplyOnline = () => {
                 fontFamily: "Open Sans",
               }}
             >
-              APPLY NOW
+            {data?.contect2_main_title}
             </Typography>
             <Typography
               sx={{
@@ -143,49 +160,51 @@ const ApplyOnline = () => {
                 fontWeight: "400",
               }}
             >
-              Always at your service
+              {data?.contect2_sub_title}
             </Typography>
 
             {/* Introduction */}
 
-            <Box sx={{ paddingBottom: "10px",mt:4,boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                borderRadius: "12px",
-                p: 0,
+            <Box sx={{
+              paddingBottom: "10px", mt: 4, boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+              borderRadius: "12px",
+              p: 0,
 
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundColor: "#fff", // fallback
-                padding: "20px 20px 0px 20px", }}>
-                  <Grid container spacing={2}>
-                    <Grid item size={{ xs: 12, md: 4 }}>
-                      <img
-                        src={mmsStructure}
-                        alt=""
-                        style={{
-                          width: "100%",
-                          borderRadius: "6px",
-                          height: "auto",
-                        }}
-                      />
-                    </Grid>
-                    <Grid
-                      item
-                      size={{ xs: 12, md: 8 }}
-                      sx={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontFamily: "Open Sans",
-                          textAlign: "justify",
-                        }}
-                      >
-                        Over the years it has been our constant endeavour to ensure continual development of our team members - spiritually, physically, emotionally and intellectually.
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Box>
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundColor: "#fff", // fallback
+              padding: "20px 20px 0px 20px",
+            }}>
+              <Grid container spacing={2}>
+                <Grid item size={{ xs: 12, md: 4 }}>
+                  <img
+                    src={data?.image}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      borderRadius: "6px",
+                      height: "auto",
+                    }}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  size={{ xs: 12, md: 8 }}
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "20px",
+                      fontFamily: "Open Sans",
+                      textAlign: "justify",
+                    }}
+                  >
+                    {data?.description}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
             <Accordion
               sx={{
                 background: "#fff",
@@ -230,7 +249,7 @@ const ApplyOnline = () => {
                 >
                   <Grid container spacing={3}>
                     {/* First Row */}
-                    <Grid item  size={{xs:12,md:6}}>
+                    <Grid item size={{ xs: 12, md: 6 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -241,7 +260,7 @@ const ApplyOnline = () => {
                             fontSize: "14px",
                           }}
                         >
-                           Name <span style={{ color: "#c00" }}>*</span>
+                          Name <span style={{ color: "#c00" }}>*</span>
                         </Typography>
                         <TextField
                           fullWidth
@@ -260,7 +279,7 @@ const ApplyOnline = () => {
                       </Box>
                     </Grid>
 
-                    <Grid item size={{xs:12,md:6}}>
+                    <Grid item size={{ xs: 12, md: 6 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -292,7 +311,7 @@ const ApplyOnline = () => {
                     </Grid>
 
                     {/* Second Row */}
-                    <Grid item size={{xs:12,md:6}}>
+                    <Grid item size={{ xs: 12, md: 6 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -323,10 +342,10 @@ const ApplyOnline = () => {
                       </Box>
                     </Grid>
 
-                    
+
 
                     {/* Country Field */}
-                    <Grid item size={{xs:12}}>
+                    <Grid item size={{ xs: 12 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -366,7 +385,7 @@ const ApplyOnline = () => {
                     </Grid>
 
                     {/* Query Field */}
-                    <Grid item size={{xs:12}}>
+                    <Grid item size={{ xs: 12 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -384,15 +403,15 @@ const ApplyOnline = () => {
                           variant="outlined"
                           multiline
                           type="file"
-                          
-                         
+
+
                         />
-                        
+
                       </Box>
                     </Grid>
 
                     {/* Verification Row */}
-                    <Grid item size={{xs:12}}>
+                    <Grid item size={{ xs: 12 }}>
                       <Box
                         sx={{
                           p: 2,
@@ -551,7 +570,7 @@ const ApplyOnline = () => {
                     </Grid>
 
                     {/* Buttons */}
-                    <Grid item size={{xs:12}}>
+                    <Grid item size={{ xs: 12 }}>
                       <Box
                         sx={{
                           display: "flex",

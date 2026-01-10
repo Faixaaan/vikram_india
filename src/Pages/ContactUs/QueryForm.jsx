@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -26,11 +26,28 @@ import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const leftMenu = ["ADDRESSES", "QUERY FORM"];
 
 const QueryForm = () => {
+
+  const [data, setData] = useState({})
+
+  const fetchContactData = async () => {
+    try {
+     
+      const resData = await axiosInstance.get(endpoints.contactUs.cmsContact)
+      setData(resData?.data?.data)
+      
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
   useEffect(() => {
+    fetchContactData()
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -133,7 +150,7 @@ const QueryForm = () => {
                 fontFamily: "Open Sans",
               }}
             >
-              QUERY FORM
+             {data?.query_form_title}
             </Typography>
             <Typography
               sx={{
@@ -143,7 +160,7 @@ const QueryForm = () => {
                 fontWeight: "400",
               }}
             >
-              Always at your service
+              {data?.query_form_subtitle}
             </Typography>
 
             {/* Introduction */}
@@ -168,7 +185,7 @@ const QueryForm = () => {
                 <Typography
                   sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
                 >
-                  QUERY FORM
+                  {data?.query_form_title}
                 </Typography>
               </AccordionSummary>
 
@@ -177,7 +194,7 @@ const QueryForm = () => {
                   <Grid container spacing={2}>
                     <Grid item size={{ xs: 12, md: 5 }}>
                       <img
-                        src={mmsStructure}
+                        src={data?.query_form_image}
                         alt=""
                         style={{
                           width: "100%",
@@ -198,8 +215,7 @@ const QueryForm = () => {
                           textAlign: "justify",
                         }}
                       >
-                        Send us your Query/ Feedback/ Complaint. We are happy to
-                        serve you.
+                        {data?.query_form_description}
                       </Typography>
                     </Grid>
                   </Grid>

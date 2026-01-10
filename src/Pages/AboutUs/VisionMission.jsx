@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -21,6 +21,8 @@ import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
 import signature from '../../Assets/signature.jpg'
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -51,7 +53,20 @@ const VisionMission = () => {
         { src: OHSAS, alt: "ohsas" }
     ]
 
+    const [data, setData] = useState([]);
+    
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance.get(endpoints.AboutUs.our_vision)
+                setData(res?.data?.data)
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -192,7 +207,7 @@ const VisionMission = () => {
                                 textTransform: "uppercase"
                             }}
                         >
-                            VISION & MISSION
+                            {data?.title}
                         </Typography>
 
 
@@ -218,26 +233,23 @@ const VisionMission = () => {
 
                                     <Grid size={{ xs: 12, md: 8.6 }} >
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#ee1d25" }}>
-                                            Our Mission
+                                            {data?.section1_title}
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            Our aim is to combine technology, managerial skills, innovation, experience, judgment and responsibility to provide the added value which ensures customer satisfaction.
+                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}
+                                        
+                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                        >
                                         </Typography>
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                            In harmony with our strategic vision, pioneering spirit, engineering skills, knowledge accumulated through collective learning and bench-marking against global leaders, we will endeavour to ensure excellence in performance in all areas relating to design, research, development, manufacturing, sales and customer service.
-                                        </Typography>
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                            We are committed to ensure the progressive evolution of tea processing machinery by continuously interacting with tea industry and on-going research and development in tea technology around the world. We aim to keep this in sharper focus and develop in each and every member of Vikram the highest degree of self-esteem and pride, at being fortunate to serve this industry.
-                                        </Typography>
+                                       
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
                                             <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
-                                                Vikram India Limited <br />
-                                                April 02. 2001 <br />
+                                                {data?.company_name} <br />
+                                                {data?.est_date}<br />
                                                 Kolkata, India
                                             </Typography>
                                             <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
-                                                <img src={signature} alt="" />
+                                                <img src={data?.sign_img} alt="" />
                                             </Box>
                                         </Box>
                                     </Grid>
@@ -270,7 +282,7 @@ const VisionMission = () => {
                                                 fontFamily: "Open Sans"
                                             }}
                                         >
-                                            Group Vision
+                                            {data?.section2_title}
                                         </Typography>
                                         <Typography
                                             sx={{
@@ -280,24 +292,12 @@ const VisionMission = () => {
                                                 color: "#121111",
                                                 fontFamily: "Open Sans"
                                             }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
                                         >
-                                            To Vikram Group, 'Vision is in Action' and in order to transfer the vision to reality we have to put together - innovation, technology, skill, experience, management and analysis in perfect proportion.
+                                            
                                         </Typography>
 
-                                        <Typography
-                                            sx={{
-                                                fontSize: "16px",
-                                                lineHeight: "140%",
-                                                textAlign: "justify",
-                                                fontWeight: 400,
-                                                color: "#121111",
-                                                fontFamily: "Open Sans"
-                                            }}
-                                        >
-                                            Here, customer satisfaction is considered to be the stimulus as well as the working capital. Be it in tea manufacturing, textile industry, solar power or as an EPC solution provider - Vikram has acted towards an international standard of R&D and technology; has induced a high level of excellence in products and has prioritized cost, responsibility and accountability.
-
-
-                                        </Typography>
+                                        
                                     </Grid>
 
                                     {/* BOY IMAGE *BOTTOM ALIGNED* */}
@@ -310,7 +310,7 @@ const VisionMission = () => {
                                             alignItems: "flex-end",
                                         }}
                                     >
-                                        <img src={group2} alt="" style={{ width: "100%", height: "auto", marginBottom: "0px" }} />
+                                        <img src={data?.section2_image} alt="" style={{ width: "100%", height: "auto", marginBottom: "0px" }} />
                                     </Grid>
                                 </Grid>
                             </Box>

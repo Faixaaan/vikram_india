@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -20,6 +20,8 @@ import BgImage from '../../Assets/earning-background.jpg'
 import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
+import { endpoints } from "../../Api/EndPoints/endpoints";
+import { axiosInstance } from "../../Api/Axios/axios";
 
 
 
@@ -49,8 +51,20 @@ const CompanyProfile = () => {
         { src: EMS, alt: "ems" },
         { src: OHSAS, alt: "ohsas" }
     ]
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.AboutUs.companyProfile)
+            setData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -191,7 +205,7 @@ const CompanyProfile = () => {
                                 textTransform: "uppercase"
                             }}
                         >
-                            COMPANY PROFILE
+                            {data?.title}
                         </Typography>
 
 
@@ -201,9 +215,17 @@ const CompanyProfile = () => {
                         <Box>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "18px", fontFamily: "Open Sans", textAlign: "justify", fontWeight: "600", lineHeight: "120%" }}>
-                                        Vikram India, an ISO 9001:2008 certified company, has been on a path of continuous growth and progress since its inception, consolidating its position through product innovation and commitment to excellence.
-                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "18px",
+                                            fontFamily: "Open Sans",
+                                            textAlign: "justify",
+                                            fontWeight: 600,
+                                            lineHeight: "120%",
+                                        }}
+                                        dangerouslySetInnerHTML={{ __html: data?.company_desc }}
+                                    />
+
                                 </Grid>
 
                             </Grid>
@@ -220,18 +242,15 @@ const CompanyProfile = () => {
                                 <Grid container spacing={2} mt={2}>
 
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                        >
+                                           
                                         </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "300", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
-                                        </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginTop: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
-                                        </Typography>
+                                        
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group1} />
+                                        <img src={data?.section1_img} />
                                     </Grid>
                                 </Grid>
 
@@ -250,17 +269,16 @@ const CompanyProfile = () => {
                             }}>
                                 <Grid container spacing={2} mt={4}>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
+                                        <img src={data?.section2_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Earning the trust and confidence of people for the last four decades, Vikram India has established a strong position within the tea machinery industry.
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
+                                        
+                                        >
+                                            
                                         </Typography>
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            From setting up its first plant in Ghusuri, Howrah near Kolkata, the Company has come a long way. With the help of its panel of experienced engineers and tea technocrats, Vikram India offers complete solution - from plucking to packaging, to its prestigious clients worldwide.
-
-
-                                        </Typography>
+                                        
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -269,15 +287,13 @@ const CompanyProfile = () => {
 
                             <Box sx={{ mt: 4 }}>
 
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}>
-                                    Vikram India's unwavering focus on providing premium quality products to its customers is one of the key drivers for its remarkable success.
+                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
+                                
+                                >
+                                    
                                 </Typography>
-                                <Typography sx={{ fontSize: "20px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "18px" }}>
-                                    Using state-of-the-art technology, its dedicated R&D team helps the Company in product innovation and incorporation of efficient manufacturing techniques.
-                                </Typography>
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%", marginTop: "20px" }}>
-                                    Vikram India also offers customized Project Consultancy Services and Training Packages to its clients. It has successfully completed prestigious turnkey projects from concept to commissioning covering civil, electrical and tea blending equipment and also provided technical know-how for various projects in India and all over the world. As its operations expand and spread, the Company through its ethical practices and social commitments continues to contribute towards the development of tea industry worldwide.
-                                </Typography>
+                                
                             </Box>
 
                             {/* image  */}

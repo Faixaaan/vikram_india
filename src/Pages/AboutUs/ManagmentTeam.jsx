@@ -56,7 +56,7 @@ const ManagementTeam = () => {
 
     const fetchImageData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.AboutUs.getManagmentTeamData)
+            const res = await axiosInstance.get(endpoints.AboutUs.ManagmentTeamData)
             console.log(res?.data?.data,'aboutus')
             setManagementData(res?.data?.data)
         }

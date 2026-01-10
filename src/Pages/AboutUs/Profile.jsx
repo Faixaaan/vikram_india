@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import '../../App.css'
 import group1 from '../../Assets/group-profile-01.jpg'
 import group2 from '../../Assets/group-profile-02.jpg'
+import { endpoints } from "../../Api/EndPoints/endpoints";
+import { axiosInstance } from '../../Api/Axios/axios';
 
 
 
@@ -39,7 +41,20 @@ const leftMenu = [
 
 const GroupProfile = () => {
 
+    const [data,setData] = useState([]);
+
+    const fetchData = async ()=>{
+          try{
+            const res = await axiosInstance.get(endpoints.AboutUs.groupPofile)
+            setData(res?.data?.data)
+          }
+          catch(err){
+             console.log(err)
+          }
+    }
+
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -180,7 +195,7 @@ const GroupProfile = () => {
                                 textTransform: "uppercase"
                             }}
                         >
-                            Group Profile
+                            {data?.title}
                         </Typography>
 
 
@@ -191,7 +206,7 @@ const GroupProfile = () => {
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
                                     <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        Growing from strength to strength over the last four decades, <strong> the Vikram Group is inspired by a strong heritage and nurtures a mission to serve the world by diversifying its business,</strong> strengthening its brand identity, exceeding customer expectations through quality and service, enriching its production and promoting itself as a responsible corporate citizen.
+                                      {data?.group_desc}
                                     </Typography>
                                 </Grid>
 
@@ -202,27 +217,27 @@ const GroupProfile = () => {
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group1} />
+                                        <img src={data?.section1_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
                                         <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Started as a forging plant manufacturing stainless steel segments for CTC rollers used in the indigenous tea industry in 1974, Vikram Group
+                                            {data?.section1_title}
                                         </Typography>
                                         <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            has established itself as a quality driven, service oriented and performance focused Indian conglomerate with a distinct international edge. Through strategic global expansion and investments in latest technology to drive the business forward, the Group has created a strong position worldwide.
+                                           {data?.section1_desc}
                                         </Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid container spacing={2} mt={4}>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={group2} />
+                                        <img src={data?.section2_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
                                         <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
-                                            Vikram Group is manned by a highly capable team of professionals which has supported its momentous growth.
+                                            {data?.section2_title}
                                         </Typography>
                                         <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            Through its state-of-the-art research facilities and product innovations and a network of offices and distributors across the globe, Vikram Group has diversified into different business sectors such as manufacturing of Tea Processing Machinery, Textiles, EPC Solutions and the green industry of Solar Power. Balancing the interests of shareholders, employees and civil society, the Group has successfully created a business empire.
+                                            {data?.section2_desc}
                                         </Typography>
                                     </Grid>
                                 </Grid>

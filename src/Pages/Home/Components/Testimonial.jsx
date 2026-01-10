@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Card, CardContent, IconButton, Avatar, Button, Modal } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import '../../../App.css'
@@ -6,6 +6,8 @@ import avatar1 from '../../../Assets/Ellipse 14.png'
 import avatar2 from '../../../Assets/Ellipse 15.png'
 import avatar3 from '../../../Assets/Ellipse 16.png'
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { axiosInstance } from '../../../Api/Axios/axios';
+import { endpoints } from '../../../Api/EndPoints/endpoints';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -143,6 +145,23 @@ const Testimonial = () => {
   };
 
 
+  const [data, setData] = useState([])
+
+  const fetchTestimonialData = async () => {
+    try {
+        const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
+        setData(res?.data?.data || [])
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    fetchTestimonialData()
+  }, [])
+
+
   return (
     <Box sx={{
       padding: { xs: "30px 15px", md: "60px 40px" },
@@ -222,7 +241,7 @@ const Testimonial = () => {
             transform: `translateX(-${currentIndex * (100 / totalSlides)}%)`,
             width: `${totalSlides * 100}%`
           }}>
-            {testimonials.map((testimonial) => (
+            {data.map((testimonial) => (
               <Box
                 key={testimonial.id}
                 sx={{
@@ -244,7 +263,7 @@ const Testimonial = () => {
                       transform: 'translateY(-5px)',
                       boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
                     },
-                    width: { sm: "290px", xs: "90%",md:"230px" }
+                    width: { sm: "290px", xs: "90%", md: "230px" }
                   }}
                 >
                   {/* First Section: Left Image + Right Info */}
@@ -319,7 +338,7 @@ const Testimonial = () => {
                         fontFamily: "Kaisei Decol"
                       }}
                     >
-                      "{testimonial.content}"
+                      {testimonial.msg}
                     </Typography>
 
                     <Box sx={{
@@ -415,7 +434,7 @@ const Testimonial = () => {
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button
               onClick={() => setOpenModal(false)}
-              sx={{ fontWeight: "bold", color: "#fff",backgroundColor:"#CA0B00",borderRadius:"12%" }}
+              sx={{ fontWeight: "bold", color: "#fff", backgroundColor: "#CA0B00", borderRadius: "12%" }}
             >
               X
             </Button>

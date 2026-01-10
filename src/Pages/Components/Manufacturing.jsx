@@ -47,28 +47,31 @@ const img = [
 
 const Manufacturing = () => {
 
-    const [imageData ,setImageData] = useState([])
+    const [imageData, setImageData] = useState([])
+    const [data, setData] = useState({})
 
 
-    const fetchImageData = async()=>{
-        try{
+    const fetchImageData = async () => {
+        try {
             const res = await axiosInstance.get(endpoints.ModuleMounting.getModuleMountingManufaturing)
-            
+            const resData = await axiosInstance.get(endpoints.ModuleMounting.CmsModuleMounting)
+            setData(resData?.data?.data)
+
             setImageData(res?.data?.data)
         }
-        catch(err){
+        catch (err) {
             console.log(err)
         }
     }
 
 
-   useEffect(() => {
-    fetchImageData()
-       window.scrollTo({
-           top: 0,
-           behavior: "smooth"
-       });
-   }, []);
+    useEffect(() => {
+        fetchImageData()
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -168,7 +171,7 @@ const Manufacturing = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            MANUFACTURING AND QUALITY
+                            {data?.title}
                         </Typography>
 
 
@@ -179,7 +182,7 @@ const Manufacturing = () => {
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
                                     <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        We are fully equipped with upgraded machineries in our plant to produce world class of material s per designed. With superior quality solar module mounting structure systems, fabricated in our modern manufacturing unit. we have an edge when it comes to producing product at its excellence. We boast to provides the most economical and premier quality solar structure.
+                                        {data?.mouting_desc}
                                     </Typography>
                                 </Grid>
 
@@ -200,12 +203,12 @@ const Manufacturing = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
+                                            fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Our state-of-art manufacturing facility is equipped with
+                                        {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -217,31 +220,15 @@ const Manufacturing = () => {
                                             Cold Rolling Machine - Fully automatic high speed line.
                                         </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Shearing Machine - CNC.
+                                        <Typography sx={headingStyle}
+                                            dangerouslySetInnerHTML={{ __html: data?.section1_list }}
+                                        >
+
                                         </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Press Brake - CNC.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Power Press.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Plasma Cutting - CNC.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Iron worker and other equipment to produce
-                                            24,000 MT structure per annum.
-                                        </Typography>
 
                                     </Grid>
                                 </AccordionDetails>
@@ -260,15 +247,15 @@ const Manufacturing = () => {
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                    <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 500, fontFamily: "Open Sans" }}>
-                                        Image Gallery
+                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500, fontFamily: "Open Sans" }}>
+                                        {data?.section2_title}
                                     </Typography>
                                 </AccordionSummary>
 
                                 <AccordionDetails>
                                     <Grid container spacing={2}>
                                         {imageData?.map((item, i) => (
-                                            <Grid item size={{xs:12,md:4}} key={i}>
+                                            <Grid item size={{ xs: 12, md: 4 }} key={i}>
                                                 <img
                                                     src={item.image}
                                                     style={{ width: "100%", borderRadius: "8px" }}
@@ -294,12 +281,12 @@ const Manufacturing = () => {
                                 }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
+                                            fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Environmental and Safety
+                                        {data?.section3_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -310,17 +297,15 @@ const Manufacturing = () => {
                                             {/* LEFT CONTENT */}
                                             <Grid item size={{ xs: 12, md: 8 }}>
 
-                                                <Typography sx={headingStyle}>
-                                                    <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                    We adhere to statutory and legal requirement for safety, health and
-                                                    environment in manufacturing process.
+                                                <Typography sx={headingStyle}
+                                                    dangerouslySetInnerHTML={{ __html: data?.section3_list }}
+                                                >
+                                                   
+
+
                                                 </Typography>
 
-                                                <Typography sx={headingStyle}>
-                                                    <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                    We enhance and upgrade technology, resources and manpower competence
-                                                    to achieve total customer satisfaction.
-                                                </Typography>
+
 
                                             </Grid>
 
@@ -330,20 +315,7 @@ const Manufacturing = () => {
                                             </Grid>
 
                                             {/* BOTTOM FULL WIDTH CONTENT */}
-                                            <Grid item size={{ xs: 12 }}>
 
-                                                <Typography sx={headingStyle}>
-                                                    <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                    We accept customer suggestion by understanding their requirement and
-                                                    need for quality improvement.
-                                                </Typography>
-
-                                                <Typography sx={headingStyle}>
-                                                    <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                    We have adopted numerous methodologies in entire value.
-                                                </Typography>
-
-                                            </Grid>
 
                                         </Grid>
                                     </Box>

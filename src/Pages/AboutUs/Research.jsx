@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -22,6 +22,8 @@ import group2 from '../../Assets/group-profile-02.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 
@@ -44,8 +46,21 @@ const leftMenu = [
 
 
 const Research = () => {
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.AboutUs.research)
+            setData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
     useEffect(() => {
+        fetchData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -186,10 +201,10 @@ const Research = () => {
                                 textTransform: "uppercase"
                             }}
                         >
-                            RESEARCH AND DEVELOPMENT
+                            {data?.title}
                         </Typography>
                         <Typography sx={{ color: "#df0000", fontFamily: "Open Sans", borderBottom: "1px solid #000", pb: 2 }}>
-                            Combining knowledge and technology
+                            {data?.sub_title}
                         </Typography>
 
 
@@ -199,15 +214,13 @@ const Research = () => {
                         <Box sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}>
-                                        Vikram India takes pride in its spirit of innovation and product development processes, setting high quality standards to build the brand that consumers trust. Vikram India's R&D motto is -
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.rnd_desc }}
+
+                                    >
+
                                     </Typography>
-                                    <Typography sx={{ fontSize: "22px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px", fontWeight: "600" }}>
-                                        "Technological improvements must satisfy the related scientific objectives."
-                                    </Typography>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}>
-                                        Using state-of-the-art technology, the Company's R&D Department is manned by highly proficient and skilled engineers, each backed up with years of hands-on experience in design, development, operation and maintenance of tea processing machinery.
-                                    </Typography>
+
                                 </Grid>
 
                             </Grid>
@@ -217,18 +230,15 @@ const Research = () => {
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "left" } }} >
-                                        <img src={group1} />
+                                        <img src={data?.section1_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#121111ff" }}>
-                                            The Company's dedicated R&D team constantly engages in knowledge exchange programs with various tea research institutes across India and abroad for scientific inputs, to improve its products and processes.
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#121111ff" }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                        >
+
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff", marginBottom: "25px" }}>
-                                            It collects and analyses the feedback received from existing customers as well as technicians who operate Vikram India's machines, to ensure delivery of premium quality products to its customers.
-                                        </Typography>
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                            Vikram India's well-organized and efficient R&D platform has helped its research team to set several significant benchmarks in the tea processing machinery segment.
-                                        </Typography>
+
                                     </Grid>
                                 </Grid>
 
@@ -253,54 +263,20 @@ const Research = () => {
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Latest success on R&D
+                                        {data?.section2_title}
                                     </Typography>
                                 </AccordionSummary>
 
                                 <AccordionDetails>
                                     {/* CONTENT INSIDE ACCORDION */}
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Use of optical imaging in roller matching inspection unit
+                                    <Typography sx={headingStyle}
+                                    
+                                    dangerouslySetInnerHTML={{ __html: data?.latest_rnd }}>
+                                        
+
                                     </Typography>
 
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        CNC fully automatic Milling cum Grooving machine of CTC Rollers
-                                    </Typography>
 
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of Auto Milling Machine with conventional chasing attachment
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Application of intelligent monitoring and controlling systems during maceration, fermentation and drying processes
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of customized fermenting machines to suit different operational methods
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of widest [56"] CTC machines with vibration amplitude reduced to almost zero
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of specially designed Auto Tracking System for CFMs for improved and hygienic operation through zero adjustment and negligible spillage
-                                    </Typography>
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of wide (60") Vibro Screen for more output and better grading
-                                    </Typography>
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Manufacturing of Continuous Withering Machine for both Physical and Chemical Withering
-                                    </Typography>
                                 </AccordionDetails>
                             </Accordion>
 
