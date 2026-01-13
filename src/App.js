@@ -1,4 +1,4 @@
-import "./App.css";
+import "././App.css";
 import Navbar from "./Layout/Navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -41,6 +41,16 @@ import News from "./Pages/Media/News";
 import Gallery from "./Pages/Media/Gallery";
 import Download from "./Pages/Media/Donwload";
 import CSR from "./Pages/Csr/Csr";
+import TeaWithering from "./Pages/OrthodoxTeaProcessing/TeaWithering";
+import TeaRolling from "./Pages/OrthodoxTeaProcessing/TeaRolling";
+import TeaFermenting from "./Pages/OrthodoxTeaProcessing/TeaFermenting";
+import TeaDrying from "./Pages/OrthodoxTeaProcessing/TeaDrying";
+import TeaSorting from "./Pages/OrthodoxTeaProcessing/TeaSorting";
+import TeaPacking from "./Pages/OrthodoxTeaProcessing/TeaPacking";
+import GreenSteaming from "./Pages/GreenTeaprocessing/GreenSteaming";
+import GreenPacking from "./Pages/GreenTeaprocessing/GreenPacking";
+import GreenSorting from "./Pages/GreenTeaprocessing/GreenSorting";
+import GreenDrying from "./Pages/GreenTeaprocessing/GreenDrying";
 
 
 function App() {
@@ -60,6 +70,16 @@ function App() {
         <Route path="/products/ctc/sorting" element={<Sorting />} />
         <Route path="/products/ctc/packing" element={<Packing />} />
         <Route path="/products/ctc/utilities" element={<Utilities />} />
+        <Route path="/products/ctc/teawithering" element={<TeaWithering />} />
+        <Route path="/products/ctc/tearolling" element={<TeaRolling />} />
+        <Route path="/products/ctc/teafermenting" element={<TeaFermenting />} />
+        <Route path="/products/ctc/teadrying" element={<TeaDrying />} />
+        <Route path="/products/ctc/teasorting" element={<TeaSorting />} />
+        <Route path="/products/ctc/teapacking" element={<TeaPacking />} />
+        <Route path="/products/ctc/greensteaming" element={<GreenSteaming />} />
+        <Route path="/products/ctc/greenpacking" element={<GreenPacking />} />
+         <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
+         <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
         <Route
           path="/products/ctc/quality-control-equipment"
           element={<Quality />}
@@ -99,11 +119,11 @@ function App() {
         <Route path="/careers/working-with-us" element={<WorkingCareer />} />
         <Route path="/careers/apply-now" element={<ApplyOnline />} />
         <Route path="/blogs" element={<Blog />} />
-         <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
-         <Route path="/media/news" element={<News />} />
-         <Route path="/media/photo-gallery" element={<Gallery />} />
-           <Route path="/media/download" element={<Download />} />
-            <Route path="/csr" element={<CSR />} />
+        <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
+        <Route path="/media/news" element={<News />} />
+        <Route path="/media/photo-gallery" element={<Gallery />} />
+        <Route path="/media/download" element={<Download />} />
+        <Route path="/csr" element={<CSR />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -36,43 +36,44 @@ const cardData = [
     {
         id: 1,
         title: "CTC Tea Processing Machinery",
-        image: FanImage, // Replace with actual image
-        description: "Advanced withering technology for optimal tea leaves"
+        image: FanImage,
+        path: "/products/ctc/withering"
     },
     {
         id: 2,
         title: "Orthodox Tea Processing Machinery",
-        image: FanImage, // Replace with actual image
-        description: "Precision rollers for perfect tea leaf processing"
+        image: FanImage,
+        path: "/products/ctc/teawithering"
     },
     {
         id: 3,
         title: "Green Tea Processing Machinery",
-        image: FanImage, // Replace with actual image
-        description: "Controlled fermentation for consistent quality"
+        image: FanImage,
+        path: "/products/ctc/greensteaming"
     },
     {
         id: 4,
         title: "Garden and Plantation Equipment",
-        image: FanImage, // Replace with actual image
-        description: "Efficient drying solutions for tea processing"
+        image: FanImage,
+        path: "/products/ctc/withering"
     }
 ];
 
+
 const ProcessingCard = () => {
-     useEffect(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }, []);
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
 
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        navigate('/products/ctc/withering')
-    }
+    const handleClick = (path) => {
+        navigate(path);
+    };
 
 
 
@@ -128,7 +129,7 @@ const ProcessingCard = () => {
                                     },
                                     cursor: "pointer"
                                 }}
-                                onClick={handleClick}
+                                onClick={() => handleClick(card.path)}
                             >
                                 {/* Card Image */}
                                 <CardMedia
@@ -145,7 +146,7 @@ const ProcessingCard = () => {
                                 {/* Card Content */}
                                 <CardContent sx={{
                                     flexGrow: 1, p: 2, '&:hover': {
-                                        backgroundColor:"#e5e5e5"
+                                        backgroundColor: "#e5e5e5"
                                     },
                                 }}>
                                     <Typography

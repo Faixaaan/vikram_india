@@ -385,7 +385,7 @@ const AwardRecognition = () => {
                                 <Box sx={{ mt: 4 }}>
 
                                     <Grid container spacing={3}>
-                                        {certificates
+                                        {ImageData
                                             .slice((pagee - 1) * 8, (pagee - 1) * 8 + 8)
                                             .map((item, index) => (
                                                 <Grid
@@ -412,7 +412,7 @@ const AwardRecognition = () => {
                                                         }}
                                                     >
                                                         <img
-                                                            src={item.img}
+                                                            src={item.image}
                                                             alt={item.name}
                                                             style={{
                                                                 width: "100%",
@@ -446,7 +446,7 @@ const AwardRecognition = () => {
                             {/* PAGINATION */}
                             <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                 <Pagination
-                                    count={Math.ceil(certificates.length / 8)}
+                                    count={Math.ceil(ImageData.length / 8)}
                                     page={pagee}
                                     onChange={(e, value) => setPagee(value)}
                                     color="primary"

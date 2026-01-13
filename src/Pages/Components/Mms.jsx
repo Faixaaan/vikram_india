@@ -188,15 +188,9 @@ const Introduction = () => {
                           fontFamily: "Open Sans",
                           textAlign: "justify"
                         }}
+                          dangerouslySetInnerHTML={{ __html: data?.section1_desc1 }}
                       >
-                        Vikram India Limited ( VIL) is one of leading manufacturer and exporter
-                        of complete line of tea processing machineries across the globe since
-                        1974. Its unwavering focus on providing premium quality to its customer
-                        in one of the key drivers for its remarkable success. Vikram Group has
-                        diversified into different business sectors such as manufacturing of Tea
-                        Processing Machinery, Textiles, EPC Solutions and the green industry of
-                        Solar Power projects. Vikram India Limited has an ISO 9001-2008
-                        Certification.
+                       
                       </Typography>
                     </Grid>
 
@@ -207,17 +201,7 @@ const Introduction = () => {
                     </Grid>
                   </Grid>
 
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontFamily: "Open Sans",
-                      textAlign: "justify",
-                      mt: 1
-                    }}
-                     dangerouslySetInnerHTML={{ __html: data?.section1_desc1 }}
-                  >
-                    
-                  </Typography>
+                 
 
                   <Typography
                     sx={{

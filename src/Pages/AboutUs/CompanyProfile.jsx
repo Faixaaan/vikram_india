@@ -243,11 +243,11 @@ const CompanyProfile = () => {
 
                                     <Grid size={{ xs: 12, md: 8.6 }} >
                                         <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
-                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                         >
-                                           
+
                                         </Typography>
-                                        
+
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
                                         <img src={data?.section1_img} />
@@ -273,12 +273,12 @@ const CompanyProfile = () => {
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
                                         <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
-                                        dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
-                                        
+                                            dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
+
                                         >
-                                            
+
                                         </Typography>
-                                        
+
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -288,28 +288,32 @@ const CompanyProfile = () => {
                             <Box sx={{ mt: 4 }}>
 
                                 <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}
-                                        dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
-                                
+                                    dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
+
                                 >
-                                    
+
                                 </Typography>
-                                
+
                             </Box>
 
                             {/* image  */}
 
                             <Grid container spacing={2} mt={6}>
-                                {
-                                    Imgee.map((img) => {
-                                        return (
-                                            <Grid size={{ xs: 12, sm: 4 }}>
-                                                <Link to=''>
-                                                    <img src={img.src} alt={img.alt} />
-                                                </Link>
-                                            </Grid>
-                                        )
-                                    })
-                                }
+                                <Grid size={{ xs: 12, sm: 4 }}>
+                                    <Link to=''>
+                                        <img src={data?.image1} alt='' />
+                                    </Link>
+                                </Grid>
+                                 <Grid size={{ xs: 12, sm: 4 }}>
+                                    <Link to=''>
+                                        <img src={data?.image2} alt='' />
+                                    </Link>
+                                </Grid>
+                                 <Grid size={{ xs: 12, sm: 4 }}>
+                                    <Link to=''>
+                                        <img src={data?.image3} alt='' />
+                                    </Link>
+                                </Grid>
                             </Grid>
 
 
