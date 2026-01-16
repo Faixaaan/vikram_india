@@ -107,7 +107,8 @@ const Banner = () => {
                                                     mb: 1,
                                                     fontWeight: 400,
                                                     color: activeIndex === i ? "red" : "#fff",
-                                                    width: "250px"
+                                                    width: "250px",
+                                                     fontFamily: "Open Sans"
                                                 }}
                                             >
                                                 {h?.subtitle}
@@ -130,6 +131,7 @@ const Banner = () => {
                                                         fontWeight: 400,
                                                         color: activeIndex === i ? "red" : "#fff",
                                                         fontFamily: "Alexandria",
+                                                         fontFamily: "Open Sans"
                                                     }}
                                                 >
                                                     {h.no}
@@ -168,7 +170,8 @@ const Banner = () => {
                                             color: "#fff",
                                             textShadow: "6px 6px 6px rgba(0, 0, 0, 0.9)",
                                             margin: "0px auto",
-                                            textAlign: "center"
+                                            textAlign: "center",
+                                             fontFamily: "Open Sans"
                                         }}
                                     >
                                         {item.title}
@@ -187,6 +190,7 @@ const Banner = () => {
                                             fontSize: { xs: "14px", md: "15px" },
                                             fontFamily: "Open Sans",
                                             textTransform: "capitalize",
+                                             fontFamily: "Open Sans"
                                         }}
                                     >
                                         Get a Quote

@@ -158,6 +158,7 @@ const QueryForm = () => {
                 fontSize: "14px",
                 fontFamily: "Open Sans",
                 fontWeight: "400",
+                marginBottom:"30px"
               }}
             >
               {data?.query_form_subtitle}
@@ -165,63 +166,7 @@ const QueryForm = () => {
 
             {/* Introduction */}
 
-            <Accordion
-              sx={{
-                background: "#fff",
-                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                borderRadius: "8px",
-                "&:before": { display: "none" },
-                mt: 4,
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  backgroundColor: "#f8f8f8",
-                  borderBottom: "1px solid #eee",
-                  borderRadius: "8px",
-                }}
-                expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-              >
-                <Typography
-                  sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                >
-                  {data?.query_form_title}
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box sx={{ paddingBottom: "10px" }}>
-                  <Grid container spacing={2}>
-                    <Grid item size={{ xs: 12, md: 5 }}>
-                      <img
-                        src={data?.query_form_image}
-                        alt=""
-                        style={{
-                          width: "100%",
-                          borderRadius: "6px",
-                          height: "300px",
-                        }}
-                      />
-                    </Grid>
-                    <Grid
-                      item
-                      size={{ xs: 12, md: 7 }}
-                      sx={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontFamily: "Open Sans",
-                          textAlign: "justify",
-                        }}
-                      >
-                        {data?.query_form_description}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
+            
             <Accordion
               sx={{
                 background: "#fff",
@@ -231,6 +176,7 @@ const QueryForm = () => {
                 mt: 4,
                 border: "1px solid #eee",
               }}
+              defaultExpanded
             >
               <AccordionSummary
                 sx={{

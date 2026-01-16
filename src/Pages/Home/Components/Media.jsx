@@ -218,8 +218,29 @@ const Media = () => {
                     </Grid>
 
                     <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                        <Button sx={{ color: "#fff", fontFamily: "Open Sans", fontWeight: "700", borderBottom: "1px slid white" }} onClick={handleComingsoon}>
-                            Know More <ArrowDropDownIcon />
+                        <Button
+                            variant="contained"
+                            sx={{
+
+                                background: "linear-gradient(to bottom, #000, #EE1D25)",
+
+                                padding: { xs: "10px 30px", md: "12px 35px" },
+                                textTransform: "none",
+                                fontSize: { xs: "14px", md: "16px" },
+                                fontWeight: "600",
+                                fontFamily: 'Open Sans',
+                                '&:hover': {
+                                    background: "#1E1E1E",
+                                    transform: 'translateY(-2px)',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                                },
+                                transition: 'all 0.3s ease-in-out',
+                                marginTop: { xs: 1, md: 2 },
+                                marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
+                            }}
+                           
+                        >
+                            Know More
                         </Button>
                     </Box>
                 </Container>

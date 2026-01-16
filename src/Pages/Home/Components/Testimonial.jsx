@@ -292,7 +292,8 @@ const Testimonial = () => {
                           color: '#FFFFFF',
                           fontSize: { xs: '14px', sm: '16px', md: '18px' },
                           marginBottom: '4px',
-                          fontFamily: "Kaisei Decol"
+                          fontFamily: "Kaisei Decol",
+                           fontFamily: "Open Sans"
                         }}
                       >
                         {testimonial.name}
@@ -304,7 +305,8 @@ const Testimonial = () => {
                           color: '#fff',
                           fontSize: { xs: '12px', sm: '13px', md: '14px' },
                           marginBottom: '8px',
-                          fontFamily: "Kaisei Decol"
+                          fontFamily: "Kaisei Decol",
+                           fontFamily: "Open Sans"
                         }}
                       >
                         {testimonial.country}
@@ -335,7 +337,8 @@ const Testimonial = () => {
                         overflow: 'hidden',
                         fontSize: { xs: '13px', sm: '14px', md: '15px' },
                         flexGrow: 1,
-                        fontFamily: "Kaisei Decol"
+                        fontFamily: "Kaisei Decol",
+                         fontFamily: "Open Sans"
                       }}
                     >
                       {testimonial.msg}

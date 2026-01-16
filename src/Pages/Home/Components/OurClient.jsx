@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Grid, Paper, Container } from "@mui/material";
+import { Box, Typography, Grid, Paper, Container, Button } from "@mui/material";
 
 // Import images
 import tata from "../../../Assets/apeejay.png";
@@ -18,25 +18,25 @@ const logos = [tata, adani, sterling, unilever, amalgamated, appee];
 const OurClient = () => {
   const navigatee = useNavigate()
 
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  const fetchClientData = async ()=>{
-     try{
-       const res = await axiosInstance.get(endpoints.HomeCms.client)
-       setData(res?.data?.data)
-     }
-     catch(err){
-        console.log(err)
-     }
+  const fetchClientData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.HomeCms.client)
+      setData(res?.data?.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
-  useEffect(()=>{
-fetchClientData()
-  },[])
+  useEffect(() => {
+    fetchClientData()
+  }, [])
 
   const handleComingsoon = () => {
     navigatee('/page-coming-soon');
-};
+  };
   return (
     <Box sx={{ width: "100%", py: { md: 6, xs: 4 }, backgroundColor: "#fff" }}>
       <Container maxWidth='xl'>
@@ -78,14 +78,30 @@ fetchClientData()
 
         {/* Know More */}
         <Box sx={{ textAlign: "center", mt: 2 }} onClick={handleComingsoon}>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "16px", fontWeight: 600, cursor: "pointer", textDecoration: "underline", display: "flex", justifyContent: "center", alignItems: "center" }}
-             
+          <Button
+            variant="contained"
+            sx={{
+
+              background: "linear-gradient(to bottom, #000, #EE1D25)",
+
+              padding: { xs: "10px 30px", md: "12px 35px" },
+              textTransform: "none",
+              fontSize: { xs: "14px", md: "16px" },
+              fontWeight: "600",
+              fontFamily: 'Open Sans',
+              '&:hover': {
+                background: "#1E1E1E",
+                transform: 'translateY(-2px)',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+              },
+              transition: 'all 0.3s ease-in-out',
+              marginTop: { xs: 1, md: 2 },
+              marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
+            }}
+
           >
-            
-              Know More <ArrowDropDownIcon /> 
-          </Typography>
+            Know More
+          </Button>
         </Box>
       </Container>
     </Box>

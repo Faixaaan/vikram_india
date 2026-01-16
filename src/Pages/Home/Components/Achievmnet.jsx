@@ -97,7 +97,8 @@ const Achievmnet = () => {
                                     maxWidth: { xs: '100%', md: '90%', lg: '120%' },
                                     marginBottom: { xs: 1, md: 0 },
                                     textAlign: { md: "left", xs: "center" },
-                                    fontWeight: "400"
+                                    fontWeight: "400",
+                                     fontFamily: "Open Sans"
                                 }}
                             >
                                 {data?.sec4description}
@@ -123,7 +124,7 @@ const Achievmnet = () => {
                                     },
                                     transition: 'all 0.3s ease-in-out',
                                     marginTop: { xs: 1, md: 2 },
-                                    marginInline: { xs: "auto", md: "0px" }
+                                    marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
                                 }}
                                 onClick={handleComingsoon}
                             >

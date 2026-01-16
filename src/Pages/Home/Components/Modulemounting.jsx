@@ -119,6 +119,7 @@ const ModuleMounting = () => {
                                         fontFamily: "Open Sans",
                                         textAlign: { xs: "center", md: "left" },
                                         marginBottom: { xs: "20px", md: "0px" },
+                                         fontFamily: "Open Sans"
                                     }}
                                 >
                                     {slide.title}
