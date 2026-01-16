@@ -51,6 +51,10 @@ import GreenSteaming from "./Pages/GreenTeaprocessing/GreenSteaming";
 import GreenPacking from "./Pages/GreenTeaprocessing/GreenPacking";
 import GreenSorting from "./Pages/GreenTeaprocessing/GreenSorting";
 import GreenDrying from "./Pages/GreenTeaprocessing/GreenDrying";
+import Harvesting from "./Pages/GardenPlantMachienry/Harvesting";
+import Foreign from "./Pages/GardenPlantMachienry/Foreign";
+import Plucking from "./Pages/GardenPlantMachienry/Plucking";
+import TeaIngredient from "./Pages/GardenPlantMachienry/TeaIngredient";
 
 
 function App() {
@@ -78,8 +82,12 @@ function App() {
         <Route path="/products/ctc/teapacking" element={<TeaPacking />} />
         <Route path="/products/ctc/greensteaming" element={<GreenSteaming />} />
         <Route path="/products/ctc/greenpacking" element={<GreenPacking />} />
-         <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
-         <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
+        <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
+        <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
+        <Route path="/products/ctc/harvesting" element={<Harvesting />} />
+        <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
+        <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
+        <Route path="/products/ctc/tea-ingredients--analyzer" element={<TeaIngredient />} />
         <Route
           path="/products/ctc/quality-control-equipment"
           element={<Quality />}

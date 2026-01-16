@@ -55,7 +55,7 @@ const cardData = [
         id: 4,
         title: "Garden and Plantation Equipment",
         image: FanImage,
-        path: "/products/ctc/withering"
+        path: "/products/ctc/harvesting"
     }
 ];
 
