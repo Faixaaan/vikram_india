@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
+import { useNavigate } from "react-router-dom";
 
 const bannerData = [
     {
@@ -36,6 +37,7 @@ const Banner = () => {
     const swiperRef = useRef(null);
 
     const [data, SetData] = useState([]);
+    const navigate = useNavigate()
 
     const fethData = async () => {
         try {
@@ -46,6 +48,10 @@ const Banner = () => {
         catch (err) {
             console.log('error')
         }
+    }
+
+    const handleClick = ()=>{
+        navigate('/contact/query-form')
     }
 
     useEffect(() => {
@@ -192,6 +198,7 @@ const Banner = () => {
                                             textTransform: "capitalize",
                                              fontFamily: "Open Sans"
                                         }}
+                                        onClick={handleClick}
                                     >
                                         Get a Quote
                                     </Button>

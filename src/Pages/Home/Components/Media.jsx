@@ -66,7 +66,7 @@ const Media = () => {
         fetchMediaData()
     }, [])
 
-    const handleComingsoon = () => {
+    const handleClick = () => {
         navigatee('/page-coming-soon');
     };
 
@@ -238,7 +238,7 @@ const Media = () => {
                                 marginTop: { xs: 1, md: 2 },
                                 marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
                             }}
-                           
+                           onClick={handleClick}
                         >
                             Know More
                         </Button>
