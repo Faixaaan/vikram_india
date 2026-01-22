@@ -76,9 +76,7 @@ const Packing = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -102,7 +100,7 @@ const Packing = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -150,6 +148,9 @@ const Packing = () => {
                         >
                             PACKING
                         </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
+                        </Typography>
 
 
 
@@ -176,7 +177,7 @@ const Packing = () => {
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Vibratory Platforms
                         </Typography>
                         <Typography
-                           sx={headingStyle}
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Packing Machines
                         </Typography>

@@ -81,9 +81,7 @@ const Workshop = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -107,7 +105,7 @@ const Workshop = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -155,6 +153,9 @@ const Workshop = () => {
                         >
                             WORKSHOP EQUIPMENT
                         </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
+                        </Typography>
 
 
 
@@ -163,17 +164,17 @@ const Workshop = () => {
 
 
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -330,18 +331,18 @@ const Workshop = () => {
                             </AccordionDetails>
                         </Accordion>
 
-                        <Accordion  sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -502,18 +503,18 @@ const Workshop = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion  sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -598,14 +599,14 @@ const Workshop = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Reduced highly skilled manpower requirement.
+                                        reduced highly skilled manpower requirement.
                                     </Typography>
 
                                 </Box>
                                 <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        Reduces setting time in comparison to multi machine operation.
+                                        reduces setting time in comparison to multi machine operation.
                                     </Typography>
 
                                 </Box>
@@ -613,7 +614,7 @@ const Workshop = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                       Sharpen circumferential as well as helical grooves of any specification, length and diameter of rollers with quality finish and accuracy in sharpening.
+                                        Sharpen circumferential as well as helical grooves of any specification, length and diameter of rollers with quality finish and accuracy in sharpening.
                                     </Typography>
 
                                 </Box>
@@ -629,7 +630,7 @@ const Workshop = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                      Electronically regulated drive technology for milling.
+                                        Electronically regulated drive technology for milling.
                                     </Typography>
 
                                 </Box>
@@ -645,7 +646,7 @@ const Workshop = () => {
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                       Dual mode application facility i.e. provision for automatic operation for milling and manual operation of chasing.
+                                        Dual mode application facility i.e. provision for automatic operation for milling and manual operation of chasing.
                                     </Typography>
 
                                 </Box>
@@ -657,9 +658,9 @@ const Workshop = () => {
                                     </Typography>
 
                                 </Box>
-                                
-                                
-                                
+
+
+
 
 
 
@@ -667,30 +668,30 @@ const Workshop = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion  sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                   Sharp-Edge - Range of Roller Sharpening Equipment
+                                    Sharp-Edge - Range of Roller Sharpening Equipment
                                 </Typography>
 
                             </AccordionSummary>
 
                             <AccordionDetails>
 
-                                
+
                                 {/* TOP SECTION : TEXT + IMAGE */}
                                 <Grid container spacing={3} alignItems="flex-start" mt={4}>
                                     {/* RIGHT IMAGE */}
@@ -704,20 +705,20 @@ const Workshop = () => {
                                                 maxWidth: "280px",
                                                 borderRadius: "8px",
                                             }}
-                                        /> 
-                                        <Typography sx={{textAlign:"center",mt:"20px",fontWeight:"600",fontFamily:"Open Sans"}}>
+                                        />
+                                        <Typography sx={{ textAlign: "center", mt: "20px", fontWeight: "600", fontFamily: "Open Sans" }}>
                                             Sharp-Edge - Range of Roller Sharpening Equipment
                                         </Typography>
                                     </Grid>
 
-                                    
+
 
 
                                 </Grid>
 
-                              
-                                
-                                
+
+
+
 
 
 

@@ -76,9 +76,7 @@ const Sorting = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -102,7 +100,7 @@ const Sorting = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -150,12 +148,14 @@ const Sorting = () => {
                         >
                             SORTING
                         </Typography>
-
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
+                        </Typography>
 
 
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
-                        
+
 
                         <Accordion sx={{
                             background: "#fff",
@@ -173,7 +173,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                     Jigger Shifter
+                                    Jigger Shifter
                                 </Typography>
                             </AccordionSummary>
 
@@ -184,7 +184,7 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
+                                        <Typography sx={{ fontWeight: 600, fontFamily: "Open Sans", fontSize: "26px", mb: 3 }}>
                                             Auto Batch Weigher
                                         </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
@@ -306,7 +306,7 @@ const Sorting = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                       
+
 
                         <Accordion sx={{
                             background: "#fff",
@@ -324,7 +324,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                   Pre-Sorters
+                                    Pre-Sorters
                                 </Typography>
                             </AccordionSummary>
 
@@ -335,8 +335,8 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
-                                             Slow Speed Fibre Extractor
+                                        <Typography sx={{ fontWeight: 600, fontFamily: "Open Sans", fontSize: "26px", mb: 3 }}>
+                                            Slow Speed Fibre Extractor
                                         </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
                                             Slow speed fibre extractors cum tea sorters eliminate rubbing effects and ensure clean tea without any loss of bloom. Vikram has developed this machine after extensive trials at tea gardens. Total power requirement is between 1 Hp - 2 Hp. The machine is easy to install and occupies less floor space.
@@ -370,20 +370,20 @@ const Sorting = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        
+
 
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -399,7 +399,7 @@ const Sorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography  sx={{ fontWeight: 600, fontFamily: "Open Sans",fontSize:"26px",mb:3 }}>
+                                        <Typography sx={{ fontWeight: 600, fontFamily: "Open Sans", fontSize: "26px", mb: 3 }}>
                                             Trinic Sorters
                                         </Typography>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>

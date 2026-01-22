@@ -40,11 +40,11 @@ import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
-    "INTRODUCTION",
-    "MANUFACTURING AND QUALITY",
-    "MANUFACTURING WITH HIGH TENSILE IS PROJECT",
-    "PRODUCTS",
-    "SOLAR PUMPS (AC PUMPS)",
+    "INFRASTRUCTURE & MACHINERY",
+    "PRODUCT & PORTFOLIO",
+    "TECHNICAL SPECIFICATION",
+    "QUALITY & SAFETY",
+
 
 ];
 
@@ -93,7 +93,7 @@ const Product = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Module Mounting Structure</Typography>
-                    <Typography color="text.primary">PRODUCTS</Typography>
+                    <Typography color="text.primary">QUALITY & SAFETY</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -107,12 +107,10 @@ const Product = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    PRODUCTS
+                    QUALITY & SAFETY
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+               
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -126,7 +124,7 @@ const Product = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            Product & Services
+                            QUALITY & SAFETY
                         </Typography>
 
                         <Divider sx={{ mb: 2 }} />
@@ -136,11 +134,11 @@ const Product = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "#1A73E8",
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            PRODUCTS
+                            QUALITY & SAFETY
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
@@ -151,10 +149,10 @@ const Product = () => {
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PRODUCTS" ? "green" : "transparent",
-                                        color: item === "PRODUCTS" ? "#fff" : "#000",
+                                        backgroundColor: item === "QUALITY & SAFETY" ? "#1A73E8" : "transparent",
+                                        color: item === "QUALITY & SAFETY" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "PRODUCTS" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "QUALITY & SAFETY" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
@@ -178,11 +176,14 @@ const Product = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            {data?.title}
+                            QUALITY & SAFETY
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
                         </Typography>
 
 
@@ -193,14 +194,17 @@ const Product = () => {
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
                                     <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}
-                                    dangerouslySetInnerHTML={{ __html: data?.product_desc }}
-                                    
+                                        dangerouslySetInnerHTML={{ __html: data?.product_desc }}
+
                                     >
-                                       
+
                                     </Typography>
                                 </Grid>
 
                             </Grid>
+
+
+
 
 
                             <Accordion
@@ -213,82 +217,7 @@ const Product = () => {
                                 }}
                             >
                                 <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-                                    sx={{
-                                        backgroundColor: "#f8f8f8",
-                                        borderBottom: "1px solid #eee",
-                                        borderRadius: "8px"
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            fontSize: "20px",
-                                            fontWeight: 600,
-                                            fontFamily: "Open Sans"
-                                        }}
-                                    >
-                                        Product Profile:-
-                                    </Typography>
-                                </AccordionSummary>
-
-                                <AccordionDetails sx={{ padding: "20px" }}>
-                                    <Grid item xs={12}>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Single and Double pole structure
-                                        </Typography>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Double pole structure with struts
-                                        </Typography>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Seasonal structure with unique turn buckle mechanism tilting.
-                                        </Typography>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Double pole seasonal tilting and static structure with struts.
-                                        </Typography>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Pre-galvanized structure for solar projects.
-                                        </Typography>
-
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Solar parking structure.
-                                        </Typography>
-
-                                    </Grid>
-                                </AccordionDetails>
-                            </Accordion>
-
-                            <Grid container spacing={2} mt={6}>
-                                <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                        Module mounting structure are easy to install structure provided an excellent solution to rural properties as they can be used on mountainous and rough terrain. Our products are quickly delivered and are easy to install.
-                                    </Typography>
-                                </Grid>
-
-                            </Grid>
-
-
-                            <Accordion
-                                sx={{
-                                    background: "#fff",
-                                    boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                    borderRadius: "8px",
-                                    "&:before": { display: "none" },
-                                    mt: 4
-                                }}
-                            >
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
+                                    expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}
                                     sx={{
                                         backgroundColor: "#f8f8f8",
                                         borderBottom: "1px solid #eee",
@@ -302,54 +231,45 @@ const Product = () => {
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Mounting Structure - Types of Section
+                                        Quality & Assurance
                                     </Typography>
                                 </AccordionSummary>
 
-                                <AccordionDetails sx={{ padding: "20px" }}>
-                                    <Grid item xs={12}>
+                                <AccordionDetails>
+                                    <Box>
+                                        <Grid container spacing={2}>
+                                            {/* RIGHT IMAGE */}
+                                            <Grid item size={{ xs: 12, md: 4 }}>
+                                                <img src={structure4} style={{ width: "100%" }} />
+                                            </Grid>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Single and Double pole structure
-                                        </Typography>
+                                            {/* LEFT CONTENT */}
+                                            <Grid item size={{ xs: 12, md: 8 }}>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            C' Channel
-                                        </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "16px",
+                                                        fontFamily: "Open Sans",
+                                                        textAlign: "justify",
+                                                        mt: 0
+                                                    }}
+                                                >
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            'C' Channel with Lip.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Strut Rail
-                                        </Typography>
+                                                </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            'Z' Channel.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            'Z' Channel with Lip
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Sigma Section.
-                                        </Typography>
+                                            </Grid>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            'L' Angle.
-                                        </Typography>
 
-                                    </Grid>
+
+                                            {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                        </Grid>
+                                    </Box>
                                 </AccordionDetails>
                             </Accordion>
 
@@ -364,354 +284,109 @@ const Product = () => {
                                     backgroundColor: "#f8f8f8",
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Open Sans" }}>Image Gallery</Typography>
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Open Sans" }}>Compliance</Typography>
                                 </AccordionSummary>
+
+
 
                                 <AccordionDetails>
-
-                                    <Grid container spacing={2}>
-                                        {imageData?.map((item, index) => (
-                                            <Grid item size={{ xs: 12, md: 4 }} key={index}>
-                                                <img
-                                                    src={item.image}
-                                                    style={{
-                                                        width: "100%",
-                                                        borderRadius: "8px",
-                                                        display: "block"
-                                                    }}
-                                                />
-                                            </Grid>
-                                        ))}
-                                    </Grid>
-
-                                </AccordionDetails>
-                            </Accordion>
-
-                            <Box mt={3}>
-
-                                <Accordion
-                                    sx={{
-                                        background: "#fff",
-                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                        borderRadius: "8px",
-                                        "&:before": { display: "none" },
-                                        mt: 4
-                                    }}
-                                >
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-                                        sx={{
-                                            backgroundColor: "#f8f8f8",
-                                            borderBottom: "1px solid #eee",
-                                            borderRadius: "8px"
-                                        }}
-                                    >
-                                        <Typography
-                                            sx={{
-                                                fontSize: { md: "20px", xs: "16px" },
-                                                fontWeight: 600,
-                                                fontFamily: "Open Sans"
-                                            }}
-                                        >
-                                            Technical Specification Range
-                                        </Typography>
-                                    </AccordionSummary>
-
-                                    <AccordionDetails sx={{ padding: "20px" }}>
+                                    <Box>
                                         <Grid container spacing={2}>
+                                            {/* RIGHT IMAGE */}
+                                            <Grid item size={{ xs: 12, md: 4 }}>
+                                                <img src={structure4} style={{ width: "100%" }} />
+                                            </Grid>
 
-                                            {/* LEFT SIDE TABLE */}
+                                            {/* LEFT CONTENT */}
                                             <Grid item size={{ xs: 12, md: 8 }}>
-                                                <TableContainer
-                                                    component={Paper}
+
+                                                <Typography
                                                     sx={{
-                                                        boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
-                                                        borderRadius: "10px",
-                                                        overflowX: { xs: "auto", md: "visible" }, // 🔥 Mobile scroll
-                                                        display: "block"
+                                                        fontSize: "16px",
+                                                        fontFamily: "Open Sans",
+                                                        textAlign: "justify",
+                                                        mt: 0
                                                     }}
                                                 >
-                                                    <Table sx={{ borderCollapse: "separate", borderSpacing: 0, minWidth: "600px" }}>
-                                                        <TableHead>
-                                                            <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderRight: "1px solid #e0e0e0",
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
-                                                                    }}
-                                                                >
-                                                                    Description
-                                                                </TableCell>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderRight: "1px solid #e0e0e0",
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
-                                                                    }}
-                                                                >
-                                                                    Minimum
-                                                                </TableCell>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: "15px"
-                                                                    }}
-                                                                >
-                                                                    Maximum
-                                                                </TableCell>
-                                                            </TableRow>
-                                                        </TableHead>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
 
-                                                        <TableBody>
-                                                            {[
-                                                                ["Web Lip Ch.", "70MM", "300MM"],
-                                                                ["Web Plain Ch.", "40MM", "250MM"],
-                                                                ["Flange", "30MM", "80MM"],
-                                                                ["Lip", "10MM", "25MM"],
-                                                                ["Thickness", "1MM", "3MM"]
-                                                            ].map((row, index) => (
-                                                                <TableRow
-                                                                    key={index}
-                                                                    sx={{
-                                                                        "&:hover": { backgroundColor: "#fafafa" }
-                                                                    }}
-                                                                >
-                                                                    {row.map((cell, cellIndex) => (
-                                                                        <TableCell
-                                                                            key={cellIndex}
-                                                                            sx={{
-                                                                                borderRight: cellIndex < 2 ? "1px solid #eee" : "none",
-                                                                                borderBottom: "1px solid #eee",
-                                                                                fontSize: "14px",
-                                                                                paddingY: "10px"
-                                                                            }}
-                                                                        >
-                                                                            {cell}
-                                                                        </TableCell>
-                                                                    ))}
-                                                                </TableRow>
-                                                            ))}
-                                                        </TableBody>
-                                                    </Table>
-                                                </TableContainer>
+
+                                                </Typography>
+
+
 
                                             </Grid>
 
-                                            {/* RIGHT SIDE IMAGE */}
-                                            <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%", borderRadius: "6px" }} />
-                                            </Grid>
+
+
+                                            {/* BOTTOM FULL WIDTH CONTENT */}
+
 
                                         </Grid>
-                                    </AccordionDetails>
-                                </Accordion>
-
-                                <Accordion
-                                    sx={{
-                                        background: "#fff",
-                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                        borderRadius: "8px",
-                                        "&:before": { display: "none" },
-                                        mt: 4
-                                    }}
-                                >
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-                                        sx={{
-                                            backgroundColor: "#f8f8f8",
-                                            borderBottom: "1px solid #eee",
-                                            borderRadius: "8px"
-                                        }}
-                                    >
-                                        <Typography
-                                            sx={{
-                                                fontSize: { md: "20px", xs: "16px" },
-                                                fontWeight: 600,
-                                                fontFamily: "Open Sans"
-                                            }}
-                                        >
-                                            Web Angle – Technical Specifications
-                                        </Typography>
-                                    </AccordionSummary>
-
-                                    <AccordionDetails sx={{ padding: "20px" }}>
-                                        <Grid container spacing={2} mt={0}>
-
-                                            {/* LEFT SIDE TABLE */}
-                                            <Grid item size={{ xs: 12, md: 8 }}>
-                                                <TableContainer
-                                                    component={Paper}
-                                                    sx={{
-                                                        boxShadow: "0px 2px 10px rgba(0,0,0,0.06)",
-                                                        borderRadius: "10px",
-                                                        overflow: "hidden",
-                                                        overflowX: "auto" // For horizontal scrolling on small screens
-                                                    }}
-                                                >
-                                                    <Table sx={{
-                                                        borderCollapse: "separate",
-                                                        borderSpacing: 0,
-                                                        minWidth: { xs: "300px", sm: "auto" } // Ensure minimum width on mobile
-                                                    }}>
-                                                        <TableHead>
-                                                            <TableRow sx={{ backgroundColor: "#f5f7fa" }}>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderRight: "1px solid #e0e0e0",
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
-                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
-                                                                        whiteSpace: "nowrap"
-                                                                    }}
-                                                                >
-                                                                    Description
-                                                                </TableCell>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderRight: "1px solid #e0e0e0",
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
-                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
-                                                                        whiteSpace: "nowrap"
-                                                                    }}
-                                                                >
-                                                                    Minimum
-                                                                </TableCell>
-                                                                <TableCell
-                                                                    sx={{
-                                                                        fontWeight: 700,
-                                                                        borderBottom: "2px solid #e0e0e0",
-                                                                        fontSize: { xs: "13px", sm: "14px", md: "15px" },
-                                                                        padding: { xs: "8px", sm: "10px", md: "12px" },
-                                                                        whiteSpace: "nowrap"
-                                                                    }}
-                                                                >
-                                                                    Maximum
-                                                                </TableCell>
-                                                            </TableRow>
-                                                        </TableHead>
-
-                                                        <TableBody>
-                                                            {[
-                                                                ["Web Angle", "20X20MM", "200X200MM"],
-                                                                ["Thickness", "1MM", "3MM"],
-                                                                ["Length", "1 Mtrs.", "7 Mtrs."],
-                                                            ].map((row, index) => (
-                                                                <TableRow
-                                                                    key={index}
-                                                                    sx={{
-                                                                        "&:hover": { backgroundColor: "#fafafa" }
-                                                                    }}
-                                                                >
-                                                                    {row.map((cell, cellIndex) => (
-                                                                        <TableCell
-                                                                            key={cellIndex}
-                                                                            sx={{
-                                                                                borderRight: cellIndex < 2 ? "1px solid #eee" : "none",
-                                                                                borderBottom: "1px solid #eee",
-                                                                                fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                                                                                padding: { xs: "8px", sm: "9px", md: "10px" },
-                                                                                lineHeight: 1.4
-                                                                            }}
-                                                                        >
-                                                                            {cell}
-                                                                        </TableCell>
-                                                                    ))}
-                                                                </TableRow>
-                                                            ))}
-                                                        </TableBody>
-                                                    </Table>
-                                                </TableContainer>
-                                            </Grid>
-
-                                            {/* RIGHT SIDE IMAGE */}
-                                            <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure5} style={{ width: "100%", borderRadius: "6px" }} />
-                                            </Grid>
-
-                                        </Grid>
-                                    </AccordionDetails>
-                                </Accordion>
+                                    </Box>
+                                </AccordionDetails>
 
 
-                            </Box>
-
-                            <Accordion
-                                sx={{
-                                    background: "#fff",
-                                    boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                    borderRadius: "8px",
-                                    "&:before": { display: "none" },
-                                    mt: 4
-                                }}
-                            >
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-                                    sx={{
-                                        backgroundColor: "#f8f8f8",
-                                        borderBottom: "1px solid #eee",
-                                        borderRadius: "8px"
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            fontSize: { md: "20px", xs: "16px" },
-                                            fontWeight: 600,
-                                            fontFamily: "Open Sans"
-                                        }}
-                                    >
-                                        Benefits of our product
-                                    </Typography>
+                            </Accordion>
+                            <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                                <AccordionSummary sx={{
+                                    backgroundColor: "#f8f8f8",
+                                    borderBottom: "1px solid #eee",
+                                    borderRadius: "8px"
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Open Sans" }}>Safety</Typography>
                                 </AccordionSummary>
 
-                                <AccordionDetails sx={{ padding: "20px" }}>
-                                    <Grid item xs={12}>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Reduce overall project cost and significantly reduce installation time.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            High strength steel enables better capacity and longer spans.
-                                        </Typography>
+                                <AccordionDetails>
+                                    <Box>
+                                        <Grid container spacing={2}>
+                                            {/* RIGHT IMAGE */}
+                                            <Grid item size={{ xs: 12, md: 4 }}>
+                                                <img src={structure4} style={{ width: "100%" }} />
+                                            </Grid>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            No site drilling and cutting required.
-                                        </Typography>
+                                            {/* LEFT CONTENT */}
+                                            <Grid item size={{ xs: 12, md: 8 }}>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Maintenance-free owing to application of proper surface finish.
-                                        </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "16px",
+                                                        fontFamily: "Open Sans",
+                                                        textAlign: "justify",
+                                                        mt: 0
+                                                    }}
+                                                >
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Factory-finished, cut to exact length with pre-punched holes to avoid time and material wastage.
-                                        </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            'Z' Channel with Lip
-                                        </Typography>
+                                                </Typography>
 
-                                        <Typography sx={headingStyle}>
-                                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                            Accessories like connecting plates, angles, splicing plates supplied along with main structure.
-                                        </Typography>
 
-                                    </Grid>
+
+                                            </Grid>
+
+
+
+                                            {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                        </Grid>
+                                    </Box>
                                 </AccordionDetails>
+
+
                             </Accordion>
+
+
 
 
                         </Box>

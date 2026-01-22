@@ -45,11 +45,11 @@ const leftMenu = [
 const Utilities = () => {
 
     useEffect(() => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}, []);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
 
     return (
@@ -79,9 +79,6 @@ const Utilities = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -105,7 +102,7 @@ const Utilities = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -147,11 +144,14 @@ const Utilities = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans"
                             }}
                         >
                             UTILITIES
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
                         </Typography>
 
 
@@ -175,41 +175,41 @@ const Utilities = () => {
 
                         <Typography
                             sx={headingStyle}
-                           
+
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Chain Saw
                         </Typography>
                         <Typography
-                           sx={headingStyle}
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Pressure Water Jet
                         </Typography>
-                         <Typography
+                        <Typography
                             sx={headingStyle}
-                           
+
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Electrical Welding Set
                         </Typography>
                         <Typography
-                           sx={headingStyle}
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Electrical Welding Set
                         </Typography>
-                         <Typography
-                           sx={headingStyle}
+                        <Typography
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Pressure Water Jet
                         </Typography>
-                         <Typography
+                        <Typography
                             sx={headingStyle}
-                           
+
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Electrical Welding Set
                         </Typography>
                         <Typography
-                           sx={headingStyle}
+                            sx={headingStyle}
                         >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Green Leaf Plucking Machine
+                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High red Leaf Plucking Machine
                         </Typography>
 
 

@@ -160,7 +160,7 @@ const GreenDrying = () => {
                                         backgroundColor: item === "DRYING" ? "green" : "transparent",
                                         color: item === "DRYING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "STEAMING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}

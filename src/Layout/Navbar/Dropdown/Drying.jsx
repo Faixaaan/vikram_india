@@ -43,27 +43,27 @@ const leftMenu = [
 ];
 
 const Drying = () => {
-  
-  const [data,setData] = useState([])
 
-  const fetchDryingData = async()=>{
-     try{
-         const res = await axiosInstance.get(endpoints.teaProcessingMachinery.drying);
-         setData(res?.data?.data)
-     }
-     catch(err){
-        console.log(err)
-     }
-  }
+    const [data, setData] = useState([])
+
+    const fetchDryingData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.drying);
+            setData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
 
-   useEffect(() => {
-    fetchDryingData()
-       window.scrollTo({
-           top: 0,
-           behavior: "smooth"
-       });
-   }, []);
+    useEffect(() => {
+        fetchDryingData()
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -88,12 +88,10 @@ const Drying = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                     {data?.title}
+                    {data?.title}
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    {data?.sub_title}
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -117,12 +115,12 @@ const Drying = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
-                             CTC Tea Processing Machinery
-                          
+                            CTC Tea Processing Machinery
+
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
@@ -164,7 +162,10 @@ const Drying = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                           {data?.section1_title}
+                            {data?.section1_title}
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            {data?.sub_title}
                         </Typography>
 
 
@@ -184,17 +185,17 @@ const Drying = () => {
                         </Typography>
 
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -272,17 +273,17 @@ const Drying = () => {
                             </AccordionDetails>
                         </Accordion>
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -299,7 +300,7 @@ const Drying = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                           {data?.section4_desc}
+                                            {data?.section4_desc}
 
 
                                         </Typography>
@@ -328,17 +329,17 @@ const Drying = () => {
                             </AccordionDetails>
                         </Accordion>
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -355,7 +356,7 @@ const Drying = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                           {data?.section5_desc}
+                                            {data?.section5_desc}
 
 
                                         </Typography>

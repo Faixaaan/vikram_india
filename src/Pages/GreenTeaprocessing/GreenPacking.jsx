@@ -38,7 +38,7 @@ import heatingImage from '../../../src/Assets/heating-Arrangment.jpg'
 
 
 const leftMenu = [
-    "WITHERING",
+    "STEAMING",
     "ROLLING",
    
     "DRYING",
@@ -156,7 +156,7 @@ const GreenPacking = () => {
                                         backgroundColor: item === "PACKING" ? "green" : "transparent",
                                         color: item === "PACKING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "PACKING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}

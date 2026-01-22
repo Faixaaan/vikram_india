@@ -123,9 +123,7 @@ const TeaWithering = () => {
           Orthodox Tea Processing Machinery
         </Typography>
 
-        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-          Setting global benchmarks in tea processing machinery industry
-        </Typography>
+
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
@@ -149,7 +147,7 @@ const TeaWithering = () => {
                 fontWeight: 700,
                 fontSize: "14px",
                 mb: 1,
-                color: "#d32f2f",
+                color: "red",
                 fontFamily: "Open Sans"
               }}
             >
@@ -191,11 +189,14 @@ const TeaWithering = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
-                mb: 2,
+                mb: 0,
                 fontFamily: "Open Sans"
               }}
             >
               {data?.section1_title}
+            </Typography>
+            <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+              Setting global benchmarks in tea processing machinery industry
             </Typography>
 
             <Grid container spacing={2}>
@@ -234,6 +235,7 @@ const TeaWithering = () => {
             >
               {data?.section2_title}
             </Typography>
+            
 
             <Accordion sx={{
               background: "#fff",

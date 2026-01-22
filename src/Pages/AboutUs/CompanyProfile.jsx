@@ -299,19 +299,19 @@ const CompanyProfile = () => {
                             {/* image  */}
 
                             <Grid container spacing={2} mt={6}>
-                                <Grid size={{ xs: 12, sm: 4 }}>
+                                <Grid size={{ xs:12,sm: 4 }}>
                                     <Link to=''>
-                                        <img src={data?.image1} alt='' />
+                                        <img src={data?.image1} alt='' style={{width:"100%"}} />
                                     </Link>
                                 </Grid>
-                                 <Grid size={{ xs: 12, sm: 4 }}>
+                                 <Grid size={{ xs:12,sm: 4 }}>
                                     <Link to=''>
-                                        <img src={data?.image2} alt='' />
+                                        <img src={data?.image2} alt='' style={{width:"100%"}}/>
                                     </Link>
                                 </Grid>
-                                 <Grid size={{ xs: 12, sm: 4 }}>
+                                 <Grid size={{ xs:12,sm: 4 }}>
                                     <Link to=''>
-                                        <img src={data?.image3} alt='' />
+                                        <img src={data?.image3} alt='' style={{width:"100%"}} />
                                     </Link>
                                 </Grid>
                             </Grid>

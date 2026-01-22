@@ -19,40 +19,41 @@ import {
 import { Link } from "react-router-dom";
 import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
 import '../../App.css'
-
+import structure4 from '../../Assets/mm-structure-04.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
-  "INTRODUCTION",
-  "MANUFACTURING AND QUALITY",
-  "MANUFACTURING WITH HIGH TENSILE IS PROJECT",
-  "PRODUCTS",
-  "SOLAR PUMPS (AC PUMPS)",
+  "INFRASTRUCTURE & MACHINERY",
+  "PRODUCT & PORTFOLIO",
+  "TECHNICAL SPECIFICATION",
+  "QUALITY & SAFETY",
+
 
 ];
 
 const Introduction = () => {
 
   const [data, setData] = useState([]);
-      
-          const fetchData = async () => {
-              try {
-                  const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
-                  setData(res?.data?.data)
-              }
-              catch (err) {
-                  console.log(err)
-              }
-          }
+
+
+  const fetchData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+      setData(res?.data?.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
   useEffect(() => {
     fetchData()
-      window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-      });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }, []);
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
@@ -64,7 +65,7 @@ const Introduction = () => {
           </MLink>
           <Typography color="inherit">Product & Services</Typography>
           <Typography color="text.primary">Module Mounting Structure</Typography>
-          <Typography color="text.primary">Introduction</Typography>
+          <Typography color="text.primary">INFRASTRUCTURE & MACHINERY</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
@@ -78,12 +79,10 @@ const Introduction = () => {
             fontFamily: "Open Sans"
           }}
         >
-          Module Mounting Structure
+          INFRASTRUCTURE & MACHINERY
         </Typography>
 
-        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-          Setting global benchmarks in tea processing machinery industry
-        </Typography>
+
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
@@ -107,11 +106,11 @@ const Introduction = () => {
                 fontWeight: 700,
                 fontSize: "14px",
                 mb: 1,
-                color: "#d32f2f",
+                color: "#1A73E8",
                 fontFamily: "Open Sans"
               }}
             >
-              Module Mounting Structure
+              INFRASTRUCTURE & MACHINERY
             </Typography>
 
             <List sx={{ border: "1px solid #ddd" }}>
@@ -122,10 +121,10 @@ const Introduction = () => {
                   to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "INTRODUCTION" ? "green" : "transparent",
-                    color: item === "INTRODUCTION" ? "#fff" : "#000",
+                    backgroundColor: item === "INFRASTRUCTURE & MACHINERY" ? "#1A73E8" : "transparent",
+                    color: item === "INFRASTRUCTURE & MACHINERY" ? "#fff" : "#000",
                     "&:hover": {
-                      backgroundColor: item === "INTRODUCTION" ? "green" : "#f5f5f5",
+                      backgroundColor: item === "INFRASTRUCTURE & MACHINERY" ? "#1A73E8" : "#f5f5f5",
                     },
                     fontFamily: "Open Sans"
                   }}
@@ -149,11 +148,14 @@ const Introduction = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
-                mb: 2,
+                mt: 1,
                 fontFamily: "Open Sans"
               }}
             >
-              {data?.title}
+              INFRASTRUCTURE & MACHINERY
+            </Typography>
+            <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
+              Setting global benchmarks in tea processing machinery industry
             </Typography>
 
 
@@ -171,51 +173,155 @@ const Introduction = () => {
                 backgroundColor: "#f8f8f8",
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                <Typography sx={{ fontSize: {md:"20px",xs:"16px"}, fontWeight: 600 }}>
-                  {data?.section1_title}
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Roll Forming Lines
                 </Typography>
               </AccordionSummary>
 
               <AccordionDetails>
-
                 <Box>
                   <Grid container spacing={2}>
-                    <Grid item size={{xs:12,md:7}}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={structure4} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
                       <Typography
                         sx={{
                           fontSize: "16px",
                           fontFamily: "Open Sans",
-                          textAlign: "justify"
+                          textAlign: "justify",
+                          mt: 0
                         }}
-                          dangerouslySetInnerHTML={{ __html: data?.section1_desc1 }}
                       >
-                       
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
+
                       </Typography>
+
+
+
                     </Grid>
 
-                    <Grid item size={{xs:12,md:5}}>
-                      <img src={data?.section1_image} alt=""
-                        style={{ width: "100%", borderRadius: "6px" }}
-                      />
-                    </Grid>
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
                   </Grid>
-
-                 
-
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontFamily: "Open Sans",
-                      textAlign: "justify",
-                      mt: 2
-                    }}
-                     dangerouslySetInnerHTML={{ __html: data?.section1_desc2 }}
-                  >
-                   
-                  </Typography>
                 </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  CNC Punching & Cutting
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={structure4} style={{ width: "100%" }} />
+                    </Grid>
 
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Open Sans",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+
+            </Accordion>
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Raw Material & Decoiling
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={structure4} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Open Sans",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
               </AccordionDetails>
             </Accordion>
           </Grid>

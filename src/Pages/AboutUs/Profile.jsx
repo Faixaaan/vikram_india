@@ -41,16 +41,16 @@ const leftMenu = [
 
 const GroupProfile = () => {
 
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
-    const fetchData = async ()=>{
-          try{
+    const fetchData = async () => {
+        try {
             const res = await axiosInstance.get(endpoints.AboutUs.groupPofile)
             setData(res?.data?.data)
-          }
-          catch(err){
-             console.log(err)
-          }
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 
     useEffect(() => {
@@ -87,9 +87,7 @@ const GroupProfile = () => {
                     GROUP PROFILE
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -197,6 +195,9 @@ const GroupProfile = () => {
                         >
                             {data?.title}
                         </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
+                            {data?.sub_title}
+                        </Typography>
 
 
                         {/* Introduction */}
@@ -206,7 +207,7 @@ const GroupProfile = () => {
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
                                     <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
-                                      {data?.group_desc}
+                                        {data?.group_desc}
                                     </Typography>
                                 </Grid>
 
@@ -220,11 +221,11 @@ const GroupProfile = () => {
                                         <img src={data?.section1_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
                                             {data?.section1_title}
                                         </Typography>
                                         <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>
-                                           {data?.section1_desc}
+                                            {data?.section1_desc}
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -233,7 +234,7 @@ const GroupProfile = () => {
                                         <img src={data?.section2_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography  sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
                                             {data?.section2_title}
                                         </Typography>
                                         <Typography variant="p" sx={{ fontFamily: "", fontSize: "18px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}>

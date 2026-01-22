@@ -28,16 +28,63 @@ import structure2 from '../../Assets/tensile-2.jpg'
 import structure4 from '../../Assets/tensile-03.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+} from "@mui/material";
+
 
 
 const leftMenu = [
-    "INTRODUCTION",
-    "MANUFACTURING AND QUALITY",
-    "MANUFACTURING WITH HIGH TENSILE IS PROJECT",
-    "PRODUCTS",
-    "SOLAR PUMPS (AC PUMPS)",
+    "INFRASTRUCTURE & MACHINERY",
+    "PRODUCT & PORTFOLIO",
+    "TECHNICAL SPECIFICATION",
+    "QUALITY & SAFETY",
+
 
 ];
+const featureSpecData = [
+    {
+        feature: "Advanced Machinery",
+        specification:
+            "Equipped with new technology broaching machines and band saw machines to handle complex slotting in high tensile steel products."
+    },
+    {
+        feature: "High Production Rate",
+        specification:
+            "With proper broaches, fixtures, and machines, more pieces are produced per hour than other machining methods."
+    },
+    {
+        feature: "High Accuracy",
+        specification:
+            "Machines provide high precision finish with tolerance up to ±0.0075 mm."
+    },
+    {
+        feature: "Single Pass Operation",
+        specification:
+            "Both roughing and finishing cuts are completed in one pass of the tool."
+    },
+    {
+        feature: "Versatile Operation",
+        specification:
+            "Can be used for both internal and external surface operations."
+    },
+    {
+        feature: "Complex Shape Machining",
+        specification:
+            "Any form that can be reproduced on a broach can be machined."
+    },
+    {
+        feature: "Efficient Cooling",
+        specification:
+            "Cutting fluid is effectively drawn into the cut during broaching."
+    }
+];
+
 
 const img = [
     { img: structure1 },
@@ -46,21 +93,21 @@ const img = [
 ]
 
 const HighTensile = () => {
-    
-     const [imageData ,setImageData] = useState([])
-    
-    
-        const fetchImageData = async()=>{
-            try{
-                const res = await axiosInstance.get(endpoints.ModuleMounting.getHighTensile)
-                
-                setImageData(res?.data?.data)
-            }
-            catch(err){
-                console.log(err)
-            }
+
+    const [imageData, setImageData] = useState([])
+
+
+    const fetchImageData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.ModuleMounting.getHighTensile)
+
+            setImageData(res?.data?.data)
         }
-    
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
 
     useEffect(() => {
@@ -80,7 +127,7 @@ const HighTensile = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Module Mounting Structure</Typography>
-                    <Typography color="text.primary">MANUFACTURING WITH HIGH TENSILE IS PROJECT</Typography>
+                    <Typography color="text.primary">TECHNICAL SPECIFICATION</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -94,12 +141,10 @@ const HighTensile = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    MANUFACTURING WITH HIGH TENSILE IS PROJECT
+                    TECHNICAL SPECIFICATION
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -123,11 +168,11 @@ const HighTensile = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "#1A73E8",
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            MANUFACTURING WITH HIGH TENSILE IS PROJECT
+                            TECHNICAL SPECIFICATION
                         </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
@@ -138,10 +183,10 @@ const HighTensile = () => {
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "MANUFACTURING WITH HIGH TENSILE IS PROJECT" ? "green" : "transparent",
-                                        color: item === "MANUFACTURING WITH HIGH TENSILE IS PROJECT" ? "#fff" : "#000",
+                                        backgroundColor: item === "TECHNICAL SPECIFICATION" ? "#1A73E8" : "transparent",
+                                        color: item === "TECHNICAL SPECIFICATION" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "MANUFACTURING WITH HIGH TENSILE IS PROJECT" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "TECHNICAL SPECIFICATION" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Open Sans"
                                     }}
@@ -165,11 +210,14 @@ const HighTensile = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans"
                             }}
                         >
-                            MANUFACTURING WITH HIGH TENSILE IS PROJECT
+                            TECHNICAL SPECIFICATION
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
                         </Typography>
 
 
@@ -191,172 +239,96 @@ const HighTensile = () => {
                                     backgroundColor: "#f8f8f8",
                                     borderBottom: "1px solid #eee",
                                     borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                     <Typography
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
+                                            fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
                                             fontFamily: "Open Sans"
                                         }}
                                     >
-                                        Broaching Machine Features
+                                        Features & Specification
                                     </Typography>
                                 </AccordionSummary>
 
                                 <AccordionDetails>
-                                    {/* CONTENT INSIDE ACCORDION */}
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        We are equipped with highly new technology broaching machines and band saw
-                                        machine at our plant. These machines give us strength to do any kind of
-                                        slotting based on design in high tensile steel products.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Rate of production is very high with properly applied broaches, fixtures and
-                                        machines, more pieces can be turned out per hour by broaching than by any
-                                        other means.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Our machines have high accuracy and high class of precision finish is possible.
-                                        A tolerance of ±0.0075 mm can be easily obtained in broaching.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Both roughing and finishing cuts are completed in one pass of the tool.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        The process can be used for either internal or external surface operation.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Any form that can be reproduced on a broaching can be machined.
-                                    </Typography>
-
-                                    <Typography sx={headingStyle}>
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                        Cutting fluid may be readily applied where it is most effective because a
-                                        broach tends to draw the fluid into the cut.
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-
-                            <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
-                                <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                    <Typography
+                                    <TableContainer
                                         sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
-                                            fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            border: "1px solid #e0e0e0",
+                                            borderRadius: "6px",
+                                            overflowX: "auto",
                                         }}
                                     >
-                                        Images
-                                    </Typography>
-                                </AccordionSummary>
+                                        <Table
+                                            sx={{
+                                                borderCollapse: "collapse",
+                                                minWidth: 600,
+                                            }}
+                                        >
+                                            {/* TABLE HEADER */}
+                                            <TableHead>
+                                                <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
+                                                    <TableCell
+                                                        sx={{
+                                                            fontWeight: 600,
+                                                            fontSize: "16px",
+                                                            border: "1px solid #e0e0e0",
+                                                            width: "30%",
+                                                            fontFamily: "Open Sans",
+                                                        }}
+                                                    >
+                                                        Features
+                                                    </TableCell>
+                                                    <TableCell
+                                                        sx={{
+                                                            fontWeight: 600,
+                                                            fontSize: "16px",
+                                                            border: "1px solid #e0e0e0",
+                                                            fontFamily: "Open Sans",
+                                                        }}
+                                                    >
+                                                        Specification
+                                                    </TableCell>
+                                                </TableRow>
+                                            </TableHead>
 
-                                <AccordionDetails>
-                                    <Grid container spacing={2}>
-                                        {imageData?.map((item, index) => (
-                                            <Grid item size={{ xs: 12, md: 4 }} key={index}>
-                                                <img
-                                                    src={item.image}
-                                                    style={{ width: "100%", borderRadius: "8px" }}
-                                                />
-                                            </Grid>
-                                        ))}
-                                    </Grid>
+                                            {/* TABLE BODY */}
+                                            <TableBody>
+                                                {featureSpecData.map((row, index) => (
+                                                    <TableRow key={index}>
+                                                        <TableCell
+                                                            sx={{
+                                                                border: "1px solid #e0e0e0",
+                                                                fontSize: "14px",
+                                                                verticalAlign: "top",
+                                                                fontWeight: 500,
+                                                                fontFamily: "Open Sans",
+                                                            }}
+                                                        >
+                                                            {row.feature}
+                                                        </TableCell>
+
+                                                        <TableCell
+                                                            sx={{
+                                                                border: "1px solid #e0e0e0",
+                                                                fontSize: "14px",
+                                                                fontFamily: "Open Sans",
+                                                                lineHeight: "1.6",
+                                                            }}
+                                                        >
+                                                            {row.specification}
+                                                        </TableCell>
+                                                    </TableRow>
+                                                ))}
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
                                 </AccordionDetails>
+
+
                             </Accordion>
 
-                            <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
-                                <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}>
-                                    <Typography
-                                        sx={{
-                                            fontSize: {md:"20px",xs:"16px"},
-                                            fontWeight: 500,
-                                            fontFamily: "Open Sans"
-                                        }}
-                                    >
-                                        Galvanizing Unit
-                                    </Typography>
-                                </AccordionSummary>
 
-                                <AccordionDetails>
-                                    <Grid container spacing={2}>
-
-                                        {/* LEFT CONTENT */}
-                                        <Grid item size={{ xs: 12, md: 8 }}>
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                We purchase Special High Grade ( SHG ) quality of Zinc for our
-                                                galvanizing plant. Mainly from Hindustan Zinc Limited.
-                                            </Typography>
-
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                Our Galvanizing plant tank size is 9 x 1.1 x 1.6 meter.
-                                            </Typography>
-                                        </Grid>
-
-                                        {/* RIGHT IMAGE */}
-                                        <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={structure4} style={{ width: "100%" }} />
-                                        </Grid>
-
-                                        {/* FULL WIDTH CONTENT BELOW */}
-                                        <Grid item size={{ xs: 12 }}>
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                Our galvanizing tanks are ultra modern type and can perform at high
-                                                temperature.
-                                            </Typography>
-
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                Durability – a permanently bonded tough coating
-                                            </Typography>
-
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                Hygienic – easy to clean surface
-                                            </Typography>
-
-                                            <Typography sx={headingStyle}>
-                                                <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                                Long Life – maintenance free
-                                            </Typography>
-                                        </Grid>
-
-                                    </Grid>
-                                </AccordionDetails>
-                            </Accordion>
 
                         </Box>
 

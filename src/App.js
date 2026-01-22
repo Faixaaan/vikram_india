@@ -55,6 +55,10 @@ import Harvesting from "./Pages/GardenPlantMachienry/Harvesting";
 import Foreign from "./Pages/GardenPlantMachienry/Foreign";
 import Plucking from "./Pages/GardenPlantMachienry/Plucking";
 import TeaIngredient from "./Pages/GardenPlantMachienry/TeaIngredient";
+import GreenRolling from "./Pages/GreenTeaprocessing/TeaProcessingRolling";
+import HotDip from "./Pages/HotDipGalvanization/HotDip";
+import MmsLearnMore from "./Pages/MmsLearnMore/MmsLearnMore";
+import ProductsLayout from "./Pages/Components/ProductLayout";
 
 
 function App() {
@@ -84,6 +88,7 @@ function App() {
         <Route path="/products/ctc/greenpacking" element={<GreenPacking />} />
         <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
         <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
+        <Route path="/products/ctc/greenrolling" element={<GreenRolling />} />
         <Route path="/products/ctc/harvesting" element={<Harvesting />} />
         <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
         <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
@@ -93,20 +98,18 @@ function App() {
           element={<Quality />}
         />
         <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
-        <Route path="/products/introduction" element={<Introduction />} />
+        <Route path="/products/infrastructure-&-machinery" element={<Introduction />} />
         <Route
-          path="/products/manufacturing-and-quality"
+          path="/products/product-&-portfolio"
           element={<Manufacturing />}
         />
         <Route
-          path="/products/manufacturing-with-high-tensile-is-project"
+          path="/products/technical-specification"
           element={<HighTensile />}
         />
-        <Route path="/products/products" element={<Product />} />
-        <Route
-          path="/products/solar-pumps-(ac-pumps)"
-          element={<SolarPumps />}
-        />
+        <Route path="/products/quality-&-safety" element={<Product />} />
+         
+        
         <Route path="/products/processing-card" element={<ProcessingCard />} />
         <Route path="/about/group-profile" element={<GroupProfile />} />
         <Route path="/about/company-profile" element={<CompanyProfile />} />
@@ -132,6 +135,8 @@ function App() {
         <Route path="/media/photo-gallery" element={<Gallery />} />
         <Route path="/media/download" element={<Download />} />
         <Route path="/csr" element={<CSR />} />
+         <Route path="/products/hot-dip" element={<HotDip />} />
+          <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
       </Routes>
       <Footer />
     </BrowserRouter>

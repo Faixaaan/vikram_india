@@ -47,18 +47,18 @@ const leftMenu = [
 ];
 
 const Rolling = () => {
-   
-    const [data,setData] = useState([])
-      
-        const fetchDryingData = async()=>{
-           try{
-               const res = await axiosInstance.get(endpoints.teaProcessingMachinery.rolling);
-               setData(res?.data?.data)
-           }
-           catch(err){
-              console.log(err)
-           }
+
+    const [data, setData] = useState([])
+
+    const fetchDryingData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.rolling);
+            setData(res?.data?.data)
         }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         fetchDryingData()
@@ -94,9 +94,7 @@ const Rolling = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -120,7 +118,7 @@ const Rolling = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -166,19 +164,22 @@ const Rolling = () => {
                                 fontFamily: "Open Sans"
                             }}
                         >
-                           {data?.section1_title}
+                            {data?.section1_title}
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
                         </Typography>
 
                         <Grid container spacing={2}>
                             {/* Left Description */}
                             <Grid item xs={12} md={8}>
                                 <Typography sx={{ mb: 2, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}
-                                dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+                                    dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                 >
-                                    
+
                                 </Typography>
 
-                               
+
                             </Grid>
 
                             {/* Right Image */}
@@ -210,12 +211,12 @@ const Rolling = () => {
                         </Typography>
 
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
                                 backgroundColor: "#f8f8f8",
                                 borderBottom: "1px solid #eee",
@@ -320,12 +321,12 @@ const Rolling = () => {
                             </AccordionDetails>
                         </Accordion>
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
                                 backgroundColor: "#f8f8f8",
                                 borderBottom: "1px solid #eee",
@@ -335,7 +336,7 @@ const Rolling = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
                                 >
-                                   Regulated Feed Unit
+                                    Regulated Feed Unit
 
                                 </Typography>
                             </AccordionSummary>
@@ -358,7 +359,7 @@ const Rolling = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{fontFamily:"Open Sans"}}>
+                                        <Typography sx={{ fontFamily: "Open Sans" }}>
                                             Drawing of Gravimetric Weigh Feeder
                                         </Typography>
                                     </Grid>
@@ -375,7 +376,7 @@ const Rolling = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                         <Typography sx={{fontFamily:"Open Sans"}}>
+                                        <Typography sx={{ fontFamily: "Open Sans" }}>
                                             Picture of Gravimetric Weigh Feeder
 
                                         </Typography>
@@ -391,17 +392,17 @@ const Rolling = () => {
                             </AccordionDetails>
                         </Accordion>
                         <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
                             <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
@@ -442,7 +443,7 @@ const Rolling = () => {
                                 {/* SPACING */}
                                 <Box mt={3} />
 
-                                
+
 
 
                             </AccordionDetails>

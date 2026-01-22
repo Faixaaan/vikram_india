@@ -42,23 +42,23 @@ const leftMenu = [
 
 const Withering = () => {
 
-   const [data,setData] = useState([])
-  
-    const fetchDryingData = async()=>{
-       try{
-           const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
-           setData(res?.data?.data)
-       }
-       catch(err){
-          console.log(err)
-       }
+  const [data, setData] = useState([])
+
+  const fetchDryingData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+      setData(res?.data?.data)
     }
+    catch (err) {
+      console.log(err)
+    }
+  }
   useEffect(() => {
     fetchDryingData()
-      window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-      });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }, []);
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
@@ -87,9 +87,7 @@ const Withering = () => {
           CTC Tea Processing Machinery
         </Typography>
 
-        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-          Setting global benchmarks in tea processing machinery industry
-        </Typography>
+
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
@@ -113,7 +111,7 @@ const Withering = () => {
                 fontWeight: 700,
                 fontSize: "14px",
                 mb: 1,
-                color: "#d32f2f",
+                color: "red",
                 fontFamily: "Open Sans"
               }}
             >
@@ -128,10 +126,10 @@ const Withering = () => {
                   to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "WITHERING" ? "green" : "transparent",
+                    backgroundColor: item === "WITHERING" ? "Green" : "transparent",
                     color: item === "WITHERING" ? "#fff" : "#000",
                     "&:hover": {
-                      backgroundColor: item === "WITHERING" ? "green" : "#f5f5f5",
+                      backgroundColor: item === "WITHERING" ? "Green" : "#f5f5f5",
                     },
                     fontFamily: "Open Sans"
                   }}
@@ -155,24 +153,27 @@ const Withering = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
-                mb: 2,
+                mb: 0,
                 fontFamily: "Open Sans"
               }}
             >
               {data?.section1_title}
+            </Typography>
+            <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+              Setting global benchmarks in tea processing machinery industry
             </Typography>
 
             <Grid container spacing={2}>
               {/* Left Description */}
               <Grid item xs={12} md={8}>
                 <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}
-                dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
-                
+                  dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+
                 >
-                  
+
                 </Typography>
 
-                
+
               </Grid>
 
               {/* Right Image */}

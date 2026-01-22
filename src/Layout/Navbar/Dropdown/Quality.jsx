@@ -45,19 +45,19 @@ const leftMenu = [
 ];
 
 const Quality = () => {
-    const [data,setData] = useState([])
-          
-            const fetchDryingData = async()=>{
-               try{
-                   const res = await axiosInstance.get(endpoints.teaProcessingMachinery.quality);
-                   setData(res?.data?.data)
-               }
-               catch(err){
-                  console.log(err)
-               }
-            }
+    const [data, setData] = useState([])
+
+    const fetchDryingData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.quality);
+            setData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
     useEffect(() => {
-          fetchDryingData()
+        fetchDryingData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -90,9 +90,7 @@ const Quality = () => {
                     CTC Tea Processing Machinery
                 </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -116,7 +114,7 @@ const Quality = () => {
                                 fontWeight: 700,
                                 fontSize: "14px",
                                 mb: 1,
-                                color: "#d32f2f",
+                                color: "red",
                                 fontFamily: "Open Sans"
                             }}
                         >
@@ -158,11 +156,14 @@ const Quality = () => {
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
-                                mb: 2,
+                                mb: 0,
                                 fontFamily: "Open Sans"
                             }}
                         >
-                           {data?.section1_title}
+                            {data?.section1_title}
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
+                            Setting global benchmarks in tea processing machinery industry
                         </Typography>
 
 
@@ -180,25 +181,25 @@ const Quality = () => {
                         <Typography
                             sx={headingStyle}
                         >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> 
+                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />
                             Digital R. H. Meter
                         </Typography>
 
 
                         <Typography
                             sx={headingStyle}
-                           
+
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Digital Timer
                         </Typography>
                         <Typography
-                           sx={headingStyle}
+                            sx={headingStyle}
                         >
                             <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Tea Testing Equipment
                         </Typography>
-                        
-                      
-                         
+
+
+
 
 
 

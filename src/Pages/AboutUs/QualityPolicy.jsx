@@ -247,7 +247,7 @@ const QualityPolicy = () => {
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
                                             <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
-                                                Dated: 26.06.2002
+                                                {data?.left_text}
                                             </Typography>
                                             <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
                                                 <img src={data?.sign_img} alt="" />
