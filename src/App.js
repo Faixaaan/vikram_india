@@ -61,6 +61,7 @@ import MmsLearnMore from "./Pages/MmsLearnMore/MmsLearnMore";
 import ProductsLayout from "./Pages/Components/ProductLayout";
 import HdpLearnMore from "./Pages/HotDipGalvanization/HotDip";
 import HotDipIntroduction from "./Pages/HotDipGalvanization/Components/introduction";
+import ServiceCapabilities from "./Pages/HotDipGalvanization/Components/ServiceCapabilities";
 
 
 function App() {
@@ -141,6 +142,7 @@ function App() {
         <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
         <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
         <Route path="/products/hdp-introduction" element={<HotDipIntroduction />} />
+        <Route path="/products/service-capabilities" element={<ServiceCapabilities />} />
       </Routes>
       <Footer />
     </BrowserRouter>
