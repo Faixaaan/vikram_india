@@ -59,6 +59,8 @@ import GreenRolling from "./Pages/GreenTeaprocessing/TeaProcessingRolling";
 import HotDip from "./Pages/HotDipGalvanization/HotDip";
 import MmsLearnMore from "./Pages/MmsLearnMore/MmsLearnMore";
 import ProductsLayout from "./Pages/Components/ProductLayout";
+import HdpLearnMore from "./Pages/HotDipGalvanization/HotDip";
+import HotDipIntroduction from "./Pages/HotDipGalvanization/Components/introduction";
 
 
 function App() {
@@ -119,7 +121,7 @@ function App() {
           path="/about/award-and-recognition"
           element={<AwardRecognition />}
         />
-        <Route path="/about/testimonial" element={<Testimonials />} />
+        
         <Route path="/about/clientele" element={<Clientele />} />
         <Route path="/about/quality-policy" element={<QualityPolicy />} />
         <Route path="/about/research-and-development" element={<Research />} />
@@ -135,8 +137,10 @@ function App() {
         <Route path="/media/photo-gallery" element={<Gallery />} />
         <Route path="/media/download" element={<Download />} />
         <Route path="/csr" element={<CSR />} />
-         <Route path="/products/hot-dip" element={<HotDip />} />
-          <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
+        <Route path="/products/hot-dip" element={<HotDip />} />
+        <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
+        <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
+        <Route path="/products/hdp-introduction" element={<HotDipIntroduction />} />
       </Routes>
       <Footer />
     </BrowserRouter>

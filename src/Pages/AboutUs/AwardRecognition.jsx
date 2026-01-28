@@ -49,7 +49,7 @@ const leftMenu = [
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    "TESTIMONIAL",
+    
 
 
 ];
@@ -309,7 +309,7 @@ const AwardRecognition = () => {
 
                                 <Grid container spacing={3}>
                                     {ImageData
-                                        .slice((page - 1) * 8, (page - 1) * 8 + 8)
+                                        .slice((page - 1) * 4, (page - 1) * 4 + 4)
                                         .map((item, index) => (
                                             <Grid
                                                 item
@@ -363,7 +363,7 @@ const AwardRecognition = () => {
                                 </Grid>
                                 <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                     <Pagination
-                                        count={Math.ceil(ImageData.length / 8)}
+                                        count={Math.ceil(ImageData.length / 4)}
                                         page={page}
                                         onChange={(e, value) => setPage(value)}
                                         color="primary"
@@ -386,7 +386,7 @@ const AwardRecognition = () => {
 
                                     <Grid container spacing={3}>
                                         {ImageData
-                                            .slice((pagee - 1) * 8, (pagee - 1) * 8 + 8)
+                                            .slice((pagee - 1) * 4, (pagee - 1) * 4 + 4)
                                             .map((item, index) => (
                                                 <Grid
                                                     item
@@ -446,7 +446,7 @@ const AwardRecognition = () => {
                             {/* PAGINATION */}
                             <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                 <Pagination
-                                    count={Math.ceil(ImageData.length / 8)}
+                                    count={Math.ceil(ImageData.length / 4)}
                                     page={pagee}
                                     onChange={(e, value) => setPagee(value)}
                                     color="primary"

@@ -169,7 +169,16 @@ const Initiatives = () => {
             borderRadius: "50%",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
+            /* TRANSITION GOES HERE */
+            transition: "all 0.4s ease-in-out",
+
+            "&:hover": {
+              transform: "scale(1.1)",
+              background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',
+              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            },
+
           }}>
             <img
               src={data?.sec3right_icon_img}
@@ -179,13 +188,35 @@ const Initiatives = () => {
           </Box>
 
           <Box sx={{ textAlign: 'center', width: '80%' }}>
-            <Typography sx={{
-              fontSize: { xs: '1.5rem', md: '2rem' },
-              fontWeight: 'bold',
-              fontFamily: 'Open Sans'
-            }}>
+            <Typography
+              sx={{
+                fontSize: { xs: "1.5rem", md: "2rem" },
+                fontWeight: "bold",
+                fontFamily: "Open Sans",
+                cursor: "pointer",
+
+                /* default color */
+                color: "#000",
+
+                /* transition must be here */
+                transition: "all 0.4s ease-in-out",
+
+                "&:hover": {
+                  transform: "scale(1.05)",
+
+                  /* gradient text */
+                  background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+
+                  /* optional glow */
+                  textShadow: "0 4px 15px rgba(39, 111, 158, 0.3)",
+                },
+              }}
+            >
               {data?.sec3right_title}
             </Typography>
+
             <Typography sx={{
               fontSize: { xs: '0.9rem', md: '18px' },
               fontFamily: 'Open Sans',
@@ -208,10 +239,12 @@ const Initiatives = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: { xs: '90%', sm: '80%', md: '60%' },
-            bgcolor: 'white',
+            
             borderRadius: '10px',
             boxShadow: 24,
             p: { xs: 2, sm: 2 },
+            backgroundImage: `url(${data?.sec3right_bg_img})`,
+            backgroundRepeat:"repeat"
           }}>
 
             {/* Close Button */}
@@ -240,22 +273,22 @@ const Initiatives = () => {
             <Box sx={{
               position: "relative",
               width: "100%",
-              paddingTop: "20px", // 16:9 ratio
-              borderRadius: "10px",
+             
+             borderRadius: "10px",
               overflow: "hidden",
-              background: "#fff",
+              background: "transparent",
 
             }}>
 
               <Typography
-              sx={{
-                color: "#000",
-                fontSize: "32px",
-                fontFamily: "Open Sans",
-                textAlign: "center",
-                mb:3,
-                fontWeight:"600"
-              }}
+                sx={{
+                  color: "#000",
+                  fontSize: "32px",
+                  fontFamily: "Open Sans",
+                  textAlign: "center",
+                  mb: 3,
+                  fontWeight: "600"
+                }}
               >
                 Right Initiative's
               </Typography>

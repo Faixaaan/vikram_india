@@ -41,7 +41,7 @@ const leftMenu = [
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    "TESTIMONIAL",
+    
 
 
 ];
@@ -252,26 +252,29 @@ const ManagementTeam = () => {
                                         key={i}
                                         >
                                             <Grid container spacing={2} mt={2}>
-                                                <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                                    <img src={item?.profile_pic} />
+                                                <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                                    <img src={item?.profile_pic} style={{height:"auto",width:"100%"}} />
                                                 </Grid>
 
-                                                <Grid size={{ xs: 12, md: 8.6 }} >
-                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#121111ff" }}>
+                                                <Grid size={{ xs: 12, md: 9 }} sx={{bgcolor:"#B5BEB2"}} >
+                                                    
+
+                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff",padding:"10px 20px" }}>
+                                                         {item?.profile_desc?.replace(/<[^>]*>/g, "")}
+                                                    </Typography>
+                                                    <Box sx={{pt:4,background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',padding:"10px 20px"}}>
+                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
                                                        {item?.name}
                                                     </Typography>
                                                     <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
                                                         {item?.designation} <br />
 
                                                     </Typography>
-                                                    <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#767676", }}>
+                                                    <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
 
                                                         Vikram Group
                                                     </Typography>
-
-                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "120%", marginTop: "15px", fontWeight: "400", color: "#121111ff" }}>
-                                                         {item?.profile_desc?.replace(/<[^>]*>/g, "")}
-                                                    </Typography>
+                                                    </Box>
                                                     
 
 

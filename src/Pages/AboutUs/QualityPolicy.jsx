@@ -37,7 +37,7 @@ const leftMenu = [
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    "TESTIMONIAL",
+    
 
 
 ];

@@ -8,16 +8,16 @@ import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 import { useNavigate } from "react-router-dom";
 
-/* ========= SAFE KEYFRAMES (DO NOT TOUCH LAYOUT) ========= */
+/* ===== SAFE SMOOTH ANIMATION (DESIGN UNCHANGED) ===== */
 const animations = {
-  "@keyframes textFromLeft": {
-    from: {
+  "@keyframes fadeSlideUp": {
+    "0%": {
       opacity: 0,
-      transform: "translateX(-40px)",
+      transform: "translateY(30px)",
     },
-    to: {
+    "100%": {
       opacity: 1,
-      transform: "translateX(0)",
+      transform: "translateY(0)",
     },
   },
 };
@@ -50,6 +50,7 @@ const Banner = () => {
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
+        speed={900} // ✅ smooth slide
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         loop={false}
@@ -108,6 +109,8 @@ const Banner = () => {
                           fontWeight: 400,
                           color: activeIndex === i ? "red" : "#fff",
                           width: "250px",
+                          animation: "fadeSlideUp 1.1s ease forwards",
+
                         }}
                       >
                         {h.subtitle}
@@ -138,7 +141,7 @@ const Banner = () => {
                   ))}
                 </Box>
 
-                {/* CENTER CONTENT (LAYOUT UNTOUCHED) */}
+                {/* CENTER CONTENT (DESIGN UNCHANGED) */}
                 <Box
                   sx={{
                     textAlign: "center",
@@ -151,30 +154,28 @@ const Banner = () => {
                     mt: { xs: "85px", md: 0, sm: "150px" },
                     width: { xs: "100%", md: "auto" },
                     mx: { xs: "auto", sm: "auto", md: "0" },
-                    ...animations, // only for keyframes
+                    ...animations,
                   }}
                 >
                   {/* TITLE */}
                   <Typography
-                    key={activeIndex}
+                    key={`title-${activeIndex}`}
                     sx={{
                       fontSize: { xs: "31px", sm: "26px", md: "40px" },
                       fontWeight: 700,
-                      minWidth: { md: "850px", sm: "75%" },
-                      maxWidth: { md: "850px", sm: "75%" },
                       fontFamily: "Open Sans",
                       lineHeight: "120%",
                       color: "#fff",
-                      textShadow: "6px 6px 6px rgba(0, 0, 0, 0.9)",
-                      margin: "0px auto",
+                      textShadow: "6px 6px 6px rgba(0,0,0,0.9)",
+                      margin: "0 auto",
 
-                      /* ✅ SAFE ANIMATION */
                       opacity: 0,
-                      animation: "textFromLeft 0.9s ease forwards",
+                      animation: "fadeSlideUp 0.9s ease forwards",
                     }}
                   >
                     {item.title}
                   </Typography>
+
 
                   {/* BUTTON */}
                   <Button
@@ -187,6 +188,7 @@ const Banner = () => {
                       "&:hover": {
                         background:
                           "linear-gradient(to bottom, #a00000, #600000)",
+                        transform: "translateY(-2px)",
                       },
                       borderRadius: "15px",
                       padding: "9px 12px",
@@ -194,9 +196,9 @@ const Banner = () => {
                       fontFamily: "Open Sans",
                       textTransform: "capitalize",
 
-                      /* ✅ SAFE ANIMATION */
                       opacity: 0,
-                      animation: "textFromLeft 1.1s ease forwards",
+                      animation: "fadeSlideUp 1.1s ease forwards",
+
                     }}
                     onClick={handleClick}
                   >
