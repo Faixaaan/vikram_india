@@ -86,52 +86,24 @@ const QualityPolicy = () => {
                     <Typography color="text.primary">QUALITY POLICY</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    QUALITY POLICY
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+               
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            QUALITY POLICY
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -151,7 +123,7 @@ const QualityPolicy = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -159,7 +131,7 @@ const QualityPolicy = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -179,7 +151,7 @@ const QualityPolicy = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -187,7 +159,7 @@ const QualityPolicy = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -198,22 +170,21 @@ const QualityPolicy = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.title}
                         </Typography>
 
-                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans" }}>
-                            {data?.sub_title}
-                        </Typography>
+                        
 
 
                         {/* Introduction */}
@@ -238,7 +209,7 @@ const QualityPolicy = () => {
 
                                     <Grid size={{ xs: 12, md: 8 }} >
 
-                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}
+                                        <Typography sx={{ fontFamily: "Roboto", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}
                                         dangerouslySetInnerHTML={{ __html: data?.q_policy_desc }}
                                         >
                                            
@@ -246,7 +217,7 @@ const QualityPolicy = () => {
                                         
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
-                                            <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
+                                            <Typography sx={{ fontFamily: "Roboto", fontSize: "14px", lineHeight: "120%" }}>
                                                 {data?.left_text}
                                             </Typography>
                                             <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
@@ -283,7 +254,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

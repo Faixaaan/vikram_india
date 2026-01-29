@@ -65,49 +65,25 @@ const Utilities = () => {
                     <Typography color="text.primary">UTILITIES</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    CTC Tea Processing Machinery
-                </Typography>
+               
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            CTC Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -122,7 +98,7 @@ const Utilities = () => {
                                         "&:hover": {
                                             backgroundColor: item === "UTILITIES" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -130,7 +106,7 @@ const Utilities = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -139,20 +115,19 @@ const Utilities = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             UTILITIES
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
 
 
@@ -226,7 +201,7 @@ const headingStyle = {
     fontWeight: 600,
     mt: 4,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

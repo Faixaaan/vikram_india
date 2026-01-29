@@ -93,52 +93,25 @@ const TeaFermenting = () => {
                     <Typography color="text.primary">FERMENTING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Orthodox Tea Processing Machinery
-                </Typography>
 
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                       
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -153,7 +126,7 @@ const TeaFermenting = () => {
                                         "&:hover": {
                                             backgroundColor: item === "FERMENTING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -161,7 +134,7 @@ const TeaFermenting = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -170,13 +143,14 @@ const TeaFermenting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             FERMENTING
@@ -221,7 +195,7 @@ const TeaFermenting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Single/ Double Stage Continuous Fermenting Machine (Belt / Tray)
 
                                 </Typography>
@@ -230,7 +204,7 @@ const TeaFermenting = () => {
                             <AccordionDetails>
 
                                 <Grid container spacing={3} alignItems="flex-start">
-                                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", marginTop: "20px" }}>
+                                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", marginTop: "20px" }}>
                                         Vikram India has developed Continuous Fermenting Machines (CFM) to suit the needs of different clients under different conditions of operation globally. In the process, the Company has achieved significant benchmarks like development of the widest, 52 inch, CTC unit in 2000 and later a 56 inch one in 2008. These CFMs are available as - a single or multi stage unit, horizontal or inclined or a combination of both.
 
 
@@ -491,7 +465,7 @@ const TeaFermenting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     CFM Auto Controller
                                 </Typography>
@@ -504,7 +478,7 @@ const TeaFermenting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The new and automated CFM machine has been designed for Energy Savings in excess of 40% when compared with any traditional machine. The automated operations of the machine also ensure consistent quality and reduced manpower involvement, reducing the running cost of the machine to a considerable extent this brand new CFM is designed for uninterrupted operations round the year.
 
 
@@ -626,7 +600,7 @@ const TeaFermenting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Humidification System
                                 </Typography>
                             </AccordionSummary>

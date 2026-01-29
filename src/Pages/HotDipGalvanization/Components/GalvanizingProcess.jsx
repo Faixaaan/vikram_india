@@ -16,14 +16,6 @@ import {
     Container,
     Button,
 } from "@mui/material";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-} from "@mui/material";
 
 import { Link } from "react-router-dom";
 
@@ -46,21 +38,7 @@ const leftMenu = [
 
 ];
 
-const featureSpecData = [
-    {
-        feature: "Captive Galvanizing",
-        specification:
-            "Integrated coating for our Solar Module Mounting Structures,ensuring seamless quality control from fabrication to finish."
-    },
-    {
-        feature: "Job Work (External)",
-        specification:
-            "High-volume galvanizing for outside clients including transmission towers, poles, pipes, and structural steel"
-    },
-
-];
-
-const ServiceCapabilities = () => {
+const GalvanizingProcess = () => {
 
     const [data, setData] = useState([]);
     const [openEnquiry, setOpenEnquiry] = useState(false);
@@ -92,17 +70,16 @@ const ServiceCapabilities = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary">SERVICE CAPABILITIES</Typography>
+                    <Typography color="text.primary">THE GALVANIZING PROCESS</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
                 
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -127,10 +104,10 @@ const ServiceCapabilities = () => {
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "SERVICE CAPABILITIES" ? "#1A73E8" : "transparent",
-                                        color: item === "SERVICE CAPABILITIES" ? "#fff" : "#000",
+                                        backgroundColor: item === "THE GALVANIZING PROCESS" ? "#1A73E8" : "transparent",
+                                        color: item === "THE GALVANIZING PROCESS" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "SERVICE CAPABILITIES" ? "#1A73E8" : "#f5f5f5",
+                                            backgroundColor: item === "THE GALVANIZING PROCESS" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -165,7 +142,7 @@ const ServiceCapabilities = () => {
                                 color:"#1A73E8"
                             }}
                         >
-                            SERVICE CAPABILITIES
+                            THE GALVANIZING PROCESS
                         </Typography>
 
 
@@ -186,82 +163,46 @@ const ServiceCapabilities = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Service Capabilities
+                                    The Galvanizing Process
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <TableContainer
-                                    sx={{
-                                        border: "1px solid #e0e0e0",
-                                        borderRadius: "6px",
-                                        overflowX: "auto",
-                                    }}
-                                >
-                                    <Table
-                                        sx={{
-                                            borderCollapse: "collapse",
-                                            minWidth: 600,
-                                        }}
-                                    >
-                                        {/* TABLE HEADER */}
-                                        <TableHead>
-                                            <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                                <TableCell
-                                                    sx={{
-                                                        fontWeight: 600,
-                                                        fontSize: "16px",
-                                                        border: "1px solid #e0e0e0",
-                                                        width: "30%",
-                                                        fontFamily: "Roboto",
-                                                    }}
-                                                >
-                                                    Service Category
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        fontWeight: 600,
-                                                        fontSize: "16px",
-                                                        border: "1px solid #e0e0e0",
-                                                        fontFamily: "Roboto",
-                                                    }}
-                                                >
-                                                    Description
-                                                </TableCell>
-                                            </TableRow>
-                                        </TableHead>
+                                <Box>
+                                    <Grid container spacing={2}>
 
-                                        {/* TABLE BODY */}
-                                        <TableBody>
-                                            {featureSpecData.map((row, index) => (
-                                                <TableRow key={index}>
-                                                    <TableCell
-                                                        sx={{
-                                                            border: "1px solid #e0e0e0",
-                                                            fontSize: "14px",
-                                                            verticalAlign: "top",
-                                                            fontWeight: 500,
-                                                            fontFamily: "Roboto",
-                                                        }}
-                                                    >
-                                                        {row.feature}
-                                                    </TableCell>
 
-                                                    <TableCell
-                                                        sx={{
-                                                            border: "1px solid #e0e0e0",
-                                                            fontSize: "14px",
-                                                            fontFamily: "Roboto",
-                                                            lineHeight: "1.6",
-                                                        }}
-                                                    >
-                                                        {row.specification}
-                                                    </TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12 }}>
+
+
+
+                                            <ul>
+                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
+                                                    <b>Degreasing:</b> Removal of oil and grease.
+                                                </li>
+                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
+                                                    <b>Pickling:</b> Acid bath to remove rust and scale.
+                                                </li>
+                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
+                                                    <b>Galvanizing:</b> Immersion in molten zinc at ±450°C.
+                                                </li>
+                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
+                                                    <b>Quenching & Dichromating:</b> Cooling and surface passivation for a shiny finish.
+                                                </li>
+                                            </ul>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
                             </AccordionDetails>
                         </Accordion>
 
@@ -277,4 +218,4 @@ const ServiceCapabilities = () => {
     );
 };
 
-export default ServiceCapabilities;
+export default GalvanizingProcess;

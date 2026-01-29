@@ -80,7 +80,7 @@ const CSR = () => {
                         mb: 1,
                         color: "#000",
                         textTransform: "uppercase",
-                        fontFamily: "Open Sans",
+                        fontFamily: "Roboto",
                     }}
                 >
                     CSR
@@ -90,45 +90,36 @@ const CSR = () => {
                     {/* Left Sidebar */}
                     <Grid size={{ xs: 12, md: 3 }}>
                         <Box sx={{ padding: { md: "40px 0px", xs: "15px 0px" } }}>
-                            <Typography sx={{ fontFamily: "Open Sans", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
+                            <Typography sx={{ fontFamily: "Roboto", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
                                 {data?.left_title}
                             </Typography>
-                            <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", textAlign: "justify" }}>
+                            <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Roboto", textAlign: "justify" }}>
                                 {data?.left_description}
                             </Typography>
                         </Box>
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:7}}>
                         <Typography
                             sx={{
                                 fontSize: "28px",
                                 fontWeight: 600,
                                 lineHeight: "120%",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.main_title}
                         </Typography>
-                        <Typography
-                            sx={{
-                                color: "#df0000",
-                                fontSize: "14px",
-                                fontFamily: "Open Sans",
-                                fontWeight: "400",
-                                pb: 4
-                            }}
-                        >
-                            {data?.sub_title}
-                        </Typography>
+                        
 
                         <Divider />
                         <Typography
                             sx={{
                                 color: "#000",
                                 fontSize: "18px",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                                 fontWeight: "500",
                                 pt: 2,
                                 pb: 4
@@ -142,7 +133,7 @@ const CSR = () => {
                             sx={{
                                 color: "#000",
                                 fontSize: "20px",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                                 fontWeight: "600",
                                 pt: 2
                             }}

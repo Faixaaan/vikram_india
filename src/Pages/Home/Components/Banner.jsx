@@ -103,7 +103,7 @@ const Banner = () => {
                       <Typography
                         sx={{
                           fontSize: { xs: "16px", md: "20px" },
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                           lineHeight: "100%",
                           mb: 1,
                           fontWeight: 400,
@@ -131,7 +131,7 @@ const Banner = () => {
                             fontSize: { xs: "12px", md: "14px" },
                             fontWeight: 400,
                             color: activeIndex === i ? "red" : "#fff",
-                            fontFamily: "Open Sans",
+                            fontFamily: "Roboto",
                           }}
                         >
                           {h.no}
@@ -163,7 +163,7 @@ const Banner = () => {
                     sx={{
                       fontSize: { xs: "31px", sm: "26px", md: "40px" },
                       fontWeight: 700,
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       lineHeight: "120%",
                       color: "#fff",
                       textShadow: "6px 6px 6px rgba(0,0,0,0.9)",
@@ -193,7 +193,7 @@ const Banner = () => {
                       borderRadius: "15px",
                       padding: "9px 12px",
                       fontSize: { xs: "14px", md: "15px" },
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       textTransform: "capitalize",
 
                       opacity: 0,

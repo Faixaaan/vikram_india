@@ -36,10 +36,10 @@ const Facilities = () => {
                     <Grid container spacing={6}>
                         <Grid size={{ xs: 12, md: 3 }}>
                             <Box sx={{ padding: { md: "40px 0px", xs: "15px 0px" } }}>
-                                <Typography sx={{ fontFamily: "Open Sans", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
+                                <Typography sx={{ fontFamily: "Roboto", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
                                     {data?.left_title}
                                 </Typography>
-                                <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", textAlign: "justify" }}
+                                <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Roboto", textAlign: "justify" }}
                                 dangerouslySetInnerHTML={{ __html: data?.left_description }}
                                 >
                                     
@@ -48,16 +48,14 @@ const Facilities = () => {
                         </Grid>
                         <Grid size={{ xs: 12, md: 9 }}>
                             <Box sx={{ padding: { md: "40px 0px 10px 0px", xs: "15px 0px" } }}>
-                                <Typography sx={{ textAlign: "right", display: "flex", justifyContent: { md: "flex-end", xs: "flex-start" }, fontFamily: "Open Sans", borderBottom: "2px solid black", paddingBottom: "23px" }}>
+                                <Typography sx={{ textAlign: "right", display: "flex", justifyContent: { md: "flex-end", xs: "flex-start" }, fontFamily: "Roboto", borderBottom: "2px solid black", paddingBottom: "23px" }}>
                                     <Link to={'/'} style={{ textDecoration: "none", color: "#000" }}>Home </Link> <KeyboardDoubleArrowRightIcon sx={{ color: "#df0000" }} />Manufacturing Facilities
                                 </Typography>
                                 <Box sx={{ paddingTop: "20px" }}>
-                                    <Typography sx={{ fontFamily: "Open Sans", fontWeight: "500", fontSize: "28px", }}>
+                                    <Typography sx={{ fontFamily: "Roboto", fontWeight: "500", fontSize: "28px",color:"#1A73E8" }}>
                                         {data?.main_title}
                                     </Typography>
-                                    <Typography sx={{ fontSize: "16px", fontWeight: "400", fontFamily: "Open Sans", textAlign: "justify", color: "#df0000" }}>
-                                        {data?.sub_title}
-                                    </Typography>
+                                    
                                 </Box>
                             </Box>
                             <Box sx={{ margin: "30px 0px" }}>
@@ -85,7 +83,7 @@ const Facilities = () => {
                                             <Typography
                                                 sx={{
                                                     fontSize: "18px",
-                                                    fontFamily: "Open Sans",
+                                                    fontFamily: "Roboto",
                                                     textAlign: "justify",
                                                     mb: 3,
                                                     fontWeight: "500"
@@ -101,7 +99,7 @@ const Facilities = () => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: "16px",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                             textAlign: "justify",
                                                             fontWeight: "400"
                                                         }}
@@ -129,7 +127,7 @@ const Facilities = () => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: "16px",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                             textAlign: "justify",
                                                             fontWeight: "400"
                                                         }}
@@ -139,7 +137,7 @@ const Facilities = () => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: "20px",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                             textAlign: "justify",
                                                             fontWeight: "600"
                                                         }}
@@ -185,7 +183,7 @@ const Facilities = () => {
                                             <Typography
                                                 sx={{
                                                     fontSize: "18px",
-                                                    fontFamily: "Open Sans",
+                                                    fontFamily: "Roboto",
                                                     textAlign: "justify",
                                                     mb: 3,
                                                     fontWeight: "600",
@@ -245,7 +243,7 @@ const Facilities = () => {
                                             <Typography
                                                 sx={{
                                                     fontSize: "20px",
-                                                    fontFamily: "Open Sans",
+                                                    fontFamily: "Roboto",
                                                     textAlign: "justify",
                                                     mb: 3,
                                                     fontWeight: "600"
@@ -256,7 +254,7 @@ const Facilities = () => {
                                             <Typography
                                                 sx={{
                                                     fontSize: "16px",
-                                                    fontFamily: "Open Sans",
+                                                    fontFamily: "Roboto",
                                                     textAlign: "justify",
                                                     mt: 2,
                                                     fontWeight: "400"

@@ -38,10 +38,11 @@ const leftMenu = [
 
 ];
 
-const HotDipIntroduction = () => {
+const WhyChooseVikramIndia = () => {
 
     const [data, setData] = useState([]);
     const [openEnquiry, setOpenEnquiry] = useState(false);
+
 
 
     const fetchData = async () => {
@@ -70,10 +71,11 @@ const HotDipIntroduction = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary">INTRODUCTION</Typography>
+                    <Typography color="text.primary">WHY CHOOSE US</Typography>
                 </Breadcrumbs>
 
-                
+                {/* PAGE TITLE */}
+               
 
 
 
@@ -104,10 +106,10 @@ const HotDipIntroduction = () => {
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "INTRODUCTION" ? "#1A73E8" : "transparent",
-                                        color: item === "INTRODUCTION" ? "#fff" : "#000",
+                                        backgroundColor: item === "WHY CHOOSE US" ? "#1A73E8" : "transparent",
+                                        color: item === "WHY CHOOSE US" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "INTRODUCTION" ? "#1A73E8" : "#f5f5f5",
+                                            backgroundColor: item === "WHY CHOOSE US" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -136,13 +138,13 @@ const HotDipIntroduction = () => {
                         <Typography
                             sx={{
                                 fontSize: "24px",
-                                fontWeight: 600,
+                                fontWeight: 700,
                                 mt: 1,
                                 fontFamily: "Roboto",
                                 color:"#1A73E8"
                             }}
                         >
-                            INTRODUCTION
+                            WHY CHOOSE VIKRAM INDIA FOR HDG
                         </Typography>
 
 
@@ -162,8 +164,8 @@ const HotDipIntroduction = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    About our HDG Division
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
+                                    Quick Turnaround Time
                                 </Typography>
                             </AccordionSummary>
 
@@ -175,6 +177,8 @@ const HotDipIntroduction = () => {
                                         {/* LEFT CONTENT */}
                                         <Grid item size={{ xs: 12 }}>
 
+
+
                                             <Typography
                                                 sx={{
                                                     fontSize: "16px",
@@ -183,57 +187,10 @@ const HotDipIntroduction = () => {
                                                     mt: 0
                                                 }}
                                             >
-                                                At Vikram India Limited, our legacy of over four decades in high-precision manufacturing has always
-                                                been built on a single core principle: Endurance.
+                                                Optimized logistics for external job work.
 
 
                                             </Typography>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: "16px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    mt: 2
-                                                }}
-                                            >
-                                                Our Hot Dip Galvanizing (HDG) division serves as the critical link between fabrication and longevity.
-                                                Originally established to provide an uncompromising protective shield for our own Module Mounting
-                                                Structures (MMS), this facility has evolved into a premier destination for high-quality, large-scale
-                                                galvanizing services for external infrastructure partners across India.
-
-                                            </Typography>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: "16px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    mt: 2
-                                                }}
-                                            >
-                                                <b>The Synergy of Integrated Manufacturing</b> <br />
-                                                We believe that quality cannot be outsourced. By housing our galvanizing facility alongside our Module
-                                                Mounting Structure division, we offer a seamless, integrated production cycle:
-
-
-                                            </Typography>
-
-                                            <ul>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Total Quality Control:</b> Every MMS component moves directly from our fabrication floor to our
-                                                    galvanizing kettles, eliminating the risks of surface oxidation during transit and ensuring that the final
-                                                    product meets the stringent 25-year lifespan required for solar installations.
-                                                </li>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Engineering Alignment:</b> Our galvanizing experts work hand-in-hand with our solar design team,
-                                                    ensuring that structural designs are optimized for drainage and venting—the keys to a perfect, uniform
-                                                    zinc coating.
-                                                </li>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Capacity for Scale:</b> Our infrastructure is designed for high-tonnage output, allowing us to
-                                                    simultaneously support our massive internal solar project requirements while offering significant
-                                                    capacity to outside vendors for structural steel, transmission towers, and electrical components.
-                                                </li>
-                                            </ul>
 
 
 
@@ -260,10 +217,11 @@ const HotDipIntroduction = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    A Commitment to Excellence
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
+                                    Surface Finish
                                 </Typography>
                             </AccordionSummary>
+
                             <AccordionDetails>
                                 <Box>
                                     <Grid container spacing={2}>
@@ -271,6 +229,8 @@ const HotDipIntroduction = () => {
 
                                         {/* LEFT CONTENT */}
                                         <Grid item size={{ xs: 12 }}>
+
+
 
                                             <Typography
                                                 sx={{
@@ -280,23 +240,7 @@ const HotDipIntroduction = () => {
                                                     mt: 0
                                                 }}
                                             >
-                                                Whether we are protecting our own solar mounting systems or your structural assets, our process
-                                                remains consistent: use only <b> Special High Grade (SHG) Zinc</b> and adhere strictly to international
-                                                standards such as <b> IS 2629 and ASTM A123.</b>
-
-
-                                            </Typography>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: "16px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    mt: 2
-                                                }}
-                                            >
-                                                From the world-renowned tea estates served by our Tea Machinery Division to the vast solar farms
-                                                powered by our Module Mounting Structures, Vikram India Limited remains a trusted name in industrial
-                                                protection and engineering excellence.
+                                                Smooth, aesthetic, and "no-drip" finish.
 
 
                                             </Typography>
@@ -313,8 +257,115 @@ const HotDipIntroduction = () => {
                                     </Grid>
                                 </Box>
                             </AccordionDetails>
-
                         </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
+                                    Strategic Location
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12 }}>
+
+
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+                                            >
+                                                Located on NH-6 resulting in faster ETA.
+
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
+                                    Vast Experience
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12 }}>
+
+
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+                                            >
+                                                Decades of engineering excellence from the Tea and Solar sectors applied
+                                                to HDG.
+
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+
 
                     </Grid>
                 </Grid>
@@ -327,4 +378,4 @@ const HotDipIntroduction = () => {
     );
 };
 
-export default HotDipIntroduction;
+export default WhyChooseVikramIndia;

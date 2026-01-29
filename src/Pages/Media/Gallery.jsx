@@ -151,7 +151,7 @@ const Gallery = () => {
                         fontWeight: 700,
                         mb: 1,
                         textTransform: "uppercase",
-                        fontFamily: "Open Sans",
+                        fontFamily: "Roboto",
                     }}
                 >
                     MEDIA
@@ -160,31 +160,9 @@ const Gallery = () => {
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
                     <Grid item size={{ xs: 12, md: 3 }}>
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "15px",
-                                mb: 2,
-                                textTransform: "uppercase",
-                                fontFamily: "Open Sans",
-                            }}
-                        >
-                            PHOTO GALLERY
-                        </Typography>
+                        
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans",
-                            }}
-                        >
-                            MEDIA
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -215,15 +193,14 @@ const Gallery = () => {
                             sx={{
                                 fontSize: "28px",
                                 fontWeight: 600,
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
+                                color:"#1A73E8"
                             }}
                         >
                            {data?.category2_title}
                         </Typography>
 
-                        <Typography sx={{ color: "#df0000", fontSize: "14px" }}>
-                            {data?.category2_subtitle}
-                        </Typography>
+                        
 
                         <Box sx={{ mt: 6 }}>
                             <Typography
@@ -231,7 +208,7 @@ const Gallery = () => {
                                     fontSize: "22px",
                                     fontWeight: 600,
                                     mb: 2,
-                                    fontFamily: "Open Sans",
+                                    fontFamily: "Roboto",
                                 }}
                             >
                                 {data?.category2_heading}
@@ -274,7 +251,7 @@ const Gallery = () => {
                                                     fontSize: "14px",
                                                     mt: 1.5,
                                                     textAlign: "center",
-                                                    fontFamily: "Open Sans",
+                                                    fontFamily: "Roboto",
                                                     maxWidth: "200px"
                                                 }}
                                             >

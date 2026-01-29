@@ -67,50 +67,25 @@ const Workshop = () => {
                     <Typography color="text.primary">WORKSHOP EQUIPMENT</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    CTC Tea Processing Machinery
-                </Typography>
+                
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            CTC Tea Processing Machinery
-                        </Typography>
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -125,7 +100,7 @@ const Workshop = () => {
                                         "&:hover": {
                                             backgroundColor: item === "WORKSHOP EQUIPMENT" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -133,7 +108,7 @@ const Workshop = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -142,20 +117,19 @@ const Workshop = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             WORKSHOP EQUIPMENT
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
 
 
@@ -177,7 +151,7 @@ const Workshop = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Auto Batch Weigher
                                 </Typography>
@@ -279,7 +253,7 @@ const Workshop = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Open Sans", fontSize: "16px" }}>
+                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Roboto", fontSize: "16px" }}>
                                             Miling Machine
                                         </Typography>
                                         <Box
@@ -293,7 +267,7 @@ const Workshop = () => {
                                                 mt: 8
                                             }}
                                         />
-                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Open Sans", fontSize: "16px" }}>
+                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Roboto", fontSize: "16px" }}>
                                             Tool and Cutter Grinder <br />
                                             Roller Inspection Bench
                                         </Typography>
@@ -316,7 +290,7 @@ const Workshop = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Open Sans", fontSize: "16px" }}>
+                                        <Typography sx={{ textAlign: "center", mt: 1, color: "red", fontFamily: "Roboto", fontSize: "16px" }}>
                                             Lathe Cum Chasing Machine
                                         </Typography>
 
@@ -345,7 +319,7 @@ const Workshop = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Blizzard - CNC Based Automatic Milling cum Chasing Machine
                                 </Typography>
@@ -358,7 +332,7 @@ const Workshop = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Blizzard - the latest addition to Vikram's wide range of Roller Sharpening machinery, executes all the operations of CTC roller sharpening in one setting with a high level of accuracy. Constructed using best quality stainless steel and ceramic inserts, Blizzard delivers durability with high performance, thereby increasing productivity.
 
 
@@ -517,7 +491,7 @@ const Workshop = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Helix Auto Milling Cum Manual Grooving
                                 </Typography>
@@ -528,7 +502,7 @@ const Workshop = () => {
 
                                 <Typography
                                     variant=""
-                                    sx={{ fontWeight: 400, fontFamily: "Open Sans", }}
+                                    sx={{ fontWeight: 400, fontFamily: "Roboto", }}
                                 >
                                     To make good rollers we need good machine with better control on engineering application. To implement good engineering practice we need a higher accuracy level which can be achieved by modern technical practice like Helix Automatic Milling Cum Manual chasing Machine.
                                 </Typography>
@@ -550,21 +524,21 @@ const Workshop = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", mt: 1 }}>
                                             A high quality roller which ultimately makes a Good Tea.
 
 
 
 
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", mt: 1 }}>
                                             Sharpening of circumferential as well as helical grooves Odd & Even of 50, 55, 60, 65, 70, 80, and 100, also length and diameter of roller with quality finish and accuracy can be done by the application of Automatic system.
 
 
 
 
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", mt: 1 }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", mt: 1 }}>
                                             Special feature: Dual mode application facility i.e. provision of both automatic and manual operation system for roller Chasing.
 
 
@@ -682,7 +656,7 @@ const Workshop = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Sharp-Edge - Range of Roller Sharpening Equipment
                                 </Typography>
@@ -706,7 +680,7 @@ const Workshop = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{ textAlign: "center", mt: "20px", fontWeight: "600", fontFamily: "Open Sans" }}>
+                                        <Typography sx={{ textAlign: "center", mt: "20px", fontWeight: "600", fontFamily: "Roboto" }}>
                                             Sharp-Edge - Range of Roller Sharpening Equipment
                                         </Typography>
                                     </Grid>

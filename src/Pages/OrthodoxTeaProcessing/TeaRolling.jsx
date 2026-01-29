@@ -91,50 +91,26 @@ const TeaRolling = () => {
                     <Typography color="text.primary">ROLLING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Orthodox Tea Processing Machinery
-                </Typography>
+                
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -149,7 +125,7 @@ const TeaRolling = () => {
                                         "&:hover": {
                                             backgroundColor: item === "ROLLING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -157,7 +133,7 @@ const TeaRolling = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -166,20 +142,19 @@ const TeaRolling = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red!important"
                             }}
                         >
                             ROLLING
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
                         <Grid container spacing={2}>
                             {/* Left Description */}
@@ -220,7 +195,7 @@ const TeaRolling = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Tea Roller
                                 </Typography>
                             </AccordionSummary>
@@ -231,7 +206,7 @@ const TeaRolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram's Monorail/ Conveyors are available with open/closed tracks and also 3 wheel/ 4 wheel options. Constructed using heavy duty metals, the conveyors are durable and ensure convenient and fast handling of tea leaves.
 
 
@@ -276,7 +251,7 @@ const TeaRolling = () => {
                                 {/* YOUR EXISTING TABLE WITHOUT ANY CHANGE */}
 
                                 <Box sx={{ marginTop: "40px" }}>
-                                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                         These Tea Rollers are efficiently engineered - fitted with heavy-duty bearings and robust body to take any amount of pressure. The Direct Drive mechanism ensures minimum power loss. The most important advantage is that standard components are used across the entire range of rollers, thus requiring just one set of spares
 
 
@@ -287,7 +262,7 @@ const TeaRolling = () => {
                                             mt: 3,
                                             border: "1px solid #e0e0e0",
                                             boxShadow: "none",
-                                            fontFamily: "Open Sans",
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <Table>
@@ -338,7 +313,7 @@ const TeaRolling = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Balanced red Leaf Sifter
                                 </Typography>
                             </AccordionSummary>
@@ -349,7 +324,7 @@ const TeaRolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             red Leaf Sifters are used in the tea industry for - pre-conditioning withered leaves, quality control and for optimizing output. Vertical oscillating movement of the machine causes leaves to travel along the perforated tray in a series of hops, sifting undesirable elements and breaking the lumps in the leaves in the process. The machine is complete with drive arrangement, electric motor and starter, foundation bolts etc. Electrical safety system for the cover is optional.
 
 

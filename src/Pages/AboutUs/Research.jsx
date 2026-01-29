@@ -79,27 +79,11 @@ const Research = () => {
                     <Typography color="text.primary">Research And Development</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    RESEARCH AND DEVELOPMENT
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -112,19 +96,7 @@ const Research = () => {
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            RESEARCH AND DEVELOPMENT
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -191,21 +163,20 @@ const Research = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.title}
                         </Typography>
-                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans", borderBottom: "1px solid #000", pb: 2 }}>
-                            {data?.sub_title}
-                        </Typography>
+                    
 
 
                         {/* Introduction */}

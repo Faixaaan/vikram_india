@@ -47,7 +47,7 @@ const Footer = () => {
                                     mb: 1,
                                     fontSize: "20px",
                                     color: "#000",
-                                    fontFamily: "Open Sans",
+                                    fontFamily: "Roboto",
                                     pb: "6px",
                                     position: "relative",
                                     display: "inline-block",
@@ -127,7 +127,7 @@ const Footer = () => {
                                 fontSize: "24px",
                                 color: "#000",
                                 width: "100%",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                                 pb: "6px",                // space between text & border
                                 width: "fit-content",     // so border matches text width
                                 position: "relative",
@@ -162,7 +162,7 @@ const Footer = () => {
                                     mb: 1,
                                     cursor: "pointer",
                                     "&:hover": { color: "#EE1D25" },
-                                    fontfamily: "Open Sans",
+                                    fontfamily: "Roboto",
                                     fontWeight: "400"
                                 }}
                             >
@@ -180,7 +180,7 @@ const Footer = () => {
                                 fontSize: "24px",
                                 color: "#000",
                                 width: "100%",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                                 pb: "6px",                // space between text & border
                                 width: "fit-content",     // so border matches text width
                                 position: "relative",
@@ -216,7 +216,7 @@ const Footer = () => {
                                     mb: 1,
                                     cursor: "pointer",
                                     "&:hover": { color: "#EE1D25" },
-                                    fontfamily: "Open Sans",
+                                    fontfamily: "Roboto",
                                     fontWeight: "400"
                                 }}
                             >
@@ -234,7 +234,7 @@ const Footer = () => {
                                 fontSize: "24px",
                                 color: "#000",
                                 width: "100%",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                                 pb: "6px",                // space between text & border
                                 width: "fit-content",     // so border matches text width
                                 position: "relative",
@@ -255,32 +255,32 @@ const Footer = () => {
 
 
                         <Box sx={{ mb: 2 }}>
-                            <Typography sx={{ fontWeight: 700, fontfamily: "Open Sans" }}>Tobacco House</Typography>
+                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Tobacco House</Typography>
                             <Typography sx={{
-                                fontSize: "15px", fontfamily: "Open Sans"
+                                fontSize: "15px", fontfamily: "Roboto"
                             }}>
                                 1, Old Court House Corner, Kolkata - 700 001
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 Phone No. +91 33 2230 7299 (4 lines)
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 Email: info@vikramindia.in
                             </Typography>
                         </Box>
 
                         <Box>
-                            <Typography sx={{ fontWeight: 700, fontfamily: "Open Sans" }}>Office / Works</Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Office / Works</Typography>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 Vill: Jathgidhari, N.D.T. Complex, New Karala
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 P.O: Daharpur, P.S: Sadar, Dist
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 Howrah – 711 302 West Bengal, India
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Open Sans" }}>
+                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
                                 Email: sales@vikramindia.in
                             </Typography>
                         </Box>
@@ -300,9 +300,9 @@ const Footer = () => {
                         fontSize: "14px",
                     }}
                 >
-                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Open Sans",fontWeight:{md:"700",xs:"600",fontSize:{xs:"14px",md:"16px"}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
+                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Roboto",fontWeight:{md:"700",xs:"600",fontSize:{xs:"14px",md:"16px"}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
                     <Link to="" style={{textDecoration:"none"}}>
-                    <Typography sx={{textAlign:"center",fontfamily:"Open Sans",fontWeight:{md:"700",xs:"500"},color:"#000",fontSize:{xs:"14px",md:"16px"}}}>Design and Developed by Adret Software</Typography>
+                    <Typography sx={{textAlign:"center",fontfamily:"Roboto",fontWeight:{md:"700",xs:"500"},color:"#000",fontSize:{xs:"14px",md:"16px"}}}>Design and Developed by Adret Software</Typography>
                     </Link>
                 </Box>
                 </Container>

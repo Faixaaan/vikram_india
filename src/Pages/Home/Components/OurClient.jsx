@@ -44,7 +44,13 @@ const OurClient = () => {
         <Typography
           variant="h5"
           align="center"
-          sx={{ fontWeight: 700, mb: 3, fontSize: { xs: "32px", md: "40px" }, fontFamily: "Open Sans", marginBottom: { md: "10px", xs: "40px" } }}
+          sx={{
+            fontWeight: 700, mb: 3, fontSize: { xs: "32px", md: "40px" }, fontFamily: "Roboto", marginBottom: {
+              md: "10px", xs: "40px", background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }
+          }}
         >
           Our Clients
         </Typography>
@@ -88,7 +94,7 @@ const OurClient = () => {
               textTransform: "none",
               fontSize: { xs: "14px", md: "16px" },
               fontWeight: "600",
-              fontFamily: 'Open Sans',
+              fontFamily: 'Roboto',
               '&:hover': {
                 background: "#1E1E1E",
                 transform: 'translateY(-2px)',
@@ -96,7 +102,7 @@ const OurClient = () => {
               },
               transition: 'all 0.3s ease-in-out',
               marginTop: { xs: 1, md: 2 },
-              marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
+              marginInline: { xs: "auto", md: "0px" }, fontFamily: "Roboto"
             }}
 
           >

@@ -72,51 +72,26 @@ const GroupProfile = () => {
 
                     <Typography color="text.primary">Group Profile</Typography>
                 </Breadcrumbs>
-
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    GROUP PROFILE
-                </Typography>
+  
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            GROUP PROFILE
-                        </Typography>
+                       
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -136,7 +111,7 @@ const GroupProfile = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -144,7 +119,7 @@ const GroupProfile = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -164,7 +139,7 @@ const GroupProfile = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -172,7 +147,7 @@ const GroupProfile = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -183,21 +158,20 @@ const GroupProfile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.title}
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                            {data?.sub_title}
-                        </Typography>
+                    
 
 
                         {/* Introduction */}
@@ -206,7 +180,7 @@ const GroupProfile = () => {
                         <Box>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Roboto", textAlign: "justify",fontWeight:"600" }}>
                                         {data?.group_desc}
                                     </Typography>
                                 </Grid>
@@ -261,7 +235,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

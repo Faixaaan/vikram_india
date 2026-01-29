@@ -98,56 +98,28 @@ const GreenDrying = () => {
                         Home
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Green Tea Processing Machinery</Typography>
                     <Typography color="text.primary">DRYING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Green Tea Processing Machinery
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -162,7 +134,7 @@ const GreenDrying = () => {
                                         "&:hover": {
                                             backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -170,7 +142,7 @@ const GreenDrying = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -179,13 +151,14 @@ const GreenDrying = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             DRYING
@@ -230,7 +203,7 @@ const GreenDrying = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Endless Chain Pressure Dryer (ECP Dryer)
 
 
@@ -244,7 +217,7 @@ const GreenDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Arnot sorter from Vikram India has a sorting capacity of up to 1500 Kgs. The machine with its galloping motion ensures smooth sorting without greying the tea grains. The trays are made of teak wood and are fitted with wire mesh.
 
 
@@ -269,7 +242,7 @@ const GreenDrying = () => {
 
                                 <Box>
 
-                                    <Box sx={{ mt: 4, border: "1px solid #e0e0e0", fontFamily: "Open Sans" }}>
+                                    <Box sx={{ mt: 4, border: "1px solid #e0e0e0", fontFamily: "Roboto" }}>
 
                                         {/* Header */}
                                         <Grid container sx={{ backgroundColor: "#f3f1e8", fontWeight: 700 }}>
@@ -339,7 +312,7 @@ const GreenDrying = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Heating Arrangement
 
 
@@ -352,7 +325,7 @@ const GreenDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram's Stalk Extractor performs dual function - it makes the tea stalk-free and also grades the tea during the extraction process, without breaking or greying the grains. Two aluminium perforated trays mounted on sturdy frames help fine tea particles to pass through while the larger particles with stalk are sifted out. This machine also acts as an efficient tea grading machine.
 
 
@@ -531,7 +504,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

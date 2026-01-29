@@ -149,8 +149,8 @@ const Testimonial = () => {
 
   const fetchTestimonialData = async () => {
     try {
-        const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
-        setData(res?.data?.data || [])
+      const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
+      setData(res?.data?.data || [])
     }
     catch (err) {
       console.log(err)
@@ -176,8 +176,10 @@ const Testimonial = () => {
           fontSize: { xs: "2rem", md: "2.5rem" },
           fontWeight: "bold",
           marginBottom: "40px",
-          color: "#000",
-          fontFamily: "Open Sans"
+          background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          fontFamily: "Roboto"
         }}
       >
         Testimonials
@@ -293,7 +295,7 @@ const Testimonial = () => {
                           fontSize: { xs: '14px', sm: '16px', md: '18px' },
                           marginBottom: '4px',
                           fontFamily: "Kaisei Decol",
-                           fontFamily: "Open Sans"
+                          fontFamily: "Roboto"
                         }}
                       >
                         {testimonial.name}
@@ -306,7 +308,7 @@ const Testimonial = () => {
                           fontSize: { xs: '12px', sm: '13px', md: '14px' },
                           marginBottom: '8px',
                           fontFamily: "Kaisei Decol",
-                           fontFamily: "Open Sans"
+                          fontFamily: "Roboto"
                         }}
                       >
                         {testimonial.country}
@@ -338,7 +340,7 @@ const Testimonial = () => {
                         fontSize: { xs: '13px', sm: '14px', md: '15px' },
                         flexGrow: 1,
                         fontFamily: "Kaisei Decol",
-                         fontFamily: "Open Sans"
+                        fontFamily: "Roboto"
                       }}
                     >
                       {testimonial.msg}
@@ -377,7 +379,7 @@ const Testimonial = () => {
                       >
                         <PlayArrowIcon sx={{ color: "#c00", fontSize: 22 }} />
                       </div>
-                      <Typography sx={{ fontSize: "14px", color: "#fff", fontFamily: "Open Sans", ml: 1 }}>
+                      <Typography sx={{ fontSize: "14px", color: "#fff", fontFamily: "Roboto", ml: 1 }}>
                         Watch Review
                       </Typography>
                     </Box>

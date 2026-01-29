@@ -130,50 +130,26 @@ const HighTensile = () => {
                     <Typography color="text.primary">TECHNICAL SPECIFICATION</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    TECHNICAL SPECIFICATION
-                </Typography>
+                
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#1A73E8",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            TECHNICAL SPECIFICATION
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -188,7 +164,7 @@ const HighTensile = () => {
                                         "&:hover": {
                                             backgroundColor: item === "TECHNICAL SPECIFICATION" ? "#1A73E8" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -196,7 +172,7 @@ const HighTensile = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -205,20 +181,20 @@ const HighTensile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"#1A73E8"
+                                
                             }}
                         >
                             TECHNICAL SPECIFICATION
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
 
                         {/* Introduction */}
@@ -244,7 +220,7 @@ const HighTensile = () => {
                                         sx={{
                                             fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         Features & Specification
@@ -274,7 +250,7 @@ const HighTensile = () => {
                                                             fontSize: "16px",
                                                             border: "1px solid #e0e0e0",
                                                             width: "30%",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                         }}
                                                     >
                                                         Features
@@ -284,7 +260,7 @@ const HighTensile = () => {
                                                             fontWeight: 600,
                                                             fontSize: "16px",
                                                             border: "1px solid #e0e0e0",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                         }}
                                                     >
                                                         Specification
@@ -302,7 +278,7 @@ const HighTensile = () => {
                                                                 fontSize: "14px",
                                                                 verticalAlign: "top",
                                                                 fontWeight: 500,
-                                                                fontFamily: "Open Sans",
+                                                                fontFamily: "Roboto",
                                                             }}
                                                         >
                                                             {row.feature}
@@ -312,7 +288,7 @@ const HighTensile = () => {
                                                             sx={{
                                                                 border: "1px solid #e0e0e0",
                                                                 fontSize: "14px",
-                                                                fontFamily: "Open Sans",
+                                                                fontFamily: "Roboto",
                                                                 lineHeight: "1.6",
                                                             }}
                                                         >
@@ -344,7 +320,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

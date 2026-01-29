@@ -74,7 +74,7 @@ const ApplyOnline = () => {
             mb: 1,
             color: "#000",
             textTransform: "uppercase",
-            fontFamily: "Open Sans",
+            fontFamily: "Roboto",
           }}
         >
           CAREERS
@@ -83,31 +83,7 @@ const ApplyOnline = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "15px",
-                mb: 2,
-                textTransform: "uppercase",
-                fontFamily: "Open Sans",
-              }}
-            >
-              APPLY NOW
-            </Typography>
-
-            <Divider sx={{ mb: 2 }} />
-
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "14px",
-                mb: 1,
-                color: "#d32f2f",
-                fontFamily: "Open Sans",
-              }}
-            >
-              CAREERS
-            </Typography>
+           
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -124,7 +100,7 @@ const ApplyOnline = () => {
                       backgroundColor:
                         item === "APPLY NOW" ? "green" : "#f5f5f5",
                     },
-                    fontFamily: "Open Sans",
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -132,7 +108,7 @@ const ApplyOnline = () => {
                     primaryTypographyProps={{
                       fontSize: "14px",
                       fontWeight: 500,
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                     }}
                   />
                 </ListItemButton>
@@ -147,21 +123,13 @@ const ApplyOnline = () => {
                 fontSize: "28px",
                 fontWeight: 600,
                 lineHeight: "120%",
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
+                color:"#1A73E8"
               }}
             >
             {data?.contect2_main_title}
             </Typography>
-            <Typography
-              sx={{
-                color: "#df0000",
-                fontSize: "14px",
-                fontFamily: "Open Sans",
-                fontWeight: "400",
-              }}
-            >
-              {data?.contect2_sub_title}
-            </Typography>
+            
 
             {/* Introduction */}
 
@@ -196,7 +164,7 @@ const ApplyOnline = () => {
                   <Typography
                     sx={{
                       fontSize: "20px",
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       textAlign: "justify",
                     }}
                   >

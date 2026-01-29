@@ -80,50 +80,26 @@ const Rolling = () => {
                     <Typography color="text.primary">ROLLING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    CTC Tea Processing Machinery
-                </Typography>
+               
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>    ``
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>  
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            CTC Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -138,7 +114,7 @@ const Rolling = () => {
                                         "&:hover": {
                                             backgroundColor: item === "ROLLING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -146,7 +122,7 @@ const Rolling = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -155,25 +131,24 @@ const Rolling = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             {data?.section1_title}
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
                         <Grid container spacing={2}>
                             {/* Left Description */}
                             <Grid item xs={12} md={8}>
-                                <Typography sx={{ mb: 2, fontSize: "15px", lineHeight: "24px", fontFamily: "Open Sans" }}
+                                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}
                                     dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                 >
 
@@ -197,18 +172,7 @@ const Rolling = () => {
                             </Grid>
                         </Grid>
 
-                        {/* Technical Specification Table */}
-                        <Typography
-                            sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mt: 4,
-                                mb: 2,
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            {data?.section1_title}
-                        </Typography>
+                      
 
                         <Accordion sx={{
                             background: "#fff",
@@ -224,7 +188,7 @@ const Rolling = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Weigh Feeder
                                 </Typography>
@@ -237,7 +201,7 @@ const Rolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The invention was carried out with an objective of automating the dryer to facilitate minimal operator intervention, consistency of drying and Energy efficiency.
 
 
@@ -334,7 +298,7 @@ const Rolling = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Regulated Feed Unit
 
@@ -359,7 +323,7 @@ const Rolling = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{ fontFamily: "Open Sans" }}>
+                                        <Typography sx={{ fontFamily: "Roboto" }}>
                                             Drawing of Gravimetric Weigh Feeder
                                         </Typography>
                                     </Grid>
@@ -376,7 +340,7 @@ const Rolling = () => {
                                                 borderRadius: "8px",
                                             }}
                                         />
-                                        <Typography sx={{ fontFamily: "Open Sans" }}>
+                                        <Typography sx={{ fontFamily: "Roboto" }}>
                                             Picture of Gravimetric Weigh Feeder
 
                                         </Typography>
@@ -405,7 +369,7 @@ const Rolling = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Leaf Sizer
                                 </Typography>
@@ -418,7 +382,7 @@ const Rolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Leaf Sizer used for shredding tea leaves consists of a cylinder in which the main shaft with knives (blades) rotates at a speed of 2500 rpm. Shredding reduces volume of tea leaves and enables manufacturers to load larger quantity of leaves into the Rotor Vane, making the process more cost-effective. The machine also helps in the efficient mixing of RC material with the withered leaf, especially in the CTC type of processing.
 
 

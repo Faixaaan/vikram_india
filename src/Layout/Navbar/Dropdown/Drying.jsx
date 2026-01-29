@@ -77,51 +77,26 @@ const Drying = () => {
                     <Typography color="text.primary">Drying</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    {data?.title}
-                </Typography>
+                
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            CTC Tea Processing Machinery
-
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -136,7 +111,7 @@ const Drying = () => {
                                         "&:hover": {
                                             backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -144,7 +119,7 @@ const Drying = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -153,20 +128,19 @@ const Drying = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             {data?.section1_title}
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            {data?.sub_title}
-                        </Typography>
+                        
 
 
 
@@ -178,7 +152,7 @@ const Drying = () => {
                                 fontWeight: 600,
                                 mt: 4,
                                 mb: 2,
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                             }}
                         >
                             {data?.section2_title}
@@ -198,7 +172,7 @@ const Drying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     {data?.section3_title}
                                 </Typography>
@@ -211,7 +185,7 @@ const Drying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             {data?.section3_desc}
                                         </Typography>
                                     </Grid>
@@ -239,11 +213,11 @@ const Drying = () => {
                                     <Table sx={{ minWidth: 650 }}>
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>600W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
 
                                             </TableRow>
                                         </TableHead>
@@ -286,7 +260,7 @@ const Drying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     {data?.section4_title}
                                 </Typography>
@@ -299,7 +273,7 @@ const Drying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             {data?.section4_desc}
 
 
@@ -342,7 +316,7 @@ const Drying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     {data?.section5_title}
                                 </Typography>
@@ -355,7 +329,7 @@ const Drying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             {data?.section5_desc}
 
 
@@ -385,11 +359,11 @@ const Drying = () => {
                                     <Table sx={{ minWidth: 650 }}>
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>600W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
 
                                             </TableRow>
                                         </TableHead>

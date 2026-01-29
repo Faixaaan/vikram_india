@@ -127,7 +127,7 @@ const Blog = () => {
                         borderRadius: 1,
                         fontSize: "16px",
                         fontWeight: 600,
-                        fontFamily: "Open Sans"
+                        fontFamily: "Roboto"
                       }}
                     >
                       {blog.category_id}
@@ -139,7 +139,7 @@ const Blog = () => {
                       variant="h6"
                       fontWeight={600}
                       gutterBottom
-                      sx={{ fontFamily: "Open Sans", fontSize: "18px" }}
+                      sx={{ fontFamily: "Roboto", fontSize: "18px" }}
                     >
                       {blog.title}
                     </Typography>
@@ -147,7 +147,7 @@ const Blog = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ fontFamily: "Open Sans", fontSize: "14px" }}
+                      sx={{ fontFamily: "Roboto", fontSize: "14px" }}
                     >
                       {blog.excerpt}
                     </Typography>
@@ -157,7 +157,7 @@ const Blog = () => {
                         mt: 2,
                         color: "red",
                         textTransform: "none",
-                        fontFamily: "Open Sans"
+                        fontFamily: "Roboto"
                       }}
                       onClick={() => navigate(`/blogs/blog-detail/${blog?.slug}`)}
                     >
@@ -221,14 +221,14 @@ const Blog = () => {
                     variant="body2"
                     fontWeight={600}
                     color="error"
-                    sx={{ fontFamily: "Open Sans", fontSize: "18px" }}
+                    sx={{ fontFamily: "Roboto", fontSize: "18px" }}
                   >
                     {item.title}
                   </Typography>
                   <Typography
                     variant="caption"
                     color="text.secondary"
-                    sx={{ fontFamily: "Open Sans", fontSize: "16px" }}
+                    sx={{ fontFamily: "Roboto", fontSize: "16px" }}
                   >
                     {item.date}
                   </Typography>

@@ -88,49 +88,26 @@ const Manufacturing = () => {
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    PRODUCT & PORTFOLIO
-                </Typography>
+                
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#1A73E8",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            PRODUCT & PORTFOLIO
-                        </Typography>
+                       
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -145,7 +122,7 @@ const Manufacturing = () => {
                                         "&:hover": {
                                             backgroundColor: item === "PRODUCT & PORTFOLIO" ? "#1A73E8" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -153,7 +130,7 @@ const Manufacturing = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -162,20 +139,19 @@ const Manufacturing = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"#1A73E8"
                             }}
                         >
                             PRODUCT & PORTFOLIO
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                    
 
 
                         {/* Introduction */}
@@ -184,7 +160,7 @@ const Manufacturing = () => {
                         <Box>
                             <Grid container spacing={2}>
                                 <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify" }}>
+                                    <Typography sx={{ fontSize: "16px", fontFamily: "Roboto", textAlign: "justify" }}>
                                         {data?.mouting_desc}
                                     </Typography>
                                 </Grid>
@@ -212,7 +188,7 @@ const Manufacturing = () => {
                                         sx={{
                                             fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         Fixed Tilt Ground Mount Structures
@@ -233,7 +209,7 @@ const Manufacturing = () => {
                                                 <Typography
                                                     sx={{
                                                         fontSize: "16px",
-                                                        fontFamily: "Open Sans",
+                                                        fontFamily: "Roboto",
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
@@ -272,7 +248,7 @@ const Manufacturing = () => {
                                         sx={{
                                             fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         Seasonal Tilt / Tracker Components
@@ -293,7 +269,7 @@ const Manufacturing = () => {
                                                 <Typography
                                                     sx={{
                                                         fontSize: "16px",
-                                                        fontFamily: "Open Sans",
+                                                        fontFamily: "Roboto",
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
@@ -332,7 +308,7 @@ const Manufacturing = () => {
                                         sx={{
                                             fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         Rooftop Purlins & Railing Systems
@@ -353,7 +329,7 @@ const Manufacturing = () => {
                                                 <Typography
                                                     sx={{
                                                         fontSize: "16px",
-                                                        fontFamily: "Open Sans",
+                                                        fontFamily: "Roboto",
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
@@ -392,7 +368,7 @@ const Manufacturing = () => {
                                         sx={{
                                             fontSize: { md: "20px", xs: "16px" },
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         Custom Industrial Steel Fabrication
@@ -413,7 +389,7 @@ const Manufacturing = () => {
                                                 <Typography
                                                     sx={{
                                                         fontSize: "16px",
-                                                        fontFamily: "Open Sans",
+                                                        fontFamily: "Roboto",
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
@@ -451,7 +427,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

@@ -58,50 +58,25 @@ const Fermenting = () => {
                     <Typography color="text.primary">Fermenting</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    CTC Tea Processing Machinery
-                </Typography>
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "red",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            CTC Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -116,7 +91,7 @@ const Fermenting = () => {
                                         "&:hover": {
                                             backgroundColor: item === "FERMENTING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -124,7 +99,7 @@ const Fermenting = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -133,25 +108,24 @@ const Fermenting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             FERMENTING
                         </Typography>
-                        <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-                            Setting global benchmarks in tea processing machinery industry
-                        </Typography>
+                        
 
                         <Grid container spacing={2}>
                             {/* Left Description */}
                             <Grid item xs={12} md={8}>
-                                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
+                                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}>
                                     The aero-dynamically designed Axial Flow Fans from Vikram India are
                                     made of high quality aluminium alloy and are suitable for different
                                     sizes of withering troughs. These fans ensure uniformity of withering,
@@ -159,7 +133,7 @@ const Fermenting = () => {
                                     air delivery and static pressure.
                                 </Typography>
 
-                                <Typography sx={{ mb: 3, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}>
+                                <Typography sx={{ mb: 3, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}>
                                     Vikram also offers Centrifugal Fans and Induced Draught Fans in
                                     different sizes as per the customer's requirement.
                                 </Typography>
@@ -187,7 +161,7 @@ const Fermenting = () => {
                                 fontWeight: 600,
                                 mt: 4,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Technical Specifications
@@ -207,7 +181,7 @@ const Fermenting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Single/ Double Stage Continuous Fermenting Machine (Belt / Tray)
                                 </Typography>
@@ -220,7 +194,7 @@ const Fermenting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram India has developed Continuous Fermenting Machines (CFM) to suit the needs of different clients under different conditions of operation globally. In the process, the Company has achieved significant benchmarks like development of the widest, 52 inch, CTC unit in 2000 and later a 56 inch one in 2008. These CFMs are available as - a single or multi stage unit, horizontal or inclined or a combination of both.
 
 
@@ -290,7 +264,7 @@ const Fermenting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     CFM Auto Controller
                                 </Typography>
@@ -303,7 +277,7 @@ const Fermenting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The new and automated CFM machine has been designed for Energy Savings in excess of 40% when compared with any traditional machine. The automated operations of the machine also ensure consistent quality and reduced manpower involvement, reducing the running cost of the machine to a considerable extent this brand new CFM is designed for uninterrupted operations round the year.
 
 
@@ -374,7 +348,7 @@ const Fermenting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Humidification System
 

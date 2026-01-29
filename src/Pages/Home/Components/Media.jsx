@@ -97,8 +97,11 @@ const Media = () => {
                             fontWeight: "bold",
                             textAlign: "center",
                             mb: 6,
-                            fontFamily: "Open Sans",
-                            lineHeight: "100%"
+                            fontFamily: "Roboto",
+                            lineHeight: "100%",
+                            background: "linear-gradient(to left, #1BAA63 0%, #276f9e 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
                         }}
                     >
                         Media
@@ -163,7 +166,7 @@ const Media = () => {
                                                     marginBottom: '10px',
                                                     color: '#333',
                                                     fontSize: { xs: '1.25rem', md: '1.5rem' },
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             >
                                                 {card.title}
@@ -175,7 +178,7 @@ const Media = () => {
                                                     color: '#666',
                                                     marginBottom: '15px',
                                                     fontSize: { xs: '0.9rem', md: '1rem' },
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             >
                                                 {card.description}
@@ -187,7 +190,7 @@ const Media = () => {
                                                     color: '#999',
                                                     display: 'block',
                                                     marginBottom: '0px',
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             >
                                                 {card.date}
@@ -228,7 +231,7 @@ const Media = () => {
                                 textTransform: "none",
                                 fontSize: { xs: "14px", md: "16px" },
                                 fontWeight: "600",
-                                fontFamily: 'Open Sans',
+                                fontFamily: 'Roboto',
                                 '&:hover': {
                                     background: "#1E1E1E",
                                     transform: 'translateY(-2px)',
@@ -236,9 +239,9 @@ const Media = () => {
                                 },
                                 transition: 'all 0.3s ease-in-out',
                                 marginTop: { xs: 1, md: 2 },
-                                marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
+                                marginInline: { xs: "auto", md: "0px" }, fontFamily: "Roboto"
                             }}
-                           onClick={handleClick}
+                            onClick={handleClick}
                         >
                             Know More
                         </Button>

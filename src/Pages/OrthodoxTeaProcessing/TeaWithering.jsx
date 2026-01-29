@@ -109,50 +109,26 @@ const TeaWithering = () => {
           <Typography color="text.primary">Withering</Typography>
         </Breadcrumbs>
 
-        {/* PAGE TITLE */}
-        <Typography
-          sx={{
-            fontSize: "28px",
-            fontWeight: 700,
-            mb: 1,
-            color: "#000",
-            textTransform: "uppercase",
-            fontFamily: "Open Sans"
-          }}
-        >
-          Orthodox Tea Processing Machinery
-        </Typography>
+        
 
 
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
-          <Grid item size={{ xs: 12, md: 3 }}>
+          <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
             <Typography
               sx={{
                 fontWeight: 700,
                 fontSize: "15px",
                 mb: 2,
                 textTransform: "uppercase",
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto"
               }}
             >
               Product & Services
             </Typography>
 
-            <Divider sx={{ mb: 2 }} />
-
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "14px",
-                mb: 1,
-                color: "red",
-                fontFamily: "Open Sans"
-              }}
-            >
-              Orthodox Tea Processing Machinery
-            </Typography>
+            
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -167,7 +143,7 @@ const TeaWithering = () => {
                     "&:hover": {
                       backgroundColor: item === "WITHERING" ? "green" : "#f5f5f5",
                     },
-                    fontFamily: "Open Sans"
+                    fontFamily: "Roboto"
                   }}
                 >
                   <ListItemText
@@ -175,7 +151,7 @@ const TeaWithering = () => {
                     primaryTypographyProps={{
                       fontSize: "14px",
                       fontWeight: 500,
-                      fontFamily: "Open Sans"
+                      fontFamily: "Roboto"
                     }}
                   />
                 </ListItemButton>
@@ -184,20 +160,19 @@ const TeaWithering = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }}>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
             <Typography
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
                 mb: 0,
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto",
+                color:"red"
               }}
             >
               {data?.section1_title}
             </Typography>
-            <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-              Setting global benchmarks in tea processing machinery industry
-            </Typography>
+            
 
             <Grid container spacing={2}>
               {/* Left Description */}
@@ -230,7 +205,7 @@ const TeaWithering = () => {
                 fontWeight: 600,
                 mt: 4,
                 mb: 2,
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
               }}
             >
               {data?.section2_title}
@@ -249,7 +224,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                   Axial Flow Fans
                 </Typography>
               </AccordionSummary>
@@ -260,12 +235,12 @@ const TeaWithering = () => {
 
                   {/* LEFT TEXT */}
                   <Grid item size={{ xs: 12, md: 8 }} >
-                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                       The aero-dynamically designed Axial Flow Fans from Vikram India are made of high quality aluminium alloy and are suitable for different sizes of withering troughs. These fans ensure uniformity of withering, reduce power consumption and are tested for vibration, noise levels, air delivery and static pressure.
 
 
                     </Typography>
-                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", marginTop: "20px" }}>
+                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", marginTop: "20px" }}>
                       Vikram also offers Centrifugal Fans and Induced Draught Fans in different sizes as per the customer's requirement.
 
 
@@ -292,14 +267,14 @@ const TeaWithering = () => {
                   <Table sx={{ minWidth: 650 }}>
                     <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                       <TableRow>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Impeller Diameter</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Motor</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Flow Rate</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Velocity</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Static Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Total Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Shaft BHP</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Impeller Diameter</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Motor</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Flow Rate</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Velocity</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Static Pressure</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Total Pressure</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Shaft BHP</TableCell>
                       </TableRow>
                     </TableHead>
 
@@ -344,7 +319,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                   Pre-Fabricating withering Troughs
                 </Typography>
               </AccordionSummary>
@@ -405,7 +380,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                   Heating Arrangment
                 </Typography>
               </AccordionSummary>
@@ -416,7 +391,7 @@ const TeaWithering = () => {
 
                   {/* LEFT TEXT */}
                   <Grid item size={{ xs: 12, md: 8 }} >
-                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                       Vikram's unique 'Eldora' Air Heaters have both, a heat generation unit and a heat exchanger unit ensuring better heat transfer. All cast iron parts are made of special heat resistant and superior quality castings to ensure these easily withstand rise in heat and temperature.
 
 
@@ -444,11 +419,11 @@ const TeaWithering = () => {
                   <Table sx={{ minWidth: 650 }}>
                     <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                       <TableRow>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>DESCRIPTION</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>UNIT</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL 14 V</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL 16 V</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL 18 V</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>DESCRIPTION</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>UNIT</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL 14 V</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL 16 V</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL 18 V</TableCell>
 
 
                       </TableRow>
@@ -490,7 +465,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                   Leaf Handling - Monorail / Conveyors
                 </Typography>
               </AccordionSummary>
@@ -501,7 +476,7 @@ const TeaWithering = () => {
 
                   {/* LEFT TEXT */}
                   <Grid item size={{ xs: 12, md: 8 }} >
-                    <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                    <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                       Vikram's Monorail/ Conveyors are available with open/closed tracks and also 3 wheel/ 4 wheel options. Constructed using heavy duty metals, the conveyors are durable and ensure convenient and fast handling of tea leaves.
 
 
@@ -529,7 +504,7 @@ const TeaWithering = () => {
                   sx={{
                     border: "1px solid #e0e0e0",
                     mt: 3,
-                    fontFamily: "Open Sans",
+                    fontFamily: "Roboto",
                   }}
                 >
                   {specifications.map((item, index) => (
@@ -590,7 +565,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                   Continuous Withering Machine
 
                 </Typography>

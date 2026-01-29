@@ -106,56 +106,28 @@ const GreenSteaming = () => {
                         Home
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Green Tea Processing Machinery</Typography>
                     <Typography color="text.primary">STEAMING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Green Tea Processing Machinery
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -170,7 +142,7 @@ const GreenSteaming = () => {
                                         "&:hover": {
                                             backgroundColor: item === "STEAMING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -178,7 +150,7 @@ const GreenSteaming = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -187,13 +159,14 @@ const GreenSteaming = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             STEAMING
@@ -236,13 +209,13 @@ const GreenSteaming = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Baby Boiler
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify", margin: "20px 0px" }}>
+                                <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify", margin: "20px 0px" }}>
                                     Baby boilers help in maintaining a hygienic environment within the tea processing units, especially in the manufacturing of Green Tea. These machines help to clean and eradicate bacteria from tea processing areas and machineries.
 
 
@@ -255,7 +228,7 @@ const GreenSteaming = () => {
                                             sx={{
                                                 border: "1px solid #e0e0e0",
                                                 mt: 3,
-                                                fontFamily: "Open Sans",
+                                                fontFamily: "Roboto",
                                             }}
                                         >
                                             {/* Header */}
@@ -339,14 +312,14 @@ const GreenSteaming = () => {
                                     <Table sx={{ minWidth: 650 }}>
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Impeller Diameter</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Motor</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Flow Rate</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Velocity</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Static Pressure</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Total Pressure</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Shaft BHP</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Impeller Diameter</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Motor</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Flow Rate</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Velocity</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Static Pressure</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Total Pressure</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Shaft BHP</TableCell>
                                             </TableRow>
                                         </TableHead>
 
@@ -391,7 +364,7 @@ const GreenSteaming = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Green Tea Roaster
                                 </Typography>
                             </AccordionSummary>
@@ -402,7 +375,7 @@ const GreenSteaming = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The green tea roaster from Vikram India is designed in a way that steam enters through both ends of the perforated shaft. The roaster rotates at a speed of 24 rpm. Steaming continues for 6 to 7 minutes and within this time the leaves are boiled. Roasting time depends on the tenderness of the leaves.
 
 
@@ -534,11 +507,11 @@ const GreenSteaming = () => {
 };
 
 const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
+    fontSize: "20px",
+    fontWeight: 600,
+    mt: 4,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

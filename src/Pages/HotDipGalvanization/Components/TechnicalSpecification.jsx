@@ -48,19 +48,29 @@ const leftMenu = [
 
 const featureSpecData = [
     {
-        feature: "Captive Galvanizing",
+        feature: "Kettle Size",
         specification:
-            "Integrated coating for our Solar Module Mounting Structures,ensuring seamless quality control from fabrication to finish."
+            "[12m x 1.1m x 1.6m]"
     },
     {
-        feature: "Job Work (External)",
+        feature: "Annual Capacity",
         specification:
-            "High-volume galvanizing for outside clients including transmission towers, poles, pipes, and structural steel"
+            "[24,000 MT per annum]."
+    },
+    {
+        feature: "Zinc Purity",
+        specification:
+            "We use Special High Grade (SHG) Zinc (99.995% purity) for superior finish and protection."
+    },
+    {
+        feature: "Standards Followed",
+        specification:
+            "Compliance with IS 2629, IS 4759, and ASTM A123."
     },
 
 ];
 
-const ServiceCapabilities = () => {
+const TechnicalSpecification = () => {
 
     const [data, setData] = useState([]);
     const [openEnquiry, setOpenEnquiry] = useState(false);
@@ -92,7 +102,7 @@ const ServiceCapabilities = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary">SERVICE CAPABILITIES</Typography>
+                    <Typography color="text.primary">TECHNICAL SPECIFICATION & INFRASTRUCTURE</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -102,7 +112,7 @@ const ServiceCapabilities = () => {
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -127,10 +137,10 @@ const ServiceCapabilities = () => {
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "SERVICE CAPABILITIES" ? "#1A73E8" : "transparent",
-                                        color: item === "SERVICE CAPABILITIES" ? "#fff" : "#000",
+                                        backgroundColor: item === "TECHNICAL SPECIFICATION & INFRASTRUCTURE" ? "#1A73E8" : "transparent",
+                                        color: item === "TECHNICAL SPECIFICATION & INFRASTRUCTURE" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "SERVICE CAPABILITIES" ? "#1A73E8" : "#f5f5f5",
+                                            backgroundColor: item === "TECHNICAL SPECIFICATION & INFRASTRUCTURE" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -165,7 +175,7 @@ const ServiceCapabilities = () => {
                                 color:"#1A73E8"
                             }}
                         >
-                            SERVICE CAPABILITIES
+                            TECHNICAL SPECIFICATION & INFRASTRUCTURE
                         </Typography>
 
 
@@ -185,8 +195,8 @@ const ServiceCapabilities = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Service Capabilities
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500,fontFamily:"Roboto",textTransform:"capitalize" }}>
+                                    TECHNICAL SPECIFICATION & INFRASTRUCTURE
                                 </Typography>
                             </AccordionSummary>
 
@@ -277,4 +287,4 @@ const ServiceCapabilities = () => {
     );
 };
 
-export default ServiceCapabilities;
+export default TechnicalSpecification;

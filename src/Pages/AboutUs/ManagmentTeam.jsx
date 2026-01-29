@@ -41,7 +41,7 @@ const leftMenu = [
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    
+
 
 
 ];
@@ -57,7 +57,7 @@ const ManagementTeam = () => {
     const fetchImageData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.AboutUs.ManagmentTeamData)
-            console.log(res?.data?.data,'aboutus')
+            console.log(res?.data?.data, 'aboutus')
             setManagementData(res?.data?.data)
         }
         catch (err) {
@@ -93,52 +93,24 @@ const ManagementTeam = () => {
                     <Typography color="text.primary" >Manangement Team</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    MANAGEMENT TEAM
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            MANAGEMENT TEAM
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -158,7 +130,7 @@ const ManagementTeam = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -166,7 +138,7 @@ const ManagementTeam = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -186,7 +158,7 @@ const ManagementTeam = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -194,7 +166,7 @@ const ManagementTeam = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -205,31 +177,21 @@ const ManagementTeam = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             MANAGEMENT TEAM
                         </Typography>
 
-                        <Typography
-                            sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase",
-                                color: "#ee1d25"
-                            }}>
-                            Board Members
-                        </Typography>
-
+                        
 
                         {/* Introduction */}
 
@@ -240,7 +202,7 @@ const ManagementTeam = () => {
                             {/* profile picture box */}
 
                             {
-                                managementData?.map((item,i) => {
+                                managementData?.map((item, i) => {
                                     return (
                                         <Box sx={{
                                             mt: 4,
@@ -249,33 +211,33 @@ const ManagementTeam = () => {
                                             p: 3,
                                             background: "#fff"
                                         }}
-                                        key={i}
+                                            key={i}
                                         >
                                             <Grid container spacing={2} mt={2}>
                                                 <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                                    <img src={item?.profile_pic} style={{height:"auto",width:"100%"}} />
+                                                    <img src={item?.profile_pic} style={{ height: "auto", width: "100%" }} />
                                                 </Grid>
 
-                                                <Grid size={{ xs: 12, md: 9 }} sx={{bgcolor:"#B5BEB2"}} >
-                                                    
+                                                <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
 
-                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff",padding:"10px 20px" }}>
-                                                         {item?.profile_desc?.replace(/<[^>]*>/g, "")}
-                                                    </Typography>
-                                                    <Box sx={{pt:4,background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',padding:"10px 20px"}}>
-                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
-                                                       {item?.name}
-                                                    </Typography>
-                                                    <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
-                                                        {item?.designation} <br />
 
+                                                    <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
+                                                        {item?.profile_desc?.replace(/<[^>]*>/g, "")}
                                                     </Typography>
-                                                    <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
+                                                    <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
+                                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
+                                                            {item?.name}
+                                                        </Typography>
+                                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
+                                                            {item?.designation} <br />
 
-                                                        Vikram Group
-                                                    </Typography>
+                                                        </Typography>
+                                                        <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
+
+                                                            Vikram Group
+                                                        </Typography>
                                                     </Box>
-                                                    
+
 
 
                                                 </Grid>
@@ -314,7 +276,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

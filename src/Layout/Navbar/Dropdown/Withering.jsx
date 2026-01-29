@@ -73,50 +73,26 @@ const Withering = () => {
           <Typography color="text.primary">Withering</Typography>
         </Breadcrumbs>
 
-        {/* PAGE TITLE */}
-        <Typography
-          sx={{
-            fontSize: "28px",
-            fontWeight: 700,
-            mb: 1,
-            color: "#000",
-            textTransform: "uppercase",
-            fontFamily: "Open Sans"
-          }}
-        >
-          CTC Tea Processing Machinery
-        </Typography>
+        
 
 
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
-          <Grid item size={{ xs: 12, md: 3 }}>
+          <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
             <Typography
               sx={{
                 fontWeight: 700,
                 fontSize: "15px",
                 mb: 2,
                 textTransform: "uppercase",
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto"
               }}
             >
               Product & Services
             </Typography>
 
-            <Divider sx={{ mb: 2 }} />
-
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "14px",
-                mb: 1,
-                color: "red",
-                fontFamily: "Open Sans"
-              }}
-            >
-              CTC Tea Processing Machinery
-            </Typography>
+            
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -131,7 +107,7 @@ const Withering = () => {
                     "&:hover": {
                       backgroundColor: item === "WITHERING" ? "Green" : "#f5f5f5",
                     },
-                    fontFamily: "Open Sans"
+                    fontFamily: "Roboto"
                   }}
                 >
                   <ListItemText
@@ -139,7 +115,7 @@ const Withering = () => {
                     primaryTypographyProps={{
                       fontSize: "14px",
                       fontWeight: 500,
-                      fontFamily: "Open Sans"
+                      fontFamily: "Roboto"
                     }}
                   />
                 </ListItemButton>
@@ -148,25 +124,24 @@ const Withering = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }}>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
             <Typography
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
                 mb: 0,
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto",
+                color:"red"
               }}
             >
               {data?.section1_title}
             </Typography>
-            <Typography sx={{ fontSize: "15px", mb: 3, color: "red", fontFamily: "Open Sans" }}>
-              Setting global benchmarks in tea processing machinery industry
-            </Typography>
+            
 
             <Grid container spacing={2}>
               {/* Left Description */}
               <Grid item xs={12} md={8}>
-                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Open Sans" }}
+                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}
                   dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
 
                 >
@@ -199,7 +174,7 @@ const Withering = () => {
                 fontWeight: 600,
                 mt: 4,
                 mb: 2,
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
               }}
             >
               {data?.section2_title}
@@ -217,7 +192,7 @@ const Withering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography sx={{ fontWeight: 600, fontFamily: "Open Sans" }}>
+                <Typography sx={{ fontWeight: 700, fontFamily: "Roboto" }} variant="h6">
                   View Technical Specifications
                 </Typography>
               </AccordionSummary>
@@ -229,14 +204,14 @@ const Withering = () => {
                   <Table sx={{ minWidth: 650 }}>
                     <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                       <TableRow>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODEL</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Impeller Diameter</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Motor</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Flow Rate</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Air Velocity</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Static Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Total Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>Shaft BHP</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Impeller Diameter</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Motor</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Flow Rate</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Velocity</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Static Pressure</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Total Pressure</TableCell>
+                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Shaft BHP</TableCell>
                       </TableRow>
                     </TableHead>
 

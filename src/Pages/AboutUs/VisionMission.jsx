@@ -85,52 +85,24 @@ const VisionMission = () => {
                     <Typography color="text.primary">VISION & MISSION</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    VISION & MISSION
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            VISION & MISSION
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -150,7 +122,7 @@ const VisionMission = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -158,7 +130,7 @@ const VisionMission = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -178,7 +150,7 @@ const VisionMission = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -186,7 +158,7 @@ const VisionMission = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -197,14 +169,15 @@ const VisionMission = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.title}
@@ -235,7 +208,7 @@ const VisionMission = () => {
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#ee1d25" }}>
                                             {data?.section1_title}
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Open Sans", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}
+                                        <Typography sx={{ fontFamily: "Roboto", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}
                                         
                                         dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                         >
@@ -243,7 +216,7 @@ const VisionMission = () => {
                                        
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
-                                            <Typography sx={{ fontFamily: "Open Sans", fontSize: "14px", lineHeight: "120%" }}>
+                                            <Typography sx={{ fontFamily: "Roboto", fontSize: "14px", lineHeight: "120%" }}>
                                                 {data?.company_name} <br />
                                                 {data?.est_date}<br />
                                                 Kolkata, India
@@ -279,7 +252,7 @@ const VisionMission = () => {
                                                 fontWeight: 600,
                                                 mb: 2,
                                                 color: "#ee1d25",
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             {data?.section2_title}
@@ -290,7 +263,7 @@ const VisionMission = () => {
                                                 fontWeight: 400,
                                                 mb: 2,
                                                 color: "#121111",
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                             dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
                                         >
@@ -338,7 +311,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

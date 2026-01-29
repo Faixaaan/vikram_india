@@ -110,7 +110,7 @@ const Navbar = () => {
                           color: isActiveRoute(item.link) ? "#d32f2f" : "#000000",
                           fontWeight: "600",
                           "&:hover": { color: "#d32f2f" },
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                         }}
                       >
                         {item.title}
@@ -140,7 +140,7 @@ const Navbar = () => {
                                 textDecoration: "none",
                                 color: "#000",
                                 fontSize: "16px",
-                                fontFamily: "Open Sans",
+                                fontFamily: "Roboto",
                               }}
                             >
                               {product.name}
@@ -163,7 +163,7 @@ const Navbar = () => {
                       color: isActiveRoute(item.link) ? "#d32f2f" : "#000000",
                       fontWeight: "600",
                       "&:hover": { color: "#d32f2f" },
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                     }}
                   >
                     {item.title}

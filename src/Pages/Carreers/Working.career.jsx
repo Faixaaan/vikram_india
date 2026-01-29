@@ -72,12 +72,12 @@ const WorkingCareer = () => {
         {/* PAGE TITLE */}
         <Typography
           sx={{
-            fontSize: "28px",
+            fontSize: "26px",
             fontWeight: 700,
             mb: 1,
             color: "#000",
             textTransform: "uppercase",
-            fontFamily: "Open Sans",
+            fontFamily: "Roboto",
           }}
         >
           CAREERS
@@ -86,31 +86,7 @@ const WorkingCareer = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "15px",
-                mb: 2,
-                textTransform: "uppercase",
-                fontFamily: "Open Sans",
-              }}
-            >
-              Working With Us
-            </Typography>
-
-            <Divider sx={{ mb: 2 }} />
-
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "14px",
-                mb: 1,
-                color: "#d32f2f",
-                fontFamily: "Open Sans",
-              }}
-            >
-              CAREERS
-            </Typography>
+            
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -127,7 +103,7 @@ const WorkingCareer = () => {
                       backgroundColor:
                         item === "WORKING WITH US" ? "green" : "#f5f5f5",
                     },
-                    fontFamily: "Open Sans",
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -135,7 +111,7 @@ const WorkingCareer = () => {
                     primaryTypographyProps={{
                       fontSize: "14px",
                       fontWeight: 500,
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                     }}
                   />
                 </ListItemButton>
@@ -150,21 +126,13 @@ const WorkingCareer = () => {
                 fontSize: "28px",
                 fontWeight: 600,
                 lineHeight: "120%",
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
+                color:"#1A73E8"
               }}
             >
               {data?.contect1_main_title}
             </Typography>
-            <Typography
-              sx={{
-                color: "#df0000",
-                fontSize: "14px",
-                fontFamily: "Open Sans",
-                fontWeight: "400",
-              }}
-            >
-              {data?.contect1_sub_title}
-            </Typography>
+           
 
             {/* Introduction */}
 

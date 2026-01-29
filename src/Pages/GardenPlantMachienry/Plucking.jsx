@@ -71,56 +71,29 @@ const Plucking = () => {
                         Home
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Garden & Plant Equipment</Typography>
                     <Typography color="text.primary">PLUCKING MACHINE</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Garden and Plantation Equipment
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Garden and Plantation Equipment
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -133,9 +106,9 @@ const Plucking = () => {
                                         backgroundColor: item === "PLUCKING MACHINE" ? "green" : "transparent",
                                         color: item === "PLUCKING MACHINE" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "STEAMING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "PLUCKING MACHINE" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -143,7 +116,7 @@ const Plucking = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -152,13 +125,14 @@ const Plucking = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             PLUCKING MACHINE
@@ -203,7 +177,7 @@ const Plucking = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     PLUCKING MACHINE
 
 
@@ -216,7 +190,7 @@ const Plucking = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                            The two-man operated tea plucking machine from Vikram ensures safe operation, easy maintenance and low cost. The machine's anti-corrosive stainless-steel frame, convenient adjustable handles and mesh for the operator's safety, make it an ideal choice for tea manufacturers.
 
 
@@ -265,7 +239,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

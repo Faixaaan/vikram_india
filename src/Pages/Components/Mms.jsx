@@ -68,50 +68,25 @@ const Introduction = () => {
           <Typography color="text.primary">INFRASTRUCTURE & MACHINERY</Typography>
         </Breadcrumbs>
 
-        {/* PAGE TITLE */}
-        <Typography
-          sx={{
-            fontSize: "28px",
-            fontWeight: 700,
-            mb: 1,
-            color: "#000",
-            textTransform: "uppercase",
-            fontFamily: "Open Sans"
-          }}
-        >
-          INFRASTRUCTURE & MACHINERY
-        </Typography>
+        
 
 
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
-          <Grid item size={{ xs: 12, md: 3 }}>
+          <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
             <Typography
               sx={{
                 fontWeight: 700,
                 fontSize: "15px",
                 mb: 2,
                 textTransform: "uppercase",
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto"
               }}
             >
               Product & Services
             </Typography>
 
-            <Divider sx={{ mb: 2 }} />
-
-            <Typography
-              sx={{
-                fontWeight: 700,
-                fontSize: "14px",
-                mb: 1,
-                color: "#1A73E8",
-                fontFamily: "Open Sans"
-              }}
-            >
-              INFRASTRUCTURE & MACHINERY
-            </Typography>
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -126,7 +101,7 @@ const Introduction = () => {
                     "&:hover": {
                       backgroundColor: item === "INFRASTRUCTURE & MACHINERY" ? "#1A73E8" : "#f5f5f5",
                     },
-                    fontFamily: "Open Sans"
+                    fontFamily: "Roboto"
                   }}
                 >
                   <ListItemText
@@ -134,7 +109,7 @@ const Introduction = () => {
                     primaryTypographyProps={{
                       fontSize: "14px",
                       fontWeight: 500,
-                      fontFamily: "Open Sans"
+                      fontFamily: "Roboto"
                     }}
                   />
                 </ListItemButton>
@@ -143,20 +118,19 @@ const Introduction = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }}>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
             <Typography
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
                 mt: 1,
-                fontFamily: "Open Sans"
+                fontFamily: "Roboto",
+                color:"#1A73E8"
               }}
             >
               INFRASTRUCTURE & MACHINERY
             </Typography>
-            <Typography sx={{ fontSize: "15px", mb: 3, color: "#1A73E8", fontFamily: "Open Sans" }}>
-              Setting global benchmarks in tea processing machinery industry
-            </Typography>
+            
 
 
             {/* Introduction */}
@@ -193,7 +167,7 @@ const Introduction = () => {
                       <Typography
                         sx={{
                           fontSize: "16px",
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                           textAlign: "justify",
                           mt: 0
                         }}
@@ -246,7 +220,7 @@ const Introduction = () => {
                       <Typography
                         sx={{
                           fontSize: "16px",
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                           textAlign: "justify",
                           mt: 0
                         }}
@@ -301,7 +275,7 @@ const Introduction = () => {
                       <Typography
                         sx={{
                           fontSize: "16px",
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                           textAlign: "justify",
                           mt: 0
                         }}

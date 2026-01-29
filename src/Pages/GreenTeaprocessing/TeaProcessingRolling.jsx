@@ -106,56 +106,29 @@ const GreenRolling = () => {
                         Home
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Green Tea Processing Machinery</Typography>
                     <Typography color="text.primary">ROLLING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Orthodox Tea Processing Machinery
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -170,7 +143,7 @@ const GreenRolling = () => {
                                         "&:hover": {
                                             backgroundColor: item === "ROLLING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -178,7 +151,7 @@ const GreenRolling = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -187,13 +160,13 @@ const GreenRolling = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             ROLLING
@@ -244,7 +217,7 @@ const GreenRolling = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Rolling Table
 
 
@@ -259,7 +232,7 @@ const GreenRolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             These Tea Rollers are efficiently engineered - fitted with heavy-duty bearings and robust body to take any amount of pressure. The Direct Drive mechanism ensures minimum power loss. The most important advantage is that standard components are used across the entire range of rollers, thus requiring just one set of spares.
 
 
@@ -284,7 +257,7 @@ const GreenRolling = () => {
 
                                 <Box>
 
-                                    <Box sx={{ mt: 4, border: "1px solid #e0e0e0", fontFamily: "Open Sans" }}>
+                                    <Box sx={{ mt: 4, border: "1px solid #e0e0e0", fontFamily: "Roboto" }}>
 
                                         {/* Header */}
                                         <Grid container sx={{ backgroundColor: "#f3f1e8", fontWeight: 700 }}>
@@ -355,7 +328,7 @@ const GreenRolling = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     Balanced Green Leaf Sifter
 
 
@@ -369,7 +342,7 @@ const GreenRolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Green leaf sifters are used in the tea industry for pre-conditioning of withered leaves, for quality control and for optimizing output. The machine's vertical oscillating movement causes leaves to travel along the tray in a series of hops, sifting undesirable elements and breaking lumps in the process. The balance is achieved with the help of counter weights.
 
 
@@ -456,11 +429,11 @@ const GreenRolling = () => {
     );
 };
 const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
+    fontSize: "20px",
+    fontWeight: 600,
+    mt: 4,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

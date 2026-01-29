@@ -70,9 +70,11 @@ const Achievmnet = () => {
                                 sx={{
                                     fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '44px' },
                                     fontWeight: 'bold',
-                                    color: '#000',
+                                    background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
                                     lineHeight: { xs: '1.2', md: '1.1' },
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Roboto',
                                     display: "inline-block",
                                     pb: "10px",
                                     position: "relative",
@@ -93,17 +95,17 @@ const Achievmnet = () => {
                                     color: '#000',
                                     lineHeight: { xs: '1.6', md: '100%' },
 
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Roboto',
                                     maxWidth: { xs: '100%', md: '90%', lg: '120%' },
                                     marginBottom: { xs: 1, md: 0 },
                                     textAlign: { md: "left", xs: "center" },
                                     fontWeight: "400",
-                                     fontFamily: "Open Sans"
+                                    fontFamily: "Roboto"
                                 }}
                             >
                                 {data?.sec4description}
                             </Typography>
-                            
+
 
                             {/* Know More Button */}
                             <Button
@@ -116,7 +118,7 @@ const Achievmnet = () => {
                                     textTransform: "none",
                                     fontSize: { xs: "14px", md: "16px" },
                                     fontWeight: "600",
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Roboto',
                                     '&:hover': {
                                         background: "#1E1E1E",
                                         transform: 'translateY(-2px)',
@@ -124,7 +126,7 @@ const Achievmnet = () => {
                                     },
                                     transition: 'all 0.3s ease-in-out',
                                     marginTop: { xs: 1, md: 2 },
-                                    marginInline: { xs: "auto", md: "0px" }, fontFamily: "Open Sans"
+                                    marginInline: { xs: "auto", md: "0px" }, fontFamily: "Roboto"
                                 }}
                                 onClick={handleComingsoon}
                             >

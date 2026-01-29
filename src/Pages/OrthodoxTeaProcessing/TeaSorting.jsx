@@ -98,52 +98,25 @@ const TeaSorting = () => {
                     <Typography color="text.primary">SORTING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Orthodox Tea Processing Machinery
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -156,9 +129,9 @@ const TeaSorting = () => {
                                         backgroundColor: item === "SORTING" ? "green" : "transparent",
                                         color: item === "SORTING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "SORTING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -166,7 +139,7 @@ const TeaSorting = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -175,13 +148,13 @@ const TeaSorting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             SORTING
@@ -228,7 +201,7 @@ const TeaSorting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Myddleton Stalk Extractor
 
@@ -242,7 +215,7 @@ const TeaSorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram's Stalk Extractor performs dual function - it makes the tea stalk-free and also grades the tea during the extraction process, without breaking or greying the grains. Two aluminium perforated trays mounted on sturdy frames help fine tea particles to pass through while the larger particles with stalk are sifted out. This machine also acts as an efficient tea grading machine.
 
 
@@ -269,14 +242,7 @@ const TeaSorting = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                        <Box sx={{ mt: 3, py: 0, display: "flex", justifyContent: "flex-start" }}>
-                            <ChevronRightIcon sx={{ color: "red" }} />
-                            <Typography sx={{ color: "", fontWeight: "700", mb: 1, fontSize: "18px" }}>
-
-                                Pucca Sorters
-                            </Typography>
-
-                        </Box>
+                        
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -291,7 +257,7 @@ const TeaSorting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Andrews Tea Breakers
 
@@ -306,7 +272,7 @@ const TeaSorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram India offers Tea Breakers that are specifically designed to break tea particles efficiently, without crushing or greying the grains. The operating lever for adjustment of rollers has a wide scope and the rollers can be adjusted even while the machine is running. The conveyor on the machine ensures a steady and continuous flow of feed.
 
 
@@ -347,7 +313,7 @@ const TeaSorting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Arnot Sorter
 
@@ -363,7 +329,7 @@ const TeaSorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Arnot sorter from Vikram India has a sorting capacity of up to 1500 Kgs. The machine with its galloping motion ensures smooth sorting without greying the tea grains. The trays are made of teak wood and are fitted with wire mesh.
 
 
@@ -404,7 +370,7 @@ const TeaSorting = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Optical Colour Sorter
 
@@ -421,7 +387,7 @@ const TeaSorting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                            The optical colour sorter with a circulating sorting system ensures accurate sorting of tea grains. The in-built high speed, high resolution camera improves sorting efficiency. The machine allows a switching mechanism between single step and two-step sorting.
 
 
@@ -461,5 +427,21 @@ const TeaSorting = () => {
         </Box>
     );
 };
-
+const headingStyle = {
+    fontSize: "20px",
+    fontWeight: 600,
+    mt: 4,
+    mb: 2,
+    fontFamily: "Roboto",
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+    px: 2,
+    py: 1.5,
+    borderTop: "3px solid #e5e5e5",
+    borderBottom: "3px solid #e5e5e5",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+    borderRadius: "6px",
+    background: "#fff"
+};
 export default TeaSorting;

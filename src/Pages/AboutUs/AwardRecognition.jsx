@@ -49,7 +49,7 @@ const leftMenu = [
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    
+
 
 
 ];
@@ -62,7 +62,7 @@ const AwardRecognition = () => {
     const [pagee, setPagee] = useState(1);
     const [cmsData, setCmsData] = useState([])
     const [secondCmsData, setCmsSecondData] = useState([])
-    const [ImageData,setImageData] = useState([])
+    const [ImageData, setImageData] = useState([])
 
 
     const fetchImageData = async () => {
@@ -80,8 +80,8 @@ const AwardRecognition = () => {
             // Convert array → object
             const cmsObject = apiArray.length ? apiArray[0] : null;
 
-             const cmssobject = apiArray.length ? apiArray[1] : null;
-             setCmsSecondData(cmssobject)
+            const cmssobject = apiArray.length ? apiArray[1] : null;
+            setCmsSecondData(cmssobject)
             setCmsData(cmsObject);
 
             console.log(cmsObject, 'cmsObject');
@@ -154,52 +154,22 @@ const AwardRecognition = () => {
                     <Typography color="text.primary">AWARD AND RECOGNITION</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    AWARD AND RECOGNITION
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
-
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            AWARD AND RECOGNITION
-                        </Typography>
+                       
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -219,7 +189,7 @@ const AwardRecognition = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -227,7 +197,7 @@ const AwardRecognition = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -247,7 +217,7 @@ const AwardRecognition = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -255,7 +225,7 @@ const AwardRecognition = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -266,21 +236,20 @@ const AwardRecognition = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             AWARD AND RECOGNITION
                         </Typography>
-                        <Typography sx={{ color: "#df0000", fontFamily: "Open Sans", borderBottom: "1px solid #000", pb: 2 }}>
-                            Creating industry benchmarks
-                        </Typography>
+                        
 
 
 
@@ -290,16 +259,16 @@ const AwardRecognition = () => {
 
                         <Box sx={{ mt: 2, }}>
 
-                            <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
+                            <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Roboto" }}>
                                 {cmsData?.category_title}
                             </Typography>
-                            <Typography sx={{ fontWeight: "400", fontSize: "16px", fontFamily: "Open Sans", marginTop: "10px" }}
-                              dangerouslySetInnerHTML={{
-        __html: cmsData?.category_desc
-    }}
-                            
+                            <Typography sx={{ fontWeight: "400", fontSize: "16px", fontFamily: "Roboto!important", marginTop: "10px" }}
+                                dangerouslySetInnerHTML={{
+                                    __html: cmsData?.category_desc
+                                }}
+
                             >
-                               
+
                             </Typography>
 
 
@@ -351,7 +320,7 @@ const AwardRecognition = () => {
                                                         fontSize: "14px",
                                                         mt: 1.5,
                                                         textAlign: "center",
-                                                        fontFamily: "Open Sans",
+                                                        fontFamily: "Roboto",
                                                         width: "100%",
                                                         maxWidth: "180px",
                                                     }}
@@ -374,7 +343,7 @@ const AwardRecognition = () => {
                             </Box>
 
                             <Box sx={{ mt: 6 }}>
-                                <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Open Sans" }}>
+                                <Typography sx={{ fontWeight: "600", fontSize: "20px", fontFamily: "Roboto" }}>
                                     {secondCmsData?.category_title}
                                 </Typography>
 
@@ -428,7 +397,7 @@ const AwardRecognition = () => {
                                                             fontSize: "14px",
                                                             mt: 1.5,
                                                             textAlign: "center",
-                                                            fontFamily: "Open Sans",
+                                                            fontFamily: "Roboto",
                                                             width: "100%",
                                                             maxWidth: "180px",
                                                         }}
@@ -479,7 +448,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

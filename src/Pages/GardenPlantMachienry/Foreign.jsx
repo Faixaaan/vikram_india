@@ -71,56 +71,28 @@ const Foreign = () => {
                         Home
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Garden & Plant Equipment</Typography>
                     <Typography color="text.primary">FOREIGN OBJECT REMOVER</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Garden and Plantation Equipment
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Garden and Plantation Equipment
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -133,9 +105,9 @@ const Foreign = () => {
                                         backgroundColor: item === "FOREIGN OBJECT REMOVER" ? "green" : "transparent",
                                         color: item === "FOREIGN OBJECT REMOVER" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "STEAMING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "FOREIGN OBJECT REMOVER" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -143,7 +115,7 @@ const Foreign = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -152,13 +124,14 @@ const Foreign = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             FOREIGN OBJECT REMOVER
@@ -203,7 +176,7 @@ const Foreign = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
                                     FOREIGN OBJECT REMOVER
 
 
@@ -216,8 +189,8 @@ const Foreign = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
-                                           Vikram offers foreign object remover that is available in two models - High-end Type and Economy Type. The high-end model removes foreign particles using super sensitive cameras. The machine is equipped with a magnet to remove iron fines. The Economy model is built-in with high speed ejector that removes light weight foreign particles meticulously.
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
+                                            Vikram offers foreign object remover that is available in two models - High-end Type and Economy Type. The high-end model removes foreign particles using super sensitive cameras. The machine is equipped with a magnet to remove iron fines. The Economy model is built-in with high speed ejector that removes light weight foreign particles meticulously.
 
 
                                         </Typography>
@@ -239,56 +212,56 @@ const Foreign = () => {
                                     </Grid>
                                 </Grid>
 
-<Grid item size={{ xs: 12, md: 8 }} >
-                                        <Box
+                                <Grid item size={{ xs: 12, md: 8 }} >
+                                    <Box
+                                        sx={{
+                                            border: "1px solid #e0e0e0",
+                                            mt: 3,
+                                            fontFamily: "Roboto",
+                                        }}
+                                    >
+                                        {/* Header */}
+                                        <Grid
+                                            container
                                             sx={{
-                                                border: "1px solid #e0e0e0",
-                                                mt: 3,
-                                                fontFamily: "Open Sans",
+                                                backgroundColor: "#f3f1e9",
+                                                borderBottom: "1px solid #e0e0e0",
+                                                fontWeight: 600,
+                                                textAlign: "center",
                                             }}
                                         >
-                                            {/* Header */}
-                                            <Grid
-                                                container
-                                                sx={{
-                                                    backgroundColor: "#f3f1e9",
-                                                    borderBottom: "1px solid #e0e0e0",
-                                                    fontWeight: 600,
-                                                    textAlign: "center",
-                                                }}
-                                            >
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
-                                                    MODEL
-                                                </Grid>
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
-                                                    MAXIMUM PERFORMANCE CAPACITY (KG/H)
-                                                </Grid>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
+                                                MODEL
                                             </Grid>
-
-                                            {/* Row 1 */}
-                                            <Grid container sx={{ borderBottom: "1px solid #e0e0e0" }}>
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
-                                                    Foreign object remover
-                                                </Grid>
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
-                                                   KFR-1
-                                                </Grid>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
+                                                MAXIMUM PERFORMANCE CAPACITY (KG/H)
                                             </Grid>
+                                        </Grid>
 
-                                            {/* Row 2 */}
-                                            <Grid container sx={{ borderBottom: "1px solid #e0e0e0", backgroundColor: "#fbfaf6" }}>
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
-                                                   - 1-step sorting: 400 to 600
-                                                </Grid>
-                                                <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
-                                                    - 2-step sorting: 200 to 300
-                                                </Grid>
+                                        {/* Row 1 */}
+                                        <Grid container sx={{ borderBottom: "1px solid #e0e0e0" }}>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
+                                                Foreign object remover
                                             </Grid>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
+                                                KFR-1
+                                            </Grid>
+                                        </Grid>
 
-                                           
-                                        </Box>
+                                        {/* Row 2 */}
+                                        <Grid container sx={{ borderBottom: "1px solid #e0e0e0", backgroundColor: "#fbfaf6" }}>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2, borderRight: { md: "1px solid #e0e0e0" } }}>
+                                                - 1-step sorting: 400 to 600
+                                            </Grid>
+                                            <Grid item size={{ xs: 12, md: 6 }} sx={{ p: 2 }}>
+                                                - 2-step sorting: 200 to 300
+                                            </Grid>
+                                        </Grid>
 
-                                    </Grid>
+
+                                    </Box>
+
+                                </Grid>
 
 
 
@@ -314,7 +287,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

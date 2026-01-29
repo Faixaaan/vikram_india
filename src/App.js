@@ -62,6 +62,10 @@ import ProductsLayout from "./Pages/Components/ProductLayout";
 import HdpLearnMore from "./Pages/HotDipGalvanization/HotDip";
 import HotDipIntroduction from "./Pages/HotDipGalvanization/Components/introduction";
 import ServiceCapabilities from "./Pages/HotDipGalvanization/Components/ServiceCapabilities";
+import TechnicalSpecification from "./Pages/HotDipGalvanization/Components/TechnicalSpecification";
+import GalvanizingProcess from "./Pages/HotDipGalvanization/Components/GalvanizingProcess";
+import QualityAssurance from "./Pages/HotDipGalvanization/Components/QualityAssurance";
+import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChooseVikram";
 
 
 function App() {
@@ -141,8 +145,12 @@ function App() {
         <Route path="/products/hot-dip" element={<HotDip />} />
         <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
         <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
-        <Route path="/products/hdp-introduction" element={<HotDipIntroduction />} />
+        <Route path="/products/introduction" element={<HotDipIntroduction />} />
         <Route path="/products/service-capabilities" element={<ServiceCapabilities />} />
+        <Route path="/products/technical-specification-&-infrastructure" element={<TechnicalSpecification />} />
+        <Route path="/products/the-galvanizing-process" element={<GalvanizingProcess />} />
+        <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
+        <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
       </Routes>
       <Footer />
     </BrowserRouter>

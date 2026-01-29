@@ -83,52 +83,24 @@ const CompanyProfile = () => {
                     <Typography color="text.primary">COMPANY PROFILE</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    COMPANY PROFILE
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Creating value through diverse businesses
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            COMPANY PROFILE
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -148,7 +120,7 @@ const CompanyProfile = () => {
                                                 backgroundColor: "transparent",
                                                 color: "#000",
                                                 "&:hover": { backgroundColor: "#f5f5f5" },
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         >
                                             <ListItemText
@@ -156,7 +128,7 @@ const CompanyProfile = () => {
                                                 primaryTypographyProps={{
                                                     fontSize: "14px",
                                                     fontWeight: 500,
-                                                    fontFamily: "Open Sans"
+                                                    fontFamily: "Roboto"
                                                 }}
                                             />
                                         </ListItemButton>
@@ -176,7 +148,7 @@ const CompanyProfile = () => {
                                             "&:hover": {
                                                 backgroundColor: isActive ? "green" : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     >
                                         <ListItemText
@@ -184,7 +156,7 @@ const CompanyProfile = () => {
                                             primaryTypographyProps={{
                                                 fontSize: "14px",
                                                 fontWeight: 500,
-                                                fontFamily: "Open Sans"
+                                                fontFamily: "Roboto"
                                             }}
                                         />
                                     </ListItemButton>
@@ -195,14 +167,15 @@ const CompanyProfile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase"
+                                fontFamily: "Roboto",
+                                textTransform: "uppercase",
+                                color:"#1A73E8"
                             }}
                         >
                             {data?.title}
@@ -218,7 +191,7 @@ const CompanyProfile = () => {
                                     <Typography
                                         sx={{
                                             fontSize: "18px",
-                                            fontFamily: "Open Sans",
+                                            fontFamily: "Roboto",
                                             textAlign: "justify",
                                             fontWeight: 600,
                                             lineHeight: "120%",
@@ -242,7 +215,7 @@ const CompanyProfile = () => {
                                 <Grid container spacing={2} mt={2}>
 
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
+                                        <Typography sx={{ fontFamily: "Roboto", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
                                             dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                         >
 
@@ -272,7 +245,7 @@ const CompanyProfile = () => {
                                         <img src={data?.section2_img} />
                                     </Grid>
                                     <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
+                                        <Typography sx={{ fontFamily: "Roboto!important", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
                                             dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
 
                                         >
@@ -287,7 +260,7 @@ const CompanyProfile = () => {
 
                             <Box sx={{ mt: 4 }}>
 
-                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Open Sans", lineHeight: "120%" }}
+                                <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Roboto", lineHeight: "120%" }}
                                     dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
 
                                 >
@@ -331,7 +304,7 @@ const headingStyle = {
     fontWeight: 400,
     mt: 2,
     mb: 2,
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",
     gap: 1,

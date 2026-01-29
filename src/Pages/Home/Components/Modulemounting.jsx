@@ -116,10 +116,10 @@ const ModuleMounting = () => {
                                         fontSize: { md: "40px", xs: "34px" },
                                         color: "#fff",
                                         fontWeight: "700",
-                                        fontFamily: "Open Sans",
+                                        fontFamily: "Roboto",
                                         textAlign: { xs: "center", md: "left" },
                                         marginBottom: { xs: "20px", md: "0px" },
-                                         fontFamily: "Open Sans"
+                                         fontFamily: "Roboto"
                                     }}
                                 >
                                     {slide.title}
@@ -179,7 +179,7 @@ const ModuleMounting = () => {
 const liStyle = {
     color: "#fff",
     fontSize: { md: "20px", xs: "18px" },
-    fontFamily: "Open Sans",
+    fontFamily: "Roboto",
     paddingBottom: "10px",
     fontWeight: "600",
     fontStyle: "italic",

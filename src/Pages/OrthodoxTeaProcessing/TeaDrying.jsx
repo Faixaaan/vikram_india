@@ -98,52 +98,24 @@ const TeaDrying = () => {
                     <Typography color="text.primary">DRYING</Typography>
                 </Breadcrumbs>
 
-                {/* PAGE TITLE */}
-                <Typography
-                    sx={{
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        mb: 1,
-                        color: "#000",
-                        textTransform: "uppercase",
-                        fontFamily: "Open Sans"
-                    }}
-                >
-                    Orthodox Tea Processing Machinery
-                </Typography>
-
-                <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
-                    Setting global benchmarks in tea processing machinery industry
-                </Typography>
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
                                 fontSize: "15px",
                                 mb: 2,
                                 textTransform: "uppercase",
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto"
                             }}
                         >
                             Product & Services
                         </Typography>
 
-                        <Divider sx={{ mb: 2 }} />
-
-                        <Typography
-                            sx={{
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                mb: 1,
-                                color: "#d32f2f",
-                                fontFamily: "Open Sans"
-                            }}
-                        >
-                            Orthodox Tea Processing Machinery
-                        </Typography>
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -158,7 +130,7 @@ const TeaDrying = () => {
                                         "&:hover": {
                                             backgroundColor: item === "DRYING" ? "green" : "#f5f5f5",
                                         },
-                                        fontFamily: "Open Sans"
+                                        fontFamily: "Roboto"
                                     }}
                                 >
                                     <ListItemText
@@ -166,7 +138,7 @@ const TeaDrying = () => {
                                         primaryTypographyProps={{
                                             fontSize: "14px",
                                             fontWeight: 500,
-                                            fontFamily: "Open Sans"
+                                            fontFamily: "Roboto"
                                         }}
                                     />
                                 </ListItemButton>
@@ -175,13 +147,14 @@ const TeaDrying = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
-                                fontFamily: "Open Sans"
+                                fontFamily: "Roboto",
+                                color:"red"
                             }}
                         >
                             DRYING
@@ -228,7 +201,7 @@ const TeaDrying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Vibratory Fluid Bed Dryers (VFDB)
                                 </Typography>
@@ -241,7 +214,7 @@ const TeaDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vibratory Fluid Bed Dryer (VFBD) is by far the most efficient and cost effective equipment used for drying tea, both CTC and Orthodox varieties. Vikram's VFBDs are fitted with a specially designed Dual Damper that facilitates the two stage temperature drying process. Fitted with an efficient fiber extraction cyclone system and Dust extraction & re-firing system, this machine helps in the manufacturing of best quality tea.
 
 
@@ -271,11 +244,11 @@ const TeaDrying = () => {
                                     <Table sx={{ minWidth: 650 }}>
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>600W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
 
                                             </TableRow>
                                         </TableHead>
@@ -318,7 +291,7 @@ const TeaDrying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     VFD Auto Controller
                                 </Typography>
@@ -331,7 +304,7 @@ const TeaDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The invention was carried out with an objective of automating the dryer to facilitate minimal operator intervention, consistency of drying and Energy efficiency.
 
 
@@ -440,7 +413,7 @@ const TeaDrying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Tray Type Conventional Dryer /ECP Dryer
                                 </Typography>
@@ -453,7 +426,7 @@ const TeaDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             The three-circuit ECP Dryer from Vikram has established a strong foothold in the tea industry due to its high moisture evaporation capacity, trouble-free operation and low maintenance cost. Backed by prompt and efficient after-sales service, the machine offers complete peace of mind.
 
 
@@ -494,7 +467,7 @@ const TeaDrying = () => {
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
                                     Heating Arrangements
                                 </Typography>
@@ -507,7 +480,7 @@ const TeaDrying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Open Sans", color: "#333", textAlign: "justify" }}>
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
                                             Vikram's unique 'Eldora' Air Heaters have both, a heat generation unit and a heat exchanger unit ensuring better heat transfer. All cast iron parts are made of special heat resistant and superior quality castings to ensure these easily withstand rise in heat and temperature.
 
 
@@ -539,11 +512,11 @@ const TeaDrying = () => {
                                     <Table sx={{ minWidth: 650 }}>
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Open Sans" }}>600W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
+                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
 
                                             </TableRow>
                                         </TableHead>

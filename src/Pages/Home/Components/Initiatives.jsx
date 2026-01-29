@@ -111,7 +111,7 @@ const Initiatives = () => {
                     sx={{
                       fontSize: '36px',
                       fontWeight: 700,
-                      fontFamily: 'Open Sans',
+                      fontFamily: 'Roboto',
                       color: '#fff',
                       lineHeight: '100%',
                     }}
@@ -122,7 +122,7 @@ const Initiatives = () => {
                   <Typography
                     sx={{
                       fontSize: '16px',
-                      fontFamily: 'Open Sans',
+                      fontFamily: 'Roboto',
                       color: '#fff',
 
                     }}
@@ -151,7 +151,8 @@ const Initiatives = () => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            cursor: "pointer"
+            cursor: "pointer",
+
           }}
           onClick={() => {
 
@@ -172,11 +173,13 @@ const Initiatives = () => {
             alignItems: "center",
             /* TRANSITION GOES HERE */
             transition: "all 0.4s ease-in-out",
+            background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',
 
             "&:hover": {
               transform: "scale(1.1)",
-              background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',
+              background: "#fff",
               boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+              color:"#fff"
             },
 
           }}>
@@ -192,11 +195,14 @@ const Initiatives = () => {
               sx={{
                 fontSize: { xs: "1.5rem", md: "2rem" },
                 fontWeight: "bold",
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
                 cursor: "pointer",
 
                 /* default color */
                 color: "#000",
+                background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
 
                 /* transition must be here */
                 transition: "all 0.4s ease-in-out",
@@ -204,8 +210,7 @@ const Initiatives = () => {
                 "&:hover": {
                   transform: "scale(1.05)",
 
-                  /* gradient text */
-                  background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                  background: "#000",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
 
@@ -219,7 +224,7 @@ const Initiatives = () => {
 
             <Typography sx={{
               fontSize: { xs: '0.9rem', md: '18px' },
-              fontFamily: 'Open Sans',
+              fontFamily: 'Roboto',
               lineHeight: 1.6
             }}>
               {data?.sec3right_description}
@@ -239,12 +244,28 @@ const Initiatives = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: { xs: '90%', sm: '80%', md: '60%' },
-            
+
             borderRadius: '10px',
             boxShadow: 24,
             p: { xs: 2, sm: 2 },
             backgroundImage: `url(${data?.sec3right_bg_img})`,
-            backgroundRepeat:"repeat"
+            backgroundRepeat: "repeat",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${data?.sec3right_bg_img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "blur(1.5px)",
+           
+              zIndex: 0,
+            },
+
+            "& > *": {
+              position: "relative",
+              zIndex: 1,
+            },
           }}>
 
             {/* Close Button */}
@@ -273,8 +294,8 @@ const Initiatives = () => {
             <Box sx={{
               position: "relative",
               width: "100%",
-             
-             borderRadius: "10px",
+
+              borderRadius: "10px",
               overflow: "hidden",
               background: "transparent",
 
@@ -284,7 +305,7 @@ const Initiatives = () => {
                 sx={{
                   color: "#000",
                   fontSize: "32px",
-                  fontFamily: "Open Sans",
+                  fontFamily: "Roboto",
                   textAlign: "center",
                   mb: 3,
                   fontWeight: "600"
@@ -296,7 +317,7 @@ const Initiatives = () => {
               <Typography sx={{
                 color: "#000",
                 fontSize: "16px",
-                fontFamily: "Open Sans",
+                fontFamily: "Roboto",
                 textAlign: "justify"
               }}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe cupiditate, maxime tenetur distinctio hic, provident consectetur molestias quidem esse officiis aliquam, eaque quibusdam velit nesciunt expedita possimus ab. Et nostrum dolore reprehenderit deleniti qui obcaecati. Unde harum necessitatibus cupiditate laboriosam, blanditiis inventore tempore, totam molestiae esse, obcaecati dolor corporis sunt atque repudiandae saepe. Hic fuga enim non delectus ipsa saepe, eligendi, maxime nesciunt cum quis consequatur reprehenderit eius? Non ut nesciunt odio ex recusandae fuga numquam reiciendis, distinctio totam in omnis unde similique, suscipit aliquam ipsam sequi eos consequuntur animi quasi adipisci? Repellat assumenda tempore temporibus at sequi fugit dignissimos.

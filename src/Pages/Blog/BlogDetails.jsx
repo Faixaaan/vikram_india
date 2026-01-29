@@ -79,7 +79,7 @@ const BlogDetail = () => {
                       px: 2,
                       py: 0.5,
                       borderRadius: 1,
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       fontSize: "14px"
                     }}
                   >
@@ -87,7 +87,7 @@ const BlogDetail = () => {
                   </Typography>
                   <Typography
                     sx={{
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       fontSize: "14px",
                       color: "text.secondary"
                     }}
@@ -100,7 +100,7 @@ const BlogDetail = () => {
                 <Typography
                   variant="h4"
                   sx={{
-                    fontFamily: "Open Sans",
+                    fontFamily: "Roboto",
                     fontWeight: 700,
                     mb: 3
                   }}
@@ -122,7 +122,7 @@ const BlogDetail = () => {
                   color="error"
                   sx={{
                     textTransform: "none",
-                    fontFamily: "Open Sans"
+                    fontFamily: "Roboto"
                   }}
                   onClick={() => window.history.back()}
                 >
@@ -147,7 +147,7 @@ const BlogDetail = () => {
                 <CardContent>
                   <Typography
                     sx={{
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       fontWeight: 700,
                       mb: 2,
                       fontSize: "18px"
@@ -160,7 +160,7 @@ const BlogDetail = () => {
                     <Box key={index} sx={{ mb: 1.5 }}>
                       <Typography
                         sx={{
-                          fontFamily: "Open Sans",
+                          fontFamily: "Roboto",
                           fontSize: "14px",
                           cursor: "pointer",
                           "&:hover": { color: "red" }
@@ -184,7 +184,7 @@ const BlogDetail = () => {
                 <CardContent>
                   <Typography
                     sx={{
-                      fontFamily: "Open Sans",
+                      fontFamily: "Roboto",
                       fontWeight: 700,
                       mb: 2,
                       fontSize: "18px"
@@ -204,7 +204,7 @@ const BlogDetail = () => {
                             borderRadius: 2,
                             border: "1px solid #ddd",
                             fontSize: "13px",
-                            fontFamily: "Open Sans",
+                            fontFamily: "Roboto",
                             cursor: "pointer",
                             "&:hover": {
                               background: "red",
@@ -231,7 +231,7 @@ const BlogDetail = () => {
 };
 
 const contentStyle = {
-  fontFamily: "Open Sans",
+  fontFamily: "Roboto",
   fontSize: "16px",
   lineHeight: 1.9,
   mb: 3
