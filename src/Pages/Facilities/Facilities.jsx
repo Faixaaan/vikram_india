@@ -3,6 +3,8 @@ import {
     AccordionSummary,
     AccordionDetails,
     Divider,
+    Breadcrumbs,
+    Link as MLink,
 } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
@@ -26,46 +28,53 @@ const Facilities = () => {
         }
     }
 
-    useEffect(()=>{
-   fetchData()
-    },[])
+    useEffect(() => {
+        fetchData()
+    }, [])
     return (
         <>
-            <Box>
+            <Box sx={{ padding: { xs: 2, md: 4 } }}>
                 <Container maxWidth='xl' sx={{ padding: "0px 35px!important" }}>
+                    <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                        <MLink component={Link} to="/" underline="hover" color="inherit">
+                            Home
+                        </MLink>
+                        <Typography color="inherit" sx={{ mb: 2, fontSize: "14px" }}>Facilities</Typography>
+
+
+                    </Breadcrumbs>
                     <Grid container spacing={6}>
-                        <Grid size={{ xs: 12, md: 3 }}>
+                        {/* <Grid size={{ xs: 12, md: 3 }}>
                             <Box sx={{ padding: { md: "40px 0px", xs: "15px 0px" } }}>
                                 <Typography sx={{ fontFamily: "Roboto", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
                                     {data?.left_title}
                                 </Typography>
                                 <Typography sx={{ paddingTop: "20px", fontSize: "18px", fontWeight: "400", fontFamily: "Roboto", textAlign: "justify" }}
-                                dangerouslySetInnerHTML={{ __html: data?.left_description }}
+                                    dangerouslySetInnerHTML={{ __html: data?.left_description }}
                                 >
-                                    
+
                                 </Typography>
                             </Box>
-                        </Grid>
-                        <Grid size={{ xs: 12, md: 9 }}>
-                            <Box sx={{ padding: { md: "40px 0px 10px 0px", xs: "15px 0px" } }}>
-                                <Typography sx={{ textAlign: "right", display: "flex", justifyContent: { md: "flex-end", xs: "flex-start" }, fontFamily: "Roboto", borderBottom: "2px solid black", paddingBottom: "23px" }}>
-                                    <Link to={'/'} style={{ textDecoration: "none", color: "#000" }}>Home </Link> <KeyboardDoubleArrowRightIcon sx={{ color: "#df0000" }} />Manufacturing Facilities
-                                </Typography>
+                        </Grid> */}
+                        <Grid size={{ xs: 12, md: 12 }}>
+                            <Box >
+                                
                                 <Box sx={{ paddingTop: "20px" }}>
-                                    <Typography sx={{ fontFamily: "Roboto", fontWeight: "500", fontSize: "28px",color:"#1A73E8" }}>
+                                    <Typography sx={{ fontFamily: "Roboto", fontWeight: "500", fontSize: "28px", color: "#1A73E8" }}>
                                         {data?.main_title}
                                     </Typography>
-                                    
+
                                 </Box>
                             </Box>
-                            <Box sx={{ margin: "30px 0px" }}>
+                            <Box sx={{ margin: "30px 0px",display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" }}>
                                 <Accordion sx={{
                                     background: "#fff",
                                     boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
                                     borderRadius: "8px",
                                     "&:before": { display: "none" },
                                     mt: 4,
-                                    mb: 3
+                                    mb: 3,
+                                    maxWidth:"1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
@@ -132,7 +141,7 @@ const Facilities = () => {
                                                             fontWeight: "400"
                                                         }}
                                                     >
-                                                       {data?.accordion1_desc2}
+                                                        {data?.accordion1_desc2}
                                                     </Typography>
                                                     <Typography
                                                         sx={{
@@ -165,7 +174,8 @@ const Facilities = () => {
                                     borderRadius: "8px",
                                     "&:before": { display: "none" },
                                     mt: 2,
-                                    mb: 2
+                                    mb: 2,
+                                    maxWidth:"1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
@@ -225,7 +235,8 @@ const Facilities = () => {
                                     borderRadius: "8px",
                                     "&:before": { display: "none" },
                                     mt: 2,
-                                    mb: 2
+                                    mb: 2,
+                                    maxWidth:"1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",

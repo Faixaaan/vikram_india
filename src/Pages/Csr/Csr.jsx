@@ -73,7 +73,7 @@ const CSR = () => {
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-                <Typography
+                {/* <Typography
                     sx={{
                         fontSize: "28px",
                         fontWeight: 700,
@@ -84,11 +84,11 @@ const CSR = () => {
                     }}
                 >
                     CSR
-                </Typography>
+                </Typography> */}
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid size={{ xs: 12, md: 3 }}>
+                    {/* <Grid size={{ xs: 12, md: 3 }}>
                         <Box sx={{ padding: { md: "40px 0px", xs: "15px 0px" } }}>
                             <Typography sx={{ fontFamily: "Roboto", fontWeight: "700", borderBottom: "2px solid black", fontSize: "18px", paddingBottom: "20px" }}>
                                 {data?.left_title}
@@ -97,10 +97,10 @@ const CSR = () => {
                                 {data?.left_description}
                             </Typography>
                         </Box>
-                    </Grid>
+                    </Grid> */}
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:7}}>
+                    <Grid item size={{ xs: 12, md: 12 }} sx={{mt:2}}>
                         <Typography
                             sx={{
                                 fontSize: "28px",

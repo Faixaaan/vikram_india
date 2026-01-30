@@ -121,13 +121,13 @@ const HighTensile = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
-                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Module Mounting Structure</Typography>
-                    <Typography color="text.primary">TECHNICAL SPECIFICATION</Typography>
+                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Module Mounting Structure</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Technical Specification</Typography>
                 </Breadcrumbs>
 
                 

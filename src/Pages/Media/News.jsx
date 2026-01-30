@@ -61,15 +61,15 @@ const News = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit">Media</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
 
-                    <Typography color="text.primary">NEWS</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>News</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
                 <Typography
                     sx={{
-                        fontSize: "26px",
+                        fontSize: "16px",
                         fontWeight: 700,
                         mb: 1,
                         color: "#000",

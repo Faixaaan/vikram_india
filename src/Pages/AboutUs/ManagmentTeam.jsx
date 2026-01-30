@@ -84,13 +84,13 @@ const ManagementTeam = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
-                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit">About Us</Typography>
+                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" >Manangement Team</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Manangement Team</Typography>
                 </Breadcrumbs>
 
                 

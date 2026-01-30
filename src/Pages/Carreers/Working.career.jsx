@@ -39,7 +39,7 @@ const WorkingCareer = () => {
       const res = await axiosInstance.get(endpoints.Career.getCarrers)
       const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
       setData(resData?.data?.data)
-      
+
       setCarrerData(res?.data?.data)
     }
     catch (err) {
@@ -64,15 +64,15 @@ const WorkingCareer = () => {
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit">Careers</Typography>
+          <Typography color="inherit" sx={{ fontSize: "14px" }}>Carrers</Typography>
 
-          <Typography color="text.primary">Working With Us</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "14px" }}>Working With us</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
         <Typography
           sx={{
-            fontSize: "26px",
+            fontSize: "16px",
             fontWeight: 700,
             mb: 1,
             color: "#000",
@@ -86,7 +86,7 @@ const WorkingCareer = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-            
+
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -127,12 +127,12 @@ const WorkingCareer = () => {
                 fontWeight: 600,
                 lineHeight: "120%",
                 fontFamily: "Roboto",
-                color:"#1A73E8"
+                color: "#1A73E8"
               }}
             >
               {data?.contect1_main_title}
             </Typography>
-           
+
 
             {/* Introduction */}
 
@@ -171,24 +171,11 @@ const WorkingCareer = () => {
                             fontWeight: "500",
                             color: "#121111ff",
                           }}
+                          dangerouslySetInnerHTML={{ __html: item?.description }}
                         >
-                          {item?.description}
+                          
                         </Typography>
-                        <Typography
-                          sx={{
-                            fontFamily: "",
-                            fontSize: "18px",
-                            textAlign: "justify",
-                            marginTop: "15px!important",
-                            fontWeight: "400",
-                            lineHeight: "120%",
-                            color: "#121111ff",
-                          }}
-                        >
-                          Over the years it has been our constant endeavour to ensure
-                          continual development of our team members - spiritually,
-                          physically, emotionally and intellectually.
-                        </Typography>
+                        
                       </Grid>
                     </Grid>
                   </Box>

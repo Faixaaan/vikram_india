@@ -37,10 +37,10 @@ const QueryForm = () => {
 
   const fetchContactData = async () => {
     try {
-     
+
       const resData = await axiosInstance.get(endpoints.contactUs.cmsContact)
       setData(resData?.data?.data)
-      
+
     }
     catch (err) {
       console.log(err)
@@ -57,19 +57,19 @@ const QueryForm = () => {
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth="xl">
         {/* Breadcrumb */}
-        <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+        <Breadcrumbs sx={{ mb: 3, fontSize: "14px" }}>
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit">Contact Us</Typography>
+          <Typography color="inherit" sx={{ fontSize: "14px" }}>Contact Us</Typography>
 
-          <Typography color="text.primary">QUERY FORM</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "14px" }} >Query Form</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
         <Typography
           sx={{
-            fontSize: "28px",
+            fontSize: "16px",
             fontWeight: 700,
             mb: 1,
             color: "#000",
@@ -83,7 +83,7 @@ const QueryForm = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-            
+
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -124,16 +124,16 @@ const QueryForm = () => {
                 fontWeight: 600,
                 lineHeight: "120%",
                 fontFamily: "Roboto",
-                color:"#1A73E8"
+                color: "#1A73E8"
               }}
             >
-             {data?.query_form_title}
+              {data?.query_form_title}
             </Typography>
-            
+
 
             {/* Introduction */}
 
-            
+
             <Accordion
               sx={{
                 background: "#fff",

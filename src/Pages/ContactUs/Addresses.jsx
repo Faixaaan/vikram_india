@@ -57,19 +57,19 @@ const Adresses = () => {
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth="xl">
         {/* Breadcrumb */}
-        <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+        <Breadcrumbs sx={{ mb:3, fontSize: "14px" }}>
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit">Contact Us</Typography>
+          <Typography color="inherit" sx={{fontSize: "14px"}}>Contact Us</Typography>
 
-          <Typography color="text.primary">Adresses</Typography>
+          <Typography color="text.primary" sx={{fontSize: "14px"}} >Adresses</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
         <Typography
           sx={{
-            fontSize: "28px",
+            fontSize: "16px",
             fontWeight: 700,
             mb: 1,
             color: "#000",

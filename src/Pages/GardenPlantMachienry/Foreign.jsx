@@ -66,13 +66,13 @@ const Foreign = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
-                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit">Product & Services</Typography>
-                    <Typography color="text.primary">Garden & Plant Equipment</Typography>
-                    <Typography color="text.primary">FOREIGN OBJECT REMOVER</Typography>
+                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Garden & Plant Equipment</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Foreign Object Remover</Typography>
                 </Breadcrumbs>
 
                 

@@ -73,19 +73,19 @@ const Download = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth="xl">
                 {/* Breadcrumb */}
-                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
-                        Home
-                    </MLink>
-                    <Typography color="inherit">Media</Typography>
-
-                    <Typography color="text.primary">DOWNLOAD</Typography>
-                </Breadcrumbs>
+                  <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                                        Home
+                                    </MLink>
+                                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
+                
+                                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>Download</Typography>
+                                </Breadcrumbs>
 
                 {/* PAGE TITLE */}
                 <Typography
                     sx={{
-                        fontSize: "26px",
+                        fontSize: "16px",
                         fontWeight: 700,
                         mb: 1,
                         color: "#000",

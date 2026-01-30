@@ -10,12 +10,15 @@ import {
   TextField,
   Tabs,
   Tab,
-  Divider
+  Divider,
+  Breadcrumbs,
+   Link as MLink,
 } from "@mui/material";
 import blogImage from "../../Assets/blog.jpg";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import { Link } from 'react-router-dom';
 
 const blogs = [
   {
@@ -44,23 +47,23 @@ const blogs = [
 const Blog = () => {
   const [tab, setTab] = useState(0);
   const navigate = useNavigate();
-  const [data,setData] = useState([])
+  const [data, setData] = useState([])
 
 
-  const fetchBlogData = async ()=>{
-    try{
-       const res = await axiosInstance.get(endpoints.AboutUs.getBlockData)
-       console.log(res?.data?.data,'blogData')
-       setData(res?.data?.data)
+  const fetchBlogData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.AboutUs.getBlockData)
+      console.log(res?.data?.data, 'blogData')
+      setData(res?.data?.data)
     }
-    catch(err){
+    catch (err) {
       console.log(err)
     }
   }
 
-  useEffect(()=>{
-   fetchBlogData();
-  },[])
+  useEffect(() => {
+    fetchBlogData();
+  }, [])
 
 
 
@@ -70,11 +73,19 @@ const Blog = () => {
     tab === 0
       ? blogs.filter((blog) => blog.isPopular)
       : [...blogs].sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
 
   return (
-    <Box sx={{ py: 6, px: { xs: 2, md: 6 } }}>
+    <Box sx={{ py: 4, px: { xs: 2, md: 6 } }}>
+      <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+        <MLink component={Link} to="/" underline="hover" color="inherit">
+          Home
+        </MLink>
+        <Typography color="inherit">Blog</Typography>
+
+
+      </Breadcrumbs>
       <Grid container spacing={4}>
 
         {/* LEFT – BLOG LIST */}

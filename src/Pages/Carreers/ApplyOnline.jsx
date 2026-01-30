@@ -61,15 +61,15 @@ const ApplyOnline = () => {
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit">Careers</Typography>
+          <Typography color="inherit" sx={{ fontSize: "14px" }}>Carrers</Typography>
 
-          <Typography color="text.primary">APPLY NOW</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "14px" }}>Apply Now</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
         <Typography
           sx={{
-            fontSize: "28px",
+            fontSize: "16px",
             fontWeight: 700,
             mb: 1,
             color: "#000",
@@ -83,7 +83,7 @@ const ApplyOnline = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-           
+
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -124,16 +124,16 @@ const ApplyOnline = () => {
                 fontWeight: 600,
                 lineHeight: "120%",
                 fontFamily: "Roboto",
-                color:"#1A73E8"
+                color: "#1A73E8"
               }}
             >
-            {data?.contect2_main_title}
+              {data?.contect2_main_title}
             </Typography>
-            
+
 
             {/* Introduction */}
 
-            <Box sx={{
+            {/* <Box sx={{
               paddingBottom: "10px", mt: 4, boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
               borderRadius: "12px",
               p: 0,
@@ -172,7 +172,7 @@ const ApplyOnline = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Box>
+            </Box> */}
             <Accordion
               sx={{
                 background: "#fff",
@@ -182,6 +182,7 @@ const ApplyOnline = () => {
                 mt: 4,
                 border: "1px solid #eee",
               }}
+              defaultExpanded
             >
               <AccordionSummary
                 sx={{
