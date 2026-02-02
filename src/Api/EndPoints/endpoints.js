@@ -20,7 +20,11 @@ export const endpoints = {
     Introduction:"/page/module_mounting_introduction",
     CmsModuleMounting:"/page/module_mounting_manufacturing",
     solarPumps:"/page/module_mounting_solar_pump",
-    products:"/page/module_mounting_product"
+    products:"/page/module_mounting_product",
+    quality_safety:"/page/module_mounting_quality_safety",
+    technical_specification:"/page/module_mounting_technical",
+    product_portfolio:"/page/module_mounting_product_profile",
+    infrastrutre_machinery:"/page/module_mounting_infrastructure"
   },
   
   Media: {

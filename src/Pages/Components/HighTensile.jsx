@@ -94,14 +94,29 @@ const img = [
 
 const HighTensile = () => {
 
-    const [imageData, setImageData] = useState([])
+    const [data, setData] = useState([])
+
+    console.log(data, 'technicalData')
+
+    const [featuresSepcData, setFeaturesSpecData] = useState([])
+    console.log(featuresSepcData, 'tableee')
 
 
     const fetchImageData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.getHighTensile)
+            const res = await axiosInstance.get(endpoints.ModuleMounting.technical_specification)
 
-            setImageData(res?.data?.data)
+            setData(res?.data?.data)
+
+            if (res?.data?.data) {
+                const parsedData = JSON.parse(res.data?.data?.section1_table);
+
+
+
+
+                setFeaturesSpecData(parsedData)
+            }
+
         }
         catch (err) {
             console.log(err)
@@ -125,18 +140,18 @@ const HighTensile = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Module Mounting Structure</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Technical Specification</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Module Mounting Structure</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Technical Specification</Typography>
                 </Breadcrumbs>
 
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -149,7 +164,7 @@ const HighTensile = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -181,20 +196,20 @@ const HighTensile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
-                                
+                                color: "#1A73E8"
+
                             }}
                         >
-                            TECHNICAL SPECIFICATION
+                            {data?.title}
                         </Typography>
-                        
+
 
 
                         {/* Introduction */}
@@ -223,7 +238,7 @@ const HighTensile = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Features & Specification
+                                        {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -270,7 +285,7 @@ const HighTensile = () => {
 
                                             {/* TABLE BODY */}
                                             <TableBody>
-                                                {featureSpecData.map((row, index) => (
+                                                {featuresSepcData?.map((row, index) => (
                                                     <TableRow key={index}>
                                                         <TableCell
                                                             sx={{
@@ -281,7 +296,7 @@ const HighTensile = () => {
                                                                 fontFamily: "Roboto",
                                                             }}
                                                         >
-                                                            {row.feature}
+                                                            {row.features}
                                                         </TableCell>
 
                                                         <TableCell

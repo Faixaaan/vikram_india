@@ -41,7 +41,7 @@ const Introduction = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+      const res = await axiosInstance.get(endpoints.ModuleMounting.infrastrutre_machinery)
       setData(res?.data?.data)
     }
     catch (err) {
@@ -63,18 +63,18 @@ const Introduction = () => {
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{fontSize: "15px" }}>Module Mounting Structure</Typography>
-          <Typography color="text.primary" sx={{  fontSize: "15px" }}>Infrastructure & Machinery</Typography>
+          <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Module Mounting Structure</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Infrastructure & Machinery</Typography>
         </Breadcrumbs>
 
-        
+
 
 
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
-          <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+          <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
             <Typography
               sx={{
                 fontWeight: 700,
@@ -118,19 +118,19 @@ const Introduction = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
             <Typography
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
                 mt: 1,
                 fontFamily: "Roboto",
-                color:"#1A73E8"
+                color: "#1A73E8"
               }}
             >
-              INFRASTRUCTURE & MACHINERY
+              {data?.title}
             </Typography>
-            
+
 
 
             {/* Introduction */}
@@ -149,7 +149,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Roll Forming Lines
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -158,7 +158,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={structure4} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -171,8 +171,11 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section1_description
+                        }}
                       >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                       </Typography>
@@ -203,15 +206,16 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  CNC Punching & Cutting
+                  {data?.section2_title}
                 </Typography>
               </AccordionSummary>
+
               <AccordionDetails>
                 <Box>
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={structure4} style={{ width: "100%" }} />
+                      <img src={data?.section2_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -224,8 +228,11 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section2_description
+                        }}
                       >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                       </Typography>
@@ -242,7 +249,6 @@ const Introduction = () => {
                   </Grid>
                 </Box>
               </AccordionDetails>
-
             </Accordion>
             <Accordion sx={{
               background: "#fff",
@@ -257,7 +263,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Raw Material & Decoiling
+                  {data?.section3_title}
                 </Typography>
               </AccordionSummary>
 
@@ -266,7 +272,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={structure4} style={{ width: "100%" }} />
+                      <img src={data?.section3_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -279,8 +285,11 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section3_description
+                        }}
                       >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                       </Typography>
