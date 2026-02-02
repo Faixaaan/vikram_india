@@ -114,7 +114,7 @@ const Product = () => {
                                 fontFamily: "Roboto"
                             }}
                         >
-                            QUALITY & SAFETY
+                            Product & Services
                         </Typography>
 
 
