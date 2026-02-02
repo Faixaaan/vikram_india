@@ -24,7 +24,8 @@ export const endpoints = {
     quality_safety:"/page/module_mounting_quality_safety",
     technical_specification:"/page/module_mounting_technical",
     product_portfolio:"/page/module_mounting_product_profile",
-    infrastrutre_machinery:"/page/module_mounting_infrastructure"
+    infrastrutre_machinery:"/page/module_mounting_infrastructure",
+    module_mounting_introduction:"/page/module_mounting_introduction"
   },
   
   Media: {

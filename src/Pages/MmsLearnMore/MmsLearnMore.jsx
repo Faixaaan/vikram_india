@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import bannerImg from "../../Assets/Banner.png"; // change if needed
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
+import { useEffect } from "react";
 
 const MmsLearnMore = () => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+  const [data, setData] = useState([])
 
-
-  const handleClick = ()=>{
-     navigate('/products/infrastructure-&-machinery')
+  const getData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction);
+      setData(res?.data?.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
-   
+
+  useEffect(()=>{
+   getData()
+  },[])
+
+
+  const handleClick = () => {
+    navigate('/products/infrastructure-&-machinery')
+  }
+
 
   return (
     <>
@@ -68,7 +86,7 @@ const MmsLearnMore = () => {
             textAlign: "center",
             py: { xs: 4, sm: 5, md: "60px" },
             px: { xs: 2, sm: 3 },
-            paddingBottom:"150px!important"
+            paddingBottom: "150px!important"
           }}
         >
           {/* Title */}
@@ -81,7 +99,7 @@ const MmsLearnMore = () => {
               color: "#1A73E8",
             }}
           >
-            Module Mounting Structure
+            {data?.title}
           </Typography>
 
           {/* Subtitle */}
@@ -95,10 +113,13 @@ const MmsLearnMore = () => {
               mx: "auto",
               mb: 4,
               lineHeight: "1.4",
-              textAlign:"center"
+              textAlign: "center"
+            }}
+            dangerouslySetInnerHTML={{
+              __html: data?.description
             }}
           >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, perspiciatis facere tempora incidunt earum, ab fugiat ipsa animi omnis labore perferendis nemo ut eos ullam quasi! Suscipit veritatis eligendi, esse sequi ipsa nulla tempora doloremque, soluta adipisci dolore at impedit ad obcaecati repellendus cum vero incidunt quos et! Perspiciatis consequatur ut eaque sit nam est rerum doloremque incidunt quas maxime!
+            
           </Typography>
 
           {/* Learn More Button */}
