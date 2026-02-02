@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -28,6 +28,8 @@ import CFM from '../../../Assets/sorting_batch.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import speed_fiber from '../../../Assets/slow-speed.jpg'
 import vibro_screen from '../../../Assets/vibro-screen.jpg'
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -44,7 +46,25 @@ const leftMenu = [
 
 const Utilities = () => {
 
+    const [data, setData] = useState([])
+    const [parsedData, setparseddata] = useState([])
+
+    const getData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.utilities)
+            setData(res?.data?.data)
+            if (res?.data?.data) {
+                const list = JSON.parse(res?.data?.data.section1_list);
+                setparseddata(list)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
+        getData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -60,17 +80,17 @@ const Utilities = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Utilities</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Utilities</Typography>
                 </Breadcrumbs>
 
-               
+
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -83,7 +103,7 @@ const Utilities = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -115,77 +135,44 @@ const Utilities = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
-                            UTILITIES
+                            {data?.section1_title}
                         </Typography>
-                        
+
 
 
 
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
-                        <Typography
-                            sx={
-                                headingStyle
-                            }
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />  Digital Weighing Scale
-                        </Typography>
+                        {
+                            parsedData?.map((item) => {
+                                return (
+                                    <Typography
+                                        sx={
+                                            headingStyle
+                                        }
+                                    >
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />  
+                                       {item}
+                                    </Typography>
+                                )
+                            })
+                        }
 
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> Tea Conveyor Systems
-                        </Typography>
 
 
-                        <Typography
-                            sx={headingStyle}
 
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Chain Saw
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Pressure Water Jet
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
 
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Electrical Welding Set
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Electrical Welding Set
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Pressure Water Jet
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
 
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Electrical Welding Set
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High red Leaf Plucking Machine
-                        </Typography>
 
 
 

@@ -45,11 +45,19 @@ const leftMenu = [
 const Drying = () => {
 
     const [data, setData] = useState([])
+    const [parseDataa, setParseDataa] = useState([])
+    const [tableDataa,setTableDataa] = useState([])
 
     const fetchDryingData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.teaProcessingMachinery.drying);
-            setData(res?.data?.data)
+            setData(res?.data?.data);
+            if (res?.data?.data) {
+                const parseDataaa = JSON.parse(res?.data?.data?.section3_table);
+                const listDataaa = JSON.parse(res?.data?.data?.section5_table);
+                setTableDataa(listDataaa)
+                setParseDataa(parseDataaa)
+            }
         }
         catch (err) {
             console.log(err)
@@ -72,18 +80,18 @@ const Drying = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Drying</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Drying</Typography>
                 </Breadcrumbs>
 
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -96,7 +104,7 @@ const Drying = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -128,19 +136,19 @@ const Drying = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
                             {data?.section1_title}
                         </Typography>
-                        
+
 
 
 
@@ -211,38 +219,43 @@ const Drying = () => {
                                 {/* YOUR EXISTING TABLE (NO CHANGES) */}
                                 <TableContainer component={Paper} sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}>
                                     <Table sx={{ minWidth: 650 }}>
+
+                                        {/* TABLE HEAD */}
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
-
+                                                {parseDataa?.length > 0 &&
+                                                    Object.keys(parseDataa[0]).map((key) => (
+                                                        <TableCell
+                                                            key={key}
+                                                            sx={{ fontWeight: 700, fontFamily: "Roboto" }}
+                                                        >
+                                                            {key === "module"
+                                                                ? "MODULE"
+                                                                : key.replace("w", "").toUpperCase() + "W"}
+                                                        </TableCell>
+                                                    ))}
                                             </TableRow>
                                         </TableHead>
 
+                                        {/* TABLE BODY */}
                                         <TableBody>
-                                            <TableRow>
-                                                <TableCell sx={{ maxWidth: "180px" }}>Capacity made Tea (Kgs/Hr.) at T1 135 ± 5°C 175 - 350 275 - 500 375-700 460 - 900* (Moisture content range of leaf: 76% - 62%)</TableCell>
-                                                <TableCell>175 - 350</TableCell>
-                                                <TableCell>275 - 500</TableCell>
-                                                <TableCell>375 - 700</TableCell>
-                                                <TableCell>460 - 900*</TableCell>
-
-                                            </TableRow>
-
-                                            <TableRow>
-                                                <TableCell sx={{ maxWidth: "180px" }}>Water evaporation capacity (Kg/Hr.)</TableCell>
-                                                <TableCell>540</TableCell>
-                                                <TableCell>800</TableCell>
-                                                <TableCell>1120</TableCell>
-                                                <TableCell>1460</TableCell>
-
-                                            </TableRow>
+                                            {parseDataa?.map((row, rowIndex) => (
+                                                <TableRow key={rowIndex}>
+                                                    {Object.keys(row).map((key) => (
+                                                        <TableCell
+                                                            key={key}
+                                                            sx={key === "module" ? { maxWidth: "180px" } : {}}
+                                                        >
+                                                            {row[key]}
+                                                        </TableCell>
+                                                    ))}
+                                                </TableRow>
+                                            ))}
                                         </TableBody>
+
                                     </Table>
                                 </TableContainer>
+
 
                             </AccordionDetails>
                         </Accordion>
@@ -329,10 +342,10 @@ const Drying = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            {data?.section5_desc}
-
-
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}
+                                        dangerouslySetInnerHTML={{ __html: data?.section5_desc }}
+                                        >
+                                            
                                         </Typography>
                                     </Grid>
 
@@ -357,41 +370,47 @@ const Drying = () => {
                                 {/* YOUR EXISTING TABLE (NO CHANGES) */}
                                 <TableContainer component={Paper} sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}>
                                     <Table sx={{ minWidth: 650 }}>
+
+                                        {/* TABLE HEAD */}
                                         <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableRow>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODULE</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>200W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>300W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>400W</TableCell>
-                                                <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>600W</TableCell>
-
+                                                {tableDataa?.length > 0 &&
+                                                    Object.keys(tableDataa[0]).map((key) => (
+                                                        <TableCell
+                                                            key={key}
+                                                            sx={{ fontWeight: 700, fontFamily: "Roboto" }}
+                                                        >
+                                                            {key === "module"
+                                                                ? "MODULE"
+                                                                : key.replace("w", "").toUpperCase() + "W"}
+                                                        </TableCell>
+                                                    ))}
                                             </TableRow>
                                         </TableHead>
 
+                                        {/* TABLE BODY */}
                                         <TableBody>
-                                            <TableRow>
-                                                <TableCell sx={{ maxWidth: "180px" }}>Capacity made Tea (Kgs/Hr.) at T1 135 ± 5°C 175 - 350 275 - 500 375-700 460 - 900* (Moisture content range of leaf: 76% - 62%)</TableCell>
-                                                <TableCell>175 - 350</TableCell>
-                                                <TableCell>275 - 500</TableCell>
-                                                <TableCell>375 - 700</TableCell>
-                                                <TableCell>460 - 900*</TableCell>
-
-                                            </TableRow>
-
-                                            <TableRow>
-                                                <TableCell sx={{ maxWidth: "180px" }}>Water evaporation capacity (Kg/Hr.)</TableCell>
-                                                <TableCell>540</TableCell>
-                                                <TableCell>800</TableCell>
-                                                <TableCell>1120</TableCell>
-                                                <TableCell>1460</TableCell>
-
-                                            </TableRow>
+                                            {tableDataa?.map((row, rowIndex) => (
+                                                <TableRow key={rowIndex}>
+                                                    {Object.keys(row).map((key) => (
+                                                        <TableCell
+                                                            key={key}
+                                                            sx={key === "module" ? { maxWidth: "180px" } : {}}
+                                                        >
+                                                            {row[key]}
+                                                        </TableCell>
+                                                    ))}
+                                                </TableRow>
+                                            ))}
                                         </TableBody>
+
                                     </Table>
                                 </TableContainer>
 
+
                             </AccordionDetails>
                         </Accordion>
+
 
 
                     </Grid>

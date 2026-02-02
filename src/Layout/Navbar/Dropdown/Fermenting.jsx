@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -31,6 +31,8 @@ import humidation1 from "../../../Assets/humidation-img.jpg";
 import humidation2 from "../../../Assets/humidationn.image.jpg";
 import CFM from '../../../Assets/CFM.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 const leftMenu = [
     "WITHERING",
@@ -45,6 +47,34 @@ const leftMenu = [
 ];
 
 const Fermenting = () => {
+
+
+    const [data, setData] = useState([])
+    const [parseData, setParseData] = useState([])
+    const [listData, setListData] = useState([])
+
+
+    const getData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.fermenting);
+            setData(res?.data?.data)
+            if (res?.data?.data) {
+                const listData = JSON.parse(res?.data?.data.section3_list);
+                const listDaata = JSON.parse(res?.data?.data.section4_list);
+                setListData(listDaata)
+                setParseData(listData)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -53,8 +83,8 @@ const Fermenting = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px" }}>Fermenting</Typography>
                 </Breadcrumbs>
 
@@ -63,7 +93,7 @@ const Fermenting = () => {
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -76,7 +106,7 @@ const Fermenting = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -108,42 +138,35 @@ const Fermenting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
-                            FERMENTING
+                            {data?.section1_title}
                         </Typography>
-                        
+
 
                         <Grid container spacing={2}>
                             {/* Left Description */}
                             <Grid item xs={12} md={8}>
                                 <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}>
-                                    The aero-dynamically designed Axial Flow Fans from Vikram India are
-                                    made of high quality aluminium alloy and are suitable for different
-                                    sizes of withering troughs. These fans ensure uniformity of withering,
-                                    reduce power consumption and are tested for vibration, noise levels,
-                                    air delivery and static pressure.
+                                    {data?.section1_desc}
                                 </Typography>
 
-                                <Typography sx={{ mb: 3, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}>
-                                    Vikram also offers Centrifugal Fans and Induced Draught Fans in
-                                    different sizes as per the customer's requirement.
-                                </Typography>
+
                             </Grid>
 
                             {/* Right Image */}
                             <Grid item xs={12} md={4}>
                                 <Box
                                     component="img"
-                                    src={FanImage}
+                                    src={data?.section1_img}
                                     alt="Axial Flow Fan"
                                     sx={{
                                         width: "100%",
@@ -164,7 +187,7 @@ const Fermenting = () => {
                                 fontFamily: "Roboto"
                             }}
                         >
-                            Technical Specifications
+                            {data?.section2_title}
                         </Typography>
 
                         <Accordion sx={{
@@ -183,7 +206,7 @@ const Fermenting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Single/ Double Stage Continuous Fermenting Machine (Belt / Tray)
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -194,8 +217,10 @@ const Fermenting = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Vikram India has developed Continuous Fermenting Machines (CFM) to suit the needs of different clients under different conditions of operation globally. In the process, the Company has achieved significant benchmarks like development of the widest, 52 inch, CTC unit in 2000 and later a 56 inch one in 2008. These CFMs are available as - a single or multi stage unit, horizontal or inclined or a combination of both.
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
+                                        >
+
 
 
                                         </Typography>
@@ -205,7 +230,7 @@ const Fermenting = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={controllerImage}
+                                            src={data?.section3_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -220,30 +245,28 @@ const Fermenting = () => {
                                 <Box mt={3} />
 
                                 <Typography sx={{ color: "red", fontSize: "18px", fontWeight: "18" }}>
-                                    PES Belt CFM Features
+                                    {data?.section3_list_title}
                                 </Typography>
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 2 }}>
-                                    <Typography sx={{ color: "#000", fontWeight: "600", mb: 1 }}>
+                                {
+                                    parseData?.map((item) => {
+                                        return (
+                                            <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 2 }}>
+                                                <Typography sx={{ color: "#000", fontWeight: "600", mb: 1 }}>
 
-                                        M/C Load Capability
-                                    </Typography>
-                                    <Typography>
+                                                    {item?.title}
+                                                </Typography>
+                                                <Typography>
 
-                                        The fermenter trays with standard supplied motor are designed to sustain a loading of upto 8 kgs of macerated leaf/ sq. ft. area.
-                                    </Typography>
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 2 }}>
-                                    <Typography sx={{ color: "#000", fontWeight: "600", mb: 1 }}>
+                                                    {item?.desc}
+                                                </Typography>
+                                            </Box>
+                                        )
+                                    })
+                                }
 
-                                        Stainless Steel Trays
-                                    </Typography>
-                                    <Typography>
 
-                                        Heavy Duty, wide, perforated Stainless Steel Trays allow the humidified air through the leaf for proper fermentation as well as cooling of tea bed.
 
-                                    </Typography>
-                                </Box>
 
 
 
@@ -266,7 +289,7 @@ const Fermenting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    CFM Auto Controller
+                                    {data?.section4_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -278,8 +301,7 @@ const Fermenting = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            The new and automated CFM machine has been designed for Energy Savings in excess of 40% when compared with any traditional machine. The automated operations of the machine also ensure consistent quality and reduced manpower involvement, reducing the running cost of the machine to a considerable extent this brand new CFM is designed for uninterrupted operations round the year.
-
+                                            {data?.section4_desc}
 
                                         </Typography>
                                     </Grid>
@@ -288,7 +310,7 @@ const Fermenting = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={CFM}
+                                            src={data?.section4_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -304,29 +326,26 @@ const Fermenting = () => {
 
 
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                {
+                                    listData?.map((item) => {
+                                        return (
+                                            <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                                <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}
+                                                    
+                                                >
 
-                                        Fully Automated Operations through VFD with PLC.
-                                    </Typography>
+                                                {item}
+                                                </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                            </Box>
+                                        )
+                                    })
+                                }
 
-                                        Automatic, Exposure Control, Temperature Control and Moisture Control to ensure consistent quality.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Dedicated VFD auto control ensure the speed of mesh belt depend on ambient temperature.
-                                    </Typography>
 
-                                </Box>
+
 
 
 
@@ -350,7 +369,7 @@ const Fermenting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Humidification System
+                                   {data?.section5_title}
 
                                 </Typography>
                             </AccordionSummary>
@@ -365,7 +384,7 @@ const Fermenting = () => {
                                     <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
                                         <Box
                                             component="img"
-                                            src={humidation1}
+                                            src={data?.section5_img1}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -379,7 +398,7 @@ const Fermenting = () => {
                                     <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
                                         <Box
                                             component="img"
-                                            src={humidation2}
+                                            src={data?.section5_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",

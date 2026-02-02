@@ -70,7 +70,12 @@ export const endpoints = {
     drying:"/page/ctc_tea_processing_drying",
     withering:"/page/ctc_tea_processing_withering",
     rolling:"/page/ctc_tea_processing_rolling",
-    quality:"/page/ctc_tea_processing_quality"
+    quality:"/page/ctc_tea_processing_quality",
+    fermenting:"/page/ctc_tea_processing_fermanting",
+    sorting:"/page/ctc_tea_processing_sorting",
+    packing:"/page/ctc_tea_processing_packing",
+    workshop:"/page/ctc_tea_processing_working",
+    utilities:"/page/ctc_tea_processing_utilities"
   }
 
 

@@ -190,7 +190,7 @@ const Rolling = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Weigh Feeder
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -201,9 +201,10 @@ const Rolling = () => {
 
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            The invention was carried out with an objective of automating the dryer to facilitate minimal operator intervention, consistency of drying and Energy efficiency.
-
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}
+                                         dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
+                                        >
+                                        
 
                                         </Typography>
                                     </Grid>
@@ -226,7 +227,7 @@ const Rolling = () => {
                                 {/* SPACING */}
                                 <Box mt={3} />
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                {/* <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
                                     <ChevronRightIcon sx={{ color: "red" }} />
                                     <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
@@ -279,7 +280,7 @@ const Rolling = () => {
                                         Due to double stage of weigh feeder, the 1st stage can receive excessive uneven load, resulting 2nd stage can maintain high accuracy level.
                                     </Typography>
 
-                                </Box>
+                                </Box> */}
 
 
                             </AccordionDetails>
@@ -300,7 +301,7 @@ const Rolling = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Regulated Feed Unit
+                                    {data?.section4_title}
 
                                 </Typography>
                             </AccordionSummary>
@@ -315,7 +316,7 @@ const Rolling = () => {
                                     <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
                                         <Box
                                             component="img"
-                                            src={humidation1}
+                                            src={data?.section4_img1}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -324,7 +325,7 @@ const Rolling = () => {
                                             }}
                                         />
                                         <Typography sx={{ fontFamily: "Roboto" }}>
-                                            Drawing of Gravimetric Weigh Feeder
+                                            {data?.section4_img1_title1}
                                         </Typography>
                                     </Grid>
 
@@ -332,7 +333,7 @@ const Rolling = () => {
                                     <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
                                         <Box
                                             component="img"
-                                            src={humidation2}
+                                            src={data?.section4_img2}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -341,7 +342,7 @@ const Rolling = () => {
                                             }}
                                         />
                                         <Typography sx={{ fontFamily: "Roboto" }}>
-                                            Picture of Gravimetric Weigh Feeder
+                                            {data?.section4_img1_title2}
 
                                         </Typography>
                                     </Grid>
@@ -371,7 +372,7 @@ const Rolling = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Leaf Sizer
+                                    {data?.section5_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -383,7 +384,7 @@ const Rolling = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Leaf Sizer used for shredding tea leaves consists of a cylinder in which the main shaft with knives (blades) rotates at a speed of 2500 rpm. Shredding reduces volume of tea leaves and enables manufacturers to load larger quantity of leaves into the Rotor Vane, making the process more cost-effective. The machine also helps in the efficient mixing of RC material with the withered leaf, especially in the CTC type of processing.
+                                            {data?.section5_desc}
 
 
                                         </Typography>
@@ -393,7 +394,7 @@ const Rolling = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={leafSizer}
+                                            src={data?.section5_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",

@@ -46,11 +46,16 @@ const leftMenu = [
 
 const Quality = () => {
     const [data, setData] = useState([])
+    const [parseData, setParseData] = useState([])
 
     const fetchDryingData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.teaProcessingMachinery.quality);
             setData(res?.data?.data)
+            if (res?.data?.data) {
+                const list = JSON.parse(res?.data?.data?.section1_list);
+                setParseData(list)
+            }
         }
         catch (err) {
             console.log(err)
@@ -71,18 +76,18 @@ const Quality = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Quality Control Equipment</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Quality Control Equipment</Typography>
                 </Breadcrumbs>
 
-               
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -95,7 +100,7 @@ const Quality = () => {
                             Product & Services
                         </Typography>
 
-                       
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -127,51 +132,42 @@ const Quality = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
                             {data?.section1_title}
                         </Typography>
-                       
+
 
 
 
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
-                        <Typography
-                            sx={
-                                headingStyle
-                            }
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />  Digital Temperature Meter
-                        </Typography>
+                        {
+                            parseData?.map((item) => {
+                                return (
+                                    <Typography
+                                        sx={
+                                            headingStyle
+                                        }
+                                    >
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />
+                                        {item}
+                                    </Typography>
+                                )
+                            })
+                        }
 
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />
-                            Digital R. H. Meter
-                        </Typography>
 
 
-                        <Typography
-                            sx={headingStyle}
 
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Log Digital Timer
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   High Tea Testing Equipment
-                        </Typography>
 
 
 
