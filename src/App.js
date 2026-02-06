@@ -66,6 +66,7 @@ import TechnicalSpecification from "./Pages/HotDipGalvanization/Components/Techn
 import GalvanizingProcess from "./Pages/HotDipGalvanization/Components/GalvanizingProcess";
 import QualityAssurance from "./Pages/HotDipGalvanization/Components/QualityAssurance";
 import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChooseVikram";
+import ProfileAvailability from "./Pages/Components/ProfileAvailability";
 
 
 function App() {
@@ -111,12 +112,16 @@ function App() {
           element={<Manufacturing />}
         />
         <Route
+          path="/products/profile-availability"
+          element={<ProfileAvailability />}
+        />
+        <Route
           path="/products/technical-specification"
           element={<HighTensile />}
         />
         <Route path="/products/quality-&-safety" element={<Product />} />
-         
-        
+
+
         <Route path="/products/processing-card" element={<ProcessingCard />} />
         <Route path="/about/group-profile" element={<GroupProfile />} />
         <Route path="/about/company-profile" element={<CompanyProfile />} />
@@ -126,7 +131,7 @@ function App() {
           path="/about/award-and-recognition"
           element={<AwardRecognition />}
         />
-        
+
         <Route path="/about/clientele" element={<Clientele />} />
         <Route path="/about/quality-policy" element={<QualityPolicy />} />
         <Route path="/about/research-and-development" element={<Research />} />

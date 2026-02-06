@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
-import bannerImg from "../../Assets/Banner.png"; // change if needed
+import bannerImg from "../../Assets/Module_mounting_banner.jpg"; // change if needed
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -38,7 +38,7 @@ const MmsLearnMore = () => {
         sx={{
           width: "100%",
           height: { xs: "220px", sm: "300px", md: "380px" },
-          backgroundImage: `url(${bannerImg})`,
+          backgroundImage: `url(${data?.banner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",

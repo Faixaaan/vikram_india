@@ -34,6 +34,24 @@ const leftMenu = ["ADDRESSES", "QUERY FORM"];
 const QueryForm = () => {
 
   const [data, setData] = useState({})
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    mobile: "",
+    email: "",
+    country: "",
+    query: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Cms Data fetch for Query Form
 
   const fetchContactData = async () => {
     try {
@@ -46,6 +64,26 @@ const QueryForm = () => {
       console.log(err)
     }
   }
+
+  // Query Form Submit
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+
+      const res = await axiosInstance.post(endpoints.contactUs.queryForm,formData)
+
+      alert("Form submitted");
+    }
+    catch (err) {
+      console.log(err)
+    }
+
+
+  };
+
+
   useEffect(() => {
     fetchContactData()
     window.scrollTo({
@@ -169,6 +207,8 @@ const QueryForm = () => {
               </AccordionSummary>
               <AccordionDetails sx={{ p: 0 }}>
                 <Box
+                  component="form"
+                  onSubmit={handleSubmit}
                   sx={{
                     p: { xs: 2, md: 3 },
                     background:
@@ -193,6 +233,9 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="first_name"
+                          value={formData.first_name}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter your first name"
@@ -223,6 +266,9 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="last_name"
+                          value={formData.last_name}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter your last name"
@@ -254,6 +300,9 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="mobile"
+                           value={formData.mobile}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter mobile number"
@@ -285,6 +334,9 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="email"
+                           value={formData.email}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter email address"
@@ -317,6 +369,9 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="country"
+                          value={formData.country}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Select your country"
@@ -357,6 +412,8 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          value={formData.query}
+                          onChange={handleChange}
                           variant="outlined"
                           multiline
                           rows={4}
@@ -400,163 +457,7 @@ const QueryForm = () => {
                     </Grid>
 
                     {/* Verification Row */}
-                    <Grid item size={{ xs: 12 }}>
-                      <Box
-                        sx={{
-                          p: 2,
-                          backgroundColor: "#f9f9f9",
-                          borderRadius: "6px",
-                          border: "1px solid #eee",
-                        }}
-                      >
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            mb: 2,
-                            fontWeight: 600,
-                            color: "#444",
-                            fontSize: "14px",
-                          }}
-                        >
-                          Security Verification{" "}
-                          <span style={{ color: "#c00" }}>*</span>
-                        </Typography>
 
-                        {/* CAPTCHA Section */}
-                        <Box sx={{ mb: 3 }}>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              mb: 1.5,
-                              fontWeight: 600,
-                              color: "#555",
-                              fontSize: "13px",
-                            }}
-                          >
-                            Type the code as shown:
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 2,
-                              flexWrap: { xs: "wrap", sm: "nowrap" },
-                            }}
-                          >
-                            <TextField
-                              variant="outlined"
-                              size="small"
-                              placeholder="Enter code"
-                              sx={{
-                                width: { xs: "100%", sm: "150px" },
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: "6px",
-                                },
-                              }}
-                            />
-                            <Box
-                              sx={{
-                                width: "140px",
-                                height: "45px",
-                                background:
-                                  "linear-gradient(45deg, #e0e0e0, #f5f5f5)",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                border: "2px solid #ddd",
-                                borderRadius: "6px",
-                                boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  fontFamily: "'Courier New', monospace",
-                                  fontSize: "20px",
-                                  fontWeight: "bold",
-                                  letterSpacing: "2px",
-                                  color: "#333",
-                                }}
-                              >
-                                7XG4L
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="caption"
-                              sx={{
-                                color: "#666",
-                                fontSize: "12px",
-                                fontStyle: "italic",
-                              }}
-                            >
-                              (Case sensitive)
-                            </Typography>
-                          </Box>
-                        </Box>
-
-                        {/* Image Verification */}
-                        <Box>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              mb: 1.5,
-                              fontWeight: 600,
-                              color: "#555",
-                              fontSize: "13px",
-                            }}
-                          >
-                            Image Verification:
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 2,
-                              flexWrap: { xs: "wrap", sm: "nowrap" },
-                            }}
-                          >
-                            <TextField
-                              variant="outlined"
-                              size="small"
-                              placeholder="Enter image verification code"
-                              sx={{
-                                width: { xs: "100%", sm: "200px" },
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: "6px",
-                                },
-                              }}
-                            />
-                            <Box
-                              sx={{
-                                width: "120px",
-                                height: "45px",
-                                backgroundColor: "#f0f0f0",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                border: "1px solid #ddd",
-                                borderRadius: "6px",
-                                cursor: "pointer",
-                                transition: "all 0.2s",
-                                "&:hover": {
-                                  backgroundColor: "#e8e8e8",
-                                  borderColor: "#c00",
-                                },
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  fontSize: "12px",
-                                  color: "#666",
-                                  fontWeight: 500,
-                                }}
-                              >
-                                Refresh Image
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Grid>
 
                     {/* Buttons */}
                     <Grid item size={{ xs: 12 }}>
@@ -567,11 +468,12 @@ const QueryForm = () => {
                           gap: 3,
                           mt: 3,
                           pt: 2,
-                          borderTop: "1px solid #eee",
+
                         }}
                       >
                         <Button
                           variant="contained"
+                          type="submit"
                           sx={{
                             backgroundColor: "#c00",
                             borderRadius: "6px",

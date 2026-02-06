@@ -398,7 +398,7 @@ const Fermenting = () => {
                                     <Grid item size={{ xs: 12, md: 6 }} textAlign="center">
                                         <Box
                                             component="img"
-                                            src={data?.section5_img}
+                                            src={data?.section5_img2}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
