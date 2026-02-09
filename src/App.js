@@ -106,20 +106,20 @@ function App() {
           element={<Quality />}
         />
         <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
-        <Route path="/products/infrastructure-&-machinery" element={<Introduction />} />
+        <Route path="/products/mms/infrastructure-&-machinery" element={<Introduction />} />
         <Route
-          path="/products/product-&-portfolio"
+          path="/products/mms/product-&-portfolio"
           element={<Manufacturing />}
         />
         <Route
-          path="/products/profile-availability"
+          path="/products/mms/profile-availability"
           element={<ProfileAvailability />}
         />
         <Route
-          path="/products/technical-specification"
+          path="/products/mms/technical-specification"
           element={<HighTensile />}
         />
-        <Route path="/products/quality-&-safety" element={<Product />} />
+        <Route path="/products/mms/quality-&-safety" element={<Product />} />
 
 
         <Route path="/products/processing-card" element={<ProcessingCard />} />

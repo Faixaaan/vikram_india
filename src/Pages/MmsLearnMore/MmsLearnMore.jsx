@@ -27,7 +27,7 @@ const MmsLearnMore = () => {
 
 
   const handleClick = () => {
-    navigate('/products/infrastructure-&-machinery')
+    navigate('/products/mms/infrastructure-&-machinery')
   }
 
 

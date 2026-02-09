@@ -94,7 +94,7 @@ const ProfileAvailability = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/mms/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "PROFILE AVAILABILITY" ? "#1A73E8" : "transparent",
