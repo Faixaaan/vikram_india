@@ -211,11 +211,11 @@ const ManagementTeam = () => {
 
                             >
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group1} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -255,7 +255,7 @@ const ManagementTeam = () => {
                                 <Grid container spacing={2} mt={2}>
 
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -279,7 +279,7 @@ const ManagementTeam = () => {
 
 
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group2} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
@@ -296,11 +296,11 @@ const ManagementTeam = () => {
 
                             >
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group3} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -337,7 +337,7 @@ const ManagementTeam = () => {
                                 <Grid container spacing={2} mt={2}>
 
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -360,7 +360,7 @@ const ManagementTeam = () => {
 
 
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group4} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
@@ -377,11 +377,11 @@ const ManagementTeam = () => {
 
                             >
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group5} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -420,7 +420,7 @@ const ManagementTeam = () => {
                                 <Grid container spacing={2} mt={2}>
 
 
-                                    <Grid size={{ xs: 12, md: 9 }} sx={{ bgcolor: "#B5BEB2" }} >
+                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
 
 
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
@@ -443,7 +443,7 @@ const ManagementTeam = () => {
 
 
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 3 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group6} style={{ height: "auto", width: "100%" }} />
                                     </Grid>
 
