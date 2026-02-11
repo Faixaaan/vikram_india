@@ -179,7 +179,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Chemical Withering System
                 </Typography>
               </AccordionSummary>
@@ -236,7 +236,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Physical Withering System
                 </Typography>
               </AccordionSummary>
@@ -293,7 +293,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Automated Withering System
                 </Typography>
               </AccordionSummary>
@@ -350,7 +350,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Fabricated Withering Trough
                 </Typography>
               </AccordionSummary>
@@ -407,7 +407,7 @@ const TeaWithering = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Axial Flow Fan
                 </Typography>
               </AccordionSummary>

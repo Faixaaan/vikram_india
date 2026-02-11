@@ -179,7 +179,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Myddelton Sorter
                 </Typography>
               </AccordionSummary>
@@ -236,7 +236,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Arnott Sorter
                 </Typography>
               </AccordionSummary>
@@ -293,7 +293,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Pacca Sorter
                 </Typography>
               </AccordionSummary>
@@ -350,7 +350,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Micchi Sorter
                 </Typography>
               </AccordionSummary>
@@ -407,7 +407,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   ST Stalk Extractor
                 </Typography>
               </AccordionSummary>
@@ -464,7 +464,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Andrews Tea Breaker
                 </Typography>
               </AccordionSummary>
@@ -521,7 +521,7 @@ const TeaSorting = () => {
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                   Bucket Elevator With Storage Bin
                 </Typography>
               </AccordionSummary>

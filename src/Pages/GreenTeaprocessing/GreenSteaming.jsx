@@ -179,7 +179,7 @@ const GreenSteaming = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Automatic Steam Shifter/Steamer
                                 </Typography>
                             </AccordionSummary>
@@ -228,7 +228,7 @@ const GreenSteaming = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Agiated Cooler
                                 </Typography>
                             </AccordionSummary>

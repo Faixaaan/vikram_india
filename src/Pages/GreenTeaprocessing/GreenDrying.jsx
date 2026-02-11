@@ -145,7 +145,7 @@ const GreenDrying = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Open Top Tea Roller
                                 </Typography>
                             </AccordionSummary>
@@ -194,7 +194,7 @@ const GreenDrying = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Circular Green Tea Shapers
                                 </Typography>
                             </AccordionSummary>

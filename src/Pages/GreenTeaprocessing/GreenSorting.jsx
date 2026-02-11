@@ -145,7 +145,7 @@ const GreenSorting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Fluid Bed Dryer
                                 </Typography>
                             </AccordionSummary>
@@ -194,7 +194,7 @@ const GreenSorting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
                                     Endless Chain Pressure (Ecp) Dryer
                                 </Typography>
                             </AccordionSummary>
