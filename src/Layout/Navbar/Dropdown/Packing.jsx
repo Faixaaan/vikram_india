@@ -20,52 +20,46 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import DryingImag from "../../../Assets/Drying_img.jpg"; // update your image
+import FanImage from "../../../Assets/logo 1.png"; // update your image
 import '../../../App.css'
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CFM from '../../../Assets/sorting_batch.jpg'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import speed_fiber from '../../../Assets/slow-speed.jpg'
-import vibro_screen from '../../../Assets/vibro-screen.jpg'
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
+import image1 from '../../../Assets/machine-big-03.jpg'
 
 
 const leftMenu = [
-    "WITHERING",
-    "ROLLING",
-    "FERMENTING",
-    "DRYING",
-    "SORTING",
-    "PACKING",
-    "WORKSHOP EQUIPMENT",
-    "QUALITY CONTROL EQUIPMENT",
-    "UTILITIES",
+    "WITHERING PROCESS",
+    "ROLLING PROCESS",
+    "OXIDATION PROCESS",
+    "DRYING PROCESS",
+    "SORTING,CLEANING,GRADING AND STORAGE SYSTEM",
+    "ROLLER SHARPENING MACHINE",
+
 ];
 
 const Packing = () => {
 
-    const [data, setData] = useState([]);
-    const [parsedData, setParsedData] = useState([]);
+    const [data, setData] = useState([])
+    const [tableData, setTableData] = useState([])
+    console.log(tableData, 'tableData')
 
-    const getData = async () => {
+    const fetchDryingData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.packing)
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
             setData(res?.data?.data)
-            if (res?.data?.data) {
-                const listData = JSON.parse(res?.data?.data?.section1_list);
-                setParsedData(listData)
+            if (res?.data.data) {
+                const parsedData = JSON.parse(res?.data?.data?.table_data);
+                setTableData(parsedData)
             }
         }
         catch (err) {
             console.log(err)
         }
     }
-
-
     useEffect(() => {
-        getData()
+        fetchDryingData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -81,7 +75,7 @@ const Packing = () => {
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Packing</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Roller Sharpening Machine</Typography>
                 </Breadcrumbs>
 
 
@@ -90,7 +84,7 @@ const Packing = () => {
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }} >
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -113,10 +107,10 @@ const Packing = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PACKING" ? "green" : "transparent",
-                                        color: item === "PACKING" ? "#fff" : "#000",
+                                        backgroundColor: item === "ROLLER SHARPENING MACHINE" ? "Green" : "transparent",
+                                        color: item === "ROLLER SHARPENING MACHINE" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "PACKING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "ROLLER SHARPENING MACHINE" ? "Green" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -135,47 +129,287 @@ const Packing = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Roboto",
-                                color: "red"
-                            }}
-                        >
-                            {data?.section1_title}
-                        </Typography>
-
-
-
-
-                        {/* Technical Specification Table */}
-                        {/* Technical Specifications */}
-
-                        {
-                            parsedData?.map((item) => {
-                                return (
-                                    <Typography
-                                        sx={
-                                            headingStyle
-                                        }
-                                    >
-                                        <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> 
-                                         {item}
-                                    </Typography>
-                                )
-                            })
-                        }
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
 
 
 
 
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Tornado Automatic Chasing Lathe
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={image1} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+
+                                            >
+
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                                            </Typography>
 
 
 
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Helix Automatic Milling Lathe
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={image1} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+
+                                            >
+
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Stalwart Dual Cutter Automatic CNC Sharpening Machine
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={image1} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+
+                                            >
+
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Tool Cutter Grinder
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={image1} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+
+                                            >
+
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Rooler Inspection Bench
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={image1} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+
+                                            >
+
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
 
 
                     </Grid>
@@ -184,24 +418,5 @@ const Packing = () => {
         </Box>
     );
 };
-
-const headingStyle = {
-    fontSize: "20px",
-    fontWeight: 600,
-    mt: 4,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
-
 
 export default Packing;

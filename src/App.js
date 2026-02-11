@@ -67,6 +67,8 @@ import GalvanizingProcess from "./Pages/HotDipGalvanization/Components/Galvanizi
 import QualityAssurance from "./Pages/HotDipGalvanization/Components/QualityAssurance";
 import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChooseVikram";
 import ProfileAvailability from "./Pages/Components/ProfileAvailability";
+import BlackTeaCard from "./Pages/BlackTeaCard/Index";
+import GreenBlending from "./Pages/GreenTeaprocessing/GreenBlending";
 
 
 function App() {
@@ -79,24 +81,25 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products/ctc/withering" element={<Withering />} />
-        <Route path="/products/ctc/Rolling" element={<Rolling />} />
-        <Route path="/products/ctc/Fermenting" element={<Fermenting />} />
-        <Route path="/products/ctc/drying" element={<Drying />} />
-        <Route path="/products/ctc/sorting" element={<Sorting />} />
-        <Route path="/products/ctc/packing" element={<Packing />} />
+        <Route path="/products/ctc/withering-process" element={<Withering />} />
+        <Route path="/products/ctc/rolling-process" element={<Rolling />} />
+        <Route path="/products/ctc/oxidation-process" element={<Fermenting />} />
+        <Route path="/products/ctc/drying-process" element={<Drying />} />
+        <Route path="/products/ctc/sorting,cleaning,grading-and-storage-system" element={<Sorting />} />
+        <Route path="/products/ctc/roller-sharpening-machine" element={<Packing />} />
         <Route path="/products/ctc/utilities" element={<Utilities />} />
-        <Route path="/products/ctc/teawithering" element={<TeaWithering />} />
-        <Route path="/products/ctc/tearolling" element={<TeaRolling />} />
-        <Route path="/products/ctc/teafermenting" element={<TeaFermenting />} />
-        <Route path="/products/ctc/teadrying" element={<TeaDrying />} />
-        <Route path="/products/ctc/teasorting" element={<TeaSorting />} />
+        <Route path="/products/ctc/teawithering-process" element={<TeaWithering />} />
+        <Route path="/products/ctc/tearolling-process" element={<TeaRolling />} />
+        <Route path="/products/ctc/teaoxidation-process" element={<TeaFermenting />} />
+        <Route path="/products/ctc/teadrying-process" element={<TeaDrying />} />
+        <Route path="/products/ctc/teasorting,cleaning,grading-and-storage-system" element={<TeaSorting />} />
         <Route path="/products/ctc/teapacking" element={<TeaPacking />} />
-        <Route path="/products/ctc/greensteaming" element={<GreenSteaming />} />
-        <Route path="/products/ctc/greenpacking" element={<GreenPacking />} />
-        <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
-        <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
-        <Route path="/products/ctc/greenrolling" element={<GreenRolling />} />
+        <Route path="/products/ctc/greensteaming-process" element={<GreenSteaming />} />
+        <Route path="/products/ctc/greensorting-&-grading-process" element={<GreenPacking />} />
+        <Route path="/products/ctc/greendrying-process" element={<GreenSorting />} />
+        <Route path="/products/ctc/greenrolling-and-shaping-process" element={<GreenDrying />} />
+        <Route path="/products/ctc/greenroasting-process-(panning)" element={<GreenRolling />} />
+         <Route path="/products/ctc/greenfinal-blending-&-packing" element={<GreenBlending />} />
         <Route path="/products/ctc/harvesting" element={<Harvesting />} />
         <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
         <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
@@ -156,6 +159,7 @@ function App() {
         <Route path="/products/the-galvanizing-process" element={<GalvanizingProcess />} />
         <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
         <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
+        <Route path="/products/tea-processing-machinery/black-tea" element={<BlackTeaCard />} />
       </Routes>
       <Footer />
     </BrowserRouter>

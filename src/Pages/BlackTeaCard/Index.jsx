@@ -26,21 +26,21 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const cardData = [
     {
         id: 1,
-        title: "Black Tea ",
+        title: "CTC ",
         image: FanImage,
-        path: "/products/tea-processing-machinery/black-tea"
+        path: "/products/ctc/withering-process"
     },
     {
         id: 2,
-        title: "Green Tea",
+        title: "ORTHODOX",
         image: FanImage,
-        path: "/products/ctc/greensteaming-process"
+        path: "/products/ctc/teawithering-process"
     },
     
 ];
 
 
-const ProcessingCard = () => {
+const BlackTeaCard = () => {
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -67,6 +67,7 @@ const ProcessingCard = () => {
                     </MLink>
                     <Typography color="inherit">Product & Services</Typography>
                     <Typography color="text.primary">Tea Processing Machinery</Typography>
+                    <Typography color="text.primary">Black Tea</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
@@ -80,7 +81,7 @@ const ProcessingCard = () => {
                         fontFamily: "Open Sans"
                     }}
                 >
-                    Tea Processing Machinery
+                    Black Tea
                 </Typography>
 
                 <Typography sx={{ fontSize: "15px", mb: 3, color: "#d32f2f", fontFamily: "Open Sans" }}>
@@ -157,4 +158,4 @@ const ProcessingCard = () => {
     );
 };
 
-export default ProcessingCard;
+export default BlackTeaCard;

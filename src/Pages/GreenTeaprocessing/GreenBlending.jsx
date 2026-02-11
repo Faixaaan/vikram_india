@@ -44,7 +44,7 @@ const leftMenu = [
 
 
 
-const GreenDrying = () => {
+const GreenBlending = () => {
 
     const [data, setData] = useState([])
 
@@ -74,7 +74,7 @@ const GreenDrying = () => {
                     </MLink>
                     <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
                     <Typography color="text.primary" sx={{  fontSize: "15px" }}>Green Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Rolling and Shaping Process</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Final Blending & Packing</Typography>
                 </Breadcrumbs>
 
                 
@@ -104,10 +104,10 @@ const GreenDrying = () => {
                                     to={`/products/ctc/${`green`}${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "ROLLING AND SHAPING PROCESS" ? "green" : "transparent",
-                                        color: item === "ROLLING AND SHAPING PROCESS" ? "#fff" : "#000",
+                                        backgroundColor: item === "FINAL BLENDING & PACKING" ? "green" : "transparent",
+                                        color: item === "FINAL BLENDING & PACKING" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "ROLLING AND SHAPING PROCESS" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "FINAL BLENDING & PACKING" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -146,7 +146,7 @@ const GreenDrying = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
-                                    Open Top Tea Roller
+                                    Vibro-Packers
                                 </Typography>
                             </AccordionSummary>
 
@@ -195,7 +195,7 @@ const GreenDrying = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
-                                    Circular Green Tea Shapers
+                                    Automatic Pouch Packing Machine
                                 </Typography>
                             </AccordionSummary>
 
@@ -245,4 +245,4 @@ const GreenDrying = () => {
 
 
 
-export default GreenDrying;
+export default GreenBlending;
