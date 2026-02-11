@@ -99,7 +99,7 @@ function App() {
         <Route path="/products/ctc/greendrying-process" element={<GreenSorting />} />
         <Route path="/products/ctc/greenrolling-and-shaping-process" element={<GreenDrying />} />
         <Route path="/products/ctc/greenroasting-process-(panning)" element={<GreenRolling />} />
-         <Route path="/products/ctc/greenfinal-blending-&-packing" element={<GreenBlending />} />
+        <Route path="/products/ctc/greenfinal-blending-&-packing" element={<GreenBlending />} />
         <Route path="/products/ctc/harvesting" element={<Harvesting />} />
         <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
         <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
