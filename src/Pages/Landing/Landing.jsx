@@ -231,7 +231,6 @@ import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import landvideo from "../../images/landingvideo.mp4"
 
 
 const MotionBox = motion(Box);
@@ -240,7 +239,7 @@ export default function Landing() {
   const [open, setOpen] = useState(false);
   const [showVideo, setShowVideo] = useState(true);
   const navigate = useNavigate();
-  // const landvideo = "https://res.cloudinary.com/deqx8t3wr/video/upload/v1770867858/landingvideo_yt5ypz.mp4";
+  const landvideo = "https://res.cloudinary.com/deqx8t3wr/video/upload/v1770867858/landingvideo_yt5ypz.mp4";
 
   const handleEnter = () => {
     // hide video immediately
