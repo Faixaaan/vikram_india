@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import bannerImg from "../../Assets/Banner.png"; // change if needed
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
+import { axiosInstance } from "../../Api/Axios/axios";
 
 const HdpLearnMore = () => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
 
-  const handleClick = ()=>{
-     navigate("/products/introduction")
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const res = await axiosInstance.get(endpoints.HotDipGalvanization.SettingPage)
+      setData(res.data?.data);
+      console.log(res?.data, 'settings___')
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
-   
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+
+  const handleClick = () => {
+    navigate("/products/introduction")
+  }
+
 
   return (
     <>
@@ -20,7 +41,7 @@ const HdpLearnMore = () => {
         sx={{
           width: "100%",
           height: { xs: "220px", sm: "300px", md: "380px" },
-          backgroundImage: `url(${bannerImg})`,
+          backgroundImage: `url(${data?.banner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
@@ -68,7 +89,7 @@ const HdpLearnMore = () => {
             textAlign: "center",
             py: { xs: 4, sm: 5, md: "60px" },
             px: { xs: 2, sm: 3 },
-            paddingBottom:"150px!important"
+            paddingBottom: "150px!important"
           }}
         >
           {/* Title */}
@@ -81,7 +102,7 @@ const HdpLearnMore = () => {
               color: "#1A73E8",
             }}
           >
-            World-Class Hot Dip Galvanizing Services
+            {data?.title}
           </Typography>
 
           {/* Subtitle */}
@@ -95,11 +116,15 @@ const HdpLearnMore = () => {
               mx: "auto",
               mb: 4,
               lineHeight: "1.4",
-              textAlign:"center"
+              textAlign: "center"
+            }}
+            dangerouslySetInnerHTML={{
+              __html: `
+      ${data?.description}
+    `
             }}
           >
-           Protecting your steel assets against corrosion with precision, 
-          durability, and a commitment to international quality standards
+
           </Typography>
 
           {/* Learn More Button */}

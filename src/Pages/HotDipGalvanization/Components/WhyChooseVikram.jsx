@@ -47,7 +47,7 @@ const WhyChooseVikramIndia = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+            const res = await axiosInstance.get(endpoints.HotDipGalvanization.WhyChooseUs)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -69,19 +69,19 @@ const WhyChooseVikramIndia = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Why Choose Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Hot Dip Galvanization</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Why Choose Us</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-               
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -134,17 +134,17 @@ const WhyChooseVikramIndia = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 700,
                                 mt: 1,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
-                            WHY CHOOSE VIKRAM INDIA FOR HDG
+                            {data?.title}
                         </Typography>
 
 
@@ -165,7 +165,7 @@ const WhyChooseVikramIndia = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Quick Turnaround Time
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -186,8 +186,13 @@ const WhyChooseVikramIndia = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section1_description}
+    `
+                                                }}
                                             >
-                                                Optimized logistics for external job work.
+
 
 
                                             </Typography>
@@ -218,7 +223,7 @@ const WhyChooseVikramIndia = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Surface Finish
+                                    {data?.section2_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -239,8 +244,13 @@ const WhyChooseVikramIndia = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section2_description}
+    `
+                                                }}
                                             >
-                                                Smooth, aesthetic, and "no-drip" finish.
+
 
 
                                             </Typography>
@@ -271,7 +281,7 @@ const WhyChooseVikramIndia = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Strategic Location
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -292,8 +302,13 @@ const WhyChooseVikramIndia = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section3_description}
+    `
+                                                }}
                                             >
-                                                Located on NH-6 resulting in faster ETA.
+
 
 
                                             </Typography>
@@ -324,7 +339,7 @@ const WhyChooseVikramIndia = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Vast Experience
+                                    {data?.section4_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -345,9 +360,13 @@ const WhyChooseVikramIndia = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section4_description}
+    `
+                                                }}
                                             >
-                                                Decades of engineering excellence from the Tea and Solar sectors applied
-                                                to HDG.
+
 
 
                                             </Typography>

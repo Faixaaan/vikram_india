@@ -46,7 +46,7 @@ const GalvanizingProcess = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+            const res = await axiosInstance.get(endpoints.HotDipGalvanization.GalvanizationProcess)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -68,18 +68,18 @@ const GalvanizingProcess = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>The Galvanizing Process</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Hot Dip Galvanization</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>The Galvanizing Process</Typography>
                 </Breadcrumbs>
 
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -132,17 +132,17 @@ const GalvanizingProcess = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mt: 1,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
-                            THE GALVANIZING PROCESS
+                            {data?.title}
                         </Typography>
 
 
@@ -163,7 +163,7 @@ const GalvanizingProcess = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    The Galvanizing Process
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -177,20 +177,15 @@ const GalvanizingProcess = () => {
 
 
 
-                                            <ul>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Degreasing:</b> Removal of oil and grease.
-                                                </li>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Pickling:</b> Acid bath to remove rust and scale.
-                                                </li>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Galvanizing:</b> Immersion in molten zinc at ±450°C.
-                                                </li>
-                                                <li style={{ fontSize: "16px", marginTop: "10px" }}>
-                                                    <b>Quenching & Dichromating:</b> Cooling and surface passivation for a shiny finish.
-                                                </li>
-                                            </ul>
+                                            <Typography
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section1_description}
+    `
+                                                }}
+                                            >
+
+                                            </Typography>
 
 
 

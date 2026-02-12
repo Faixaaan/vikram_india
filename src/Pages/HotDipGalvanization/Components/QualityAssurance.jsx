@@ -46,7 +46,7 @@ const QualityAssurance = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+            const res = await axiosInstance.get(endpoints.HotDipGalvanization.Quality_Assurance)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -69,18 +69,18 @@ const QualityAssurance = () => {
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Quality Assurance & Lab Facilities</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Hot Dip Galvanization</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Quality Assurance & Lab Facilities</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-              
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -133,17 +133,17 @@ const QualityAssurance = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mt: 1,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
-                            THE GALVANIZING PROCESS
+                            {data?.title}
                         </Typography>
 
 
@@ -164,7 +164,7 @@ const QualityAssurance = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Testing
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -185,9 +185,13 @@ const QualityAssurance = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section1_description}
+    `
+                                                }}
                                             >
-                                                Coating thickness measurement (Digital Coatmeter), Adhesion tests (IS 2629),
-                                                Uniformity tests (IS 2633) & mass of zinc coating (IS 6745)
+
 
 
                                             </Typography>
@@ -218,7 +222,7 @@ const QualityAssurance = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Certification
+                                    {data?.section2_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -239,8 +243,13 @@ const QualityAssurance = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section2_description}
+    `
+                                                }}
                                             >
-                                                ISO 9001
+
 
 
                                             </Typography>
@@ -271,7 +280,7 @@ const QualityAssurance = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
-                                    Environmental Responsibility
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -292,8 +301,13 @@ const QualityAssurance = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: `
+      ${data?.section3_description}
+    `
+                                                }}
                                             >
-                                                Mention your Effluent Treatment Plant (ETP) or eco-friendly practices, RO
+
 
 
                                             </Typography>

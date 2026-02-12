@@ -68,7 +68,7 @@ const ServiceCapabilities = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction)
+            const res = await axiosInstance.get(endpoints.HotDipGalvanization.capabilities)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -90,19 +90,19 @@ const ServiceCapabilities = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Hot Dip Galvanization</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Service Capabilities</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Hot Dip Galvanization</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Service Capabilities</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }} >
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -155,17 +155,17 @@ const ServiceCapabilities = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:5}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mt: 1,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
-                            SERVICE CAPABILITIES
+                            {data?.title}
                         </Typography>
 
 
@@ -186,82 +186,28 @@ const ServiceCapabilities = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Service Capabilities
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <TableContainer
+                                <Typography
                                     sx={{
-                                        border: "1px solid #e0e0e0",
-                                        borderRadius: "6px",
-                                        overflowX: "auto",
+                                        fontSize: "16px",
+                                        fontFamily: "Roboto",
+                                        textAlign: "justify",
+                                        mt: 0
+                                    }}
+                                    dangerouslySetInnerHTML={{
+                                        __html: ` ${data?.section1_description}`
+                                     
+                                    
                                     }}
                                 >
-                                    <Table
-                                        sx={{
-                                            borderCollapse: "collapse",
-                                            minWidth: 600,
-                                        }}
-                                    >
-                                        {/* TABLE HEADER */}
-                                        <TableHead>
-                                            <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                                <TableCell
-                                                    sx={{
-                                                        fontWeight: 600,
-                                                        fontSize: "16px",
-                                                        border: "1px solid #e0e0e0",
-                                                        width: "30%",
-                                                        fontFamily: "Roboto",
-                                                    }}
-                                                >
-                                                    Service Category
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        fontWeight: 600,
-                                                        fontSize: "16px",
-                                                        border: "1px solid #e0e0e0",
-                                                        fontFamily: "Roboto",
-                                                    }}
-                                                >
-                                                    Description
-                                                </TableCell>
-                                            </TableRow>
-                                        </TableHead>
 
-                                        {/* TABLE BODY */}
-                                        <TableBody>
-                                            {featureSpecData.map((row, index) => (
-                                                <TableRow key={index}>
-                                                    <TableCell
-                                                        sx={{
-                                                            border: "1px solid #e0e0e0",
-                                                            fontSize: "14px",
-                                                            verticalAlign: "top",
-                                                            fontWeight: 500,
-                                                            fontFamily: "Roboto",
-                                                        }}
-                                                    >
-                                                        {row.feature}
-                                                    </TableCell>
 
-                                                    <TableCell
-                                                        sx={{
-                                                            border: "1px solid #e0e0e0",
-                                                            fontSize: "14px",
-                                                            fontFamily: "Roboto",
-                                                            lineHeight: "1.6",
-                                                        }}
-                                                    >
-                                                        {row.specification}
-                                                    </TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
+
+                                </Typography>
                             </AccordionDetails>
                         </Accordion>
 

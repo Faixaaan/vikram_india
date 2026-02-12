@@ -77,6 +77,15 @@ export const endpoints = {
     packing:"/page/ctc_tea_processing_packing",
     workshop:"/page/ctc_tea_processing_working",
     utilities:"/page/ctc_tea_processing_utilities"
+  },
+  HotDipGalvanization:{
+    SettingPage:"/page/hotdip_settings",
+    Intoduction:"/page/hotdip_introduction",
+    capabilities:"/page/hotdip_capabilities",
+    technical_specification:"/page/hotdip_technical",
+    GalvanizationProcess:"/page/hotdip_galvanizing",
+    Quality_Assurance:"/page/hotdip_quality",
+    WhyChooseUs:"/page/hotdip_whychooseus"
   }
 
 
