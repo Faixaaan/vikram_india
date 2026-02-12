@@ -31,12 +31,13 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
 const leftMenu = [
-    "STEAMING",
-    "ROLLING",
+    "STEAMING PROCESS",
+    "ROASTING PROCESS (PANNING)",
     
-    "DRYING",
-    "SORTING",
-    "PACKING",
+    "ROLLING AND SHAPING PROCESS",
+    "DRYING PROCESS",
+    "SORTING & GRADING PROCESS",
+    "FINAL BLENDING & PACKING",
 
 ];
 
@@ -72,8 +73,8 @@ const GreenSorting = () => {
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{fontSize: "15px" }}>Green Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Sorting</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/processing-card">Green Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Drying Process</Typography>
                 </Breadcrumbs>
 
                 
@@ -93,7 +94,7 @@ const GreenSorting = () => {
                             Product & Services
                         </Typography>
 
-                       
+                        
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -103,10 +104,10 @@ const GreenSorting = () => {
                                     to={`/products/ctc/${`green`}${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "SORTING" ? "green" : "transparent",
-                                        color: item === "SORTING" ? "#fff" : "#000",
+                                        backgroundColor: item === "DRYING PROCESS" ? "green" : "transparent",
+                                        color: item === "DRYING PROCESS" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "SORTING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "DRYING PROCESS" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -125,46 +126,13 @@ const GreenSorting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Roboto",
-                                color:"red"
-                            }}
-                        >
-                            SORTING
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
+                      
 
-                        <Grid container spacing={2}>
-                            {/* Left Description */}
-                            <Grid item xs={12} md={8}>
-
-
-
-                            </Grid>
-
-                            {/* Right Image */}
-                            <Grid item xs={12} md={4}>
-                                <Box
-                                    component="img"
-                                    src={data?.image}
-                                    alt="Axial Flow Fan"
-                                    sx={{
-                                        width: "100%",
-                                        borderRadius: "4px",
-                                        border: "1px solid #ddd",
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
+                       
 
                         {/* Technical Specification Table */}
 
-
-
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -177,28 +145,16 @@ const GreenSorting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
-                                    Arnot Sorter
-
-
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Fluid Bed Dryer
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-
+                                
                                 <Grid container spacing={3} alignItems="flex-start">
 
                                     {/* LEFT TEXT */}
-                                    <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Arnot sorter from Vikram India has a sorting capacity of up to 1500 Kgs. The machine with its galloping motion ensures smooth sorting without greying the tea grains. The trays are made of teak wood and are fitted with wire mesh.
-
-
-                                        </Typography>
-
-                                    </Grid>
-
-                                    {/* RIGHT IMAGE */}
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
@@ -206,72 +162,26 @@ const GreenSorting = () => {
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
-                                                maxWidth: "260px",
-                                                borderRadius: "8px",
+                                                
                                             }}
                                         />
                                     </Grid>
-                                </Grid>
-
-                                <Box>
-
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Design Type
+                                    <Grid item size={{ xs: 12, md: 8 }} >
+                                        <Typography>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
                                         </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
 
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                    </Grid>
 
-                                                Pucca sorter machine with rendering galloping motion which saves tea while traveling on the screen from shuffling and becoming Grayish
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Hopper
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                Out of Stainless steel, fitted on LH & RH pedestals as such that the stored tea do not get grinded in result saving the bloom. Beater provided on tray assembly to creates little vibration on teas through a rubber diaphragm forming lower stop of the hopper, to assist the flow of tea without obstruction.
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Trays
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                Made of season teak wood fitted with wire mesh, all the 5 trays are of same size hence inter-changeable. The first two trays rubber bouncing balls arranged in rubber cord fitted on the bottom. These balls strikes the wire mesh very gently at every stroke of the crank, to prevent clogging of the wire mesh.
-                                                Capacity = 1500Kgs.
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
+                                    {/* RIGHT IMAGE */}
                                     
+                                </Grid>
 
-
-
-                                </Box>
-
-
-
+                              
 
                             </AccordionDetails>
                         </Accordion>
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -284,27 +194,16 @@ const GreenSorting = () => {
                                 borderBottom: "1px solid #eee",
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                                <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "Roboto" }}>
-                                    Myddleton Stalk Extractor
-
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Endless Chain Pressure (Ecp) Dryer
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-
+                                
                                 <Grid container spacing={3} alignItems="flex-start">
 
                                     {/* LEFT TEXT */}
-                                    <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Vikram's Stalk Extractor performs dual function - it makes the tea stalk-free and also grades the tea during the extraction process, without breaking or greying the grains. Two aluminium perforated trays mounted on sturdy frames help fine tea particles to pass through while the larger particles with stalk are sifted out. This machine also acts as an efficient tea grading machine.
-
-
-                                        </Typography>
-
-                                    </Grid>
-
-                                    {/* RIGHT IMAGE */}
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
@@ -312,153 +211,27 @@ const GreenSorting = () => {
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
-                                                maxWidth: "260px",
-                                                borderRadius: "8px",
+                                                
                                             }}
                                         />
                                     </Grid>
+                                    <Grid item size={{ xs: 12, md: 8 }} >
+                                        <Typography>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+                                        </Typography>
+
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    
                                 </Grid>
 
-                                <Box>
-
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Applications
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                VIKRAM's Stalk Extractor performs the dual function of making the tea more free from stalk and grades the tea during the stalk extracting operation. A further claim is also made for VIKRAM's stalk extractor that it does not break or grey the tea.
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Construction
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                VIKRAM's Stalk Extractor is made of two aluminium dimpled perforated trays, mounted on frames, one above the other. Each frame is provided with a false bottom, which collects and delivers the tea through ducts at the side of the machine. An oscillating motion is imparted to the trays with the help of a crank shaft, fitted on a sturdy cast iron pedestal, suitable for motor or shaft drive. Crank shaft moves at 200 RPM.
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Trays
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                The standard perforation in the aluminium dimpled trays is 3/16" and 17/64". Trays with specific size perforations can also be supplied. The inclination of the trays can be very simply adjusted to suit individual requirements.
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Power
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                                One 2 HP, 960 RPM Motor is required to drive the machine.
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            Size
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                                The overall measurement of the machine are 3971 mm (158") length X 965 mm (39") width X 1284 mm (51") height.
-
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-                                    <Box sx={{ marginTop: "10px" }}>
-                                        <Typography sx={{ color: "black", fontSize: "18px" }}>
-                                            The Dual Operation
-                                        </Typography>
-                                        <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-
-                                            <ChevronRightIcon sx={{ color: "red" }} />
-                                            <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                                Tea is fed to the top tray through an adjustable feed hopper. Fine tea falls through the perforations and larger particles of the tea with stalk are discharged at the bottom tray. The remainder of the tea falls through the perforations of the bottom tray and stalk is delivered at the discharge end
-
-
-                                            </Typography>
-
-                                        </Box>
-                                    </Box>
-
-
-
-                                </Box>
-                                <Box>
-                                    <Typography sx={{ color: "red", fontSize: "18px", marginTop: "30px" }}>
-                                        Advantages
-
-                                    </Typography>
-                                    <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                        <ChevronRightIcon sx={{ color: "red" }} />
-                                        <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                            It effects a great saving in labour.
-                                        </Typography>
-
-                                    </Box>
-                                    <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                        <ChevronRightIcon sx={{ color: "red" }} />
-                                        <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                            It does not break or grey the tea.
-                                        </Typography>
-
-                                    </Box>
-                                    <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                        <ChevronRightIcon sx={{ color: "red" }} />
-                                        <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                            It does not require any intricate or delicate adjustment.
-                                        </Typography>
-
-                                    </Box>
-                                    <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                        <ChevronRightIcon sx={{ color: "red" }} />
-                                        <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                            It acts as a most efficient tea grading machine too.
-                                        </Typography>
-
-                                    </Box>
-
-                                </Box>
-
-
+                              
 
                             </AccordionDetails>
                         </Accordion>
 
-
+                        
 
 
 
@@ -470,22 +243,6 @@ const GreenSorting = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
+
 
 export default GreenSorting;

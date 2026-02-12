@@ -33,6 +33,7 @@ import { endpoints } from "../../Api/EndPoints/endpoints";
 const leftMenu = [
     "INFRASTRUCTURE & MACHINERY",
     "PRODUCT & PORTFOLIO",
+    "PROFILE AVAILABILITY",
     "TECHNICAL SPECIFICATION",
     "QUALITY & SAFETY",
 
@@ -49,16 +50,16 @@ const Manufacturing = () => {
 
     const [imageData, setImageData] = useState([])
     const [data, setData] = useState([])
-    console.log(data,'porduct_portfolio')
+    console.log(data, 'porduct_portfolio')
 
 
     const fetchImageData = async () => {
         try {
-            
+
             const resData = await axiosInstance.get(endpoints.ModuleMounting.product_portfolio)
             setData(resData?.data?.data)
 
-         
+
         }
         catch (err) {
             console.log(err)
@@ -83,19 +84,19 @@ const Manufacturing = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Module Mounting Structure</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Module Mounting Structure</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px" }}>Product & Portfolio</Typography>
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -108,14 +109,14 @@ const Manufacturing = () => {
                             Product & Services
                         </Typography>
 
-                       
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/mms/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "PRODUCT & PORTFOLIO" ? "#1A73E8" : "transparent",
@@ -140,19 +141,9 @@ const Manufacturing = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 0,
-                                fontFamily: "Roboto",
-                                color:"#1A73E8"
-                            }}
-                        >
-                            {data?.title}
-                        </Typography>
-                    
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
+
+
 
 
                         {/* Introduction */}
@@ -192,7 +183,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                       {data?.section1_title}
+                                        {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -214,11 +205,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
-                                                     dangerouslySetInnerHTML={{
+                                                    dangerouslySetInnerHTML={{
                                                         __html: data?.section1_description
                                                     }}
                                                 >
-                                                    
+
 
 
                                                 </Typography>
@@ -255,7 +246,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                       {data?.section2_title}
+                                        {data?.section2_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -277,11 +268,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
-                                                     dangerouslySetInnerHTML={{
+                                                    dangerouslySetInnerHTML={{
                                                         __html: data?.section2_description
                                                     }}
                                                 >
-                                                    
+
 
 
                                                 </Typography>
@@ -318,7 +309,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                       {data?.section3_title}
+                                        {data?.section3_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -340,11 +331,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
-                                                     dangerouslySetInnerHTML={{
+                                                    dangerouslySetInnerHTML={{
                                                         __html: data?.section3_description
                                                     }}
                                                 >
-                                                    
+
 
 
                                                 </Typography>
@@ -381,7 +372,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                       {data?.section4_title}
+                                        {data?.section4_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -403,12 +394,73 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
-                                                     dangerouslySetInnerHTML={{
+                                                    dangerouslySetInnerHTML={{
                                                         __html: data?.section4_description
                                                     }}
                                                 >
-                                                    
 
+
+
+                                                </Typography>
+
+
+
+                                            </Grid>
+
+
+
+                                            {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                        </Grid>
+                                    </Box>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion sx={{
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 4
+                            }}>
+                                <AccordionSummary sx={{
+                                    backgroundColor: "#f8f8f8",
+                                    borderBottom: "1px solid #eee",
+                                    borderRadius: "8px"
+                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                    <Typography
+                                        sx={{
+                                            fontSize: { md: "20px", xs: "16px" },
+                                            fontWeight: 500,
+                                            fontFamily: "Roboto"
+                                        }}
+                                    >
+                                        Heading Five (5)
+                                    </Typography>
+                                </AccordionSummary>
+
+                                <AccordionDetails>
+                                    <Box>
+                                        <Grid container spacing={2}>
+                                            {/* RIGHT IMAGE */}
+                                            <Grid item size={{ xs: 12, md: 4 }}>
+                                                <img src={data?.section4_image} style={{ width: "100%" }} />
+                                            </Grid>
+
+                                            {/* LEFT CONTENT */}
+                                            <Grid item size={{ xs: 12, md: 8 }}>
+
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "16px",
+                                                        fontFamily: "Roboto",
+                                                        textAlign: "justify",
+                                                        mt: 0
+                                                    }}
+
+                                                >
+
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum libero laboriosam ipsa in molestias nulla, non id quasi, unde sapiente repellendus amet vero provident cumque blanditiis. Eveniet sit facilis tempore iure vero modi, quam labore autem amet omnis. Illum adipisci ipsum voluptatum consequuntur laborum sit ipsa veniam maxime sequi vel delectus illo quibusdam ab aut minima, harum obcaecati. Voluptas natus possimus neque doloribus magnam excepturi veritatis ducimus ipsa voluptatem vero veniam debitis voluptatibus modi illo, placeat tenetur voluptates velit, voluptatum amet nostrum ipsum distinctio rem? Illo ipsa hic modi, esse praesentium cum molestiae sequi doloremque quia corrupti nemo saepe.
 
                                                 </Typography>
 

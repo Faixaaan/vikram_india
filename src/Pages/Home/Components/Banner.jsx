@@ -968,74 +968,74 @@ const Banner = () => {
 
               {/* Green Button */}
               <Box
-  onClick={() =>
-    navigate(getRouteByCounter(data[current]?.counter))
-  }
-  sx={{
-    alignSelf: { xs: "stretch", sm: "flex-start" },
-    mt: 2,
-    px: 5,
-    py: 1.6,
-    borderRadius: "50px",
-    textTransform: "uppercase",
-    fontWeight: 700,
-    fontSize: "17px",
-    letterSpacing: 1,
+                onClick={() =>
+                  navigate(getRouteByCounter(data[current]?.counter))
+                }
+                sx={{
+                  alignSelf: { xs: "stretch", sm: "flex-start" },
+                  mt: 2,
+                  px: 5,
+                  py: 1.6,
+                  borderRadius: "50px",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  fontSize: "17px",
+                  letterSpacing: 1,
 
-    position: "relative",
-    overflow: "hidden",
-    cursor: "pointer",
-    display: "inline-block",
+                  position: "relative",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  display: "inline-block",
 
-    color: "#fff",
+                  color: "#fff",
 
-    // 🔥 Gradient background
-    background: "linear-gradient(135deg, #c40613, #ff1e2d, #8b0000)",
-    backgroundSize: "200% 200%",
-    animation: "gradientMove 5s ease infinite",
+                  // 🔥 Gradient background
+                  background: "linear-gradient(135deg, #c40613, #ff1e2d, #8b0000)",
+                  backgroundSize: "200% 200%",
+                  animation: "gradientMove 5s ease infinite",
 
-    boxShadow:
-      "0 0 15px rgba(196,6,19,0.6), 0 8px 25px rgba(0,0,0,0.4)",
+                  boxShadow:
+                    "0 0 15px rgba(196,6,19,0.6), 0 8px 25px rgba(0,0,0,0.4)",
 
-    transition: "all 0.4s ease",
+                  transition: "all 0.4s ease",
 
-    "&:hover": {
-      transform: "translateY(-4px) scale(1.05)",
-      boxShadow:
-        "0 0 25px rgba(255,30,45,0.9), 0 12px 35px rgba(0,0,0,0.6)",
-    },
+                  "&:hover": {
+                    transform: "translateY(-4px) scale(1.05)",
+                    boxShadow:
+                      "0 0 25px rgba(255,30,45,0.9), 0 12px 35px rgba(0,0,0,0.6)",
+                  },
 
-    "&:active": {
-      transform: "scale(0.95)",
-    },
+                  "&:active": {
+                    transform: "scale(0.95)",
+                  },
 
-    // ✨ Shine effect
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: "-75%",
-      width: "50%",
-      height: "100%",
-      background:
-        "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
-      transform: "skewX(-25deg)",
-      transition: "0.7s",
-    },
+                  // ✨ Shine effect
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: "-75%",
+                    width: "50%",
+                    height: "100%",
+                    background:
+                      "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
+                    transform: "skewX(-25deg)",
+                    transition: "0.7s",
+                  },
 
-    "&:hover::before": {
-      left: "130%",
-    },
+                  "&:hover::before": {
+                    left: "130%",
+                  },
 
-    "@keyframes gradientMove": {
-      "0%": { backgroundPosition: "0% 50%" },
-      "50%": { backgroundPosition: "100% 50%" },
-      "100%": { backgroundPosition: "0% 50%" },
-    },
-  }}
->
-  EXPLORE SERVICES →
-</Box>
+                  "@keyframes gradientMove": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                  },
+                }}
+              >
+                EXPLORE SERVICES →
+              </Box>
 
             </Box>
 
@@ -1115,9 +1115,15 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
         width: 80,
         left: -20,
         top: -20,
-        animation: "spin 30s linear infinite",
+        animation: "spinGear 30s linear infinite",
+
+        "@keyframes spinGear": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       }}
     />
+
 
     <Box
       sx={{

@@ -35,7 +35,7 @@ const pages = [
 const productDropdown = [
   { name: "Module Mounting Structure", link: "/products/mms-learnMore" },
   { name: "Hot Dip Galvanization", link: "/products/hot-dip" },
-  { name: "Tea Processing Machinery", link: "/products/processing-card" },
+  { name: "Tea Processing Machinery", link: "/products/tea-processing-machinery/Tmd-Division-machine-structure" },
 ];
 
 const Navbar = () => {

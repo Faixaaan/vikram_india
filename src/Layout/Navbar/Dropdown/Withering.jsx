@@ -26,18 +26,17 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
+import image1 from '../../../Assets/machine-big-03.jpg'
 
 
 const leftMenu = [
-  "WITHERING",
-  "ROLLING",
-  "FERMENTING",
-  "DRYING",
-  "SORTING",
-  "PACKING",
-  "WORKSHOP EQUIPMENT",
-  "QUALITY CONTROL EQUIPMENT",
-  "UTILITIES",
+  "WITHERING PROCESS",
+  "ROLLING PROCESS",
+  "OXIDATION PROCESS",
+  "DRYING PROCESS",
+  "SORTING,CLEANING,GRADING AND STORAGE SYSTEM",
+  "ROLLER SHARPENING MACHINE",
+
 ];
 
 const Withering = () => {
@@ -75,8 +74,8 @@ const Withering = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Withering</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Withering Process</Typography>
         </Breadcrumbs>
 
 
@@ -108,10 +107,10 @@ const Withering = () => {
                   to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "WITHERING" ? "Green" : "transparent",
-                    color: item === "WITHERING" ? "#fff" : "#000",
+                    backgroundColor: item === "WITHERING PROCESS" ? "Green" : "transparent",
+                    color: item === "WITHERING PROCESS" ? "#fff" : "#000",
                     "&:hover": {
-                      backgroundColor: item === "WITHERING" ? "Green" : "#f5f5f5",
+                      backgroundColor: item === "WITHERING PROCESS" ? "Green" : "#f5f5f5",
                     },
                     fontFamily: "Roboto"
                   }}
@@ -130,61 +129,11 @@ const Withering = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                fontWeight: 600,
-                mb: 0,
-                fontFamily: "Roboto",
-                color: "red"
-              }}
-            >
-              {data?.section1_title}
-            </Typography>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
 
-            <Grid container spacing={2}>
-              {/* Left Description */}
-              <Grid item xs={12} md={8}>
-                <Typography sx={{ mb: 2, fontSize: "18px", lineHeight: "24px", fontFamily: "Roboto" }}
-                  dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
-
-                >
-
-                </Typography>
 
 
-              </Grid>
-
-              {/* Right Image */}
-              <Grid item xs={12} md={4}>
-                <Box
-                  component="img"
-                  src={data?.image}
-                  alt="Axial Flow Fan"
-                  sx={{
-                    width: "100%",
-                    borderRadius: "4px",
-                    border: "1px solid #ddd",
-                  }}
-                />
-              </Grid>
-            </Grid>
-
-            {/* Technical Specification Table */}
-            {/* Technical Specifications */}
-            <Typography
-              sx={{
-                fontSize: "20px",
-                fontWeight: 600,
-                mt: 4,
-                mb: 2,
-                fontFamily: "Roboto",
-              }}
-            >
-              {data?.section2_title}
-            </Typography>
 
             <Accordion sx={{
               background: "#fff",
@@ -197,60 +146,268 @@ const Withering = () => {
                 backgroundColor: "#f8f8f8",
                 borderBottom: "1px solid #eee",
                 borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
-                <Typography sx={{ fontWeight: 700, fontFamily: "Roboto" }} variant="h6">
-                  {data?.section2_sub_title}
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Chemical Withering System
                 </Typography>
               </AccordionSummary>
 
               <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={image1} style={{ width: "100%" }} />
+                    </Grid>
 
-                {/* YOUR EXISTING TABLE WITHOUT ANY CHANGE */}
-                {
-                  tableData?.map((item, key) => {
-                    return (
-                      <TableContainer
-                        component={Paper}
-                        sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+
                       >
-                        <Table sx={{ minWidth: 650 }}>
 
-                          {/* TABLE HEAD */}
-                          <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
-                            <TableRow>
-                              {tableData?.length > 0 &&
-                                Object.keys(tableData[0]).map((key) => (
-                                  <TableCell
-                                    key={key}
-                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
-                                  >
-                                    {key.replace(/_/g, " ").toUpperCase()}
-                                  </TableCell>
-                                ))}
-                            </TableRow>
-                          </TableHead>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
 
-                          {/* TABLE BODY */}
-                          <TableBody>
-                            {tableData?.map((item, rowIndex) => (
-                              <TableRow key={rowIndex}>
-                                {Object.keys(item).map((key) => (
-                                  <TableCell key={key}>
-                                    {item[key]}
-                                  </TableCell>
-                                ))}
-                              </TableRow>
-                            ))}
-                          </TableBody>
-
-                        </Table>
-                      </TableContainer>
-
-                    )
-                  })
-                }
+                      </Typography>
 
 
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+             <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Pyhsical Withering System
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={image1} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+
+                      >
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+             <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Automated Withering System
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={image1} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+
+                      >
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Fabricated Witehring System 
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={image1} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+
+                      >
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  Axial Flow Fan
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={image1} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+
+                      >
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
               </AccordionDetails>
             </Accordion>
 

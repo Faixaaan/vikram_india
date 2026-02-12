@@ -17,7 +17,6 @@ import {
     TableRow,
     Paper,
     Container,
-    colors,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -27,41 +26,21 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
-
+import controllerImage from "../../../src/Assets/rolling.jpg";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import CFM from '../../../src/Assets/CFM.jpg'
-import DryingImag from "../../../src/Assets/Drying_img.jpg"; // update your image
-import controllerImage from "../../../src/Assets/auto_controller.jpg";
-import heatingImage from '../../../src/Assets/heating-Arrangment.jpg'
-
-
 
 
 const leftMenu = [
-    "STEAMING",
-    "ROLLING",
-   
-    "DRYING",
-    "SORTING",
-    "PACKING",
+    "STEAMING PROCESS",
+    "ROASTING PROCESS (PANNING)",
+    
+    "ROLLING AND SHAPING PROCESS",
+    "DRYING PROCESS",
+    "SORTING & GRADING PROCESS",
+    "FINAL BLENDING & PACKING",
 
 ];
 
-const rollerSpecs = [
-    { label: "Normal Speed", r36: "60", r46: "48" },
-    { label: "Eccentricity", r36: "101 & 203 mm", r46: "101 & 203 mm" },
-    { label: "Travel of Table", r36: "202 mm Circular", r46: "202 mm Circular" },
-    { label: "Travel of Hood", r36: "406 mm Circular", r46: "406 mm Circular" },
-    { label: "Power Required", r36: "10 H.P. × 1440 RPM", r46: "20 H.P. × 1440 RPM" },
-    { label: "Capacity", r36: "130 Kg. Withered Leaf", r46: "240 Kg. Withered Leaf" },
-    { label: "Floor Space Required", r36: "2000 × 2100 mm", r46: "2250 × 2350 mm" },
-    { label: "Table", r36: "Single Piece High Quality Alloy Brass", r46: "-" },
-    { label: "Hood", r36: "Brass Sheet 10 SWG with stiffeners", r46: "-" },
-    { label: "Floating Cap", r36: "Single Piece High Quality Aluminium", r46: "-" },
-    { label: "Bearings", r36: "Heavy Duty Taper Roller & Ball Bearings", r46: "-" },
-    { label: "Pressure Cap", r36: "Automatic Lifting Gear & Height Indicator", r46: "-" },
-    { label: "Standard", r36: "Standard components with one set of spares", r46: "-" },
-];
 
 
 
@@ -94,11 +73,11 @@ const GreenPacking = () => {
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Green Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Packing</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/processing-card">Green Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Sorting & Grading Process</Typography>
                 </Breadcrumbs>
 
-              
+                
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -125,10 +104,10 @@ const GreenPacking = () => {
                                     to={`/products/ctc/${`green`}${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PACKING" ? "green" : "transparent",
-                                        color: item === "PACKING" ? "#fff" : "#000",
+                                        backgroundColor: item === "SORTING & GRADING PROCESS" ? "green" : "transparent",
+                                        color: item === "SORTING & GRADING PROCESS" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "PACKING" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "SORTING & GRADING PROCESS" ? "green" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -147,62 +126,112 @@ const GreenPacking = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Roboto",
-                                color:"red"
-                            }}
-                        >
-                            PACKING
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
+                      
 
-                        <Grid container spacing={2}>
-                            {/* Left Description */}
-                            <Grid item xs={12} md={8}>
-
-
-
-                            </Grid>
-
-                            {/* Right Image */}
-                            <Grid item xs={12} md={4}>
-                                <Box
-                                    component="img"
-                                    src={data?.image}
-                                    alt="Axial Flow Fan"
-                                    sx={{
-                                        width: "100%",
-                                        borderRadius: "4px",
-                                        border: "1px solid #ddd",
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
+                       
 
                         {/* Technical Specification Table */}
-                        {/* Technical Specifications */}
 
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Michi Sorter
+                                </Typography>
+                            </AccordionSummary>
 
+                            <AccordionDetails>
+                                
+                                <Grid container spacing={3} alignItems="flex-start">
 
-                        <Typography sx={headingStyle}>
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                           Digital Weighing Scale
-                        </Typography>
-                         
-                         <Typography sx={headingStyle}>
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                            Vibratory Platforms
-                        </Typography>
-                         <Typography sx={headingStyle}>
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                            Packing Machines
-                        </Typography>
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={controllerImage}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item size={{ xs: 12, md: 8 }} >
+                                        <Typography>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+                                        </Typography>
+
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    
+                                </Grid>
+
+                              
+
+                            </AccordionDetails>
+                        </Accordion>
+
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    Color Sorter
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={controllerImage}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item size={{ xs: 12, md: 8 }} >
+                                        <Typography>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+                                        </Typography>
+
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    
+                                </Grid>
+
+                              
+
+                            </AccordionDetails>
+                        </Accordion>
+
                         
-
 
 
 
@@ -213,22 +242,7 @@ const GreenPacking = () => {
         </Box>
     );
 };
-const headingStyle = {
-    fontSize: "20px",
-    fontWeight: 600,
-    mt: 4,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
+
+
 
 export default GreenPacking;

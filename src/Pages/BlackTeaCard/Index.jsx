@@ -12,15 +12,15 @@ import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 const cardData = [
     {
         id: 1,
-        title: "Black Tea ",
+        title: "CTC ",
         image: FanImage,
-        path: "/products/tea-processing-machinery/black-tea"
+        path: "/products/ctc/withering-process"
     },
     {
         id: 2,
-        title: "Green Tea",
+        title: "ORTHODOX",
         image: FanImage,
-        path: "/products/ctc/greensteaming-process"
+        path: "/products/ctc/teawithering-process"
     },
 
 ];
@@ -89,7 +89,7 @@ const ProcessingCard = () => {
                                 mb: 2,
                             }}
                         >
-                            Tea Processing Machinery
+                            Black Tea Machinery
                         </Typography>
 
                         {/* Breadcrumbs */}
@@ -115,10 +115,19 @@ const ProcessingCard = () => {
                             </Typography>
                             {" / "}
                             <Typography
+                                component={Link}
+                                to="/products/processing-card"
+                                underline="none"
+                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+                            >
+                                Tea Processing Machinery
+                            </Typography>
+                            {" / "}
+                            <Typography
                                 component="span"
                                 sx={{ color: "#fff", fontWeight: 500 }}
                             >
-                                 Tea Processing Machinery
+                                Black Tea Machinery
                             </Typography>
                         </Typography>
                     </Box>
@@ -136,7 +145,6 @@ const ProcessingCard = () => {
                         paddingBottom: "150px!important"
                     }}
                 >
-                    {/* Title */}
                     
 
                     {/* Subtitle */}

@@ -51,7 +51,7 @@ import GreenSteaming from "./Pages/GreenTeaprocessing/GreenSteaming";
 import GreenPacking from "./Pages/GreenTeaprocessing/GreenPacking";
 import GreenSorting from "./Pages/GreenTeaprocessing/GreenSorting";
 import GreenDrying from "./Pages/GreenTeaprocessing/GreenDrying";
-import Harvesting from "./Pages/GardenPlantMachienry/Harvesting";
+
 import Foreign from "./Pages/GardenPlantMachienry/Foreign";
 import Plucking from "./Pages/GardenPlantMachienry/Plucking";
 import TeaIngredient from "./Pages/GardenPlantMachienry/TeaIngredient";
@@ -66,10 +66,17 @@ import TechnicalSpecification from "./Pages/HotDipGalvanization/Components/Techn
 import GalvanizingProcess from "./Pages/HotDipGalvanization/Components/GalvanizingProcess";
 import QualityAssurance from "./Pages/HotDipGalvanization/Components/QualityAssurance";
 import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChooseVikram";
-import Landing from "./Pages/Landing/Landing";
+import ProfileAvailability from "./Pages/Components/ProfileAvailability";
+import BlackTeaCard from "./Pages/BlackTeaCard/Index";
+import GreenBlending from "./Pages/GreenTeaprocessing/GreenBlending";
+import TmdDivision from "./Pages/TMD/TmdDivision";
+import Harvesting from "./Pages/GardenPlantation/Harvesting";
+import ForeignObject from "./Pages/GardenPlantation/ForeignObject";
+import Laboratory from "./Pages/GardenPlantation/Laboratory";
 import AppLayout from "./Layout/AppLayout";
 import NoticeDetails from "./Pages/Home/Components/NoticeDetails";
 
+import Landing from "./Pages/Landing/Landing";
 
 
 function App() {
@@ -78,10 +85,9 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+     
 
       <Routes>
-
         <Route
           path="/"
           element={
@@ -91,46 +97,60 @@ function App() {
           }
         />
         <Route element={<AppLayout />}>
+        <Route path="/home" element={<Home />} />
+        <Route path="/products/ctc/withering-process" element={<Withering />} />
+        <Route path="/products/ctc/rolling-process" element={<Rolling />} />
+        <Route path="/products/ctc/oxidation-process" element={<Fermenting />} />
+        <Route path="/products/ctc/drying-process" element={<Drying />} />
+        <Route path="/products/ctc/sorting,cleaning,grading-and-storage-system" element={<Sorting />} />
+        <Route path="/products/ctc/roller-sharpening-machine" element={<Packing />} />
+        <Route path="/products/ctc/utilities" element={<Utilities />} />
+        <Route path="/products/ctc/teawithering-process" element={<TeaWithering />} />
+        <Route path="/products/ctc/tearolling-process" element={<TeaRolling />} />
+        <Route path="/products/ctc/teaoxidation-process" element={<TeaFermenting />} />
+        <Route path="/products/ctc/teadrying-process" element={<TeaDrying />} />
+        <Route path="/products/ctc/teasorting,cleaning,grading-and-storage-system" element={<TeaSorting />} />
+        
+        <Route path="/products/ctc/greensteaming-process" element={<GreenSteaming />} />
+        <Route path="/products/ctc/greensorting-&-grading-process" element={<GreenPacking />} />
+        <Route path="/products/ctc/greendrying-process" element={<GreenSorting />} />
+        <Route path="/products/ctc/greenrolling-and-shaping-process" element={<GreenDrying />} />
+        <Route path="/products/ctc/greenroasting-process-(panning)" element={<GreenRolling />} />
+        <Route path="/products/ctc/greenfinal-blending-&-packing" element={<GreenBlending />} />
+        <Route path="/products/ctc/harvesting" element={<Harvesting />} />
+        <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
+        <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
+        <Route path="/products/ctc/tea-ingredients--analyzer" element={<TeaIngredient />} />
+        <Route
+          path="/products/ctc/quality-control-equipment"
+          element={<Quality />}
+        />
+        <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
+        <Route path="/products/mms/infrastructure-&-machinery" element={<Introduction />} />
+        <Route
+          path="/products/mms/product-&-portfolio"
+          element={<Manufacturing />}
+        />
+        <Route
+          path="/products/mms/profile-availability"
+          element={<ProfileAvailability />}
+        />
+        <Route
+          path="/products/mms/technical-specification"
+          element={<HighTensile />}
+        />
+        <Route path="/products/mms/quality-&-safety" element={<Product />} />
 
 
-          <Route path="/home" element={<Home />} />
-          <Route path="/products/ctc/withering" element={<Withering />} />
-          <Route path="/products/ctc/Rolling" element={<Rolling />} />
-          <Route path="/products/ctc/Fermenting" element={<Fermenting />} />
-          <Route path="/products/ctc/drying" element={<Drying />} />
-          <Route path="/products/ctc/sorting" element={<Sorting />} />
-          <Route path="/products/ctc/packing" element={<Packing />} />
-          <Route path="/products/ctc/utilities" element={<Utilities />} />
-          <Route path="/products/ctc/teawithering" element={<TeaWithering />} />
-          <Route path="/products/ctc/tearolling" element={<TeaRolling />} />
-          <Route path="/products/ctc/teafermenting" element={<TeaFermenting />} />
-          <Route path="/products/ctc/teadrying" element={<TeaDrying />} />
-          <Route path="/products/ctc/teasorting" element={<TeaSorting />} />
-          <Route path="/products/ctc/teapacking" element={<TeaPacking />} />
-          <Route path="/products/ctc/greensteaming" element={<GreenSteaming />} />
-          <Route path="/products/ctc/greenpacking" element={<GreenPacking />} />
-          <Route path="/products/ctc/greensorting" element={<GreenSorting />} />
-          <Route path="/products/ctc/greendrying" element={<GreenDrying />} />
-          <Route path="/products/ctc/greenrolling" element={<GreenRolling />} />
-          <Route path="/products/ctc/harvesting" element={<Harvesting />} />
-          <Route path="/products/ctc/foreign-object-remover" element={<Foreign />} />
-          <Route path="/products/ctc/plucking-machine" element={<Plucking />} />
-          <Route path="/products/ctc/tea-ingredients--analyzer" element={<TeaIngredient />} />
-          <Route
-            path="/products/ctc/quality-control-equipment"
-            element={<Quality />}
-          />
-          <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
-          <Route path="/products/infrastructure-&-machinery" element={<Introduction />} />
-          <Route
-            path="/products/product-&-portfolio"
-            element={<Manufacturing />}
-          />
-          <Route
-            path="/products/technical-specification"
-            element={<HighTensile />}
-          />
-          <Route path="/products/quality-&-safety" element={<Product />} />
+        <Route path="/products/processing-card" element={<ProcessingCard />} />
+        <Route path="/about/group-profile" element={<GroupProfile />} />
+        <Route path="/about/company-profile" element={<CompanyProfile />} />
+        <Route path="/about/vision-&-mission" element={<VisionMission />} />
+        <Route path="/about/management-team" element={<ManagementTeam />} />
+        <Route
+          path="/about/award-and-recognition"
+          element={<AwardRecognition />}
+        />
 
 
           <Route path="/products/processing-card" element={<ProcessingCard />} />
@@ -169,9 +189,38 @@ function App() {
           <Route path="/products/the-galvanizing-process" element={<GalvanizingProcess />} />
           <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
           <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
+        <Route path="/about/clientele" element={<Clientele />} />
+        <Route path="/about/quality-policy" element={<QualityPolicy />} />
+        <Route path="/about/research-and-development" element={<Research />} />
+        <Route path="/page-coming-soon" element={<PageComing />} />
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/contact/addresses" element={<Adresses />} />
+        <Route path="/contact/query-form" element={<QueryForm />} />
+        <Route path="/careers/working-with-us" element={<WorkingCareer />} />
+        <Route path="/careers/apply-now" element={<ApplyOnline />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
+        <Route path="/media/news" element={<News />} />
+        <Route path="/media/photo-gallery" element={<Gallery />} />
+        <Route path="/media/download" element={<Download />} />
+        <Route path="/csr" element={<CSR />} />
+        <Route path="/products/hot-dip" element={<HotDip />} />
+        <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
+        <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
+        <Route path="/products/introduction" element={<HotDipIntroduction />} />
+        <Route path="/products/service-capabilities" element={<ServiceCapabilities />} />
+        <Route path="/products/technical-specification-&-infrastructure" element={<TechnicalSpecification />} />
+        <Route path="/products/the-galvanizing-process" element={<GalvanizingProcess />} />
+        <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
+        <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
+        <Route path="/products/tea-processing-machinery/black-tea" element={<BlackTeaCard />} />
+        <Route path="/products/tea-processing-machinery/Tmd-Division-machine-structure" element={<TmdDivision />} />
+        <Route path="/products/garden-&-plantation-equipments/harvesting-tool" element={<Harvesting />} />
+        <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
+        <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
         </Route>
       </Routes>
-      {/* <Footer /> */}
+     
     </BrowserRouter>
   );
 }

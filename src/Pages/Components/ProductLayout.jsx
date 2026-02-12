@@ -11,10 +11,10 @@ import LeftSidebar from "./LeftsideBar";
 import Product from "./Product";
 
 const menu = [
-  { key: "infra", label: "INFRASTRUCTURE & MACHINERY", title: "Infrastructure & Machinery", breadcrumb: "Infrastructure & Machinery" },
-  { key: "portfolio", label: "PRODUCT & PORTFOLIO", title: "Product & Portfolio", breadcrumb: "Product & Portfolio" },
-  { key: "tech", label: "TECHNICAL SPECIFICATION", title: "Technical Specifications", breadcrumb: " Technical Specification" },
-  { key: "quality", label: "QUALITY & SAFETY", title: "Quality & Safety", breadcrumb: "Quality & Safety" },
+  { key: "infra", label: "INFRASTRUCTURE & MACHINERY",  breadcrumb: "Infrastructure & Machinery" },
+  { key: "portfolio", label: "PRODUCT & PORTFOLIO",  breadcrumb: "Product & Portfolio" },
+  { key: "tech", label: "TECHNICAL SPECIFICATION",  breadcrumb: " Technical Specification" },
+  { key: "quality", label: "QUALITY & SAFETY",  breadcrumb: "Quality & Safety" },
 ];
 
 const ProductsLayout = () => {

@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Container, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import bannerImg from "../../Assets/Module_mounting_banner.jpg"; // change if needed
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 
 
 const cardData = [
     {
         id: 1,
-        title: "Black Tea ",
+        title: "Tea Processing Machinery",
         image: FanImage,
-        path: "/products/tea-processing-machinery/black-tea"
+        path: "/products/processing-card"
     },
     {
         id: 2,
-        title: "Green Tea",
+        title: "Garden & Plantation Equipment",
         image: FanImage,
-        path: "/products/ctc/greensteaming-process"
+        path: "/products/garden-&-plantation-equipments/harvesting-tool"
     },
 
 ];
 
-const ProcessingCard = () => {
+const TmdDivision = () => {
 
     const navigate = useNavigate()
     const [data, setData] = useState([])
@@ -77,70 +77,75 @@ const ProcessingCard = () => {
 
                 {/* Banner Content */}
                 <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-                    <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+                    <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
 
-                        {/* Title */}
+                    {/* Title */}
+                    <Typography
+                        sx={{
+                            color: "#fff",
+                            fontSize: { xs: "24px", sm: "32px", md: "42px" },
+                            fontWeight: 700,
+                            fontFamily: "Roboto",
+                            mb: 2,
+                        }}
+                    >
+                        Tmd Division Machine Structure
+                    </Typography>
+
+                    {/* Breadcrumbs */}
+                    <Typography sx={{ color: "#fff", fontSize: "14px" }}>
                         <Typography
-                            sx={{
-                                color: "#fff",
-                                fontSize: { xs: "24px", sm: "32px", md: "42px" },
-                                fontWeight: 700,
-                                fontFamily: "Roboto",
-                                mb: 2,
-                            }}
+                            component={Link}
+                            to="/"
+                            underline="none"
+                            sx={{ color: "#fff",textdecoration:"none",fontSize:"15px",}}
                         >
-                            Tea Processing Machinery
+                            Home
                         </Typography>
-
-                        {/* Breadcrumbs */}
-                        <Typography sx={{ color: "#fff", fontSize: "14px" }}>
-                            <Typography
-                                component={Link}
-                                to="/"
-                                underline="none"
-                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
-                            >
-                                Home
-                            </Typography>
-
-
-                            {" / "}
-                            <Typography
-                                component={Link}
-                                to="/products/tea-processing-machinery/Tmd-Division-machine-structure"
-                                underline="none"
-                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
-                            >
-                                Tmd Division Machine Structure
-                            </Typography>
-                            {" / "}
-                            <Typography
-                                component="span"
-                                sx={{ color: "#fff", fontWeight: 500 }}
-                            >
-                                 Tea Processing Machinery
-                            </Typography>
+                      
+                        
+                        {" / "}
+                        <Typography
+                            component="span"
+                            sx={{ color: "#fff", fontWeight: 500 }}
+                        >
+                            Tmd Division Machine Structure
                         </Typography>
+                    </Typography>
                     </Box>
 
                 </Container>
             </Box>
+
 
             {/* ================= CONTENT ================= */}
             <Container maxWidth="xl">
                 <Box
                     sx={{
                         textAlign: "center",
-                        py: { xs: 4, sm: 5, md: "60px" },
+                        py: { xs: 4, sm: 5, md: "30px" },
                         px: { xs: 2, sm: 3 },
-                        paddingBottom: "150px!important"
+                        paddingBottom: "150px!important",
+                        marginTop:"50px"
                     }}
+                
                 >
                     {/* Title */}
-                    
+                    {/* <Typography
+                        sx={{
+                            fontSize: { xs: "22px", sm: "28px", md: "40px" },
+                            fontWeight: 700,
+                            fontFamily: "Roboto",
+                            mb: 2,
+                            color: "#1A73E8",
+                            textTransform: "capitalize"
+                        }}
+                    >
+                        Tmd Division Machine Structure
+                    </Typography>
 
                     {/* Subtitle */}
-
+                    
 
                     {/* Learn More Button */}
                     <Grid container spacing={3} justifyContent="center"   >
@@ -218,4 +223,4 @@ const ProcessingCard = () => {
     );
 };
 
-export default ProcessingCard;
+export default TmdDivision;

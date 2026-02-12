@@ -42,6 +42,7 @@ import {
 const leftMenu = [
     "INFRASTRUCTURE & MACHINERY",
     "PRODUCT & PORTFOLIO",
+    "PROFILE AVAILABILITY",
     "TECHNICAL SPECIFICATION",
     "QUALITY & SAFETY",
 
@@ -171,7 +172,7 @@ const HighTensile = () => {
                                 <ListItemButton
                                     key={item}
                                     component={Link}
-                                    to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    to={`/products/mms/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
                                         backgroundColor: item === "TECHNICAL SPECIFICATION" ? "#1A73E8" : "transparent",
@@ -196,19 +197,8 @@ const HighTensile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 0,
-                                fontFamily: "Roboto",
-                                color: "#1A73E8"
-
-                            }}
-                        >
-                            {data?.title}
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
+                        
 
 
 

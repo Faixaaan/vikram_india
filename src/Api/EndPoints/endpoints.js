@@ -52,7 +52,8 @@ export const endpoints = {
   },
   contactUs: {
     getContactUsData: "/contact-address",
-    cmsContact:"/page/contact"
+    cmsContact:"/page/contact",
+    queryForm:"/query-form"
   },
   homeMedia: {
     getHomeMediaData: "/home-media"
