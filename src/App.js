@@ -68,6 +68,7 @@ import QualityAssurance from "./Pages/HotDipGalvanization/Components/QualityAssu
 import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChooseVikram";
 import Landing from "./Pages/Landing/Landing";
 import AppLayout from "./Layout/AppLayout";
+import NoticeDetails from "./Pages/Home/Components/NoticeDetails";
 
 
 
@@ -153,6 +154,8 @@ function App() {
           <Route path="/careers/apply-now" element={<ApplyOnline />} />
           <Route path="/blogs" element={<Blog />} />
           <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
+         <Route path="/notice/:id" element={<NoticeDetails />} />
+
           <Route path="/media/news" element={<News />} />
           <Route path="/media/photo-gallery" element={<Gallery />} />
           <Route path="/media/download" element={<Download />} />
