@@ -377,7 +377,7 @@ export default function Landing() {
               py: 1.5,
               borderRadius: "30px",
               background:
-                "linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0))",
+                "linear-gradient(135deg, rgba(225, 0, 0, 0.95), rgba(182, 5, 5, 0.94))",
               backdropFilter: "blur(12px)",
               boxShadow:
                 "0 8px 30px rgba(0,0,0,.35), inset 0 0 15px rgba(255,255,255,.3)",
