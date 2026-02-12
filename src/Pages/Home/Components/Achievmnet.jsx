@@ -56,7 +56,7 @@ const Achievmnet = () => {
                         justifyContent: { xs: "center", md: "flex-end" },
 
                         // push only on bigger screens
-                        mr: { xs: 0, md: "-80px", lg: "-200px", xl: "-260px" },
+                        mr: { xs: 0, md: "-70px", lg: "-80px", xl: "-130px" },
                         background: {
                             xs: "linear-gradient(180deg, #00743a 0%, #276f9e 100%)", // mobile (full background)
                             sm: "linear-gradient(140deg,  #00743a 70%, #276f9e 100%)", // tablet
@@ -122,8 +122,8 @@ const Achievmnet = () => {
                                     fontSize: {
                                         xs: "1.8rem",
                                         sm: "2.2rem",
-                                        md: "3rem",
-                                        lg: "46px",
+                                        md: "2.2rem",
+                                        lg: "38px",
                                     },
                                     fontWeight: 700,
                                     lineHeight: 1.15,
