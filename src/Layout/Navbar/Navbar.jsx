@@ -17,7 +17,7 @@ import Logo from "../../Assets/logo 1.png";
 import "../../App.css";
 
 const pages = [
-  { title: "HOME", link: "/" },
+  { title: "HOME", link: "/home" },
   { title: "ABOUT US", link: "/about/group-profile" },
   { title: "PRODUCTS AND SERVICES", link: "/products" },
   { title: "FACILITIES", link: "/facilities" },
@@ -57,7 +57,7 @@ const Navbar = () => {
     if (productDropdown.some(item => item.link === location.pathname)) {
       return route === "/products" || route === "/products/";
     }
-    
+
     if (location.pathname === route) return true;
     if (route !== "/" && location.pathname.startsWith(route + "/")) return true;
     return false;
@@ -85,17 +85,14 @@ const Navbar = () => {
       >
         <Container maxWidth="xl">
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: { xs: "0px", md: "0px 16px" } }}>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", alignItems: "center" }} component={Link} to={"/home"}>
               <img src={Logo} alt="Vikram India" style={{ width: 200, height: "auto" }} />
             </Box>
 
             {/* DESKTOP MENU */}
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
               {pages.map((item) => {
-                // ABOUT US DROPDOWN
-                
-
-                // PRODUCT DROPDOWN
+             
                 if (item.title === "PRODUCTS AND SERVICES") {
                   return (
                     <Box
@@ -134,14 +131,7 @@ const Navbar = () => {
                             <Link
                               key={product.name}
                               to={product.link}
-                              style={{
-                                display: "block",
-                                padding: "10px 10px",
-                                textDecoration: "none",
-                                color: "#000",
-                                fontSize: "16px",
-                                fontFamily: "Roboto",
-                              }}
+                              className="dropdown-link"
                             >
                               {product.name}
                             </Link>
@@ -160,11 +150,34 @@ const Navbar = () => {
                     to={item.link}
                     sx={{
                       fontSize: "16px",
-                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000000",
+                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
                       fontWeight: "600",
-                      "&:hover": { color: "#d32f2f" },
                       fontFamily: "Roboto",
+                      position: "relative",
+                      background: "transparent",
+
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        left: "50%",
+                        bottom: "0px",
+                        width: "0%",
+                        height: "2px",
+                        backgroundColor: "#d32f2f",
+                        transition: "all 0.35s ease",
+                        transform: "translateX(-50%)",
+                      },
+
+                      "&:hover::after": {
+                        width: "100%",
+                      },
+
+                      "&:hover": {
+                        background: "transparent",
+                        color: "#d32f2f",
+                      },
                     }}
+
                   >
                     {item.title}
                   </Button>
@@ -187,29 +200,29 @@ const Navbar = () => {
               // ABOUT US MOBILE
               if (item.title === "ABOUT US") {
                 return (
-                  <React.Fragment key={item.title}>
-                    <ListItem
-                      button
-                      onClick={() => setOpenAboutMobile(!openAboutMobile)}
-                      sx={{
-                        color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
-                        backgroundColor: "transparent",
-                        borderLeft: isActiveRoute(item.link) ? "4px solid #d32f2f" : "none",
+                  <ListItem
+                    key={item.title}
+                    button
+                    component={Link}
+                    to={item.link}
+                    onClick={handleDrawerToggle}
+                    sx={{
+                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
+                      backgroundColor: isActiveRoute(item.link) ? "#fdeaea" : "transparent",
+                      borderLeft: isActiveRoute(item.link) ? "4px solid #d32f2f" : "none",
+                    }}
+                  >
+                    <ListItemText
+                      primary={item.title}
+                      primaryTypographyProps={{
+                        fontWeight: isActiveRoute(item.link) ? 700 : 600,
+                        fontSize: "15px",
                       }}
-                    >
-                      <ListItemText
-                        primary={item.title}
-                        primaryTypographyProps={{
-                          fontWeight: isActiveRoute(item.link) ? 700 : 600,
-                          fontSize: "15px",
-                        }}
-                      />
-                    </ListItem>
-
-                    
-                  </React.Fragment>
+                    />
+                  </ListItem>
                 );
               }
+
 
               // PRODUCT MOBILE
               if (item.title === "PRODUCTS AND SERVICES") {

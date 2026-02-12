@@ -101,18 +101,52 @@ const Footer = () => {
                                 variant="contained"
                                 sx={{
                                     mt: 2,
-                                    background: "linear-gradient(to bottom,#EE1D25,#000)",
-                                    borderRadius: "15px",
-                                    padding: "8px 25px",
+                                    px: 4,
+                                    py: 1.4,
+                                    borderRadius: "8px",
                                     textTransform: "none",
-                                    fontSize: "15px",
-                                     "&:hover": {
-                                                background: "linear-gradient(to bottom, #a00000, #600000)",
-                                            },
+                                    fontWeight: 600,
+                                    fontSize: "18px",
+
+                                    alignSelf: "center", // 👈 important
+
+                                    position: "relative",
+                                    overflow: "hidden",
+                                    background: "#c40613",
+                                    zIndex: 1,
+
+                                    "& span": {
+                                        position: "relative",
+                                        zIndex: 2,
+                                    },
+
+                                    "&:before": {
+                                        content: '""',
+                                        position: "absolute",
+                                        left: "50%",
+                                        top: "50%",
+                                        width: 0,
+                                        height: 0,
+                                        background: "#000",
+                                        borderRadius: "50%",
+                                        transform: "translate(-12%, -50%)",
+                                        transition: "all 1s ease",
+                                        zIndex: 0,
+                                    },
+
+                                    "&:hover:before": {
+                                        width: "300%",
+                                        height: "300%",
+                                    },
                                 }}
+
+
                             >
-                                Get a Quote
+                                <span> Get a Quote </span>
                             </Button>
+
+
+
                         </Box>
                     </Grid>
 
@@ -128,8 +162,8 @@ const Footer = () => {
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
-                                pb: "6px",                // space between text & border
-                                width: "fit-content",     // so border matches text width
+                                pb: "6px",
+                                width: "fit-content",
                                 position: "relative",
                                 display: "inline-block",
                                 "&::after": {
@@ -137,7 +171,7 @@ const Footer = () => {
                                     position: "absolute",
                                     left: 0,
                                     bottom: 0,
-                                    width: "70%",           // <-- your 70% border
+                                    width: "70%",
                                     height: "1px",
                                     backgroundColor: "#000",
                                 },
@@ -161,13 +195,39 @@ const Footer = () => {
                                     fontSize: "17px",
                                     mb: 1,
                                     cursor: "pointer",
-                                    "&:hover": { color: "#EE1D25" },
-                                    fontfamily: "Roboto",
-                                    fontWeight: "400"
+                                    fontFamily: "Roboto",
+                                    fontWeight: 400,
+                                    color: "#000",
+
+
+                                    width: "fit-content",
+                                    position: "relative",
+
+                                    "&::after": {
+                                        content: '""',
+                                        position: "absolute",
+                                        left: 0,
+                                        bottom: "-3px",
+                                        width: "100%",
+                                        height: "2px",
+                                        backgroundColor: "#EE1D25",
+                                        transform: "scaleX(0)",
+                                        transformOrigin: "left",
+                                        transition: "transform 0.35s ease",
+                                    },
+
+                                    "&:hover": {
+                                        color: "#EE1D25",
+                                    },
+
+                                    "&:hover::after": {
+                                        transform: "scaleX(1)",
+                                    },
                                 }}
                             >
                                 {item}
                             </Typography>
+
                         ))}
                     </Grid>
 
@@ -215,13 +275,39 @@ const Footer = () => {
                                     fontSize: "17px",
                                     mb: 1,
                                     cursor: "pointer",
-                                    "&:hover": { color: "#EE1D25" },
-                                    fontfamily: "Roboto",
-                                    fontWeight: "400"
+                                    fontFamily: "Roboto",
+                                    fontWeight: 400,
+                                    color: "#000",
+
+                                    // 🔥 MOST IMPORTANT
+                                    width: "fit-content",        // 🔥 click area = text width
+                                    position: "relative",
+
+                                    "&::after": {
+                                        content: '""',
+                                        position: "absolute",
+                                        left: 0,
+                                        bottom: "-3px",
+                                        width: "100%",
+                                        height: "2px",
+                                        backgroundColor: "#EE1D25",
+                                        transform: "scaleX(0)",
+                                        transformOrigin: "left",
+                                        transition: "transform 0.35s ease",
+                                    },
+
+                                    "&:hover": {
+                                        color: "#EE1D25",
+                                    },
+
+                                    "&:hover::after": {
+                                        transform: "scaleX(1)",
+                                    },
                                 }}
                             >
                                 {item}
                             </Typography>
+
                         ))}
                     </Grid>
 
@@ -289,22 +375,22 @@ const Footer = () => {
 
                 {/* BOTTOM COPYRIGHT */}
                 <Container maxWidth='xl'>
-                <Box
-                    sx={{
-                        borderTop: "1px solid #000",
-                        mt: 4,
-                        pt: 2,
-                        display: "flex",
-                        justifyContent: {sm:"space-between",xs:"center"},
-                        flexWrap: "wrap",
-                        fontSize: "14px",
-                    }}
-                >
-                    <Typography sx={{textAlign:"center",mb:{xs:1,sm:0,fontfamily:"Roboto",fontWeight:{md:"700",xs:"600",fontSize:{xs:"14px",md:"16px"}},color:"#000"}}}>Copyright © 2026 Vikram India. All rights reserved</Typography>
-                    <Link to="" style={{textDecoration:"none"}}>
-                    <Typography sx={{textAlign:"center",fontfamily:"Roboto",fontWeight:{md:"700",xs:"500"},color:"#000",fontSize:{xs:"14px",md:"16px"}}}>Design and Developed by Adret Software</Typography>
-                    </Link>
-                </Box>
+                    <Box
+                        sx={{
+                            borderTop: "1px solid #000",
+                            mt: 4,
+                            pt: 2,
+                            display: "flex",
+                            justifyContent: { sm: "space-between", xs: "center" },
+                            flexWrap: "wrap",
+                            fontSize: "14px",
+                        }}
+                    >
+                        <Typography sx={{ textAlign: "center", mb: { xs: 1, sm: 0, fontfamily: "Roboto", fontWeight: { md: "700", xs: "600", fontSize: { xs: "14px", md: "16px" } }, color: "#000" } }}>Copyright © 2026 Vikram India. All rights reserved</Typography>
+                        <Link to="" style={{ textDecoration: "none" }}>
+                            <Typography sx={{ textAlign: "center", fontfamily: "Roboto", fontWeight: { md: "700", xs: "500" }, color: "#000", fontSize: { xs: "14px", md: "16px" } }}>Design and Developed by Adret Software</Typography>
+                        </Link>
+                    </Box>
                 </Container>
             </Box >
         </>

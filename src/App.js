@@ -1,6 +1,6 @@
 import "././App.css";
 import Navbar from "./Layout/Navbar/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./Pages/Home/Index";
 import Footer from "./Layout/Footer/Footer";
@@ -73,6 +73,8 @@ import TmdDivision from "./Pages/TMD/TmdDivision";
 import Harvesting from "./Pages/GardenPlantation/Harvesting";
 import ForeignObject from "./Pages/GardenPlantation/ForeignObject";
 import Laboratory from "./Pages/GardenPlantation/Laboratory";
+import AppLayout from "./Layout/AppLayout";
+import Landing from "./Pages/Landing/Landing";
 
 
 function App() {
@@ -81,10 +83,19 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      <Navbar />
+     
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            sessionStorage.getItem("visited")
+              ? <Navigate to="/home" />
+              : <Landing />
+          }
+        />
+        <Route element={<AppLayout />}>
+        <Route path="/home" element={<Home />} />
         <Route path="/products/ctc/withering-process" element={<Withering />} />
         <Route path="/products/ctc/rolling-process" element={<Rolling />} />
         <Route path="/products/ctc/oxidation-process" element={<Fermenting />} />
@@ -168,8 +179,9 @@ function App() {
         <Route path="/products/garden-&-plantation-equipments/harvesting-tool" element={<Harvesting />} />
         <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
         <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
+        </Route>
       </Routes>
-      <Footer />
+     
     </BrowserRouter>
   );
 }

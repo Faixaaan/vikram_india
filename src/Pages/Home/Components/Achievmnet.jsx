@@ -1,143 +1,227 @@
-import React, { useEffect, useState } from 'react'
-import AchievmentBanner from '../../../Assets/Achievment-Banner.png'
-import { Box, Container, Typography, Button } from '@mui/material'
-import '../../../App.css'
-import { useNavigate } from 'react-router-dom'
-import { axiosInstance } from '../../../Api/Axios/axios'
-import { endpoints } from '../../../Api/EndPoints/endpoints'
+import React, { useEffect, useState } from "react";
+import { Box, Container, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
+import { motion } from "framer-motion";
 
 const Achievmnet = () => {
-    const navigatee = useNavigate()
+    const navigatee = useNavigate();
     const [data, setdata] = useState([]);
 
     const handleComingsoon = () => {
-        navigatee('/page-coming-soon');
+        navigatee("/page-coming-soon");
     };
-
-
 
     const fetchData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
-            console.log(res?.data?.data, 'cmsHome')
-            setdata(res?.data?.data)
+            setdata(res?.data?.data);
+        } catch (err) {
+            console.log(err);
         }
-        catch (err) {
-            console.log(err)
-        }
-    }
+    };
 
     useEffect(() => {
-        fetchData()
-    }, [])
+        fetchData();
+    }, []);
+
     return (
-        <>
-            <Box sx={{
-                width: '100%',
-                overflow: 'hidden',
+        <Box
+            sx={{
+                width: "100%",
+                overflow: "hidden",
                 backgroundImage: `url(${data?.sec4img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                padding: { xs: "30px 0px", md: "80px 0px 60px 0px" },
+                backgroundRepeat: "no-repeat",
+                backgroundAttachment: { xs: "scroll", md: "fixed" },
+
+                padding: { xs: "30px 0", sm: "40px 0", md: "80px 0 60px" },
                 borderTop: "1px solid #1E1E1E",
-                minHeight: { xs: "500px", md: "600px" },
+                minHeight: { xs: "auto", md: "600px" },
+
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center"
-            }}>
-                {/* Banner Section */}
-                <Container maxWidth='lg'>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: { xs: 'column', md: 'row' },
-                        alignItems: { xs: 'flex-start', md: 'center' },
-                        justifyContent: { xs: 'center', md: 'flex-end' },
-                        minHeight: { xs: '400px', md: '450px' }
-                    }}>
-                        {/* Content Box - Positioned on right side */}
-                        <Box sx={{
-                            width: { xs: '100%', md: '50%', lg: '45%' },
-                            textAlign: { xs: 'left', md: 'right' },
-                            padding: { xs: '0', md: '0 0 0 40px' },
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: { xs: 'flex-start', md: 'flex-start' },
-                            gap: { xs: 3, md: 4 }
-                        }}>
-                            {/* Title */}
+                justifyContent: "center",
+            }}
+        >
+            <Container maxWidth="lg">
+                <Box
+                    sx={{
+                        minHeight: { xs: "auto", md: "450px" },
+                        display: "flex",
+                        flexDirection: { xs: "column", md: "row" },
+                        alignItems: "center",
+                        justifyContent: { xs: "center", md: "flex-end" },
+
+                        // push only on bigger screens
+                        mr: { xs: 0, md: "-80px", lg: "-200px", xl: "-260px" },
+                        background: {
+                            xs: "linear-gradient(180deg, #00743a 0%, #276f9e 100%)", // mobile (full background)
+                            sm: "linear-gradient(140deg,  #00743a 70%, #276f9e 100%)", // tablet
+                            md: "linear-gradient(100deg, #ffffff00, #00743a22, #00743a, #176ba3)", // desktop
+                            lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #006030, #176ba3)", // large
+                        },
+
+                        borderRadius: { xs: "20px", md: "32px" },
+                        p: { xs: 2, sm: 3, md: 4 },
+                    }}
+                >
+                    {/* Glass Card */}
+                    <Box
+                        sx={{
+                            width: {
+                                xs: "100%",
+                                sm: "90%",
+                                md: "55%",
+                                lg: "45%",
+                                xl: "40%",
+                            },
+
+                            p: { xs: "20px", sm: "24px", md: "40px" },
+                            borderRadius: "24px",
+
+                            background: "rgba(255,255,255,0.15)",
+                            backdropFilter: "blur(16px)",
+                            WebkitBackdropFilter: "blur(16px)",
+
+                            border: "1px solid rgba(255,255,255,0.3)",
+                            boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: { xs: 2, md: 3.5 },
+                        }}
+                    >
+                        {/* Title */}
+                        <Box sx={{ position: "relative", display: "inline-block" }}>
+                            {/* Animated Left Bar */}
+                            <Box
+                                component={motion.div}
+                                animate={{ height: ["40%", "80%", "40%"] }}
+                                transition={{
+                                    duration: 1.6,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                sx={{
+                                    position: "absolute",
+                                    left: 0,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    width: "5px",
+                                    borderRadius: "10px",
+                                    background: "#dc301d",
+                                }}
+                            />
+
                             <Typography
                                 variant="h1"
                                 sx={{
-                                    fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '44px' },
-                                    fontWeight: 'bold',
-                                    background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                                    fontSize: {
+                                        xs: "1.8rem",
+                                        sm: "2.2rem",
+                                        md: "3rem",
+                                        lg: "46px",
+                                    },
+                                    fontWeight: 700,
+                                    lineHeight: 1.15,
+                                    letterSpacing: "-0.03em",
+
+                                    backgroundImage:
+                                        "linear-gradient(90deg, #ffdede 20%, #ff9898 100%)",
                                     WebkitBackgroundClip: "text",
                                     WebkitTextFillColor: "transparent",
-                                    lineHeight: { xs: '1.2', md: '1.1' },
-                                    fontFamily: 'Roboto',
-                                    display: "inline-block",
-                                    pb: "10px",
-                                    position: "relative",
-                                    textAlign: { xs: "center", md: "left" },
-                                    width: "100%"
 
+                                    position: "relative",
+                                    padding: { xs: "14px 18px", md: "18px 26px" },
+                                    paddingLeft: "32px",
+                                    display: "inline-block",
+
+                                    backgroundColor: "#ffffff",
+                                    borderRadius: "16px",
+                                    boxShadow: "0 0px 40px rgba(0,0,0,0.12)",
+
+                                    fontFamily: "'DM Sans', 'Inter', sans-serif",
                                 }}
                             >
                                 {data?.sec4title}
                             </Typography>
-
-
-                            {/* Content/Description */}
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    fontSize: { xs: '1rem', sm: '1.1rem', md: '20px' },
-                                    color: '#000',
-                                    lineHeight: { xs: '1.6', md: '100%' },
-
-                                    fontFamily: 'Roboto',
-                                    maxWidth: { xs: '100%', md: '90%', lg: '120%' },
-                                    marginBottom: { xs: 1, md: 0 },
-                                    textAlign: { md: "left", xs: "center" },
-                                    fontWeight: "400",
-                                    fontFamily: "Roboto"
-                                }}
-                            >
-                                {data?.sec4description}
-                            </Typography>
-
-
-                            {/* Know More Button */}
-                            <Button
-                                variant="contained"
-                                sx={{
-
-                                    background: "linear-gradient(to bottom, #000, #EE1D25)",
-
-                                    padding: { xs: "10px 30px", md: "12px 35px" },
-                                    textTransform: "none",
-                                    fontSize: { xs: "14px", md: "16px" },
-                                    fontWeight: "600",
-                                    fontFamily: 'Roboto',
-                                    '&:hover': {
-                                        background: "#1E1E1E",
-                                        transform: 'translateY(-2px)',
-                                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
-                                    },
-                                    transition: 'all 0.3s ease-in-out',
-                                    marginTop: { xs: 1, md: 2 },
-                                    marginInline: { xs: "auto", md: "0px" }, fontFamily: "Roboto"
-                                }}
-                                onClick={handleComingsoon}
-                            >
-                                Know More
-                            </Button>
                         </Box>
-                    </Box>
-                </Container>
-            </Box>
-        </>
-    )
-}
 
-export default Achievmnet
+                        {/* Description */}
+                        <Typography
+                            sx={{
+                                fontSize: { xs: "14px", sm: "15px", md: "18px" },
+                                color: "#eaeaea",
+                                lineHeight: 1.8,
+                                maxWidth: { xs: "100%", md: "520px" },
+                            }}
+                        >
+                            {data?.sec4description}
+                        </Typography>
+
+                        {/* Button */}
+                        <Button
+                            variant="contained"
+                            sx={{
+                                alignSelf: { xs: "stretch", sm: "flex-start" },
+                                mt: 2,
+                                px: 4,
+                                py: 1.4,
+                                borderRadius: "30px",
+                                textTransform: "none",
+                                fontWeight: 600,
+                                fontSize: "18px",
+
+                                position: "relative",
+                                overflow: "hidden",
+
+                                background: "#c40613",
+
+                                // text always on top
+                                zIndex: 1,
+
+                                "& span": {
+                                    position: "relative",
+                                    zIndex: 2,
+                                },
+
+                                // center burst layer
+                                "&:before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    left: "50%",
+                                    top: "50%",
+                                    width: 0,
+                                    height: 0,
+                                    background: "#000",
+                                    borderRadius: "50%",
+                                    transform: "translate(-12%, -50%)",
+                                    transition: "all 1s ease",
+                                    zIndex: 0,
+                                },
+
+                                "&:hover:before": {
+                                    width: "300%",
+                                    height: "300%",
+                                },
+
+                                "&:hover": {
+                                    background: "#c40613",
+                                },
+                            }}
+                            onClick={handleComingsoon}
+                        >
+                            <span>Know More</span>
+                        </Button>
+
+                    </Box>
+                </Box>
+            </Container>
+        </Box>
+    );
+};
+
+export default Achievmnet;

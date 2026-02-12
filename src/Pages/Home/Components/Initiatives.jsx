@@ -1,71 +1,202 @@
-import React, { useEffect, useState } from 'react'
+
+
+
+import React, { useEffect, useState, useRef } from 'react'
 import { Box, Typography, Grid, Modal, Button } from '@mui/material'
 import { axiosInstance } from '../../../Api/Axios/axios'
 import { endpoints } from '../../../Api/EndPoints/endpoints'
+import { motion } from "framer-motion";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+
+
+
+// 🔴 Dummy Notice Data
+const noticeData = [
+  {
+    id: 1,
+    date: "07/02/2026",
+    title: "Geography Classes suspension",
+    link: "#",
+  },
+  {
+    id: 2,
+    date: "07/02/2026",
+    title: "Department of Hindi faculty meeting",
+    link: "#",
+  },
+  {
+    id: 3,
+    date: "07/02/2026",
+    title:
+      "Post - publication Re-examination / Review and/or F.S.I (self-inspection of evaluated answer scripts)) for B.A/B.Sc. SEM-II (Hons./ General / Major) Examinations, 2025 (under CBCS & CCF)",
+    link: "#",
+  },
+  {
+    id: 4,
+    date: "07/02/2026",
+    title: "Mathematics departmental meeting",
+    link: "#",
+  },
+  {
+    id: 5,
+    date: "06/02/2026",
+    title: "CIE FOR PHYSICS HONOURS",
+    link: "#",
+  },
+  {
+    id: 6,
+    date: "06/02/2026",
+    title: "HR CLASS",
+    link: "#",
+  },
+
+  {
+    id: 7,
+    date: "07/02/2026",
+    title: "Geography Classes suspension",
+    link: "#",
+  },
+  {
+    id: 8,
+    date: "07/02/2026",
+    title: "Department of Hindi faculty meeting",
+    link: "#",
+  },
+  {
+    id: 9,
+    date: "07/02/2026",
+    title:
+      "Post - publication Re-examination / Review and/or F.S.I (self-inspection of evaluated answer scripts)) for B.A/B.Sc. SEM-II (Hons./ General / Major) Examinations, 2025 (under CBCS & CCF)",
+    link: "#",
+  },
+  {
+    id: 10,
+    date: "07/02/2026",
+    title: "Mathematics departmental meeting",
+    link: "#",
+  },
+  {
+    id: 11,
+    date: "06/02/2026",
+    title: "CIE FOR PHYSICS HONOURS",
+    link: "#",
+  },
+  {
+    id: 12,
+    date: "06/02/2026",
+    title: "HR CLASS",
+    link: "#",
+  },
+];
+
+
 
 const Initiatives = () => {
 
-  const [data, setdata] = useState([])
-  const [openModal, setOpenModal] = useState(false)
-  const [selectedTestimonial, setSelectedTestimonial] = useState(null)
+  const [data, setdata] = useState([]);
 
-  // 🔹 Counter state (UNCHANGED STRUCTURE)
-  const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0])
+  const sectionRef = useRef(null);
+
+
+  const [hasStarted, setHasStarted] = useState(false);
+  const [userScrolled, setUserScrolled] = useState(false);
+
+
+
+  // 🔹 Counter state
+  const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
+
+  const targetCounts = [40, 10000, 2000, 50, 15, 500];
+  const labels = [
+    "Years Experience",
+    "Happy Clients",
+    "Crore + Turnover",
+    "Countries",
+    "Awards",
+    "Team Members",
+  ];
 
   const fetchData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms)
-      setdata(res?.data?.data)
+      const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
+      setdata(res?.data?.data);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
-  // 🔹 Counter animation (ONLY LOGIC CHANGED)
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   useEffect(() => {
-    if (!data) return
+    fetchData();
+  }, []);
 
-    const targetCounts = [
-      parseInt(data?.sec3counter1_number?.replace('+', '') || 0),
-      parseInt(data?.sec3counter2_number?.replace('+', '') || 0),
-      parseInt(data?.sec3counter3_number?.replace('+', '') || 0),
-      parseInt(data?.sec3counter4_number?.replace('+', '') || 0),
-      parseInt(data?.sec3counter5_number?.replace('+', '') || 0),
-      parseInt(data?.sec3counter6_number?.replace('+', '') || 0),
-    ]
 
-    const intervals = targetCounts.map((target, index) => {
-      let start = 0
-      return setInterval(() => {
-        start += Math.ceil(target / 60)
-        setCounts(prev => {
-          const updated = [...prev]
-          updated[index] = start >= target ? target : start
-          return updated
-        })
-        if (start >= target) clearInterval(intervals[index])
-      }, 30)
-    })
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setUserScrolled(true);
+      }
+    };
 
-    return () => intervals.forEach(clearInterval)
-  }, [data])
+    window.addEventListener("scroll", handleScroll);
 
-  const labels = [
-    data?.sec3counter1_text,
-    data?.sec3counter2_text,
-    data?.sec3counter3_text,
-    data?.sec3counter4_text,
-    data?.sec3counter5_text,
-    data?.sec3counter6_text,
-  ]
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted && userScrolled) {
+
+          setHasStarted(true);
+
+          targetCounts.forEach((target, index) => {
+            let start = 0;
+
+            const interval = setInterval(() => {
+              start += Math.ceil(target / 60);
+
+              setCounts(prev => {
+                const updated = [...prev];
+                updated[index] = start >= target ? target : start;
+                return updated;
+              });
+
+              if (start >= target) clearInterval(interval);
+            }, 30);
+          });
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, [hasStarted, userScrolled]);
+
+
+
 
   return (
     <>
-      <Box sx={{ width: '100%', minHeight: '400px', display: 'flex', flexDirection: { sm: "row", xs: "column" } }}>
+      <Box
+
+        component={motion.div}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        ref={sectionRef}
+
+        sx={{ width: '100%', minHeight: '400px', display: 'flex', flexDirection: { sm: "row", xs: "column" } }}
+      >
+
 
         {/* LEFT CARD */}
         <Box
@@ -81,9 +212,31 @@ const Initiatives = () => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
+
+            // Problem Here
+            "&::before": {
+              content: '""',
+              // position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(120deg, transparent 30%, rgba(255,255,255,.25), transparent 70%)",
+              transform: "translateX(-100%)",
+              animation: hasStarted ? "shine 2s ease forwards" : "none",
+            },
+
+            "@keyframes shine": {
+              to: { transform: "translateX(100%)" },
+            },
+
           }}
+
         >
 
+
+          {/* Title */}
+
+
+          {/* 🔹 COUNTER GRID */}
           <Grid container spacing={2} sx={{ width: '90%' }}>
             {counts.map((count, index) => (
               <Grid
@@ -94,6 +247,8 @@ const Initiatives = () => {
                   marginTop: "40px",
                   marginBottom: "40px",
                   position: 'relative',
+
+                  /* RIGHT BORDER */
                   '&::after': {
                     content: '""',
                     position: 'absolute',
@@ -102,6 +257,8 @@ const Initiatives = () => {
                     height: '60%',
                     width: '1px',
                     backgroundColor: 'rgba(255,255,255,0.4)',
+
+
                     display: {
                       xs: (index + 1) % 2 === 0 ? 'none' : 'block',
                       md: (index + 1) % 3 === 0 ? 'none' : 'block',
@@ -127,115 +284,29 @@ const Initiatives = () => {
                       fontSize: '16px',
                       fontFamily: 'Roboto',
                       color: '#fff',
+
                     }}
                   >
                     {labels[index]}
                   </Typography>
-                  
                 </Box>
               </Grid>
             ))}
           </Grid>
+
+
         </Box>
 
-        {/* RIGHT CARD */}
+        {/* RIGHT CARD (UNCHANGED) */}
         <Box
           sx={{
-            width: { sm: '50%', xs: "100%" },
-            height: '450px',
-            backgroundImage: `url(${data?.sec3right_bg_img})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
+            width: { sm: "50%", xs: "100%" },
+            height: "450px",
+            position: "relative",
+            overflow: "hidden",
             cursor: "pointer",
-          }}
-          onClick={() => setOpenModal(true)}
-        >
 
-          <Box sx={{
-            position: 'relative',
-            zIndex: 1,
-            marginBottom: 3,
-            width: "100px",
-            height: "100px",
-            backgroundColor: "#fff",
-            borderRadius: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            transition: "all 0.4s ease-in-out",
-            background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)',
-            "&:hover": {
-              transform: "scale(1.1)",
-              background: "#fff",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-              color: "#fff"
-            },
-          }}>
-            <img
-              src={data?.sec3right_icon_img}
-              alt="Logo"
-              style={{ width: '60px', height: '60px' }}
-            />
-          </Box>
-
-          <Box sx={{ textAlign: 'center', width: '80%' }}>
-            <Typography
-              sx={{
-                fontSize: { xs: "1.5rem", md: "2rem" },
-                fontWeight: "bold",
-                fontFamily: "Roboto",
-                cursor: "pointer",
-                color: "#000",
-                background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                transition: "all 0.4s ease-in-out",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  background: "#000",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  textShadow: "0 4px 15px rgba(39, 111, 158, 0.3)",
-                },
-              }}
-            >
-              {data?.sec3right_title}
-            </Typography>
-
-            <Typography sx={{
-              fontSize: { xs: '0.9rem', md: '18px' },
-              fontFamily: 'Roboto',
-              lineHeight: 1.6
-            }}>
-              {data?.sec3right_description}
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* MODAL – EXACT AS YOURS */}
-        <Modal
-          open={openModal}
-          onClose={() => setOpenModal(false)}
-          aria-labelledby="testimonial-modal"
-          aria-describedby="testimonial-video"
-        >
-          <Box sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: { xs: '90%', sm: '80%', md: '60%' },
-            borderRadius: '10px',
-            boxShadow: 24,
-            p: { xs: 2, sm: 2 },
-            backgroundImage: `url(${data?.sec3right_bg_img})`,
-            backgroundRepeat: "repeat",
+            /* BACKGROUND LAYER */
             "&::before": {
               content: '""',
               position: "absolute",
@@ -243,56 +314,241 @@ const Initiatives = () => {
               backgroundImage: `url(${data?.sec3right_bg_img})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "blur(1.5px)",
+              transition: "transform 1.2s ease",
               zIndex: 0,
             },
+
+            /* SHINE OVERLAY */
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%)",
+              transform: "translateX(-120%)",
+              transition: "all 1.2s ease",
+              zIndex: 1,
+              pointerEvents: "none",
+            },
+
+            "&:hover::before": {
+              transform: "scale(1.08)", 
+            },
+
+            "&:hover::after": {
+              transform: "translateX(120%)", 
+            },
+
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+
+            /* keep content above overlays */
             "& > *": {
               position: "relative",
-              zIndex: 1,
+              zIndex: 2,
             },
-          }}>
 
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button
-                onClick={() => setOpenModal(false)}
-                sx={{ fontWeight: "bold", color: "#fff", backgroundColor: "#CA0B00", borderRadius: "12%" }}
+            "&:hover .scrollContent": {
+              animationPlayState: "paused",
+            },
+
+          }}
+
+        >
+
+
+          <Box
+            sx={{
+              width: "90%",
+              height: "90%",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {/* HEADING */}
+            <Box
+              sx={{
+                textAlign: "center",
+                marginBottom: "15px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 1.2,
+              }}
+            >
+              <NotificationsActiveIcon
+                sx={{
+                  color: "#FFD700", 
+                  fontSize: 28,
+                  animation: "ring 1.5s ease-in-out infinite",
+                }}
+              />
+
+              <Typography
+                sx={{
+                  fontSize: "22px",
+                  fontWeight: 800,
+                  // letterSpacing: 1,
+                  textTransform: "uppercase",
+
+                  background: "linear-gradient(270deg, #ffffff, #ffd000, #ffffff)",
+                  backgroundSize: "400% 400%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+
+                  animation: "gradientMove 6s ease infinite",
+
+                  "@keyframes gradientMove": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                  },
+                }}
+
               >
-                X
+                UpComing Initiative
+              </Typography>
+
+
+
+              {/* Bell Ring Animation */}
+              <style>
+                {`
+      @keyframes ring {
+        0% { transform: rotate(0); }
+        10% { transform: rotate(15deg); }
+        20% { transform: rotate(-10deg); }
+        30% { transform: rotate(6deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(2deg); }
+        60% { transform: rotate(0); }
+        100% { transform: rotate(0); }
+      }
+    `}
+              </style>
+            </Box>
+
+
+            <Box
+              sx={{
+                flex: 1,
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Box
+                className="scrollContent"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                  animation: "scrollUp 30s linear infinite",
+
+                  "@keyframes scrollUp": {
+                    "0%": { transform: "translateY(0%)" },
+                    "100%": { transform: "translateY(-50%)" },
+                  },
+                }}
+              >
+                {[...noticeData, ...noticeData].map((item, index) => (
+                  <Box
+                    key={index}
+                    component="a"
+                    href={item.link}
+                    sx={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 2,
+                      textDecoration: "none",
+                      color: "#000",
+                      backgroundColor: "rgba(255,255,255,0.9)",
+                      padding: "10px",
+                      borderRadius: "4px",
+                      transition: "all .3s ease",
+
+                      "&:hover": {
+                        backgroundColor: "#fff",
+                        transform: "translateX(5px)",
+                      },
+                    }}
+                  >
+                    {/* DATE */}
+                 
+                    <Box
+                      sx={{
+                        minWidth: "85px",
+                        background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
+                        color: "#fff",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        padding: "6px 8px",
+                        textAlign: "center",
+                        borderRadius: "4px",
+                        boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {item.date}
+                    </Box>
+
+
+                    {/* 📄 TITLE */}
+                    <Typography
+                      sx={{
+                        fontSize: "18px",
+                        fontWeight: 500,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mt: "auto",
+                pt: 6
+              }}
+            >
+
+              <Button
+                variant="contained"
+                endIcon={<ArrowForwardIosIcon sx={{ fontSize: 14 }} />}
+                sx={{
+                  background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
+                  textTransform: "none",
+                  fontWeight: 600,
+                  px: 3,
+                  py: 1,
+                  borderRadius: "6px",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                  transition: "all 0.3s ease",
+
+                  fontSize: "18px"
+                }}
+              >
+                View All Notices
               </Button>
             </Box>
 
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "32px",
-                fontFamily: "Roboto",
-                textAlign: "center",
-                mb: 3,
-                fontWeight: "600"
-              }}
-            >
-              {data?.sec3popup_title}
-            </Typography>
-
-            <Typography sx={{
-              color: "#000",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              textAlign: "justify"
-
-            }}
-              dangerouslySetInnerHTML={{
-                __html: data?.sec3popup_description
-              }}
-            >
-            
-            </Typography>
-
           </Box>
-        </Modal>
+
+
+
+
+
+        </Box>
+
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default Initiatives
+export default Initiatives;

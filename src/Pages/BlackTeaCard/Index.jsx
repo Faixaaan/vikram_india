@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 
 
@@ -21,7 +22,7 @@ const cardData = [
         image: FanImage,
         path: "/products/ctc/teawithering-process"
     },
-    
+
 ];
 
 const ProcessingCard = () => {
@@ -44,7 +45,7 @@ const ProcessingCard = () => {
     }, [])
 
 
-     const handleClick = (path) => {
+    const handleClick = (path) => {
         navigate(path);
     };
 
@@ -61,6 +62,8 @@ const ProcessingCard = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     position: "relative",
+                    display: "flex",
+                    alignItems: "center",
                 }}
             >
                 {/* Overlay */}
@@ -68,34 +71,68 @@ const ProcessingCard = () => {
                     sx={{
                         position: "absolute",
                         inset: 0,
-                        background: "rgba(0,0,0,0.55)",
+                        background: "rgba(0,0,0,0.6)",
                     }}
                 />
 
                 {/* Banner Content */}
-                <Box
-                    sx={{
-                        position: "relative",
-                        zIndex: 1,
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        px: 2,
-                    }}
-                >
-                    {/* <Typography
-            sx={{
-              color: "#fff",
-              fontSize: { xs: "26px", sm: "34px", md: "44px" },
-              fontWeight: 700,
-              fontFamily: "Roboto",
-              textAlign: "center",
-            }}
-          >
-            Module Mounting Structure
-          </Typography> */}
-                </Box>
+                <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+                    <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+
+                        {/* Title */}
+                        <Typography
+                            sx={{
+                                color: "#fff",
+                                fontSize: { xs: "24px", sm: "32px", md: "42px" },
+                                fontWeight: 700,
+                                fontFamily: "Roboto",
+                                mb: 2,
+                            }}
+                        >
+                            Black Tea Machinery
+                        </Typography>
+
+                        {/* Breadcrumbs */}
+                        <Typography sx={{ color: "#fff", fontSize: "14px" }}>
+                            <Typography
+                                component={Link}
+                                to="/"
+                                underline="none"
+                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+                            >
+                                Home
+                            </Typography>
+
+
+                            {" / "}
+                            <Typography
+                                component={Link}
+                                to="/products/tea-processing-machinery/Tmd-Division-machine-structure"
+                                underline="none"
+                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+                            >
+                                Tmd Division Machine Structure
+                            </Typography>
+                            {" / "}
+                            <Typography
+                                component={Link}
+                                to="/products/processing-card"
+                                underline="none"
+                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+                            >
+                                Tea Processing Machinery
+                            </Typography>
+                            {" / "}
+                            <Typography
+                                component="span"
+                                sx={{ color: "#fff", fontWeight: 500 }}
+                            >
+                                Black Tea Machinery
+                            </Typography>
+                        </Typography>
+                    </Box>
+
+                </Container>
             </Box>
 
             {/* ================= CONTENT ================= */}
@@ -108,21 +145,10 @@ const ProcessingCard = () => {
                         paddingBottom: "150px!important"
                     }}
                 >
-                    {/* Title */}
-                    <Typography
-                        sx={{
-                            fontSize: { xs: "22px", sm: "28px", md: "40px" },
-                            fontWeight: 700,
-                            fontFamily: "Roboto",
-                            mb: 6,
-                            color: "#1A73E8",
-                        }}
-                    >
-                        Black Tea Machinery
-                    </Typography>
+                    
 
                     {/* Subtitle */}
-                   
+
 
                     {/* Learn More Button */}
                     <Grid container spacing={3} justifyContent="center"   >

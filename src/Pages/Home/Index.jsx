@@ -5,20 +5,20 @@ import Testimonial from './Components/Testimonial'
 import Achievmnet from './Components/Achievmnet'
 import Initiatives from './Components/Initiatives'
 import OurClient from './Components/OurClient'
-import ModuleMounting from './Components/Modulemounting'
+// import ModuleMounting from './Components/Modulemounting'
 
 const Home = () => {
- useEffect(() => {
-     window.scrollTo({
-         top: 0,
-         behavior: "smooth"
-     });
- }, []);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, []);
   return (
     <>
 
       <Banner />
-      <ModuleMounting />
+      {/* <ModuleMounting /> */}
       <OurClient />
       <Initiatives />
       <Achievmnet />

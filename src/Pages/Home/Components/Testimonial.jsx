@@ -13,6 +13,36 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+
+    const distance = touchStartX - touchEndX;
+    const minSwipeDistance = 50; // sensitivity
+
+    if (distance > minSwipeDistance) {
+      // swipe left
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      // swipe right
+      prevSlide();
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
 
 
   // Sample testimonial data with images
@@ -168,22 +198,45 @@ const Testimonial = () => {
       backgroundColor: "#fff",
       position: 'relative'
     }}>
-      {/* Section Header */}
-      <Typography
-        variant="h2"
+      <Box
         sx={{
-          textAlign: 'center',
-          fontSize: { xs: "2rem", md: "2.5rem" },
-          fontWeight: "bold",
-          marginBottom: "40px",
-          background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          fontFamily: "Roboto"
+          display: "flex",
+          justifyContent: "center",
+          mb: "50px",
         }}
       >
-        Testimonials
-      </Typography>
+        <Box sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "1.9rem", md: "2.6rem" },
+              fontWeight: 700,
+              letterSpacing: "1px",
+              fontFamily: "'Poppins', 'Roboto', sans-serif",
+              background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              position: "relative",
+              display: "inline-block",
+            }}
+          >
+            Testimonials
+          </Typography>
+
+          <Box
+            sx={{
+              width: 80,
+              height: 4,
+              margin: "14px auto 0",
+              borderRadius: "10px",
+              background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+            }}
+          />
+        </Box>
+      </Box>
+
+
+
 
       {/* Carousel Container */}
       <Box sx={{ position: 'relative', maxWidth: '1200px', margin: '0 auto' }}>
@@ -232,11 +285,18 @@ const Testimonial = () => {
         )}
 
         {/* Carousel Content */}
-        <Box sx={{
-          overflow: 'hidden',
-          width: '100%',
-          padding: '10px 0'
-        }}>
+        <Box
+          sx={{
+            overflow: 'hidden',
+            width: '100%',
+            padding: '10px 0',
+            touchAction: 'pan-y'
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+
+        >
           <Box sx={{
             display: 'flex',
             transition: 'transform 0.5s ease-in-out',

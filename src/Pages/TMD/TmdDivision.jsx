@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Container, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import bannerImg from "../../Assets/Module_mounting_banner.jpg"; // change if needed
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 
 
@@ -44,7 +45,7 @@ const TmdDivision = () => {
     }, [])
 
 
-     const handleClick = (path) => {
+    const handleClick = (path) => {
         navigate(path);
     };
 
@@ -61,6 +62,8 @@ const TmdDivision = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     position: "relative",
+                    display: "flex",
+                    alignItems: "center",
                 }}
             >
                 {/* Overlay */}
@@ -68,79 +71,81 @@ const TmdDivision = () => {
                     sx={{
                         position: "absolute",
                         inset: 0,
-                        background: "rgba(0,0,0,0.55)",
+                        background: "rgba(0,0,0,0.6)",
                     }}
                 />
 
                 {/* Banner Content */}
-                <Box
-                    sx={{
-                        position: "relative",
-                        zIndex: 1,
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        px: 2,
-                    }}
-                >
-                    {/* <Typography
-            sx={{
-              color: "#fff",
-              fontSize: { xs: "26px", sm: "34px", md: "44px" },
-              fontWeight: 700,
-              fontFamily: "Roboto",
-              textAlign: "center",
-            }}
-          >
-            Module Mounting Structure
-          </Typography> */}
-                </Box>
+                <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+                    <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
+
+                    {/* Title */}
+                    <Typography
+                        sx={{
+                            color: "#fff",
+                            fontSize: { xs: "24px", sm: "32px", md: "42px" },
+                            fontWeight: 700,
+                            fontFamily: "Roboto",
+                            mb: 2,
+                        }}
+                    >
+                        Tmd Division Machine Structure
+                    </Typography>
+
+                    {/* Breadcrumbs */}
+                    <Typography sx={{ color: "#fff", fontSize: "14px" }}>
+                        <Typography
+                            component={Link}
+                            to="/"
+                            underline="none"
+                            sx={{ color: "#fff",textdecoration:"none",fontSize:"15px",}}
+                        >
+                            Home
+                        </Typography>
+                      
+                        
+                        {" / "}
+                        <Typography
+                            component="span"
+                            sx={{ color: "#fff", fontWeight: 500 }}
+                        >
+                            Tmd Division Machine Structure
+                        </Typography>
+                    </Typography>
+                    </Box>
+
+                </Container>
             </Box>
+
 
             {/* ================= CONTENT ================= */}
             <Container maxWidth="xl">
                 <Box
                     sx={{
                         textAlign: "center",
-                        py: { xs: 4, sm: 5, md: "60px" },
+                        py: { xs: 4, sm: 5, md: "30px" },
                         px: { xs: 2, sm: 3 },
-                        paddingBottom: "150px!important"
+                        paddingBottom: "150px!important",
+                        marginTop:"50px"
                     }}
+                
                 >
                     {/* Title */}
-                    <Typography
+                    {/* <Typography
                         sx={{
                             fontSize: { xs: "22px", sm: "28px", md: "40px" },
                             fontWeight: 700,
                             fontFamily: "Roboto",
                             mb: 2,
                             color: "#1A73E8",
-                            textTransform:"capitalize"
+                            textTransform: "capitalize"
                         }}
                     >
                         Tmd Division Machine Structure
                     </Typography>
 
                     {/* Subtitle */}
-                    <Typography
-                        sx={{
-                            fontSize: { xs: "15px", sm: "16px", md: "17px" },
-                            fontWeight: 400,
-                            fontFamily: "Roboto",
-                            color: "#555",
-                            maxWidth: "1100px",
-                            mx: "auto",
-                            mb: 6,
-                            lineHeight: "1.4",
-                            textAlign: "center"
-                        }}
-                        dangerouslySetInnerHTML={{
-                            __html: data?.description
-                        }}
-                    >
-
-                    </Typography>
+                    
 
                     {/* Learn More Button */}
                     <Grid container spacing={3} justifyContent="center"   >
