@@ -20,7 +20,12 @@ export const endpoints = {
     Introduction:"/page/module_mounting_introduction",
     CmsModuleMounting:"/page/module_mounting_manufacturing",
     solarPumps:"/page/module_mounting_solar_pump",
-    products:"/page/module_mounting_product"
+    products:"/page/module_mounting_product",
+    quality_safety:"/page/module_mounting_quality_safety",
+    technical_specification:"/page/module_mounting_technical",
+    product_portfolio:"/page/module_mounting_product_profile",
+    infrastrutre_machinery:"/page/module_mounting_infrastructure",
+    module_mounting_introduction:"/page/module_mounting_introduction"
   },
   
   Media: {
@@ -65,7 +70,12 @@ export const endpoints = {
     drying:"/page/ctc_tea_processing_drying",
     withering:"/page/ctc_tea_processing_withering",
     rolling:"/page/ctc_tea_processing_rolling",
-    quality:"/page/ctc_tea_processing_quality"
+    quality:"/page/ctc_tea_processing_quality",
+    fermenting:"/page/ctc_tea_processing_fermanting",
+    sorting:"/page/ctc_tea_processing_sorting",
+    packing:"/page/ctc_tea_processing_packing",
+    workshop:"/page/ctc_tea_processing_working",
+    utilities:"/page/ctc_tea_processing_utilities"
   }
 
 

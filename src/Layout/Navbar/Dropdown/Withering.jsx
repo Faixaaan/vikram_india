@@ -43,11 +43,17 @@ const leftMenu = [
 const Withering = () => {
 
   const [data, setData] = useState([])
+  const [tableData, setTableData] = useState([])
+  console.log(tableData, 'tableData')
 
   const fetchDryingData = async () => {
     try {
       const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
       setData(res?.data?.data)
+      if (res?.data.data) {
+        const parsedData = JSON.parse(res?.data?.data?.table_data);
+        setTableData(parsedData)
+      }
     }
     catch (err) {
       console.log(err)
@@ -68,18 +74,18 @@ const Withering = () => {
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-          <Typography color="text.primary" sx={{  fontSize: "15px" }}>Withering</Typography>
+          <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Withering</Typography>
         </Breadcrumbs>
 
-        
+
 
 
 
         <Grid container spacing={3}>
           {/* Left Sidebar */}
-          <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}} >
+          <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }} >
             <Typography
               sx={{
                 fontWeight: 700,
@@ -92,7 +98,7 @@ const Withering = () => {
               Product & Services
             </Typography>
 
-            
+
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -124,19 +130,19 @@ const Withering = () => {
           </Grid>
 
           {/* Right Content Section */}
-          <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+          <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
             <Typography
               sx={{
                 fontSize: "24px",
                 fontWeight: 600,
                 mb: 0,
                 fontFamily: "Roboto",
-                color:"red"
+                color: "red"
               }}
             >
               {data?.section1_title}
             </Typography>
-            
+
 
             <Grid container spacing={2}>
               {/* Left Description */}
@@ -193,53 +199,57 @@ const Withering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontWeight: 700, fontFamily: "Roboto" }} variant="h6">
-                  View Technical Specifications
+                  {data?.section2_sub_title}
                 </Typography>
               </AccordionSummary>
 
               <AccordionDetails>
 
                 {/* YOUR EXISTING TABLE WITHOUT ANY CHANGE */}
-                <TableContainer component={Paper} sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}>
-                  <Table sx={{ minWidth: 650 }}>
-                    <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
-                      <TableRow>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>MODEL</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Impeller Diameter</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Motor</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Flow Rate</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Air Velocity</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Static Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Total Pressure</TableCell>
-                        <TableCell sx={{ fontWeight: 700, fontFamily: "Roboto" }}>Shaft BHP</TableCell>
-                      </TableRow>
-                    </TableHead>
+                {
+                  tableData?.map((item, key) => {
+                    return (
+                      <TableContainer
+                        component={Paper}
+                        sx={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
+                      >
+                        <Table sx={{ minWidth: 650 }}>
 
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>VAF - 403</TableCell>
-                        <TableCell>106 cm</TableCell>
-                        <TableCell>3 HP</TableCell>
-                        <TableCell>19000 cfm</TableCell>
-                        <TableCell>11.1 m/sec</TableCell>
-                        <TableCell>0.75 inch</TableCell>
-                        <TableCell>19.9</TableCell>
-                        <TableCell>2.6 hp</TableCell>
-                      </TableRow>
+                          {/* TABLE HEAD */}
+                          <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
+                            <TableRow>
+                              {tableData?.length > 0 &&
+                                Object.keys(tableData[0]).map((key) => (
+                                  <TableCell
+                                    key={key}
+                                    sx={{ fontWeight: 700, fontFamily: "Roboto" }}
+                                  >
+                                    {key.replace(/_/g, " ").toUpperCase()}
+                                  </TableCell>
+                                ))}
+                            </TableRow>
+                          </TableHead>
 
-                      <TableRow>
-                        <TableCell>VAF - 483</TableCell>
-                        <TableCell>119 cm</TableCell>
-                        <TableCell>3 HP</TableCell>
-                        <TableCell>23500 cfm</TableCell>
-                        <TableCell>9.5 m/sec</TableCell>
-                        <TableCell>0.71 inch</TableCell>
-                        <TableCell>18.0</TableCell>
-                        <TableCell>2.9 hp</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                          {/* TABLE BODY */}
+                          <TableBody>
+                            {tableData?.map((item, rowIndex) => (
+                              <TableRow key={rowIndex}>
+                                {Object.keys(item).map((key) => (
+                                  <TableCell key={key}>
+                                    {item[key]}
+                                  </TableCell>
+                                ))}
+                              </TableRow>
+                            ))}
+                          </TableBody>
+
+                        </Table>
+                      </TableContainer>
+
+                    )
+                  })
+                }
+
 
               </AccordionDetails>
             </Accordion>

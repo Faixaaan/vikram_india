@@ -48,16 +48,17 @@ const img = [
 const Manufacturing = () => {
 
     const [imageData, setImageData] = useState([])
-    const [data, setData] = useState({})
+    const [data, setData] = useState([])
+    console.log(data,'porduct_portfolio')
 
 
     const fetchImageData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.getModuleMountingManufaturing)
-            const resData = await axiosInstance.get(endpoints.ModuleMounting.CmsModuleMounting)
+            
+            const resData = await axiosInstance.get(endpoints.ModuleMounting.product_portfolio)
             setData(resData?.data?.data)
 
-            setImageData(res?.data?.data)
+         
         }
         catch (err) {
             console.log(err)
@@ -149,7 +150,7 @@ const Manufacturing = () => {
                                 color:"#1A73E8"
                             }}
                         >
-                            PRODUCT & PORTFOLIO
+                            {data?.title}
                         </Typography>
                     
 
@@ -191,7 +192,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Fixed Tilt Ground Mount Structures
+                                       {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -200,7 +201,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section1_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -213,8 +214,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                     dangerouslySetInnerHTML={{
+                                                        __html: data?.section1_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+                                                    
 
 
                                                 </Typography>
@@ -251,7 +255,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Seasonal Tilt / Tracker Components
+                                       {data?.section2_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -260,7 +264,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section2_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -273,8 +277,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                     dangerouslySetInnerHTML={{
+                                                        __html: data?.section2_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+                                                    
 
 
                                                 </Typography>
@@ -311,7 +318,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Rooftop Purlins & Railing Systems
+                                       {data?.section3_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -320,7 +327,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section3_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -333,8 +340,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                     dangerouslySetInnerHTML={{
+                                                        __html: data?.section3_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+                                                    
 
 
                                                 </Typography>
@@ -371,7 +381,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Custom Industrial Steel Fabrication
+                                       {data?.section4_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -380,7 +390,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section4_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -393,8 +403,11 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                     dangerouslySetInnerHTML={{
+                                                        __html: data?.section4_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+                                                    
 
 
                                                 </Typography>

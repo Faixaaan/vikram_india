@@ -60,11 +60,13 @@ const Product = () => {
     const [imageData, setImageData] = useState([])
     const [data, setData] = useState({})
 
+    console.log(data, 'qualityData')
+
 
     const fetchImageData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.getProductData)
-            const resData = await axiosInstance.get(endpoints.ModuleMounting.products);
+            const res = await axiosInstance.get(endpoints.ModuleMounting.quality_safety);
+            const resData = await axiosInstance.get(endpoints.ModuleMounting.quality_safety);
             setData(resData?.data?.data)
 
             setImageData(res?.data?.data)
@@ -91,18 +93,18 @@ const Product = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Module Mounting Structure</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Quality & Safety</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Module Mounting Structure</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Quality & Safety</Typography>
                 </Breadcrumbs>
 
-               
 
-               
+
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -112,10 +114,10 @@ const Product = () => {
                                 fontFamily: "Roboto"
                             }}
                         >
-                            QUALITY & SAFETY
+                            Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -147,19 +149,19 @@ const Product = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}} >
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }} >
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 0,
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
-                            QUALITY & SAFETY
+                            {data?.title}
                         </Typography>
-                     
+
 
 
                         {/* Introduction */}
@@ -206,7 +208,7 @@ const Product = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Quality & Assurance
+                                        {data?.section1_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -215,7 +217,7 @@ const Product = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section1_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -228,8 +230,11 @@ const Product = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: data?.section1_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                                                 </Typography>
@@ -248,29 +253,40 @@ const Product = () => {
                                 </AccordionDetails>
                             </Accordion>
 
-                            <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
-                                <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Roboto" }}>Compliance</Typography>
+                            <Accordion
+                                sx={{
+                                    background: "#fff",
+                                    boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                    borderRadius: "8px",
+                                    "&:before": { display: "none" },
+                                    mt: 4
+                                }}
+                            >
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}
+                                    sx={{
+                                        backgroundColor: "#f8f8f8",
+                                        borderBottom: "1px solid #eee",
+                                        borderRadius: "8px"
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: { md: "20px", xs: "16px" },
+                                            fontWeight: 600,
+                                            fontFamily: "Roboto"
+                                        }}
+                                    >
+                                        {data?.section2_title}
+                                    </Typography>
                                 </AccordionSummary>
-
-
 
                                 <AccordionDetails>
                                     <Box>
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section2_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -283,8 +299,11 @@ const Product = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: data?.section2_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                                                 </Typography>
@@ -301,32 +320,41 @@ const Product = () => {
                                         </Grid>
                                     </Box>
                                 </AccordionDetails>
-
-
                             </Accordion>
-                            <Accordion sx={{
-                                background: "#fff",
-                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                                borderRadius: "8px",
-                                "&:before": { display: "none" },
-                                mt: 4
-                            }}>
-                                <AccordionSummary sx={{
-                                    backgroundColor: "#f8f8f8",
-                                    borderBottom: "1px solid #eee",
-                                    borderRadius: "8px"
-                                }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: "600", fontFamily: "Roboto" }}>Safety</Typography>
+                            <Accordion
+                                sx={{
+                                    background: "#fff",
+                                    boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                    borderRadius: "8px",
+                                    "&:before": { display: "none" },
+                                    mt: 4
+                                }}
+                            >
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}
+                                    sx={{
+                                        backgroundColor: "#f8f8f8",
+                                        borderBottom: "1px solid #eee",
+                                        borderRadius: "8px"
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: { md: "20px", xs: "16px" },
+                                            fontWeight: 600,
+                                            fontFamily: "Roboto"
+                                        }}
+                                    >
+                                        {data?.section3_title}
+                                    </Typography>
                                 </AccordionSummary>
-
-
 
                                 <AccordionDetails>
                                     <Box>
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={structure4} style={{ width: "100%" }} />
+                                                <img src={data?.section3_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -339,8 +367,11 @@ const Product = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: data?.section3_description
+                                                    }}
                                                 >
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repudiandae magnam cupiditate rerum at aliquam? Soluta esse dolor alias commodi, temporibus quidem illo aliquam nobis assumenda est voluptatum hic aspernatur atque ab. Eveniet natus, enim vel iure minus, est reprehenderit aspernatur veritatis omnis eum maiores illum quasi delectus aliquid quidem.
+
 
 
                                                 </Typography>
@@ -357,8 +388,6 @@ const Product = () => {
                                         </Grid>
                                     </Box>
                                 </AccordionDetails>
-
-
                             </Accordion>
 
 

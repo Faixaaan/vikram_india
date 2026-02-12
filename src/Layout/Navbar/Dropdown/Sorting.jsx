@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -28,6 +28,8 @@ import CFM from '../../../Assets/sorting_batch.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import speed_fiber from '../../../Assets/slow-speed.jpg'
 import vibro_screen from '../../../Assets/vibro-screen.jpg'
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -43,6 +45,32 @@ const leftMenu = [
 ];
 
 const Sorting = () => {
+
+    const [data, setData] = useState([]);
+    const [parseData, setParseData] = useState([])
+    const [listData, setListData] = useState([])
+
+    const getData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.sorting);
+            setData(res?.data?.data)
+            if (res?.data?.data) {
+                const listData = JSON.parse(res?.data?.data.section2_list);
+                const listDataa = JSON.parse(res?.data?.data.section4_list);
+                setParseData(listData)
+                setListData(listDataa)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -58,17 +86,17 @@ const Sorting = () => {
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Sorting</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Sorting</Typography>
                 </Breadcrumbs>
 
-             
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -81,7 +109,7 @@ const Sorting = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -113,19 +141,19 @@ const Sorting = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
-                            SORTING
+                            {data?.section1_title}
                         </Typography>
-                        
+
 
 
                         {/* Technical Specification Table */}
@@ -148,7 +176,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Jigger Shifter
+                                    {data?.section2_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -160,10 +188,10 @@ const Sorting = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontWeight: 600, fontFamily: "Roboto", fontSize: "26px", mb: 3 }}>
-                                            Auto Batch Weigher
+                                            {data?.section2_sub_title}
                                         </Typography>
                                         <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            The Auto Batch Weigher from Vikram is a microprocessor based, single load cell weighing system that ensures accurate and reliable weighing of tea from the dryer mouth. The unit is computer compatible and is fitted with a battery to withstand power fluctuations.
+                                            {data?.section2_desc}
 
                                         </Typography>
                                     </Grid>
@@ -172,7 +200,7 @@ const Sorting = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={CFM}
+                                            src={data?.section2_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -187,94 +215,27 @@ const Sorting = () => {
                                 <Box mt={3} />
 
                                 <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
-                                    Features :
+                                    {data?.section2_list_title}
                                 </Typography>
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        System accuracy is better than ± 0.025.
-                                    </Typography>
+                                {
+                                    parseData?.map((item) => {
+                                        return (
+                                            <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                                <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                                    {item}
+                                                </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        Digital circuitry for error - free operation.
-                                    </Typography>
+                                            </Box>
+                                        )
+                                    })
+                                }
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Easy and minimum maintenance.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Saves floor space and cost of labour.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Battery in SMPS to withstand power fluctuations.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Built in real time clock and battery back up to continue sequential operation during power failure.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Digital display of total weight and current weight.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Dust proof cabinet for the electronic controller for trouble free operation. Glass window for easy viewing of displays.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Facility for resetting totalized weight.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Unit is computer compatible.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Alarm hooter incorporated in enunciation mode in case of Power Failure.
-                                    </Typography>
-
-                                </Box>
 
 
 
@@ -299,7 +260,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Pre-Sorters
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -311,10 +272,12 @@ const Sorting = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontWeight: 600, fontFamily: "Roboto", fontSize: "26px", mb: 3 }}>
-                                            Slow Speed Fibre Extractor
+                                            {data?.section3_sub_title}
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Slow speed fibre extractors cum tea sorters eliminate rubbing effects and ensure clean tea without any loss of bloom. Vikram has developed this machine after extensive trials at tea gardens. Total power requirement is between 1 Hp - 2 Hp. The machine is easy to install and occupies less floor space.
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
+                                        >
+
 
                                         </Typography>
                                     </Grid>
@@ -323,7 +286,7 @@ const Sorting = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={speed_fiber}
+                                            src={data?.section3_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -363,7 +326,7 @@ const Sorting = () => {
                                     variant="h6"
                                     sx={{ fontWeight: 700, fontFamily: "Roboto" }}
                                 >
-                                    Trinic Sorters
+                                    {data?.section4_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -375,10 +338,12 @@ const Sorting = () => {
                                     {/* LEFT TEXT */}
                                     <Grid item size={{ xs: 12, md: 8 }}>
                                         <Typography sx={{ fontWeight: 600, fontFamily: "Roboto", fontSize: "26px", mb: 3 }}>
-                                            Trinic Sorters
+                                            {data?.section4_sub_title}
                                         </Typography>
-                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}>
-                                            Vikram's Vibro Screen Sorters are specially designed for efficient sorting of tea grades at a low operating cost. The machine ensures a continuous flow of production without any need for resorting. The decks are easily accessible for cleaning and inspection, ensuring perfect quality tea at the end of the production chain.
+                                        <Typography sx={{ fontFamily: "Roboto", color: "#333", textAlign: "justify" }}
+                                            dangerouslySetInnerHTML={{ __html: data?.section4_desc }}
+                                        >
+
 
                                         </Typography>
                                     </Grid>
@@ -387,7 +352,7 @@ const Sorting = () => {
                                     <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
                                         <Box
                                             component="img"
-                                            src={vibro_screen}
+                                            src={data?.section4_img}
                                             alt="VFBD Machine"
                                             sx={{
                                                 width: "100%",
@@ -402,78 +367,30 @@ const Sorting = () => {
                                 <Box mt={3} />
 
                                 <Typography sx={{ fontSize: "20px", fontFamily: "Opens Sans", color: "red", mb: 2 }}>
-                                    Salient Features :
+                                    {data?.section4_list_title}
                                 </Typography>
 
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        Low Operating Cost.
-                                    </Typography>
+                                {
+                                    listData?.map((item) => {
+                                        return (
+                                            <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
+                                                <ChevronRightIcon sx={{ color: "red" }} />  <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
+                                                    {item}
+                                                </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-                                        No Transmitted Vibration.
-                                    </Typography>
+                                            </Box>
+                                        )
+                                    })
+                                }
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        High Capacity, Minimum space.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Minimum Screen Blinding.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Grades sorted efficiently into perfect sizes.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
 
-                                        Re-sorting not necessary, Ensures continuous flow of production.
-                                    </Typography>
 
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Easily accessible openings for cleaning and inspection for all the decks.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        No bloom loss of grains.
-                                    </Typography>
-
-                                </Box>
-                                <Box sx={{ mt: 3, borderBottom: "1px solid #e5e5e5", py: 0, display: "flex", justifyContent: "flex-start" }}>
-                                    <ChevronRightIcon sx={{ color: "red" }} />
-                                    <Typography sx={{ color: "", fontWeight: "500", mb: 1 }}>
-
-                                        Nearly maintenance free.
-                                    </Typography>
-
-                                </Box>
 
 
 

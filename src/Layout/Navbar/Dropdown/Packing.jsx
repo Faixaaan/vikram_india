@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid,
@@ -28,6 +28,8 @@ import CFM from '../../../Assets/sorting_batch.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import speed_fiber from '../../../Assets/slow-speed.jpg'
 import vibro_screen from '../../../Assets/vibro-screen.jpg'
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 
 const leftMenu = [
@@ -43,7 +45,27 @@ const leftMenu = [
 ];
 
 const Packing = () => {
+
+    const [data, setData] = useState([]);
+    const [parsedData, setParsedData] = useState([]);
+
+    const getData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.packing)
+            setData(res?.data?.data)
+            if (res?.data?.data) {
+                const listData = JSON.parse(res?.data?.data?.section1_list);
+                setParsedData(listData)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
     useEffect(() => {
+        getData()
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -57,18 +79,18 @@ const Packing = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Packing</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Packing</Typography>
                 </Breadcrumbs>
 
-                
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -81,7 +103,7 @@ const Packing = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -113,49 +135,46 @@ const Packing = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
-                            PACKING
+                            {data?.section1_title}
                         </Typography>
-                       
+
 
 
 
                         {/* Technical Specification Table */}
                         {/* Technical Specifications */}
-                        <Typography
-                            sx={
-                                headingStyle
-                            }
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />  Digital Weighing Scale
-                        </Typography>
 
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> Tea Storage Bins and Bin Loaders
-                        </Typography>
+                        {
+                            parsedData?.map((item) => {
+                                return (
+                                    <Typography
+                                        sx={
+                                            headingStyle
+                                        }
+                                    >
+                                        <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} /> 
+                                         {item}
+                                    </Typography>
+                                )
+                            })
+                        }
 
 
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Vibratory Platforms
-                        </Typography>
-                        <Typography
-                            sx={headingStyle}
-                        >
-                            <ChevronRightIcon sx={{ color: "red", fontSize: "34px" }} />   Packing Machines
-                        </Typography>
+
+
+
+
+
 
 
 
