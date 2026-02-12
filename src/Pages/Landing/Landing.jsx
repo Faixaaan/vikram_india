@@ -39,7 +39,7 @@
 //       />
 
 
-   
+
 //       {/* Logo */}
 //       <Box
 //         sx={{
@@ -227,10 +227,11 @@
 // }
 
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
 
 
 const MotionBox = motion(Box);
@@ -240,29 +241,60 @@ export default function Landing() {
   const [showVideo, setShowVideo] = useState(true);
   const navigate = useNavigate();
   const landvideo = "https://res.cloudinary.com/deqx8t3wr/video/upload/v1770867858/landingvideo_yt5ypz.mp4";
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+
 
   const handleEnter = () => {
-    // hide video immediately
-    setShowVideo(false);
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play();
+    }
 
-    // start black screen animation
     setOpen(true);
 
-    // navigate after animation completes
     setTimeout(() => {
       navigate("/home");
     }, 1200);
   };
 
+  useEffect(() => {
+    const unlockAudio = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = false;
+        videoRef.current.play().catch(() => { });
+      }
+      window.removeEventListener("click", unlockAudio);
+    };
+
+    window.addEventListener("click", unlockAudio);
+
+    return () => {
+      window.removeEventListener("click", unlockAudio);
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+
+
+
   return (
     <Box sx={{ height: "100vh", overflow: "hidden", position: "relative" }}>
-      
+
       {/* Background Video */}
       {showVideo && (
         <video
+          ref={videoRef}
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
           src={landvideo}
           style={{
@@ -272,6 +304,8 @@ export default function Landing() {
             objectFit: "cover",
           }}
         />
+
+
       )}
 
       {/* Logo */}
@@ -377,7 +411,7 @@ export default function Landing() {
               py: 1.5,
               borderRadius: "30px",
               background:
-                "linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0))",
+                "linear-gradient(135deg, #ff416c, #ff4b2b)",
               backdropFilter: "blur(12px)",
               boxShadow:
                 "0 8px 30px rgba(0,0,0,.35), inset 0 0 15px rgba(255,255,255,.3)",
@@ -396,7 +430,71 @@ export default function Landing() {
             Visit Our Website
           </Button>
         </Box>
+       
+
       </Box>
+
+
+      <Button
+  onClick={toggleAudio}
+  variant="contained"
+  sx={{
+    position: "absolute",
+    bottom: 30,
+    right: 40,
+    px: 4,
+    py: 1.4,
+    borderRadius: "40px",
+    fontWeight: 700,
+    fontSize: "16px",
+    textTransform: "none",
+    letterSpacing: "1px",
+
+    background: isMuted
+      ? "linear-gradient(135deg, #ff416c, #ff4b2b)"
+      : "linear-gradient(135deg, #00bcc6, #4facfe)",
+
+    color: "#fff",
+
+    boxShadow: isMuted
+      ? "0 0 20px rgba(255,65,108,0.7)"
+      : "0 0 20px rgba(79,172,254,0.7)",
+
+    transition: "all .4s ease",
+
+    animation: "pulse 2s infinite",
+
+    "&:hover": {
+      transform: "scale(1.08)",
+      boxShadow: isMuted
+        ? "0 0 35px rgba(255,65,108,1)"
+        : "0 0 35px rgba(79,172,254,1)",
+    },
+
+    "@keyframes pulse": {
+      "0%": {
+        boxShadow: isMuted
+          ? "0 0 10px rgba(255,65,108,0.5)"
+          : "0 0 10px rgba(79,172,254,0.5)",
+      },
+      "50%": {
+        boxShadow: isMuted
+          ? "0 0 25px rgba(255,65,108,0.9)"
+          : "0 0 25px rgba(79,172,254,0.9)",
+      },
+      "100%": {
+        boxShadow: isMuted
+          ? "0 0 10px rgba(255,65,108,0.5)"
+          : "0 0 10px rgba(79,172,254,0.5)",
+      },
+    },
+  }}
+>
+  {isMuted ? "🔊 Turn Audio On" : "🔇 Turn Audio Off"}
+</Button>
+
+
+      
 
       {/* Black Split Animation */}
       <AnimatePresence>
