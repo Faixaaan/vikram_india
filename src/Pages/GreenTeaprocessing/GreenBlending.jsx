@@ -73,7 +73,7 @@ const GreenBlending = () => {
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Green Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/processing-card">Green Tea Processing Machinery</Typography>
                     <Typography color="text.primary" sx={{  fontSize: "15px" }}>Final Blending & Packing</Typography>
                 </Breadcrumbs>
 
@@ -132,6 +132,55 @@ const GreenBlending = () => {
                        
 
                         {/* Technical Specification Table */}
+
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                     Mechanical Tea Bulkers
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                
+                                <Grid container spacing={3} alignItems="flex-start">
+
+                                    {/* LEFT TEXT */}
+                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
+                                        <Box
+                                            component="img"
+                                            src={controllerImage}
+                                            alt="VFBD Machine"
+                                            sx={{
+                                                width: "100%",
+                                                
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item size={{ xs: 12, md: 8 }} >
+                                        <Typography>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+                                        </Typography>
+
+                                    </Grid>
+
+                                    {/* RIGHT IMAGE */}
+                                    
+                                </Grid>
+
+                              
+
+                            </AccordionDetails>
+                        </Accordion>
 
                         <Accordion sx={{
                             background: "#fff",

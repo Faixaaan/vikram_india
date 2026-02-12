@@ -74,7 +74,7 @@ const Sorting = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px" }}>CTC Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Sorting, Cleaning, Grading and Storage System</Typography>
         </Breadcrumbs>
 

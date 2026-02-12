@@ -11,20 +11,20 @@ import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 const cardData = [
     {
         id: 1,
-        title: "Black Tea ",
+        title: "Tea Processing Machinery",
         image: FanImage,
-        path: "/products/tea-processing-machinery/black-tea"
+        path: "/products/processing-card"
     },
     {
         id: 2,
-        title: "Green Tea",
+        title: "Garden & Plantation Equipment",
         image: FanImage,
-        path: "/products/ctc/greensteaming-process"
+        path: "/products/garden-&-plantation-equipments/harvesting-tool"
     },
 
 ];
 
-const ProcessingCard = () => {
+const TmdDivision = () => {
 
     const navigate = useNavigate()
     const [data, setData] = useState([])
@@ -114,15 +114,33 @@ const ProcessingCard = () => {
                             fontSize: { xs: "22px", sm: "28px", md: "40px" },
                             fontWeight: 700,
                             fontFamily: "Roboto",
-                            mb: 6,
+                            mb: 2,
                             color: "#1A73E8",
+                            textTransform:"capitalize"
                         }}
                     >
-                        Tea Processing Machinery
+                        Tmd Division Machine Structure
                     </Typography>
 
                     {/* Subtitle */}
-                    
+                    <Typography
+                        sx={{
+                            fontSize: { xs: "15px", sm: "16px", md: "17px" },
+                            fontWeight: 400,
+                            fontFamily: "Roboto",
+                            color: "#555",
+                            maxWidth: "1100px",
+                            mx: "auto",
+                            mb: 6,
+                            lineHeight: "1.4",
+                            textAlign: "center"
+                        }}
+                        dangerouslySetInnerHTML={{
+                            __html: data?.description
+                        }}
+                    >
+
+                    </Typography>
 
                     {/* Learn More Button */}
                     <Grid container spacing={3} justifyContent="center"   >
@@ -200,4 +218,4 @@ const ProcessingCard = () => {
     );
 };
 
-export default ProcessingCard;
+export default TmdDivision;

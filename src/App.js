@@ -51,7 +51,7 @@ import GreenSteaming from "./Pages/GreenTeaprocessing/GreenSteaming";
 import GreenPacking from "./Pages/GreenTeaprocessing/GreenPacking";
 import GreenSorting from "./Pages/GreenTeaprocessing/GreenSorting";
 import GreenDrying from "./Pages/GreenTeaprocessing/GreenDrying";
-import Harvesting from "./Pages/GardenPlantMachienry/Harvesting";
+
 import Foreign from "./Pages/GardenPlantMachienry/Foreign";
 import Plucking from "./Pages/GardenPlantMachienry/Plucking";
 import TeaIngredient from "./Pages/GardenPlantMachienry/TeaIngredient";
@@ -69,6 +69,10 @@ import WhyChooseVikramIndia from "./Pages/HotDipGalvanization/Components/WhyChoo
 import ProfileAvailability from "./Pages/Components/ProfileAvailability";
 import BlackTeaCard from "./Pages/BlackTeaCard/Index";
 import GreenBlending from "./Pages/GreenTeaprocessing/GreenBlending";
+import TmdDivision from "./Pages/TMD/TmdDivision";
+import Harvesting from "./Pages/GardenPlantation/Harvesting";
+import ForeignObject from "./Pages/GardenPlantation/ForeignObject";
+import Laboratory from "./Pages/GardenPlantation/Laboratory";
 
 
 function App() {
@@ -93,7 +97,7 @@ function App() {
         <Route path="/products/ctc/teaoxidation-process" element={<TeaFermenting />} />
         <Route path="/products/ctc/teadrying-process" element={<TeaDrying />} />
         <Route path="/products/ctc/teasorting,cleaning,grading-and-storage-system" element={<TeaSorting />} />
-        <Route path="/products/ctc/teapacking" element={<TeaPacking />} />
+        
         <Route path="/products/ctc/greensteaming-process" element={<GreenSteaming />} />
         <Route path="/products/ctc/greensorting-&-grading-process" element={<GreenPacking />} />
         <Route path="/products/ctc/greendrying-process" element={<GreenSorting />} />
@@ -160,6 +164,10 @@ function App() {
         <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
         <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
         <Route path="/products/tea-processing-machinery/black-tea" element={<BlackTeaCard />} />
+        <Route path="/products/tea-processing-machinery/Tmd-Division-machine-structure" element={<TmdDivision />} />
+        <Route path="/products/garden-&-plantation-equipments/harvesting-tool" element={<Harvesting />} />
+        <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
+        <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -105,7 +105,7 @@ const TeaFermenting = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px" }}>Orthodox Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Oxidation Process</Typography>
         </Breadcrumbs>
 
@@ -262,7 +262,7 @@ const TeaFermenting = () => {
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, laborum? Laboriosam, sint esse natus libero architecto adipisci quod modi molestias? Sint, culpa reprehenderit veritatis suscipit rem tenetur, consequuntur illum explicabo nisi, nulla a hic eum ratione esse vitae sequi? Ad, nostrum at a laboriosam dolore tempora hic magni eaque error sunt repudiandae natus dignissimos qui officiis ratione velit obcaecati aspernatur omnis optio quos aliquam amet pariatur exercitationem officia. Error perspiciatis delectus ratione atque libero, similique eos asperiores ex nulla labore excepturi maxime dolore reiciendis ut omnis aspernatur ipsam hic facere?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, laborum? Laboriosam, sint esse natus libero architecto adipisci quod modi molestias? Sint, culpa reprehenderit veritatis suscipit rem tenetur, consequuntur illum explicabo nisi, nulla a hic eum ratione esse vitae sequi? Ad, nostrum at a laboriosam dolore tempora hic magni eaque error sunt repudiandae natus dignissimos qui officiis ratione velit obcaecati aspernatur omnis optio quos aliquam amet pariatur exercitationem officia. Error perspiciatis delectus ratione atque libero, similique eos asperiores ex nulla labore excepturi maxime dolore reiciendis ut omnis aspernatur ipsam hic facere!
 
                     </Typography>
 
