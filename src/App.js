@@ -74,6 +74,8 @@ import Harvesting from "./Pages/GardenPlantation/Harvesting";
 import ForeignObject from "./Pages/GardenPlantation/ForeignObject";
 import Laboratory from "./Pages/GardenPlantation/Laboratory";
 import AppLayout from "./Layout/AppLayout";
+import NoticeDetails from "./Pages/Home/Components/NoticeDetails";
+
 import Landing from "./Pages/Landing/Landing";
 
 
@@ -150,6 +152,43 @@ function App() {
           element={<AwardRecognition />}
         />
 
+
+          <Route path="/products/processing-card" element={<ProcessingCard />} />
+          <Route path="/about/group-profile" element={<GroupProfile />} />
+          <Route path="/about/company-profile" element={<CompanyProfile />} />
+          <Route path="/about/vision-&-mission" element={<VisionMission />} />
+          <Route path="/about/management-team" element={<ManagementTeam />} />
+          <Route
+            path="/about/award-and-recognition"
+            element={<AwardRecognition />}
+          />
+
+          <Route path="/about/clientele" element={<Clientele />} />
+          <Route path="/about/quality-policy" element={<QualityPolicy />} />
+          <Route path="/about/research-and-development" element={<Research />} />
+          <Route path="/page-coming-soon" element={<PageComing />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/contact/addresses" element={<Adresses />} />
+          <Route path="/contact/query-form" element={<QueryForm />} />
+          <Route path="/careers/working-with-us" element={<WorkingCareer />} />
+          <Route path="/careers/apply-now" element={<ApplyOnline />} />
+          <Route path="/blogs" element={<Blog />} />
+          <Route path="/blogs/blog-detail/:slug" element={<BlogDetail />} />
+         <Route path="/notice/:id" element={<NoticeDetails />} />
+
+          <Route path="/media/news" element={<News />} />
+          <Route path="/media/photo-gallery" element={<Gallery />} />
+          <Route path="/media/download" element={<Download />} />
+          <Route path="/csr" element={<CSR />} />
+          <Route path="/products/hot-dip" element={<HotDip />} />
+          <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
+          <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
+          <Route path="/products/introduction" element={<HotDipIntroduction />} />
+          <Route path="/products/service-capabilities" element={<ServiceCapabilities />} />
+          <Route path="/products/technical-specification-&-infrastructure" element={<TechnicalSpecification />} />
+          <Route path="/products/the-galvanizing-process" element={<GalvanizingProcess />} />
+          <Route path="/products/quality-assurance-&-lab-facilities" element={<QualityAssurance />} />
+          <Route path="/products/why-choose-us" element={<WhyChooseVikramIndia />} />
         <Route path="/about/clientele" element={<Clientele />} />
         <Route path="/about/quality-policy" element={<QualityPolicy />} />
         <Route path="/about/research-and-development" element={<Research />} />
