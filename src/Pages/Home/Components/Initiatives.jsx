@@ -8,6 +8,7 @@ import { endpoints } from '../../../Api/EndPoints/endpoints'
 import { motion } from "framer-motion";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Link } from 'react-router-dom';
 
 
 
@@ -332,11 +333,11 @@ const Initiatives = () => {
             },
 
             "&:hover::before": {
-              transform: "scale(1.08)", 
+              transform: "scale(1.08)",
             },
 
             "&:hover::after": {
-              transform: "translateX(120%)", 
+              transform: "translateX(120%)",
             },
 
             display: "flex",
@@ -380,7 +381,7 @@ const Initiatives = () => {
             >
               <NotificationsActiveIcon
                 sx={{
-                  color: "#FFD700", 
+                  color: "#FFD700",
                   fontSize: 28,
                   animation: "ring 1.5s ease-in-out infinite",
                 }}
@@ -455,8 +456,10 @@ const Initiatives = () => {
                 {[...noticeData, ...noticeData].map((item, index) => (
                   <Box
                     key={index}
-                    component="a"
-                    href={item.link}
+                    component={Link}
+                    to={`/notice/${item.id}`}
+
+                    // href={item.link}
                     sx={{
                       display: "flex",
                       alignItems: "flex-start",
@@ -475,7 +478,7 @@ const Initiatives = () => {
                     }}
                   >
                     {/* DATE */}
-                 
+
                     <Box
                       sx={{
                         minWidth: "85px",
