@@ -72,7 +72,7 @@ const QueryForm = () => {
 
     try {
 
-      const res = await axiosInstance.post(endpoints.contactUs.queryForm,formData)
+      const res = await axiosInstance.post(endpoints.contactUs.queryForm, formData)
 
       alert("Form submitted");
     }
@@ -156,7 +156,7 @@ const QueryForm = () => {
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
-            
+
 
 
             {/* Introduction */}
@@ -291,7 +291,7 @@ const QueryForm = () => {
                         <TextField
                           fullWidth
                           name="mobile"
-                           value={formData.mobile}
+                          value={formData.mobile}
                           onChange={handleChange}
                           variant="outlined"
                           size="small"
@@ -325,7 +325,7 @@ const QueryForm = () => {
                         <TextField
                           fullWidth
                           name="email"
-                           value={formData.email}
+                          value={formData.email}
                           onChange={handleChange}
                           variant="outlined"
                           size="small"
@@ -461,7 +461,7 @@ const QueryForm = () => {
 
                         }}
                       >
-                        <Button
+                        {/* <Button
                           variant="contained"
                           type="submit"
                           sx={{
@@ -482,7 +482,64 @@ const QueryForm = () => {
                           }}
                         >
                           Submit
+                        </Button> */}
+
+
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          sx={{
+                            alignSelf: { xs: "stretch", sm: "flex-start" },
+                            padding: "10px 40px",
+                            borderRadius: "6px",
+                            textTransform: "none",
+                            fontWeight: 600,
+                            fontSize: "18px",
+
+                            position: "relative",
+                            overflow: "hidden",
+
+                            background: "#c40613",
+
+
+                            zIndex: 1,
+
+                            "& span": {
+                              position: "relative",
+                              zIndex: 2,
+                            },
+
+
+                            "&:before": {
+                              content: '""',
+                              position: "absolute",
+                              left: "50%",
+                              top: "50%",
+                              width: 0,
+                              height: 0,
+                              background: "#000",
+                              borderRadius: "50%",
+                              transform: "translate(-12%, -50%)",
+                              transition: "all 1s ease",
+                              zIndex: 0,
+                            },
+
+                            "&:hover:before": {
+                              width: "300%",
+                              height: "300%",
+                            },
+
+                            "&:hover": {
+                              background: "#c40613",
+                            },
+                          }}
+
+                        >
+                          <span>Submit</span>
                         </Button>
+
+
+
                         <Button
                           variant="outlined"
                           sx={{

@@ -70,7 +70,7 @@ const MmsLearnMore = () => {
                 mb: 2,
               }}
             >
-               {data?.title}
+              {data?.title}
             </Typography>
 
             {/* Breadcrumbs */}
@@ -94,8 +94,8 @@ const MmsLearnMore = () => {
               >
                 Module Mounting Structure
               </Typography>
-              
-              
+
+
             </Typography>
           </Box>
 
@@ -113,7 +113,7 @@ const MmsLearnMore = () => {
           }}
         >
           {/* Title */}
-         
+
 
           {/* Subtitle */}
           <Typography
@@ -135,25 +135,61 @@ const MmsLearnMore = () => {
 
           </Typography>
 
-          {/* Learn More Button */}
+          
           <Button
             variant="contained"
             sx={{
-              background: "linear-gradient(to bottom, #1A73E8, )",
-              "&:hover": {
-                background: "linear-gradient(to bottom, #a00000, #600000)",
-              },
-              borderRadius: "16px",
+              alignSelf: { xs: "stretch", sm: "flex-start" },
+              mt: 2,
               px: 4,
-              py: 1.2,
-              fontSize: { xs: "14px", sm: "15px" },
-              fontFamily: "Roboto",
-              textTransform: "capitalize",
+              py: 1.4,
+              borderRadius: "30px",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "18px",
+
+              position: "relative",
+              overflow: "hidden",
+
+              background: "#c40613",
+
+
+              zIndex: 1,
+
+              "& span": {
+                position: "relative",
+                zIndex: 2,
+              },
+
+
+              "&:before": {
+                content: '""',
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                width: 0,
+                height: 0,
+                background: "#000",
+                borderRadius: "50%",
+                transform: "translate(-12%, -50%)",
+                transition: "all 1s ease",
+                zIndex: 0,
+              },
+
+              "&:hover:before": {
+                width: "300%",
+                height: "300%",
+              },
+
+              "&:hover": {
+                background: "#c40613",
+              },
             }}
             onClick={handleClick}
           >
-            Learn More
+            <span>Learn More</span>
           </Button>
+
         </Box>
       </Container>
     </>
