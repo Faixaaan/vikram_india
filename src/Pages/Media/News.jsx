@@ -33,15 +33,15 @@ import { endpoints } from "../../Api/EndPoints/endpoints";
 const leftMenu = ["NEWS", "PHOTO GALLERY", "DOWNLOAD"];
 
 const News = () => {
-  
-    const [data,setData] = useState({})
 
-    const fetchMediaData =  async () =>{
-        try{
-           const res = await axiosInstance.get(endpoints.Media.cmsMedia)
-           setData(res?.data?.data)
+    const [data, setData] = useState({})
+
+    const fetchMediaData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Media.cmsMedia)
+            setData(res?.data?.data)
         }
-        catch(err){
+        catch (err) {
             console.log(err)
         }
     }
@@ -83,9 +83,9 @@ const News = () => {
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
                     <Grid item size={{ xs: 12, md: 3 }}>
-                        
 
-                        
+
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -120,61 +120,76 @@ const News = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "28px",
-                                fontWeight: 600,
-                                lineHeight: "120%",
-                                fontFamily: "Roboto",
-                                color:"#1A73E8"
-                            }}
-                        >
-                            {data?.category1_title}
-                        </Typography>
-                        
+
+
 
                         {/* Introduction */}
 
-                        <Box sx={{
-                            paddingBottom: "10px", mt: 4, boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                            borderRadius: "12px",
-                            p: 0,
-
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            backgroundColor: "#fff", // fallback
-                            padding: "20px 20px 20px 20px",
-                        }}>
-                            <Grid container spacing={2}>
-                                <Grid item size={{ xs: 12, md: 4 }}>
-                                    <img
-                                        src={data?.category1_sec1_image}
-                                        alt=""
-                                        style={{
-                                            width: "100%",
-                                            borderRadius: "6px",
-                                            height: "auto",
-                                        }}
-                                    />
-                                </Grid>
-                                <Grid
-                                    item
-                                    size={{ xs: 12, md: 8 }}
-                                    sx={{ display: "flex", alignItems: "center" }}
+                        <Accordion
+                            sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 0
+                        }}
+                        >
+                            {/* Accordion Header */}
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon />}>
+                                <Typography
+                                    sx={{
+                                        fontSize: "20px",
+                                        fontFamily: "Roboto",
+                                        fontWeight: 600,
+                                    }}
                                 >
-                                    <Typography
-                                        sx={{
-                                            fontSize: "20px",
-                                            fontFamily: "Roboto",
-                                            textAlign: "justify",
-                                        }}
+                                    Media
+                                </Typography>
+                            </AccordionSummary>
+
+                            {/* Accordion Content */}
+                            <AccordionDetails sx={{ padding: "20px" }}>
+                                <Grid container spacing={2} alignItems="center">
+
+                                    {/* Image - 4 Grid */}
+                                    <Grid item size={{xs:12,md:4}}>
+                                        <img
+                                            src={data?.category1_sec1_image}
+                                            alt=""
+                                            style={{
+                                                width: "100%",
+                                                borderRadius: "6px",
+                                                height: "auto",
+                                            }}
+                                        />
+                                    </Grid>
+
+                                    {/* Description - 8 Grid */}
+                                    <Grid
+                                        item
+                                        size={{xs:12,md:8}}
+                                      
+                                        sx={{ display: "flex", alignItems: "center" }}
                                     >
-                                    {data?.category1_sec1_desc}
-                                    </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontSize: "20px",
+                                                fontFamily: "Roboto",
+                                                textAlign: "justify",
+                                            }}
+                                        >
+                                            {data?.category1_sec1_desc}
+                                        </Typography>
+                                    </Grid>
+
                                 </Grid>
-                            </Grid>
-                        </Box>
+                            </AccordionDetails>
+                        </Accordion>
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -194,7 +209,7 @@ const News = () => {
                                         fontFamily: "Roboto"
                                     }}
                                 >
-                                    Vikram India Limited 
+                                    Vikram India Limited
                                 </Typography>
                             </AccordionSummary>
 
@@ -203,7 +218,7 @@ const News = () => {
 
                                     <Typography sx={headingStyle}>
                                         <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                                         Vikram India Limited has been awarded with the EEPCINDIA Awards (Eastern Region) for being the STAR PERFORMER 2012-2013 in exports
+                                        Vikram India Limited has been awarded with the EEPCINDIA Awards (Eastern Region) for being the STAR PERFORMER 2012-2013 in exports
                                     </Typography>
 
                                     <Typography sx={headingStyle}>

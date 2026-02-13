@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { axiosInstance } from "../../Api/Axios/axios";
+import { Link } from "react-router-dom";
 
 const HdpLearnMore = () => {
 
@@ -45,6 +46,8 @@ const HdpLearnMore = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         {/* Overlay */}
@@ -52,34 +55,54 @@ const HdpLearnMore = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.55)",
+            background: "rgba(0,0,0,0.6)",
           }}
         />
 
         {/* Banner Content */}
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 1,
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            px: 2,
-          }}
-        >
-          {/* <Typography
-            sx={{
-              color: "#fff",
-              fontSize: { xs: "26px", sm: "34px", md: "44px" },
-              fontWeight: 700,
-              fontFamily: "Roboto",
-              textAlign: "center",
-            }}
-          >
-            Module Mounting Structure
-          </Typography> */}
-        </Box>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+
+            {/* Title */}
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: { xs: "24px", sm: "32px", md: "42px" },
+                fontWeight: 700,
+                fontFamily: "Roboto",
+                mb: 2,
+              }}
+            >
+              {data?.title}
+            </Typography>
+
+            {/* Breadcrumbs */}
+            <Typography sx={{ color: "#fff", fontSize: "14px" }}>
+              <Typography
+                component={Link}
+                to="/"
+                underline="none"
+                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+              >
+                Home
+              </Typography>
+
+
+              {" / "}
+              <Typography
+                component={Link}
+                to=""
+                underline="none"
+                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
+              >
+                World-Class Hot Dip Galvanizing Services
+              </Typography>
+
+
+            </Typography>
+          </Box>
+
+        </Container>
       </Box>
 
       {/* ================= CONTENT ================= */}
@@ -93,17 +116,7 @@ const HdpLearnMore = () => {
           }}
         >
           {/* Title */}
-          <Typography
-            sx={{
-              fontSize: { xs: "22px", sm: "28px", md: "40px" },
-              fontWeight: 700,
-              fontFamily: "Roboto",
-              mb: 2,
-              color: "#1A73E8",
-            }}
-          >
-            {data?.title}
-          </Typography>
+
 
           {/* Subtitle */}
           <Typography

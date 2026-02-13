@@ -105,7 +105,7 @@ const Gallery = () => {
     ];
 
     const [mediaData, setMediaData] = useState([])
-     const [data,setData] = useState({})
+    const [data, setData] = useState({})
 
     const fetchMediaData = async () => {
         try {
@@ -136,14 +136,14 @@ const Gallery = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth="xl">
                 {/* Breadcrumb */}
-                  <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
-                                    <MLink component={Link} to="/" underline="hover" color="inherit">
-                                        Home
-                                    </MLink>
-                                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
-                
-                                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>Photo Gallery</Typography>
-                                </Breadcrumbs>
+                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                        Home
+                    </MLink>
+                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
+
+                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>Photo Gallery</Typography>
+                </Breadcrumbs>
 
                 {/* Title */}
                 <Typography
@@ -161,9 +161,9 @@ const Gallery = () => {
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
                     <Grid item size={{ xs: 12, md: 3 }}>
-                        
 
-                        
+
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -190,20 +190,11 @@ const Gallery = () => {
 
                     {/* Right Content */}
                     <Grid item size={{ xs: 12, md: 9 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "28px",
-                                fontWeight: 600,
-                                fontFamily: "Roboto",
-                                color:"#1A73E8"
-                            }}
-                        >
-                           {data?.category2_title}
-                        </Typography>
-
                         
 
-                        <Box sx={{ mt: 6 }}>
+
+
+                        <Box sx={{ mt: 0 }}>
                             <Typography
                                 sx={{
                                     fontSize: "22px",

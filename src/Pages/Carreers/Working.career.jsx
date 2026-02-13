@@ -121,17 +121,7 @@ const WorkingCareer = () => {
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
-            <Typography
-              sx={{
-                fontSize: "28px",
-                fontWeight: 600,
-                lineHeight: "120%",
-                fontFamily: "Roboto",
-                color: "#1A73E8"
-              }}
-            >
-              {data?.contect1_main_title}
-            </Typography>
+
 
 
             {/* Introduction */}
@@ -139,49 +129,70 @@ const WorkingCareer = () => {
             {
               carrerData?.map((item, i) => {
                 return (
-                  <Box
-                    sx={{
-                      mt: 4,
-                      boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                      borderRadius: "12px",
-                      p: 0,
-
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      backgroundColor: "#fff", // fallback
-                      padding: "20px 20px 0px 20px",
-                    }}
+                  <Accordion
                     key={i}
+                    sx={{
+                      mt: 0,
+                      mb:2,
+                      boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                      borderRadius: "12px !important",
+                      "&:before": { display: "none" }, // remove default divider line
+                    }}
                   >
-                    <Grid container spacing={2} mt={4}>
-                      <Grid
-                        size={{ xs: 12, md: 4 }}
-                        sx={{ display: "flex", justifyContent: "center" }}
+                    {/* Accordion Header */}
+                    <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon />}>
+                      <Typography
+                        sx={{
+                          fontSize: "18px",
+                          fontWeight: 600,
+                        }}
                       >
-                        <img src={item?.image} />
+                        {item?.title || `Career ${i + 1}`}
+                      </Typography>
+                    </AccordionSummary>
+
+                    {/* Accordion Content */}
+                    <AccordionDetails>
+                      <Grid container spacing={2} alignItems="center">
+
+                        {/* Image - 4 Grid */}
+                        <Grid item  size={{xs:12,md:4}} sx={{ display: "flex", justifyContent: "center" }}>
+                          <img
+                            src={item?.image}
+                            alt=""
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                              borderRadius: "8px",
+                            }}
+                          />
+                        </Grid>
+
+                        {/* Description - 8 Grid */}
+                        <Grid item xs={12} md={8} size={{xs:12,md:8}}>
+                          <Typography
+                            sx={{
+                              fontSize: "16px",
+                              lineHeight: "140%",
+                              fontWeight: 500,
+                              color: "#121111ff",
+                              fontFamily:"Roboto"
+                            }}
+                            dangerouslySetInnerHTML={{ __html: item?.description }}
+                          />
+                        </Grid>
+
                       </Grid>
-                      <Grid size={{ xs: 12, md: 8 }}>
-                        <Typography
-                          sx={{
-                            fontFamily: "",
-                            fontSize: "18px",
-                            lineHeight: "120%",
-                            marginBottom: "15px",
-                            fontWeight: "500",
-                            color: "#121111ff",
-                          }}
-                          dangerouslySetInnerHTML={{ __html: item?.description }}
-                        >
-                          
-                        </Typography>
-                        
-                      </Grid>
-                    </Grid>
-                  </Box>
-                )
+                    </AccordionDetails>
+                  </Accordion>
+                );
               })
             }
+
 
 
 

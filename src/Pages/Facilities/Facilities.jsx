@@ -39,7 +39,7 @@ const Facilities = () => {
                         <MLink component={Link} to="/" underline="hover" color="inherit">
                             Home
                         </MLink>
-                        <Typography color="inherit" sx={{ mb: 2, fontSize: "14px" }}>Facilities</Typography>
+                        <Typography color="inherit" sx={{  fontSize: "14px" }}>Facilities</Typography>
 
 
                     </Breadcrumbs>
@@ -58,7 +58,7 @@ const Facilities = () => {
                         </Grid> */}
                         <Grid size={{ xs: 12, md: 12 }}>
                             <Box >
-                                
+
                                 <Box sx={{ paddingTop: "20px" }}>
                                     <Typography sx={{ fontFamily: "Roboto", fontWeight: "500", fontSize: "28px", color: "#1A73E8" }}>
                                         {data?.main_title}
@@ -66,7 +66,7 @@ const Facilities = () => {
 
                                 </Box>
                             </Box>
-                            <Box sx={{ margin: "30px 0px",display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" }}>
+                            <Box sx={{ margin: "30px 0px", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
                                 <Accordion sx={{
                                     background: "#fff",
                                     boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -74,7 +74,7 @@ const Facilities = () => {
                                     "&:before": { display: "none" },
                                     mt: 4,
                                     mb: 3,
-                                    maxWidth:"1000px"
+                                    maxWidth: "1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
@@ -175,7 +175,7 @@ const Facilities = () => {
                                     "&:before": { display: "none" },
                                     mt: 2,
                                     mb: 2,
-                                    maxWidth:"1000px"
+                                    maxWidth: "1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",
@@ -190,37 +190,47 @@ const Facilities = () => {
                                     <AccordionDetails>
 
                                         <Box>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: "18px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    mb: 3,
-                                                    fontWeight: "600",
-                                                    lineHeight: "120%"
-                                                }}
-                                            >
-                                                {data?.accordion1_desc2} -
-                                            </Typography>
+                                            <Grid container spacing={3} alignItems="center">
+                                                {/* RIGHT SIDE – Image (4 Grid) */}
+                                                <Grid item size={{ xs: 12, md: 4 }}>
+                                                    <Box
+                                                        sx={{
+                                                            display: "flex",
+                                                            justifyContent: "center",
+                                                            alignItems: "flex-start",
+                                                        }}
+                                                    >
+                                                        <img
+                                                            src={data?.accordion2_image}
+                                                            alt=""
+                                                            style={{
+                                                                width: "100%",
+                                                                height: "auto",
+                                                                maxWidth: "100%",
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                </Grid>
+                                                {/* LEFT SIDE – Paragraph (8 Grid) */}
+                                                <Grid item size={{ xs: 12, md: 8 }}>
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: "18px",
+                                                            fontFamily: "Roboto",
+                                                            textAlign: "justify",
+                                                            fontWeight: "600",
+                                                            lineHeight: "120%",
+                                                        }}
+                                                    >
+                                                        {data?.accordion1_desc2}
+                                                    </Typography>
+                                                </Grid>
 
-                                            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                <img
-                                                    src={data?.accordion2_image}
-                                                    alt=""
-                                                    style={{
-                                                        width: "100%",
-                                                        height: "auto",
-                                                        maxWidth: "600px",
-                                                    }}
-                                                />
-                                            </Box>
 
 
-
-
-
-
+                                            </Grid>
                                         </Box>
+
 
 
 
@@ -236,7 +246,7 @@ const Facilities = () => {
                                     "&:before": { display: "none" },
                                     mt: 2,
                                     mb: 2,
-                                    maxWidth:"1000px"
+                                    maxWidth: "1000px"
                                 }}>
                                     <AccordionSummary sx={{
                                         backgroundColor: "#f8f8f8",

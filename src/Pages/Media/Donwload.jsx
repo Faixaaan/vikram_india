@@ -136,22 +136,12 @@ const Download = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "28px",
-                                fontWeight: 600,
-                                lineHeight: "120%",
-                                fontFamily: "Roboto",
-                                color:"#1A73E8"
-                            }}
-                        >
-                           {data?.category3_title}
-                        </Typography>
+                        
                         
 
                         {/* Introduction */}
 
-                        <Box sx={{ mt: 6 }}>
+                        <Box sx={{ mt: 0 }}>
                             <Typography
                                 sx={{
                                     fontSize: "22px",

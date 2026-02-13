@@ -118,17 +118,7 @@ const ApplyOnline = () => {
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
-            <Typography
-              sx={{
-                fontSize: "28px",
-                fontWeight: 600,
-                lineHeight: "120%",
-                fontFamily: "Roboto",
-                color: "#1A73E8"
-              }}
-            >
-              {data?.contect2_main_title}
-            </Typography>
+            
 
 
             {/* Introduction */}
@@ -179,7 +169,7 @@ const ApplyOnline = () => {
                 boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
                 borderRadius: "8px",
                 "&:before": { display: "none" },
-                mt: 4,
+                mt: 0,
                 border: "1px solid #eee",
               }}
               defaultExpanded

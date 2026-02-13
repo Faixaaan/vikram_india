@@ -133,18 +133,8 @@ const QualityAssurance = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mt: 1,
-                                fontFamily: "Roboto",
-                                color: "#1A73E8"
-                            }}
-                        >
-                            {data?.title}
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
+                       
 
 
 

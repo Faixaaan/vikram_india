@@ -9,6 +9,11 @@ import {
     Divider,
     Breadcrumbs,
     Link as MLink,
+    Tabs,
+    Tab,
+    Card,
+    CardContent,
+    CardMedia,
     Container,
 } from "@mui/material";
 
@@ -49,6 +54,12 @@ const leftMenu = [
 
 
 const ManagementTeam = () => {
+
+    const [tabIndex, setTabIndex] = useState(0);
+
+    const handleTabChange = (event, newValue) => {
+        setTabIndex(newValue);
+    };
 
 
     const [managementData, setManagementData] = useState([])
@@ -177,21 +188,92 @@ const ManagementTeam = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 2,
-                                fontFamily: "Roboto",
-                                textTransform: "uppercase",
-                                color: "#1A73E8"
-                            }}
-                        >
-                            MANAGEMENT TEAM
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
+                        
 
-
+                        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', mb: 4 }}>
+                            <Box sx={{
+                                backgroundColor: '#ffffff',
+                                borderRadius: '12px',
+                                padding: '6px',
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                                display: 'inline-flex',
+                                gap: '8px'
+                            }}>
+                                <Tabs 
+                                    value={tabIndex} 
+                                    onChange={handleTabChange} 
+                                    aria-label="management tabs"
+                                    sx={{
+                                        backgroundColor: 'transparent',
+                                        '& .MuiTabs-indicator': {
+                                            display: 'none'
+                                        }
+                                    }}
+                                >
+                                    <Tab 
+                                        label="Directors" 
+                                        sx={{
+                                            textTransform: 'capitalize',
+                                            fontWeight: 600,
+                                            fontSize: '16px',
+                                            padding: '12px 28px',
+                                            borderRadius: '10px',
+                                            backgroundColor: '#white',
+                                            color: '#666666',
+                                            border: 'none',
+                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            position: 'relative',
+                                            '&:hover': {
+                                                backgroundColor: '#f0f0f0',
+                                                color: '#1BAA63',
+                                                transform: 'translateY(-2px)',
+                                                boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
+                                            },
+                                            '&.Mui-selected': {
+                                                backgroundColor: '#1BAA63',
+                                                color: '#ffffff',
+                                                boxShadow: '0 6px 16px rgba(27, 170, 99, 0.35)',
+                                                '&:hover': {
+                                                    boxShadow: '0 8px 20px rgba(27, 170, 99, 0.45)',
+                                                    transform: 'translateY(-3px)'
+                                                }
+                                            }
+                                        }}
+                                    />
+                                    <Tab 
+                                        label="Leadership" 
+                                        sx={{
+                                            textTransform: 'capitalize',
+                                            fontWeight: 600,
+                                            fontSize: '16px',
+                                            padding: '12px 28px',
+                                            borderRadius: '10px',
+                                            backgroundColor: '#white',
+                                            color: '#666666',
+                                            border: 'none',
+                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            position: 'relative',
+                                            '&:hover': {
+                                                backgroundColor: '#f0f0f0',
+                                                color: '#1BAA63',
+                                                transform: 'translateY(-2px)',
+                                                boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
+                                            },
+                                            '&.Mui-selected': {
+                                                backgroundColor: '#1BAA63',
+                                                color: '#ffffff',
+                                                boxShadow: '0 6px 16px rgba(27, 170, 99, 0.35)',
+                                                '&:hover': {
+                                                    boxShadow: '0 8px 20px rgba(27, 170, 99, 0.45)',
+                                                    transform: 'translateY(-3px)'
+                                                }
+                                            }
+                                        }}
+                                    />
+                                </Tabs>
+                            </Box>
+                        </Box>
 
                         {/* Introduction */}
 
@@ -201,48 +283,48 @@ const ManagementTeam = () => {
 
                             {/* profile picture box */}
 
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}
+                            {tabIndex === 0 && (
+                                <Box sx={{
+                                    mt: 4,
+                                    boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                    borderRadius: "12px",
+                                    p: 3,
+                                    background: "#fff"
+                                }}>
+                                    <Grid container spacing={2} mt={2}>
+                                        <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                            <img src={group1} style={{ height: "auto", width: "100%" }} />
+                                        </Grid>
 
-                            >
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group1} style={{ height: "auto", width: "100%" }} />
+                                        <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
+
+
+                                            <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
+                                                Sri Hari Krishna Chaudhary is the Chairman Cum Managing Director of Vikram Group of Industries. Under his able guidance and charismatic leadership, Vikram Group has achieved unprecedented success in business and philanthropy. By establishing Vikram Solar Pvt. Ltd., Sri H. K. Chaudhary has ventured into the Renewable Energy sector to explore and fulfill the growing energy needs of India.He has contributed immensely to the cause of spreading education among underprivileged sections of the society living in villages and semi urban areas thereby building ethical corporations in India. Sri H. K. Chaudhary is associated with different trusts and educational institutions in different capacities. He is the founder trustee and Chairman of Kalyan Bharati Trust under the aegis of which The Heritage School, Heritage Institute of Technology (Engineering studies), The Heritage Academy (Management studies), Heritage Business School and Heritage Law College are managed successfully. He is also the founder trustee and Chairman of Ballaram Hanumandas Charitable Trust, Bahal, Haryana. He has established BRCM Public Schools namely Vidyagram, a fully residential and co-educational English medium school and Gyankunj, an English medium day school and a fully residential and co-educational Engineering College named BRCM College of Engineering and Technology in Haryana. Apart from this, he is also the Chairman of Agrasain Balika Siksha Sadan, a premier girls school in Liluah, Howrah, Joint Vice President of Sri Sri Academy, Alipore, Kolkata and founder trustee of Agrasain Seva Samity and Agrasain Education Trustt.
+                                            </Typography>
+                                            <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
+                                                <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
+                                                    Mr. H.K. Chaudhary.
+                                                </Typography>
+                                                <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
+                                                    Chairman Emeritus
+                                                    <br />
+
+                                                </Typography>
+                                                <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
+
+                                                    Vikram Group
+                                                </Typography>
+                                            </Box>
+
+
+
+                                        </Grid>
+
                                     </Grid>
 
-                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
-
-
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
-                                            Sri Hari Krishna Chaudhary is the Chairman Cum Managing Director of Vikram Group of Industries. Under his able guidance and charismatic leadership, Vikram Group has achieved unprecedented success in business and philanthropy. By establishing Vikram Solar Pvt. Ltd., Sri H. K. Chaudhary has ventured into the Renewable Energy sector to explore and fulfill the growing energy needs of India.He has contributed immensely to the cause of spreading education among underprivileged sections of the society living in villages and semi urban areas thereby building ethical corporations in India. Sri H. K. Chaudhary is associated with different trusts and educational institutions in different capacities. He is the founder trustee and Chairman of Kalyan Bharati Trust under the aegis of which The Heritage School, Heritage Institute of Technology (Engineering studies), The Heritage Academy (Management studies), Heritage Business School and Heritage Law College are managed successfully. He is also the founder trustee and Chairman of Ballaram Hanumandas Charitable Trust, Bahal, Haryana. He has established BRCM Public Schools namely Vidyagram, a fully residential and co-educational English medium school and Gyankunj, an English medium day school and a fully residential and co-educational Engineering College named BRCM College of Engineering and Technology in Haryana. Apart from this, he is also the Chairman of Agrasain Balika Siksha Sadan, a premier girls school in Liluah, Howrah, Joint Vice President of Sri Sri Academy, Alipore, Kolkata and founder trustee of Agrasain Seva Samity and Agrasain Education Trustt.
-                                        </Typography>
-                                        <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
-                                            <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
-                                                Mr. H.K. Chaudhary.
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
-                                                Chairman Emeritus
-                                                <br />
-
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
-
-                                                Vikram Group
-                                            </Typography>
-                                        </Box>
-
-
-
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
+                                </Box>
+                            )}
                             <Box sx={{
                                 mt: 4,
                                 boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
@@ -327,130 +409,6 @@ const ManagementTeam = () => {
                                 </Grid>
 
                             </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}>
-                                <Grid container spacing={2} mt={2}>
-
-
-                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
-
-
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
-                                            He is a Diploma in Mechanical Engineering from Ramakrishna Mission Shilpapith, having 17 years of experience in Tea Processing Machinery Industries. He is responsible for Design and Drawing of Tea Processing Machinery along with managing, coordinating and executing all production strategies.
-                                        </Typography>
-                                        <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
-                                            <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
-                                                Mr. Soumen Chatterjee
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
-                                                General Manager - Works (Engineering Division) <br />
-
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
-
-                                                Vikram Group
-                                            </Typography>
-                                        </Box>
-
-
-
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group4} style={{ height: "auto", width: "100%" }} />
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}
-
-                            >
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group5} style={{ height: "auto", width: "100%" }} />
-                                    </Grid>
-
-                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
-
-
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
-                                            He is a commerce graduate from Burdwan University and MBA in marketing from IGNOU, Delhi and having 25 years of experience in marketing of tea processing machinery industries. He looks after the marketing of the tea processing machinery in India.
-                                        </Typography>
-                                        <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
-                                            <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
-                                                Mr. Subir Chowdhury
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
-                                                General Manager - Sales <br />
-
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
-
-                                                Vikram Group
-                                            </Typography>
-                                        </Box>
-
-
-
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
-                            <Box sx={{
-                                mt: 4,
-                                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                borderRadius: "12px",
-                                p: 3,
-                                background: "#fff"
-                            }}
-
-                            >
-                                <Grid container spacing={2} mt={2}>
-
-
-                                    <Grid size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }} >
-
-
-                                        <Typography variant="h6" sx={{ fontFamily: "", fontSize: "16px", lineHeight: "140%", marginTop: "15px", fontWeight: "400", color: "#121111ff", padding: "10px 20px" }}>
-                                            He is a commerce graduate from Calcutta University and Master in International Business from Federation of Indian Export Organisation. He has 20 years of experience in Tea Processing Machinery industry. He is responsible for marketing of Tea Processing Machineries worldwide.
-                                        </Typography>
-                                        <Box sx={{ pt: 4, background: 'linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)', padding: "10px 20px" }}>
-                                            <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "2px", fontWeight: "600", color: "#fff" }}>
-                                                Somenath Saharoy
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", backgroundColor: "blue", padding: "2px 4px" }}>
-                                                AGM - International Marketing <br />
-
-                                            </Typography>
-                                            <Typography variant="" sx={{ fontFamily: "", fontSize: "14px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#fff", }}>
-
-                                                Vikram Group
-                                            </Typography>
-                                        </Box>
-
-
-
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group6} style={{ height: "auto", width: "100%" }} />
-                                    </Grid>
-
-                                </Grid>
-
-                            </Box>
-
 
 
 

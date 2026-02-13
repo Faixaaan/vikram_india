@@ -37,7 +37,7 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 const CSR = () => {
 
     const [casrData, setCsrData] = useState([]);
-    const [data,setData] = useState({})
+    const [data, setData] = useState({})
 
     const fetchCsrData = async () => {
         try {
@@ -100,22 +100,22 @@ const CSR = () => {
                     </Grid> */}
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 12 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 12 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontSize: "28px",
                                 fontWeight: 600,
                                 lineHeight: "120%",
                                 fontFamily: "Roboto",
-                                color:"#1A73E8"
+                                color: "#1A73E8"
                             }}
                         >
                             {data?.main_title}
                         </Typography>
-                        
+
 
                         <Divider />
-                        <Typography
+                        {/* <Typography
                             sx={{
                                 color: "#000",
                                 fontSize: "18px",
@@ -128,7 +128,7 @@ const CSR = () => {
                             {data?.description}
                         </Typography>
 
-                        <Divider />
+                        <Divider /> */}
                         <Typography
                             sx={{
                                 color: "#000",
@@ -146,52 +146,77 @@ const CSR = () => {
                         {
                             casrData?.map((item, i) => {
                                 return (
-                                    <Box
+                                    <Accordion
+                                        key={i}
                                         sx={{
-                                            mt: 4,
+                                            mt: 3,
                                             boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                            borderRadius: "12px",
-                                            p: 0,
-
-                                            backgroundSize: "cover",
-                                            backgroundRepeat: "no-repeat",
-                                            backgroundPosition: "center",
-                                            backgroundColor: "#fff", // fallback
-                                            padding: "20px 20px 20px 20px",
+                                            borderRadius: "12px !important",
+                                            "&:before": { display: "none" }, // remove top line
                                         }}
                                     >
-                                        <Grid container spacing={2} mt={4}>
-                                            <Grid
-                                                size={{ xs: 12, md: 4 }}
-                                                sx={{ display: "flex", justifyContent: "flex-start" }}
+                                        {/* Accordion Header */}
+                                        <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon />}>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "22px",
+                                                    fontWeight: 600,
+                                                    fontFamily:"Roboto"
+                                                }}
                                             >
-                                                <img src={item?.image} />
-                                            </Grid>
-                                            <Grid size={{ xs: 12, md: 8 }}>
-                                                <Typography
-                                                    sx={{
-                                                        fontFamily: "",
-                                                        fontSize: "18px",
-                                                        lineHeight: "120%",
-                                                        marginBottom: "15px",
-                                                        fontWeight: "500",
-                                                        color: "#121111ff",
-                                                    }}
-                                                >
+                                                {item?.title || `Item ${i + 1}`}
+                                            </Typography>
+                                        </AccordionSummary>
 
-                                                    {item?.description}
-                                                </Typography>
-                                                
+                                        {/* Accordion Content */}
+                                        <AccordionDetails>
+                                            <Grid container spacing={2} alignItems="center">
+
+                                                {/* Image - 4 Grid */}
+                                                <Grid item  size={{xs:12,md:4}}>
+                                                    <Box sx={{ display: "flex", justifyContent: "center" }}>
+                                                        <img
+                                                            src={item?.image}
+                                                            alt=""
+                                                            style={{
+                                                                width: "60%",
+                                                                height: "auto",
+                                                                borderRadius: "8px",
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                </Grid>
+
+                                                {/* Description - 8 Grid */}
+                                                <Grid item  size={{xs:12,md:8}}>
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: "18px",
+                                                            lineHeight: "140%",
+                                                            fontWeight: 500,
+                                                            color: "#121111ff",
+                                                            fontFamily:"Roboto"
+                                                        }}
+                                                    >
+                                                        {item?.description}
+                                                    </Typography>
+                                                </Grid>
+
                                             </Grid>
-                                        </Grid>
-                                    </Box>
-                                )
+                                        </AccordionDetails>
+                                    </Accordion>
+                                );
                             })
                         }
 
 
 
-                        
+
+
                     </Grid>
                 </Grid>
             </Container>

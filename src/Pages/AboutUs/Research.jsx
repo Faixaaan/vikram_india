@@ -163,19 +163,8 @@ const Research = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
-                        <Typography
-                            sx={{
-                                fontSize: "24px",
-                                fontWeight: 600,
-                                mb: 0,
-                                fontFamily: "Open Sans",
-                                textTransform: "uppercase",
-                                color:"#1A73E8"
-                            }}
-                        >
-                            {data?.title}
-                        </Typography>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
+                        
                     
 
 
@@ -183,18 +172,7 @@ const Research = () => {
 
 
                         <Box sx={{ mt: 3 }}>
-                            <Grid container spacing={2}>
-                                <Grid size={{ xs: 12, md: 12 }}>
-                                    <Typography sx={{ fontSize: "16px", fontFamily: "Open Sans", textAlign: "justify", marginBottom: "15px" }}
-                                        dangerouslySetInnerHTML={{ __html: data?.rnd_desc }}
-
-                                    >
-
-                                    </Typography>
-
-                                </Grid>
-
-                            </Grid>
+                           
 
                             {/* profile picture box */}
 
