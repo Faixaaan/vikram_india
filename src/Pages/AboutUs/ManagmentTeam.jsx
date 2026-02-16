@@ -192,88 +192,76 @@ const ManagementTeam = () => {
                         
 
                         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', mb: 4 }}>
-                            <Box sx={{
-                                backgroundColor: '#ffffff',
-                                borderRadius: '12px',
-                                padding: '6px',
-                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-                                display: 'inline-flex',
-                                gap: '8px'
-                            }}>
-                                <Tabs 
-                                    value={tabIndex} 
-                                    onChange={handleTabChange} 
-                                    aria-label="management tabs"
-                                    sx={{
-                                        backgroundColor: 'transparent',
-                                        '& .MuiTabs-indicator': {
-                                            display: 'none'
-                                        }
-                                    }}
-                                >
-                                    <Tab 
-                                        label="Directors" 
-                                        sx={{
-                                            textTransform: 'capitalize',
-                                            fontWeight: 600,
-                                            fontSize: '16px',
-                                            padding: '12px 28px',
-                                            borderRadius: '10px',
-                                            backgroundColor: '#white',
-                                            color: '#666666',
-                                            border: 'none',
-                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                            position: 'relative',
-                                            '&:hover': {
-                                                backgroundColor: '#f0f0f0',
-                                                color: '#1BAA63',
-                                                transform: 'translateY(-2px)',
-                                                boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
-                                            },
-                                            '&.Mui-selected': {
-                                                backgroundColor: '#1BAA63',
-                                                color: '#ffffff',
-                                                boxShadow: '0 6px 16px rgba(27, 170, 99, 0.35)',
-                                                '&:hover': {
-                                                    boxShadow: '0 8px 20px rgba(27, 170, 99, 0.45)',
-                                                    transform: 'translateY(-3px)'
-                                                }
-                                            }
-                                        }}
-                                    />
-                                    <Tab 
-                                        label="Leadership" 
-                                        sx={{
-                                            textTransform: 'capitalize',
-                                            fontWeight: 600,
-                                            fontSize: '16px',
-                                            padding: '12px 28px',
-                                            borderRadius: '10px',
-                                            backgroundColor: '#white',
-                                            color: '#666666',
-                                            border: 'none',
-                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                            position: 'relative',
-                                            '&:hover': {
-                                                backgroundColor: '#f0f0f0',
-                                                color: '#1BAA63',
-                                                transform: 'translateY(-2px)',
-                                                boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
-                                            },
-                                            '&.Mui-selected': {
-                                                backgroundColor: '#1BAA63',
-                                                color: '#ffffff',
-                                                boxShadow: '0 6px 16px rgba(27, 170, 99, 0.35)',
-                                                '&:hover': {
-                                                    boxShadow: '0 8px 20px rgba(27, 170, 99, 0.45)',
-                                                    transform: 'translateY(-3px)'
-                                                }
-                                            }
-                                        }}
-                                    />
-                                </Tabs>
-                            </Box>
-                        </Box>
+      <Box sx={{
+        backgroundColor: '#ffffff',
+        borderRadius: '12px',
+        padding: '6px',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+        display: 'inline-flex',
+      }}>
+        <Tabs
+          value={tabIndex}
+          onChange={handleTabChange}
+          aria-label="management tabs"
+          sx={{
+            minHeight: 'auto',
+
+            '& .MuiTabs-flexContainer': {
+              position: 'relative',
+              zIndex: 2
+            },
+
+            /* Sliding Green Toggle Background */
+            '& .MuiTabs-indicator': {
+              height: '100%',
+              borderRadius: '10px',
+              backgroundColor: '#1BAA63',
+              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              zIndex: 1
+            }
+          }}
+        >
+          <Tab
+            label="Directors"
+            sx={{
+              textTransform: 'capitalize',
+              fontWeight: 600,
+              fontSize: '16px',
+              padding: '12px 28px',
+              borderRadius: '10px',
+              minHeight: 'auto',
+              zIndex: 2,
+              color: '#666666',
+              transition: 'color 0.3s ease',
+
+              '&.Mui-selected': {
+                color: '#ffffff',
+              }
+            }}
+          />
+
+          <Tab
+            label="Leadership"
+            sx={{
+              textTransform: 'capitalize',
+              fontWeight: 600,
+              fontSize: '16px',
+              padding: '12px 28px',
+              borderRadius: '10px',
+              minHeight: 'auto',
+              zIndex: 2,
+              color: '#666666',
+              transition: 'color 0.3s ease',
+
+              '&.Mui-selected': {
+                color: '#ffffff',
+              }
+            }}
+          />
+        </Tabs>
+      </Box>
+    </Box>
+
 
                         {/* Introduction */}
 

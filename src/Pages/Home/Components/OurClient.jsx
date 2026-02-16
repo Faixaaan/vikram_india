@@ -298,7 +298,7 @@ const OurClient = () => {
 
               background: "#c40613",
 
-              // text always on top
+
               zIndex: 1,
 
               "& span": {
@@ -306,7 +306,7 @@ const OurClient = () => {
                 zIndex: 2,
               },
 
-              // center burst layer
+
               "&:before": {
                 content: '""',
                 position: "absolute",

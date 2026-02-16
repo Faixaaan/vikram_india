@@ -118,7 +118,7 @@ const ApplyOnline = () => {
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
-            
+
 
 
             {/* Introduction */}
@@ -540,27 +540,66 @@ const ApplyOnline = () => {
                           borderTop: "1px solid #eee",
                         }}
                       >
+                        
+
+
                         <Button
                           variant="contained"
                           sx={{
-                            backgroundColor: "#c00",
+                            alignSelf: { xs: "stretch", sm: "flex-start" },
+                            // mt: 2,
+                            px: 4,
+                            py: 1.4,
                             borderRadius: "6px",
-                            padding: "10px 40px",
-                            fontSize: "15px",
-                            fontWeight: 600,
                             textTransform: "none",
-                            boxShadow: "0 2px 8px rgba(192,0,0,0.2)",
-                            "&:hover": {
-                              backgroundColor: "#a00",
-                              boxShadow: "0 4px 12px rgba(192,0,0,0.3)",
-                              transform: "translateY(-1px)",
-                            },
-                            transition: "all 0.2s ease",
+                            fontWeight: 600,
+                            fontSize: "18px",
+
+                            position: "relative",
+                            overflow: "hidden",
+
+                            background: "#c40613",
                             minWidth: "140px",
+
+
+
+                            zIndex: 1,
+
+                            "& span": {
+                              position: "relative",
+                              zIndex: 2,
+                            },
+
+
+                            "&:before": {
+                              content: '""',
+                              position: "absolute",
+                              left: "50%",
+                              top: "50%",
+                              width: 0,
+                              height: 0,
+                              background: "#000",
+                              borderRadius: "50%",
+                              transform: "translate(-12%, -50%)",
+                              transition: "all 1s ease",
+                              zIndex: 0,
+                            },
+
+                            "&:hover:before": {
+                              width: "300%",
+                              height: "300%",
+                            },
+
+                            "&:hover": {
+                              background: "#c40613",
+                            },
                           }}
+
                         >
-                          Submit
+                          <span>Submit</span>
                         </Button>
+
+
                         <Button
                           variant="outlined"
                           sx={{
