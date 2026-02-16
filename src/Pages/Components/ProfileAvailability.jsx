@@ -42,7 +42,7 @@ const ProfileAvailability = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.infrastrutre_machinery)
+            const res = await axiosInstance.get(endpoints.ModuleMounting.profile_Availability)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -141,7 +141,7 @@ const ProfileAvailability = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Heading One (01)
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -163,10 +163,13 @@ const ProfileAvailability = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                        __html: data?.section1_description
+                                                    }}
 
                                             >
 
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci amet explicabo deleniti, laboriosam ad reiciendis totam aspernatur repellendus non, doloribus cupiditate atque officia, odit maxime. Sit repudiandae deleniti possimus blanditiis soluta culpa et dolorum sint modi aliquid quos officia porro beatae ratione debitis, quaerat hic laborum asperiores consequatur! Quidem tenetur necessitatibus, qui magni fugiat minima repudiandae temporibus. Deserunt eos porro ipsum placeat, tempore nisi velit earum veniam a molestias in, consectetur perferendis suscipit est odio id culpa. Blanditiis dolor totam temporibus dolorem incidunt illum, harum iusto quaerat saepe. Beatae consequuntur asperiores facilis maxime voluptate repellendus deleniti quae ad unde fugiat!
+                                               
 
                                             </Typography>
 
@@ -196,7 +199,7 @@ const ProfileAvailability = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Heading Two (02)
+                                    {data?.section2_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -218,10 +221,13 @@ const ProfileAvailability = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                        __html: data?.section2_description
+                                                    }}
 
                                             >
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, iusto neque adipisci velit similique, a provident deleniti eveniet dolore autem odit ex consequuntur modi! Iusto enim ipsum veritatis unde beatae ex fugiat? Numquam, nulla ea quidem natus veniam tenetur labore? Ullam voluptates cum animi ducimus cumque ea, nesciunt libero minima cupiditate ipsa perspiciatis consequuntur? Optio cupiditate placeat eum! Laudantium cupiditate adipisci nam error excepturi necessitatibus, porro eligendi architecto eos expedita, exercitationem doloribus officia repudiandae officiis eius maiores ducimus? Dolorem natus sunt molestias suscipit voluptatibus excepturi quae non exercitationem. Quo eius dicta animi voluptas dolore ducimus hic consectetur illo, doloremque rerum.
 
+                                               
 
                                             </Typography>
 
@@ -251,7 +257,7 @@ const ProfileAvailability = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Heading Three (03)
+                                    {data?.section3_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -273,10 +279,13 @@ const ProfileAvailability = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                        __html: data?.section3_description
+                                                    }}
 
                                             >
 
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+                                               
 
                                             </Typography>
 
@@ -306,7 +315,7 @@ const ProfileAvailability = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Heading Four (04)
+                                    {data?.section4_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -315,7 +324,7 @@ const ProfileAvailability = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section2_image} style={{ width: "100%" }} />
+                                            <img src={data?.section4_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -328,10 +337,13 @@ const ProfileAvailability = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                        __html: data?.section4_description
+                                                    }}
 
                                             >
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, iusto neque adipisci velit similique, a provident deleniti eveniet dolore autem odit ex consequuntur modi! Iusto enim ipsum veritatis unde beatae ex fugiat? Numquam, nulla ea quidem natus veniam tenetur labore? Ullam voluptates cum animi ducimus cumque ea, nesciunt libero minima cupiditate ipsa perspiciatis consequuntur? Optio cupiditate placeat eum! Laudantium cupiditate adipisci nam error excepturi necessitatibus, porro eligendi architecto eos expedita, exercitationem doloribus officia repudiandae officiis eius maiores ducimus? Dolorem natus sunt molestias suscipit voluptatibus excepturi quae non exercitationem. Quo eius dicta animi voluptas dolore ducimus hic consectetur illo, doloremque rerum.
 
+                                               
 
                                             </Typography>
 
@@ -361,7 +373,7 @@ const ProfileAvailability = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Heading Five (05)
+                                    {data?.section5_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -370,7 +382,7 @@ const ProfileAvailability = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section3_image} style={{ width: "100%" }} />
+                                            <img src={data?.section5_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -383,10 +395,13 @@ const ProfileAvailability = () => {
                                                     textAlign: "justify",
                                                     mt: 0
                                                 }}
+                                                dangerouslySetInnerHTML={{
+                                                        __html: data?.section5_description
+                                                    }}
 
                                             >
 
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+                                               
 
                                             </Typography>
 
@@ -403,6 +418,7 @@ const ProfileAvailability = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+                        
                     </Grid>
                 </Grid>
             </Container>

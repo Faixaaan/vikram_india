@@ -166,7 +166,7 @@ const TechnicalSpecification = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-                        
+
 
 
 
@@ -191,24 +191,41 @@ const TechnicalSpecification = () => {
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <Typography
-                                    sx={{
-                                        fontSize: "16px",
-                                        fontFamily: "Roboto",
-                                        textAlign: "justify",
-                                        mt: 0
-                                    }}
-                                    dangerouslySetInnerHTML={{
-                                        __html: ` ${data?.section1_description}`
+                                {data?.section1_description?.map((item, index) => (
+                                    <Box
+                                        key={index}
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "space-between",
+                                            borderBottom: "1px solid #eee",
+                                            py: 1.5,
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "16px",
+                                                fontWeight: 600,
+                                                fontFamily: "Roboto",
+                                                width: "40%"
+                                            }}
+                                        >
+                                            {item.category}
+                                        </Typography>
 
-
-                                    }}
-                                >
-
-
-
-                                </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontSize: "16px",
+                                                fontFamily: "Roboto",
+                                                width: "60%",
+                                                textAlign: "right"
+                                            }}
+                                        >
+                                            {item.description}
+                                        </Typography>
+                                    </Box>
+                                ))}
                             </AccordionDetails>
+
                         </Accordion>
 
 

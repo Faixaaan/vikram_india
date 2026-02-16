@@ -435,7 +435,7 @@ const Manufacturing = () => {
                                             fontFamily: "Roboto"
                                         }}
                                     >
-                                        Heading Five (5)
+                                        {data?.section5_title}
                                     </Typography>
                                 </AccordionSummary>
 
@@ -444,7 +444,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section4_image} style={{ width: "100%" }} />
+                                                <img src={data?.section5_image} style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -457,10 +457,12 @@ const Manufacturing = () => {
                                                         textAlign: "justify",
                                                         mt: 0
                                                     }}
-
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: data?.section5_description
+                                                    }}
                                                 >
 
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum libero laboriosam ipsa in molestias nulla, non id quasi, unde sapiente repellendus amet vero provident cumque blanditiis. Eveniet sit facilis tempore iure vero modi, quam labore autem amet omnis. Illum adipisci ipsum voluptatum consequuntur laborum sit ipsa veniam maxime sequi vel delectus illo quibusdam ab aut minima, harum obcaecati. Voluptas natus possimus neque doloribus magnam excepturi veritatis ducimus ipsa voluptatem vero veniam debitis voluptatibus modi illo, placeat tenetur voluptates velit, voluptatum amet nostrum ipsum distinctio rem? Illo ipsa hic modi, esse praesentium cum molestiae sequi doloremque quia corrupti nemo saepe.
+
 
                                                 </Typography>
 
@@ -477,6 +479,7 @@ const Manufacturing = () => {
                                     </Box>
                                 </AccordionDetails>
                             </Accordion>
+                            
 
                         </Box>
 

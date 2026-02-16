@@ -25,7 +25,8 @@ export const endpoints = {
     technical_specification:"/page/module_mounting_technical",
     product_portfolio:"/page/module_mounting_product_profile",
     infrastrutre_machinery:"/page/module_mounting_infrastructure",
-    module_mounting_introduction:"/page/module_mounting_introduction"
+    module_mounting_introduction:"/page/module_mounting_introduction",
+    profile_Availability:"/page/module_mounting_profile_availability"
   },
   
   Media: {
