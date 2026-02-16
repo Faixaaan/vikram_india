@@ -8,7 +8,7 @@ import { endpoints } from '../../../Api/EndPoints/endpoints'
 import { motion } from "framer-motion";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -104,6 +104,7 @@ const Initiatives = () => {
   const [hasStarted, setHasStarted] = useState(false);
   const [userScrolled, setUserScrolled] = useState(false);
 
+  const navigate = useNavigate();
 
 
   // 🔹 Counter state
@@ -158,7 +159,7 @@ const Initiatives = () => {
             let start = 0;
 
             const interval = setInterval(() => {
-              start += Math.ceil(target / 60);
+              start += Math.ceil(target / 80);
 
               setCounts(prev => {
                 const updated = [...prev];
@@ -167,12 +168,12 @@ const Initiatives = () => {
               });
 
               if (start >= target) clearInterval(interval);
-            }, 30);
+            }, 70);
           });
         }
       },
       {
-        threshold: 0.3,
+        threshold: 0.7,
       }
     );
 
@@ -521,23 +522,61 @@ const Initiatives = () => {
               }}
             >
 
+
+
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIosIcon sx={{ fontSize: 14 }} />}
                 sx={{
-                  background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
+                  alignSelf: { xs: "stretch", sm: "flex-start" },
+                  mt: 2,
+                  px: 4,
+                  py: 1.4,
+                  borderRadius: "30px",
                   textTransform: "none",
                   fontWeight: 600,
-                  px: 3,
-                  py: 1,
-                  borderRadius: "6px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                  transition: "all 0.3s ease",
+                  fontSize: "18px",
 
-                  fontSize: "18px"
+                  position: "relative",
+                  overflow: "hidden",
+
+                  background: "#c40613",
+
+
+                  zIndex: 1,
+
+                  "& span": {
+                    position: "relative",
+                    zIndex: 2,
+                  },
+
+
+                  "&:before": {
+                    content: '""',
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    width: 0,
+                    height: 0,
+                    background: "#000",
+                    borderRadius: "50%",
+                    transform: "translate(-14%, -50%)",
+                    transition: "all 1s ease",
+                    zIndex: 0,
+                  },
+
+                  "&:hover:before": {
+                    width: "300%",
+                    height: "300%",
+                  },
+
+                  "&:hover": {
+                    background: "#c40613",
+                  },
                 }}
+                onClick={() => navigate("/all-notices")}
               >
-                View All Notices
+                <span>  View All Notices</span>
               </Button>
             </Box>
 

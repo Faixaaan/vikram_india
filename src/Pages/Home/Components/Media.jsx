@@ -284,261 +284,6 @@
 
 // export default Media
 
-// ------------------------------------------------
-
-// import React, { useEffect, useState } from "react";
-// import {
-//   Box,
-//   Typography,
-//   Grid,
-//   Card,
-//   CardContent,
-//   Button,
-//   Container,
-// } from "@mui/material";
-// import { useNavigate } from "react-router-dom";
-// import MediaBanner from "../../../Assets/MediaBanner.png";
-// import { axiosInstance } from "../../../Api/Axios/axios";
-// import { endpoints } from "../../../Api/EndPoints/endpoints";
-
-// const Media = () => {
-//   const navigate = useNavigate();
-//   const [mediaData, setMediaData] = useState([]);
-
-//   const fetchMediaData = async () => {
-//     try {
-//       const res = await axiosInstance.get(
-//         endpoints.homeMedia.getHomeMediaData
-//       );
-//       setMediaData(res?.data?.data || []);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchMediaData();
-//   }, []);
-
-//   const handleClick = () => {
-//         navigate('/page-coming-soon');
-//     };
-
-//   return (
-//     <Box
-//       sx={{
-//         width: "100%",
-//         position: "relative",
-//         backgroundImage: `url(${MediaBanner})`,
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         py: { xs: 6, md: 10 },
-//         "&::before": {
-//           content: '""',
-//           position: "absolute",
-//           inset: 0,
-//           background:
-//             "linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.92) 100%)",
-//           zIndex: 0,
-//         },
-//       }}
-//     >
-//       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-//         {/* TITLE */}
-//         {/* TITLE */}
-// <Box
-//   sx={{
-//     display: "flex",
-//     justifyContent: "center",
-//     mb: 6,
-//   }}
-// >
-//   <Box
-//     sx={{
-//       px: { xs: 3, md: 6 },
-//       py: { xs: 1.5, md: 2.5 },
-//       borderRadius: "16px",
-//       background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
-//       boxShadow:
-//         "0 20px 40px rgba(39,111,158,0.35), inset 0 0 0 1px rgba(255,255,255,0.25)",
-//       maxWidth: "fit-content",   
-//     }}
-//   >
-//     <Typography
-//       variant="h2"
-//       sx={{
-//         fontSize: { xs: "1.9rem", md: "2.6rem" },
-//         fontWeight: 700,
-//         letterSpacing: "0.5px",
-//         color: "#fff",
-//         fontFamily: "'Poppins', 'Roboto', sans-serif",
-//         textAlign: "center",
-//         textShadow: "0 6px 20px rgba(0,0,0,0.35)",
-//         whiteSpace: "nowrap",     // 🔥 prevents stretch
-//       }}
-//     >
-//       Media
-//     </Typography>
-//   </Box>
-// </Box>
-
-//         {/* MEDIA CARDS */}
-//         <Grid container spacing={5}>
-//           {mediaData.map((card) => (
-//             <Grid item xs={12} sm={6} key={card.id}>
-//               <Card
-//                 sx={{
-//                   display: "flex",
-//                   flexDirection: { xs: "column", md: "row" },
-//                   borderRadius: "22px",
-//                   overflow: "hidden",
-//                   background: "rgba(255,255,255,0.06)",
-//                   backdropFilter: "blur(16px)",
-//                   border: "1px solid rgba(255,255,255,0.12)",
-//                   transition: "all 0.45s ease",
-//                   "&:hover": {
-//                     transform: "translateY(-10px)",
-//                     boxShadow: "0 30px 60px rgba(0,0,0,0.6)",
-//                   },
-//                   "&:hover img": {
-//                     transform: "scale(1.08)",
-//                   },
-//                 }}
-//               >
-//                 {/* IMAGE */}
-//                 <Box
-//                   sx={{
-//                     width: { xs: "100%", md: "45%" },
-//                     position: "relative",
-//                     overflow: "hidden",
-//                   }}
-//                 >
-//                   <img
-//                     src={card.image}
-//                     alt={card.title}
-//                     style={{
-//                       width: "100%",
-//                       height: "100%",
-//                       objectFit: "cover",
-//                       transition: "transform 0.6s ease",
-//                     }}
-//                   />
-//                 </Box>
-
-//                 {/* CONTENT */}
-//                 <Box
-//                   sx={{
-//                     width: { xs: "100%", md: "55%" },
-//                     p: { xs: 3, md: 4 },
-//                     display: "flex",
-//                     flexDirection: "column",
-//                     justifyContent: "space-between",
-//                   }}
-//                 >
-//                   <CardContent sx={{ p: 0 }}>
-//                     <Typography
-//                       sx={{
-//                         fontSize: "0.75rem",
-//                         color: "#1BAA63",
-//                         letterSpacing: "1.5px",
-//                         fontWeight: 600,
-//                         mb: 1,
-//                         textTransform: "uppercase",
-//                       }}
-//                     >
-//                       {card.date}
-//                     </Typography>
-
-//                     <Typography
-//                       sx={{
-//                         fontSize: { xs: "1.25rem", md: "1.5rem" },
-//                         fontWeight: 700,
-//                         color: "#fff",
-//                         mb: 2,
-//                         lineHeight: 1.3,
-//                       }}
-//                     >
-//                       {card.title}
-//                     </Typography>
-
-//                     <Typography
-//                       sx={{
-//                         color: "rgba(255,255,255,0.75)",
-//                         lineHeight: 1.7,
-//                         fontSize: "0.95rem",
-//                       }}
-//                     >
-//                       {card.description}
-//                     </Typography>
-//                   </CardContent>
-//                 </Box>
-//               </Card>
-//             </Grid>
-//           ))}
-//         </Grid>
-
-//         {/* KNOW MORE BUTTON */}
-//         <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-//           <Button
-//             variant="contained"
-//             sx={{
-//               alignSelf: { xs: "stretch", sm: "flex-start" },
-//               mt: 2,
-//               px: 4,
-//               py: 1.4,
-//               borderRadius: "30px",
-//               textTransform: "none",
-//               fontWeight: 600,
-//               fontSize: "18px",
-
-//               position: "relative",
-//               overflow: "hidden",
-
-//               background: "#c40613",
-
-//               // text always on top
-//               zIndex: 1,
-
-//               "& span": {
-//                 position: "relative",
-//                 zIndex: 2,
-//               },
-
-//               // center burst layer
-//               "&:before": {
-//                 content: '""',
-//                 position: "absolute",
-//                 left: "50%",
-//                 top: "50%",
-//                 width: 0,
-//                 height: 0,
-//                 background: "#000",
-//                 borderRadius: "50%",
-//                 transform: "translate(-12%, -50%)",
-//                 transition: "all 1s ease",
-//                 zIndex: 0,
-//               },
-
-//               "&:hover:before": {
-//                 width: "300%",
-//                 height: "300%",
-//               },
-
-//               "&:hover": {
-//                 background: "#c40613",
-//               },
-//             }}
-//             onClick={handleClick}
-//           >
-//             <span>Know More</span>
-//           </Button>
-//         </Box>
-//       </Container>
-//     </Box>
-//   );
-// };
-
-// export default Media;
 
 
 import React, { useEffect, useState } from "react";
@@ -559,11 +304,17 @@ import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 const MotionCard = motion(Card);
 
-/* ===================== STACKED CARD ===================== */
+
 const StackedCard = ({ card, index }) => {
   const { scrollYProgress } = useScroll();
+  const navigate = useNavigate();
 
-  // scroll range per card
+  const handleClick = () => {
+    navigate("/page-coming-soon");
+  };
+
+
+
   const start = index * 0.15;
   const end = start + 0.25;
 
@@ -578,20 +329,29 @@ const StackedCard = ({ card, index }) => {
         scale,
         opacity,
         position: "sticky",
-         top: window.innerWidth < 900 ? 80 : 120,
-  zIndex: 20 + index,
+        top: window.innerWidth < 900 ? 80 : 120,
+        zIndex: 20 + index,
       }}
       sx={{
-       mb: { xs: 4, md: 6 },
+        mb: { xs: 4, md: 6 },
 
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         borderRadius: "22px",
         overflow: "hidden",
-        background: "rgba(255,255,255,0.06)",
-        backdropFilter: "blur(16px)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        boxShadow: "0 30px 60px rgba(0,0,0,0.6)",
+      
+
+        background: "linear-gradient(145deg, #1baa63, #1a1a1a)",
+        border: "1px solid rgb(255, 255, 255)",
+        boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
+        transition: "all 0.4s ease",
+
+        "&:hover": {
+          transform: "translateY(-6px)",
+          boxShadow: "0 35px 70px rgba(0,0,0,0.8)",
+          border: "1px solid #1baa6366",
+        }
+
       }}
     >
       {/* IMAGE */}
@@ -626,7 +386,7 @@ const StackedCard = ({ card, index }) => {
           <Typography
             sx={{
               fontSize: "0.75rem",
-              color: "#1BAA63",
+              color: "#ffffff",
               letterSpacing: "1.5px",
               fontWeight: 600,
               mb: 1,
@@ -658,6 +418,62 @@ const StackedCard = ({ card, index }) => {
             {card.description}
           </Typography>
         </CardContent>
+
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+          <Button
+            variant="contained"
+            sx={{
+              alignSelf: { xs: "stretch", sm: "flex-start" },
+              mt: 2,
+              px: 4,
+              py: 1.4,
+              borderRadius: "30px",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "18px",
+
+              position: "relative",
+              overflow: "hidden",
+
+              background: "#c40613",
+
+              // text always on top
+              zIndex: 1,
+
+              "& span": {
+                position: "relative",
+                zIndex: 2,
+              },
+
+              // center burst layer
+              "&:before": {
+                content: '""',
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                width: 0,
+                height: 0,
+                background: "#000",
+                borderRadius: "50%",
+                transform: "translate(-12%, -50%)",
+                transition: "all 1s ease",
+                zIndex: 0,
+              },
+
+              "&:hover:before": {
+                width: "300%",
+                height: "300%",
+              },
+
+              "&:hover": {
+                background: "#c40613",
+              },
+            }}
+            onClick={handleClick}
+          >
+            <span>Know More</span>
+          </Button>
+        </Box>
       </Box>
     </MotionCard>
   );
@@ -665,7 +481,7 @@ const StackedCard = ({ card, index }) => {
 
 /* ===================== MAIN MEDIA ===================== */
 const Media = () => {
-  const navigate = useNavigate();
+
   const [mediaData, setMediaData] = useState([]);
 
   const fetchMediaData = async () => {
@@ -683,9 +499,6 @@ const Media = () => {
     fetchMediaData();
   }, []);
 
-  const handleClick = () => {
-    navigate("/page-coming-soon");
-  };
 
   return (
     <Box
@@ -757,62 +570,7 @@ const Media = () => {
           ))}
         </Box>
 
-        {/* BUTTON */}
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-          <Button
-            variant="contained"
-            sx={{
-              alignSelf: { xs: "stretch", sm: "flex-start" },
-              mt: 2,
-              px: 4,
-              py: 1.4,
-              borderRadius: "30px",
-              textTransform: "none",
-              fontWeight: 600,
-              fontSize: "18px",
 
-              position: "relative",
-              overflow: "hidden",
-
-              background: "#c40613",
-
-              // text always on top
-              zIndex: 1,
-
-              "& span": {
-                position: "relative",
-                zIndex: 2,
-              },
-
-              // center burst layer
-              "&:before": {
-                content: '""',
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                width: 0,
-                height: 0,
-                background: "#000",
-                borderRadius: "50%",
-                transform: "translate(-12%, -50%)",
-                transition: "all 1s ease",
-                zIndex: 0,
-              },
-
-              "&:hover:before": {
-                width: "300%",
-                height: "300%",
-              },
-
-              "&:hover": {
-                background: "#c40613",
-              },
-            }}
-            onClick={handleClick}
-          >
-            <span>Know More</span>
-          </Button>
-        </Box>
       </Container>
     </Box>
   );
