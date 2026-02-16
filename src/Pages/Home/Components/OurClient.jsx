@@ -286,17 +286,17 @@ const OurClient = () => {
             sx={{
               alignSelf: { xs: "stretch", sm: "flex-start" },
               mt: 2,
-              px: 4,
-              py: 1.4,
+            px: { xs: 1.8, sm: 2.2, md: 2.4 },
+              py: { xs: 0.7, sm: 0.8 },
+              fontSize: { xs: "16px", sm: "17px" },
               borderRadius: "30px",
               textTransform: "none",
               fontWeight: 600,
-              fontSize: "18px",
 
               position: "relative",
               overflow: "hidden",
 
-              background: "#c40613",
+              background: "#bd2304",
 
 
               zIndex: 1,
@@ -327,7 +327,7 @@ const OurClient = () => {
               },
 
               "&:hover": {
-                background: "#c40613",
+                background: "#bd2304",
               },
             }}
             onClick={handleComingsoon}

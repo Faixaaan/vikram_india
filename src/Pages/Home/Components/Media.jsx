@@ -339,9 +339,9 @@ const StackedCard = ({ card, index }) => {
         flexDirection: { xs: "column", md: "row" },
         borderRadius: "22px",
         overflow: "hidden",
-      
 
-        background: "linear-gradient(145deg, #1baa63, #1a1a1a)",
+
+        background: "linear-gradient(145deg, #238d58, #1a1a1a)",
         border: "1px solid rgb(255, 255, 255)",
         boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
         transition: "all 0.4s ease",
@@ -399,10 +399,13 @@ const StackedCard = ({ card, index }) => {
           <Typography
             sx={{
               fontSize: { xs: "1.3rem", md: "1.6rem" },
-              fontWeight: 700,
-              color: "#fff",
+              fontWeight: 800,
               mb: 2,
               lineHeight: 1.3,
+              background: "linear-gradient(70deg, #00ff80, #00c3ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
             }}
           >
             {card.title}
@@ -410,7 +413,7 @@ const StackedCard = ({ card, index }) => {
 
           <Typography
             sx={{
-              color: "rgba(255,255,255,0.75)",
+              color: "rgb(255, 255, 255)",
               lineHeight: 1.7,
               fontSize: "0.95rem",
             }}
@@ -419,23 +422,22 @@ const StackedCard = ({ card, index }) => {
           </Typography>
         </CardContent>
 
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <Box sx={{ display: "flex", justifyContent: "flex-start", mt: { xs: 1.8, md: 4 } }}>
           <Button
             variant="contained"
             sx={{
               alignSelf: { xs: "stretch", sm: "flex-start" },
-              mt: 2,
-              px: 4,
-              py: 1.4,
+              px: { xs: 1.8, sm: 2.2, md: 2.4 },
+              py: { xs: 0.7, sm: 0.8 },
+              fontSize: { xs: "16px", sm: "17px" },
               borderRadius: "30px",
               textTransform: "none",
               fontWeight: 600,
-              fontSize: "18px",
 
               position: "relative",
               overflow: "hidden",
 
-              background: "#c40613",
+              background: "#971d05",
 
               // text always on top
               zIndex: 1,
@@ -466,7 +468,7 @@ const StackedCard = ({ card, index }) => {
               },
 
               "&:hover": {
-                background: "#c40613",
+                background: "#971d05",
               },
             }}
             onClick={handleClick}

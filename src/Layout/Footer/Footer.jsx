@@ -30,89 +30,36 @@ const Footer = () => {
                                 width: "100%",
                                 display: "flex",
                                 flexDirection: "column",
-                                alignItems: "center",    // <-- CENTER EVERYTHING
+                                alignItems: { xs: "flex-start", md: "center" },  
                                 justifyContent: "center",
-                                textAlign: "center",
+                                textAlign: { xs: "left", md: "center" },       
                             }}
                         >
                             <img
                                 src={Logo}
                                 alt="vikram india"
-                                style={{ width: "250px", marginBottom: "12px" }}
+                                style={{ width: "200px", marginBottom: "12px" }}
                             />
 
-                            <Typography
-                                sx={{
-                                    fontWeight: 700,
-                                    mb: 1,
-                                    fontSize: "20px",
-                                    color: "#000",
-                                    fontFamily: "Roboto",
-                                    pb: "6px",
-                                    position: "relative",
-                                    display: "inline-block",
-                                    "&::after": {
-                                        content: "''",
-                                        position: "absolute",
-                                        left: "15%",         // center the 70% border
-                                        bottom: 0,
-                                        width: "70%",
-                                        height: "1px",
-                                        backgroundColor: "#000",
-                                    },
-                                }}
-                            >
-                                Follow us on
-                            </Typography>
 
-                            {/* CENTERED ICONS */}
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    gap: 2,
-                                    justifyContent: "center",
-                                    mt: 1,
-                                    mb: 2,
-                                }}
-                            >
-                                {[
-                                    <FacebookIcon />,
-                                    <InstagramIcon />,
-                                    <LinkedInIcon />,
-                                ].map((Icon, index) => (
-                                    <Box
-                                        key={index}
-                                        sx={{
-                                            fontSize: "28px",
-                                            transition: "0.3s",
-                                            cursor: "pointer",
-                                            "&:hover": {
-                                                transform: "scale(1.2)",
-                                                color: "#EE1D25",
-                                            },
-                                        }}
-                                    >
-                                        {Icon}
-                                    </Box>
-                                ))}
-                            </Box>
 
                             <Button
                                 variant="contained"
                                 sx={{
                                     mt: 2,
-                                    px: 4,
-                                    py: 1.4,
+                                    px: {xs: 1.8, sm:2.2, md: 2.4},
+                                    py: {xs: 0.7, sm: 0.9},
+                                    fontSize: {xs:"16px", sm: "18px"},
                                     borderRadius: "8px",
                                     textTransform: "none",
                                     fontWeight: 600,
-                                    fontSize: "18px",
 
-                                    alignSelf: "center", // 👈 important
+                                    alignSelf: { xs: "flex-start", md: "center" },
+
 
                                     position: "relative",
                                     overflow: "hidden",
-                                    background: "#c40613",
+                                    background: "#bd2304",
                                     zIndex: 1,
 
                                     "& span": {

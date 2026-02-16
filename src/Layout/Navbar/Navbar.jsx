@@ -90,7 +90,7 @@ const Navbar = () => {
             </Box>
 
             {/* DESKTOP MENU */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
+            <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 1 }}>
               {pages.map((item) => {
              
                 if (item.title === "PRODUCTS AND SERVICES") {
@@ -185,7 +185,7 @@ const Navbar = () => {
               })}
             </Box>
 
-            <IconButton sx={{ display: { xs: "flex", md: "none" } }} onClick={handleDrawerToggle}>
+            <IconButton sx={{ display: { xs: "flex", lg: "none" } }} onClick={handleDrawerToggle}>
               <MenuIcon />
             </IconButton>
           </Toolbar>

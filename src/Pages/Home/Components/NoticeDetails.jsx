@@ -40,15 +40,15 @@ const NoticeDetails = () => {
                     variant="contained"
                     sx={{
                         alignSelf: { xs: "stretch", sm: "flex-start" },
-                        px: 4,
-                        py: 1.4,
+                   px: {xs: 1.8, sm:2.2, md: 2.4},
+                                    py: {xs: 0.7, sm: 0.9},
+                                    fontSize: {xs:"16px", sm: "18px"},
                         borderRadius: "30px",
                         textTransform: "none",
                         fontWeight: 600,
-                        fontSize: "18px",
                         position: "relative",
                         overflow: "hidden",
-                        background: "#c40613",
+                        background: "#bd2304",
                         zIndex: 1,
 
                         "& span": {
@@ -76,7 +76,7 @@ const NoticeDetails = () => {
                         },
 
                         "&:hover": {
-                            background: "#c40613",
+                            background: "#bd2304",
                         },
                     }}
                     startIcon={<ArrowBackIcon />}
@@ -88,15 +88,15 @@ const NoticeDetails = () => {
                     variant="contained"
                     sx={{
                         alignSelf: { xs: "stretch", sm: "flex-start" },
-                        px: 4,
-                        py: 1.4,
+                     px: {xs: 1.8, sm:2.2, md: 2.4},
+                                    py: {xs: 0.7, sm: 0.9},
+                                    fontSize: {xs:"16px", sm: "18px"},
                         borderRadius: "30px",
                         textTransform: "none",
                         fontWeight: 600,
-                        fontSize: "18px",
                         position: "relative",
                         overflow: "hidden",
-                        background: "#c40613",
+                        background: "#bd2304",
                         zIndex: 1,
 
                         "& span": {
@@ -124,7 +124,7 @@ const NoticeDetails = () => {
                         },
 
                         "&:hover": {
-                            background: "#c40613",
+                            background: "#bd2304",
                         },
                     }}
                     startIcon={<ArrowBackIcon />}
