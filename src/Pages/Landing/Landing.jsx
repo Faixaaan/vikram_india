@@ -336,12 +336,20 @@ export default function Landing() {
 
       {/* Button */}
       <Box
-        sx={{
-          position: "absolute",
-          top: 30,
-          right: 40,
-          zIndex: 5,
-        }}
+       sx={{
+    position: "absolute",
+    zIndex: 5,
+
+    // 🔥 Desktop Position (unchanged)
+    top: { xs: "50%", sm: 30 },
+    right: { xs: "auto", sm: 40 },
+    left: { xs: "50%", sm: "auto" },
+
+    transform: {
+      xs: "translate(-50%, -50%)",
+      sm: "none",
+    },
+  }}
       >
         <Box
           sx={{
