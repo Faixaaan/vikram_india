@@ -679,7 +679,6 @@ const Banner = () => {
   const [data, setData] = useState([]);
   const [[current, direction], setCurrent] = useState([0, 0]);
 
-
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const logoRef = useRef(null);
@@ -779,6 +778,23 @@ const Banner = () => {
   const left = data.find((i) => i.counter === 2);
   const right = data.find((i) => i.counter === 3);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 80;
+      const y = (e.clientY / innerHeight - 0.5) * 80;
+
+      gsap.to(containerRef.current, {
+        backgroundPosition: `${50 + x}% ${50 + y}%`,
+        duration: 0.5,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+
   return (
     <Box
       ref={containerRef}
@@ -817,6 +833,7 @@ const Banner = () => {
         }}
       >
 
+   
         {/* CENTER LOGO */}
         <Box
           ref={logoRef}
@@ -827,8 +844,30 @@ const Banner = () => {
             transform: "translate(-50%,-50%)",
             zIndex: 5,
             pointerEvents: "none",
+
+            "@keyframes floatGlow": {
+              "0%": { transform: "scale(1)" },
+              "50%": { transform: "scale(1.2)" },
+              "100%": { transform: "scale(1)" },
+            },
           }}
         >
+
+          {/* 🔥 NEW GLOW LAYER */}
+          <Box
+            sx={{
+              position: "absolute",
+              width: 300,
+              height: 300,
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(0,255,255,0.25) 0%, transparent 70%)",
+              animation: "floatGlow 6s ease-in-out infinite",
+              zIndex: -2,
+            }}
+          />
+
+          {/* Existing pulse glow */}
           <Box
             sx={{
               position: "absolute",
@@ -842,6 +881,7 @@ const Banner = () => {
             }}
           />
 
+          {/* Existing spinning ring */}
           <Box
             sx={{
               position: "absolute",
@@ -855,6 +895,7 @@ const Banner = () => {
             }}
           />
 
+          {/* Logo */}
           <Box
             component="img"
             src={vikramindialogo}
@@ -869,6 +910,7 @@ const Banner = () => {
             }}
           />
         </Box>
+
 
         <GlassCard
           ref={(el) => (cardsRef.current[0] = el)}
@@ -1115,7 +1157,7 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
         width: 80,
         left: -20,
         top: -20,
-        animation: "spinGear 30s linear infinite",
+        animation: "spinGear 12s linear infinite",
 
         "@keyframes spinGear": {
           "0%": { transform: "rotate(0deg)" },

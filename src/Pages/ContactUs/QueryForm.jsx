@@ -490,16 +490,19 @@ const QueryForm = () => {
                           type="submit"
                           sx={{
                             alignSelf: { xs: "stretch", sm: "flex-start" },
-                            padding: "10px 40px",
+                            px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                            py: { xs: 0.7, sm: 0.8 },
+                            fontSize: { xs: "16px", sm: "17px" },
+                            minWidth: "140px",
+
                             borderRadius: "6px",
                             textTransform: "none",
                             fontWeight: 600,
-                            fontSize: "18px",
 
                             position: "relative",
                             overflow: "hidden",
 
-                            background: "#c40613",
+                            background: "#bd2304",
 
 
                             zIndex: 1,
@@ -530,7 +533,7 @@ const QueryForm = () => {
                             },
 
                             "&:hover": {
-                              background: "#c40613",
+                              background: "#bd2304",
                             },
                           }}
 
@@ -546,7 +549,7 @@ const QueryForm = () => {
                             border: "2px solid #c00",
                             color: "#c00",
                             borderRadius: "6px",
-                            padding: "10px 40px",
+                            padding: "6px 30px",
                             fontSize: "15px",
                             fontWeight: 600,
                             textTransform: "none",

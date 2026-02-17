@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -7,6 +8,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function FloatingSocial() {
     const [open, setOpen] = useState(true);
+
+    // ✅ Detect mobile screen
+    const isMobile = useMediaQuery("(max-width:600px)");
 
     const socialItemStyle = (bg) => ({
         position: "relative",
@@ -22,27 +26,38 @@ export default function FloatingSocial() {
         "& .label": {
             position: "absolute",
             right: 45,
-            // height: "100%",
             background: bg,
             color: "#fff",
             padding: "6px 14px",
             borderRadius: "8px 0 0 8px",
             whiteSpace: "nowrap",
             opacity: 0,
-            transform: "translateX(20px)",
-            transition: "0.3s",
+            visibility: "hidden",
+            pointerEvents: "none",
+            transform: "translateX(10px)",
+            transition: "all 0.3s ease",
             fontSize: 14,
             fontWeight: 500,
         },
 
         "&:hover .label": {
             opacity: 1,
+            visibility: "visible",
             transform: "translateX(0)",
         },
     });
 
     return (
         <Box
+            component={motion.div}
+            drag={isMobile} // ✅ Only mobile e drag hobe
+            dragMomentum={false}
+            dragConstraints={{
+                top: -300,
+                bottom: 300,
+                left: -window.innerWidth + 80,
+                right: 0,
+            }}
             sx={{
                 position: "fixed",
                 right: 0,
@@ -52,6 +67,10 @@ export default function FloatingSocial() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
+                cursor: isMobile ? "grab" : "default",
+                "&:active": {
+                    cursor: isMobile ? "grabbing" : "default",
+                }
             }}
         >
             <Box sx={{ position: "relative" }}>
@@ -79,7 +98,6 @@ export default function FloatingSocial() {
                         }}
                     />
 
-                    {/* Hover Label (Only visible when closed) */}
                     {!open && (
                         <Typography
                             className="arrowLabel"
@@ -105,11 +123,8 @@ export default function FloatingSocial() {
                 </IconButton>
             </Box>
 
-
             {open && (
                 <Box sx={{ borderRadius: "0 0 0 15px", overflow: "visible" }}>
-
-                    {/* Facebook */}
                     <Box
                         component="a"
                         href="#"
@@ -120,30 +135,27 @@ export default function FloatingSocial() {
                         <FacebookIcon />
                     </Box>
 
-                    {/* Instagram */}
                     <Box
                         component="a"
                         href="#"
                         target="_blank"
                         sx={socialItemStyle(
-                            "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)"
+                            "linear-gradient(45deg, #bc1888, #cc2366, #dc2743, #e6683c, #f09433)"
                         )}
                     >
                         <Typography className="label">Instagram</Typography>
                         <InstagramIcon />
                     </Box>
 
-                   
                     <Box
                         component="a"
                         href="#"
                         target="_blank"
-                        sx={{ ...socialItemStyle("#0077B5"), borderRadius: "0 0 0 10px"}}
+                        sx={{ ...socialItemStyle("#0077B5"), borderRadius: "0 0 0 10px" }}
                     >
                         <Typography className="label">LinkedIn</Typography>
                         <LinkedInIcon />
                     </Box>
-
                 </Box>
             )}
         </Box>

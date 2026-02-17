@@ -540,7 +540,7 @@ const ApplyOnline = () => {
                           borderTop: "1px solid #eee",
                         }}
                       >
-                        
+
 
 
                         <Button
@@ -550,15 +550,15 @@ const ApplyOnline = () => {
                             // mt: 2,
                             px: 4,
                             py: 1.4,
-                            borderRadius: "6px",
-                            textTransform: "none",
+                            px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                            py: { xs: 0.7, sm: 0.8 },
+                            fontSize: { xs: "16px", sm: "17px" },
                             fontWeight: 600,
-                            fontSize: "18px",
 
                             position: "relative",
                             overflow: "hidden",
 
-                            background: "#c40613",
+                            background: "#bd2304",
                             minWidth: "140px",
 
 
@@ -591,7 +591,7 @@ const ApplyOnline = () => {
                             },
 
                             "&:hover": {
-                              background: "#c40613",
+                              background: "#bd2304",
                             },
                           }}
 
@@ -606,7 +606,7 @@ const ApplyOnline = () => {
                             border: "2px solid #c00",
                             color: "#c00",
                             borderRadius: "6px",
-                            padding: "10px 40px",
+                            padding: "6px 40px",
                             fontSize: "15px",
                             fontWeight: 600,
                             textTransform: "none",
