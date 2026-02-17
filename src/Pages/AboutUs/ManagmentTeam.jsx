@@ -247,10 +247,10 @@ const ManagementTeam = () => {
 
                                             <Typography sx={{
                                                 fontSize: "14px",
-                                                backgroundColor: "blue",
-                                                padding: "3px 6px",
+                                                backgroundColor: "none",
+                                                padding: "0px 0px",
                                                 display: "inline-block",
-                                                mt: 1
+                                                mt: 0
                                             }}>
                                                 {member.designation}
                                             </Typography>
