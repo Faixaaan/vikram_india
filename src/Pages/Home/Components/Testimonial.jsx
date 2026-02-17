@@ -501,7 +501,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
-import "./testimonial.css";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
