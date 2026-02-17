@@ -27,34 +27,38 @@ const Footer = () => {
                     <Grid item size={{ xs: 12, md: 3 }}>
                         <Box
                             sx={{
-                                width: "100%",
+                                width: {xs: "85%", sm: "70%", md: "100%"},
                                 display: "flex",
-                                flexDirection: "column",
-                                alignItems: { xs: "flex-start", md: "center" },  
-                                justifyContent: "center",
-                                textAlign: { xs: "left", md: "center" },       
+                                flexDirection: { xs: "row", md: "column" },
+                                alignItems: { xs: "flex-start", md: "center" },
+                                justifyContent: { xs: "space-between", md: "center" },
+                                textAlign: { xs: "left", md: "center" },
                             }}
                         >
-                            <img
+                            <Box
+                                component="img"
                                 src={Logo}
                                 alt="vikram india"
-                                style={{ width: "200px", marginBottom: "12px" }}
+                                sx={{
+                                    width: { xs: "180px", md: "200px" },
+                                    marginBottom: { xs: "0px", md: "12px" }
+                                }}
                             />
-
 
 
                             <Button
                                 variant="contained"
                                 sx={{
-                                    mt: 2,
-                                    px: {xs: 1.8, sm:2.2, md: 2.4},
-                                    py: {xs: 0.7, sm: 0.9},
-                                    fontSize: {xs:"16px", sm: "18px"},
+                                    mt: { xs: 1, md: 2 },
+                                    px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                                    py: { xs: 0.7, sm: 0.9 },
+                                    fontSize: { xs: "16px", sm: "18px" },
                                     borderRadius: "8px",
                                     textTransform: "none",
                                     fontWeight: 600,
+                                    display: "flex",
+                                    justifyContent: "flex-start",
 
-                                    alignSelf: { xs: "flex-start", md: "center" },
 
 
                                     position: "relative",
@@ -105,7 +109,7 @@ const Footer = () => {
                             sx={{
                                 fontWeight: 600,
                                 mb: 2,
-                                fontSize: "24px",
+                                fontSize: { xs: "19px", md: "22px" },
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
@@ -139,7 +143,7 @@ const Footer = () => {
                             <Typography
                                 key={item}
                                 sx={{
-                                    fontSize: "17px",
+                                    fontSize: { xs: "14px", md: "16px" },
                                     mb: 1,
                                     cursor: "pointer",
                                     fontFamily: "Roboto",
@@ -184,7 +188,9 @@ const Footer = () => {
                             sx={{
                                 fontWeight: 600,
                                 mb: 2,
-                                fontSize: "24px",
+                                fontSize: { xs: "19px", md: "22px" },
+
+
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
@@ -219,7 +225,7 @@ const Footer = () => {
                             <Typography
                                 key={item}
                                 sx={{
-                                    fontSize: "17px",
+                                    fontSize: { xs: "14px", md: "16px" },
                                     mb: 1,
                                     cursor: "pointer",
                                     fontFamily: "Roboto",
@@ -259,12 +265,16 @@ const Footer = () => {
                     </Grid>
 
                     {/* CORPORATE OFFICE */}
-                    <Grid item size={{ xs: 12, md: 3 }}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{
+                        display: { xs: "none", md: "block" }
+                    }}>
                         <Typography
                             sx={{
                                 fontWeight: 600,
                                 mb: 2,
-                                fontSize: "24px",
+                                fontSize: { xs: "19px", md: "22px" },
+
+
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
@@ -290,30 +300,30 @@ const Footer = () => {
                         <Box sx={{ mb: 2 }}>
                             <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Tobacco House</Typography>
                             <Typography sx={{
-                                fontSize: "15px", fontfamily: "Roboto"
+                                fontSize: "14px", fontfamily: "Roboto"
                             }}>
                                 1, Old Court House Corner, Kolkata - 700 001
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Phone No. +91 33 2230 7299 (4 lines)
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Email: info@vikramindia.in
                             </Typography>
                         </Box>
 
                         <Box>
                             <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Office / Works</Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Vill: Jathgidhari, N.D.T. Complex, New Karala
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 P.O: Daharpur, P.S: Sadar, Dist
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Howrah – 711 302 West Bengal, India
                             </Typography>
-                            <Typography sx={{ fontSize: "15px", fontfamily: "Roboto" }}>
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Email: sales@vikramindia.in
                             </Typography>
                         </Box>

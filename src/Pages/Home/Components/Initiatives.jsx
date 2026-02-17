@@ -215,10 +215,9 @@ const Initiatives = () => {
             justifyContent: 'center',
             position: 'relative',
 
-            // Problem Here
             "&::before": {
               content: '""',
-              // position: "absolute",
+              
               inset: 0,
               background:
                 "linear-gradient(120deg, transparent 30%, rgba(255,255,255,.25), transparent 70%)",
@@ -234,11 +233,6 @@ const Initiatives = () => {
 
         >
 
-
-          {/* Title */}
-
-
-          {/* 🔹 COUNTER GRID */}
           <Grid container spacing={2} sx={{ width: '90%' }}>
             {counts.map((count, index) => (
               <Grid
@@ -271,7 +265,7 @@ const Initiatives = () => {
                 <Box textAlign="center">
                   <Typography
                     sx={{
-                      fontSize: '36px',
+                      fontSize: {xs: '28px', md: "36px"},
                       fontWeight: 700,
                       fontFamily: 'Roboto',
                       color: '#fff',
@@ -283,7 +277,7 @@ const Initiatives = () => {
 
                   <Typography
                     sx={{
-                      fontSize: '16px',
+                      fontSize: {xs: '15px', md: "16px"},
                       fontFamily: 'Roboto',
                       color: '#fff',
 
@@ -445,7 +439,7 @@ const Initiatives = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 2,
+                  gap: {xs: 1, md: 2},
                   animation: "scrollUp 30s linear infinite",
 
                   "@keyframes scrollUp": {
@@ -485,7 +479,7 @@ const Initiatives = () => {
                         minWidth: "85px",
                         background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
                         color: "#fff",
-                        fontSize: "16px",
+                        fontSize: {xs: "14px", md: "16px"},
                         fontWeight: 600,
                         padding: "6px 8px",
                         textAlign: "center",
@@ -501,7 +495,7 @@ const Initiatives = () => {
                     {/* 📄 TITLE */}
                     <Typography
                       sx={{
-                        fontSize: "18px",
+                        fontSize: {xs: "16", md: "18px"},
                         fontWeight: 500,
                         lineHeight: 1.4,
                       }}

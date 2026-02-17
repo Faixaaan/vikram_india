@@ -548,8 +548,8 @@ const Testimonial = () => {
   );
 
   return (
-    <Box sx={{ py: 10, background: "#f5f5f5" }}>
-      {/* -------- Title -------- */}
+    <Box sx={{ pt: {xs: 8, md: 10}, pb: {xs: 0, md: 10}, background: "#f5f5f5" }}>
+    
       <Box
         sx={{
           display: "flex",
