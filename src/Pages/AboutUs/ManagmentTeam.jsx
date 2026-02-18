@@ -259,7 +259,7 @@ const ManagementTeam = () => {
 
                                     {/* Image Right */}
                                     {index % 2 !== 0 && (
-                                        <Grid item xs={12} md={4}>
+                                        <Grid item  size={{xs:12,md:4}}>
                                             <img
                                                 src={member.profile_pic || "/no-image.png"}
                                                 alt={member.name}
