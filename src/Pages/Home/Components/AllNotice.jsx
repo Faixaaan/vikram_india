@@ -38,6 +38,7 @@ const AllNotice = () => {
 
       <Box textAlign="center" mb={6}>
         <Typography
+          component="div"
           sx={{
             fontSize: { xs: "26px", md: "38px" },
             fontWeight: 800,
@@ -151,8 +152,8 @@ const AllNotice = () => {
               justifyContent: "space-between",
               backgroundColor: "#fff",
               borderRadius: "12px",
-              p: 3,
-              mb: { xs: 2, md: 3 },
+              p: {xs: 1.5, md: 3},
+              mb: { xs: 1.5, md: 3 },
               cursor: "pointer",
               boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
               transition: "all .3s ease",
@@ -180,7 +181,7 @@ const AllNotice = () => {
               {/* Title */}
               <Typography
                 sx={{
-                  fontSize: "18px",
+                  fontSize: {xs: "16", md: "18px"},
                   fontWeight: 600,
                   lineHeight: 1.5,
                 }}

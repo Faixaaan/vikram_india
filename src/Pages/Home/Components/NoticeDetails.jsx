@@ -35,7 +35,7 @@ const NoticeDetails = () => {
                 gap: "40px"
             }}
         >
-            <Box sx={{ display: "flex", justifyContent:"space-between", width: "80%", margin: "0 auto", alignItems: "center", flexDirection: {xs:"column", sm: "row"}, gap: {xs: "20px", sm: "0px"} }} >
+            <Box sx={{ display: "flex", justifyContent:"space-between", width: {xs: "50%" , sm:"80%"}, margin: "0 auto", alignItems: "center", flexDirection: {xs:"column", sm: "row"}, gap: {xs: "20px", sm: "0px"} }} >
                 <Button
                     variant="contained"
                     sx={{
@@ -146,7 +146,7 @@ const NoticeDetails = () => {
             >
                 <Typography
                     sx={{
-                        fontSize: { xs: "26px", md: "36px" },
+                        fontSize: { xs: "22px", sm: "24px", md: "28px" },
                         fontWeight: 900,
                         textTransform: "uppercase",
                         mb: 2,
@@ -171,16 +171,16 @@ const NoticeDetails = () => {
                         mb: 2,
                     }}
                 >
-                    <Typography sx={{ fontWeight: 600 }}>
+                    <Typography sx={{ fontWeight: 600 , fontSize: {xs: "15px", sm: "16px"}}}>
                         Ref. VI/B2B/2026/01
                     </Typography>
 
-                    <Typography sx={{ fontWeight: 600 }}>
+                    <Typography sx={{ fontWeight: 600 , fontSize: {xs: "15px", sm: "16px"}}}>
                         Date: 12/02/2026
                     </Typography>
                 </Box>
 
-                <Typography sx={{ mb: 2, fontSize: "17px", lineHeight: 1.8 }}>
+                <Typography sx={{ mb: 2, fontSize: {xs: "16px", md: "17px"}, lineHeight:{xs: 1.4, md: 1.6} }}>
                     VikramIndia is pleased to announce the expansion of its B2B
                     distribution network across multiple regions in India.
                 </Typography>
