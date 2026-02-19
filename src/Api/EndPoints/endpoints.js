@@ -87,7 +87,14 @@ export const endpoints = {
     GalvanizationProcess:"/page/hotdip_galvanizing",
     Quality_Assurance:"/page/hotdip_quality",
     WhyChooseUs:"/page/hotdip_whychooseus"
-  }
+  },
+  
+  GardenPlantation: {
+  harvesting: "/page/gp_harvesting",
+  foreign_object_removal: "/page/gp_foreign_object_removal",
+  laboratory_quality: "/page/gp_laboratory_quality"
+}
+
 
 
 
