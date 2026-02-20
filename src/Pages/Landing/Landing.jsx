@@ -308,15 +308,20 @@ export default function Landing() {
 
       )}
 
+
       {/* Logo */}
       <Box
         sx={{
           position: "absolute",
           top: 30,
-          left: 40,
           zIndex: 5,
-          px: 3,
-          py: 2,
+
+
+          left: { xs: "50%", md: 40 },
+          transform: { xs: "translateX(-50%)", md: "none" },
+
+          px: { xs: 1, md: 2 },
+          py: { xs: 0.8, md: 1 },
           borderRadius: "20px",
           background: "rgba(255, 255, 255, 0.31)",
           backdropFilter: "blur(12px)",
@@ -324,32 +329,43 @@ export default function Landing() {
             "0 8px 32px rgba(0,0,0,.35), inset 0 0 20px rgba(255,255,255,.15)",
           border: "1px solid rgba(255,255,255,.25)",
           transition: ".4s ease",
+
           "&:hover": {
             boxShadow:
               "0 12px 40px rgba(0,0,0,.45), inset 0 0 25px rgba(255,255,255,.25)",
-            transform: "scale(1.03)",
+            transform: {
+              xs: "translateX(-50%) scale(1.03)",
+              md: "scale(1.03)",
+            },
           },
         }}
       >
-        <img src="/logo.png" width={280} alt="logo" />
+        <img
+          src="/logo.png"
+          alt="logo"
+          style={{
+            width: "100%",
+            maxWidth: "200px",
+            height: "auto",
+          }}
+        />
       </Box>
 
       {/* Button */}
       <Box
-       sx={{
-    position: "absolute",
-    zIndex: 5,
+        sx={{
+          position: "absolute",
+          zIndex: 5,
 
-    // 🔥 Desktop Position (unchanged)
-    top: { xs: "50%", sm: 30 },
-    right: { xs: "auto", sm: 40 },
-    left: { xs: "50%", sm: "auto" },
+          top: { xs: "50%", md: 30 },
+          right: { xs: "auto", md: 40 },
+          left: { xs: "50%", md: "auto" },
 
-    transform: {
-      xs: "translate(-50%, -50%)",
-      sm: "none",
-    },
-  }}
+          transform: {
+            xs: "translate(-50%, -50%)",
+            md: "none",
+          },
+        }}
       >
         <Box
           sx={{
@@ -415,8 +431,8 @@ export default function Landing() {
             variant="contained"
             onClick={handleEnter}
             sx={{
-              px: 4,
-              py: 1.5,
+              px: { xs: 2, md: 3 },
+              py: 1,
               borderRadius: "30px",
               background:
                 "linear-gradient(135deg, #ff416c, #ff4b2b)",
@@ -426,7 +442,7 @@ export default function Landing() {
               border: "1px solid rgba(255,255,255,.35)",
               color: "#fff",
               fontWeight: 600,
-              fontSize: "22px",
+              fontSize: "20px",
               transition: ".4s ease",
               "&:hover": {
                 transform: "scale(1.05)",
@@ -438,71 +454,79 @@ export default function Landing() {
             Visit Our Website
           </Button>
         </Box>
-       
+
 
       </Box>
 
 
       <Button
-  onClick={toggleAudio}
-  variant="contained"
-  sx={{
-    position: "absolute",
-    bottom: 30,
-    right: 40,
-    px: 4,
-    py: 1.4,
-    borderRadius: "40px",
-    fontWeight: 700,
-    fontSize: "16px",
-    textTransform: "none",
-    letterSpacing: "1px",
+        onClick={toggleAudio}
+        variant="contained"
+        sx={{
+          position: "absolute",
+          zIndex: 5,
 
-    background: isMuted
-      ? "linear-gradient(135deg, #ff416c, #ff4b2b)"
-      : "linear-gradient(135deg, #00bcc6, #4facfe)",
+         
+          bottom: 30,
+          left: { xs: "50%", md: "auto" },
+          right: { xs: "auto", md: 40 },
+          transform: { xs: "translateX(-50%)", md: "none" },
 
-    color: "#fff",
+          px: { xs: 1.4, md: 1.8 },
+          py: 0.8,
+          borderRadius: "40px",
+          fontWeight: 700,
+          fontSize: "16px",
+          textTransform: "none",
+          letterSpacing: "1px",
 
-    boxShadow: isMuted
-      ? "0 0 20px rgba(255,65,108,0.7)"
-      : "0 0 20px rgba(79,172,254,0.7)",
+          background: isMuted
+            ? "linear-gradient(135deg, #ff416c, #ff4b2b)"
+            : "linear-gradient(135deg, #00bcc6, #4facfe)",
 
-    transition: "all .4s ease",
+          color: "#fff",
 
-    animation: "pulse 2s infinite",
+          boxShadow: isMuted
+            ? "0 0 20px rgba(255,65,108,0.7)"
+            : "0 0 20px rgba(79,172,254,0.7)",
 
-    "&:hover": {
-      transform: "scale(1.08)",
-      boxShadow: isMuted
-        ? "0 0 35px rgba(255,65,108,1)"
-        : "0 0 35px rgba(79,172,254,1)",
-    },
+          transition: "all .4s ease",
+          animation: "pulse 2s infinite",
 
-    "@keyframes pulse": {
-      "0%": {
-        boxShadow: isMuted
-          ? "0 0 10px rgba(255,65,108,0.5)"
-          : "0 0 10px rgba(79,172,254,0.5)",
-      },
-      "50%": {
-        boxShadow: isMuted
-          ? "0 0 25px rgba(255,65,108,0.9)"
-          : "0 0 25px rgba(79,172,254,0.9)",
-      },
-      "100%": {
-        boxShadow: isMuted
-          ? "0 0 10px rgba(255,65,108,0.5)"
-          : "0 0 10px rgba(79,172,254,0.5)",
-      },
-    },
-  }}
->
-  {isMuted ? "🔊 Turn Audio On" : "🔇 Turn Audio Off"}
-</Button>
+          "&:hover": {
+            transform: {
+              xs: "translateX(-50%) scale(1.08)",
+              md: "scale(1.08)",
+            },
+            boxShadow: isMuted
+              ? "0 0 35px rgba(255,65,108,1)"
+              : "0 0 35px rgba(79,172,254,1)",
+          },
+
+          "@keyframes pulse": {
+            "0%": {
+              boxShadow: isMuted
+                ? "0 0 10px rgba(255,65,108,0.5)"
+                : "0 0 10px rgba(79,172,254,0.5)",
+            },
+            "50%": {
+              boxShadow: isMuted
+                ? "0 0 25px rgba(255,65,108,0.9)"
+                : "0 0 25px rgba(79,172,254,0.9)",
+            },
+            "100%": {
+              boxShadow: isMuted
+                ? "0 0 10px rgba(255,65,108,0.5)"
+                : "0 0 10px rgba(79,172,254,0.5)",
+            },
+          },
+        }}
+      >
+        {isMuted ? "🔊 Turn Audio On" : "🔇 Turn Audio Off"}
+      </Button>
 
 
-      
+
 
       {/* Black Split Animation */}
       <AnimatePresence>

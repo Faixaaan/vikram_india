@@ -148,40 +148,42 @@ const Initiatives = () => {
   }, []);
 
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted && userScrolled) {
+ useEffect(() => {
+  const isMobile = window.innerWidth < 600; // MUI xs breakpoint
 
-          setHasStarted(true);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !hasStarted && userScrolled) {
 
-          targetCounts.forEach((target, index) => {
-            let start = 0;
+        setHasStarted(true);
 
-            const interval = setInterval(() => {
-              start += Math.ceil(target / 80);
+        targetCounts.forEach((target, index) => {
+          let start = 0;
 
-              setCounts(prev => {
-                const updated = [...prev];
-                updated[index] = start >= target ? target : start;
-                return updated;
-              });
+          const interval = setInterval(() => {
+            start += Math.ceil(target / 80);
 
-              if (start >= target) clearInterval(interval);
-            }, 70);
-          });
-        }
-      },
-      {
-        threshold: 0.7,
+            setCounts(prev => {
+              const updated = [...prev];
+              updated[index] = start >= target ? target : start;
+              return updated;
+            });
+
+            if (start >= target) clearInterval(interval);
+          }, 70);
+        });
       }
-    );
+    },
+    {
+      threshold: isMobile ? 0.45 : 0.7,
+      rootMargin: "0px 0px -50px 0px", 
+    }
+  );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+  if (sectionRef.current) observer.observe(sectionRef.current);
 
-    return () => observer.disconnect();
-  }, [hasStarted, userScrolled]);
-
+  return () => observer.disconnect();
+}, [hasStarted, userScrolled]);
 
 
 
@@ -217,7 +219,7 @@ const Initiatives = () => {
 
             "&::before": {
               content: '""',
-              
+
               inset: 0,
               background:
                 "linear-gradient(120deg, transparent 30%, rgba(255,255,255,.25), transparent 70%)",
@@ -265,7 +267,7 @@ const Initiatives = () => {
                 <Box textAlign="center">
                   <Typography
                     sx={{
-                      fontSize: {xs: '28px', md: "36px"},
+                      fontSize: { xs: '28px', md: "36px" },
                       fontWeight: 700,
                       fontFamily: 'Roboto',
                       color: '#fff',
@@ -277,7 +279,7 @@ const Initiatives = () => {
 
                   <Typography
                     sx={{
-                      fontSize: {xs: '15px', md: "16px"},
+                      fontSize: { xs: '15px', md: "16px" },
                       fontFamily: 'Roboto',
                       color: '#fff',
 
@@ -439,7 +441,7 @@ const Initiatives = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: {xs: 1, md: 2},
+                  gap: { xs: 1, md: 2 },
                   animation: "scrollUp 30s linear infinite",
 
                   "@keyframes scrollUp": {
@@ -479,7 +481,7 @@ const Initiatives = () => {
                         minWidth: "85px",
                         background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
                         color: "#fff",
-                        fontSize: {xs: "14px", md: "16px"},
+                        fontSize: { xs: "14px", md: "16px" },
                         fontWeight: 600,
                         padding: "6px 8px",
                         textAlign: "center",
@@ -495,7 +497,7 @@ const Initiatives = () => {
                     {/* 📄 TITLE */}
                     <Typography
                       sx={{
-                        fontSize: {xs: "16", md: "18px"},
+                        fontSize: { xs: "16", md: "18px" },
                         fontWeight: 500,
                         lineHeight: 1.4,
                       }}

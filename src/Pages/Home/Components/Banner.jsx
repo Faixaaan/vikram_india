@@ -762,8 +762,8 @@ const Banner = () => {
 
       cardsRef.current.forEach((card, i) => {
         gsap.to(card, {
-          y: i % 2 === 0 ? -16 : 16,
-          duration: 3 + i,
+          y: i % 2 === 0 ? -2 : 2,
+          duration: 5 + i * 0.5,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
@@ -777,6 +777,8 @@ const Banner = () => {
   const top = data.find((i) => i.counter === 1);
   const left = data.find((i) => i.counter === 2);
   const right = data.find((i) => i.counter === 3);
+  const bottom = data.find((i) => i.counter === 4);
+
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -802,7 +804,7 @@ const Banner = () => {
         width: "100%",
         position: "relative",
         overflow: "hidden",
-        minHeight: { xs: "100vh" },
+        minHeight: { xs: "65vh", md: "85vh" },
 
         backgroundImage: { md: `url(${BackgroundImage})` },
         backgroundSize: "cover",
@@ -813,7 +815,7 @@ const Banner = () => {
       <Box
         sx={{
           display: { xs: "none", md: "block" },
-          minHeight: "100vh",
+          minHeight: { md: "85vh", lg: "90vh" },
           position: "relative",
 
           "@keyframes spinSlow": {
@@ -833,13 +835,13 @@ const Banner = () => {
         }}
       >
 
-   
+
         {/* CENTER LOGO */}
         <Box
           ref={logoRef}
           sx={{
             position: "absolute",
-            top: "50%",
+            top: "35%",
             left: "50%",
             transform: "translate(-50%,-50%)",
             zIndex: 5,
@@ -912,225 +914,215 @@ const Banner = () => {
         </Box>
 
 
+        {/* LEFT TOP */}
         <GlassCard
           ref={(el) => (cardsRef.current[0] = el)}
           data={top}
-          onClick={() => navigate("/products/mms-learnMore")}
-          sx={{ top: "12%", left: "50%", transform: "translateX(-50%)" }}
+          onClick={() => navigate(getRouteByCounter(1))}
+          sx={{
+            top: "8%",
+            left: "8%",
+          }}
         />
 
+        {/* LEFT BOTTOM */}
         <GlassCard
           ref={(el) => (cardsRef.current[1] = el)}
           data={left}
-          onClick={() => navigate("/products/hot-dip")}
-          sx={{ top: "55%", left: "6%" }}
+          onClick={() => navigate(getRouteByCounter(2))}
+          sx={{
+            bottom: "42%",
+            left: "8%",
+          }}
         />
 
+        {/* RIGHT TOP */}
         <GlassCard
           ref={(el) => (cardsRef.current[2] = el)}
           data={right}
-          onClick={() => navigate("/products/processing-card")}
-          sx={{ top: "55%", right: "6%" }}
+          onClick={() => navigate(getRouteByCounter(3))}
+          sx={{
+            top: "8%",
+            right: "8%",
+          }}
+        />
+
+        {/* RIGHT BOTTOM */}
+        <GlassCard
+          ref={(el) => (cardsRef.current[3] = el)}
+          data={bottom}
+          onClick={() => navigate(getRouteByCounter(4))}
+          sx={{
+            bottom: "42%",
+            right: "8%",
+          }}
         />
       </Box>
 
       {/* ================= MOBILE + TABLET SLIDER ================= */}
-      <Box sx={{
-        display: { xs: "block", md: "none" }, height: { xs: "100vh" }
-        , overflow: "hidden", position: "relative"
-      }}>
+    
+<Box
+  sx={{
+    display: { xs: "block", md: "none" },
+    height: { xs: "65vh" },
+    overflow: "hidden",
+    position: "relative",
+  }}
+>
+  <AnimatePresence initial={false} custom={direction}>
+    <motion.div
+      key={current}
+      custom={direction}
+      initial={{ x: direction > 0 ? "100%" : "-100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: direction > 0 ? "-100%" : "100%" }}
+      transition={{ duration: 0.8 }}
+      style={{
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      {/* Background Image */}
+      <Box
+        component="img"
+        src={data[current]?.image}
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
 
+      {/* Overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,0,0,0.55)",
+        }}
+      />
 
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={current}
-            custom={direction}
-            initial={{ x: direction > 0 ? "100%" : "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: direction > 0 ? "-100%" : "100%" }}
-            transition={{ duration: 0.8 }}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
+      {/* Content Wrapper */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center",
+          textAlign: "center",
+          color: "#fff",
+          zIndex: 5,
+          px: 3,
+          py: 6,
+        }}
+      >
+        {/* ===== Top Text ===== */}
+        <Box sx={{ mt: 2 }}>
+          <Typography
+            sx={{
+              fontSize: 26,
+              fontWeight: 700,
+              mb: 1,
             }}
           >
+            {data[current]?.subtitle}
+          </Typography>
 
-            <Box
-              component="img"
-              src={data[current]?.image}
-              sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
+          <Typography
+            sx={{
+              fontSize: 16,
+              opacity: 0.9,
+            }}
+          >
+            {data[current]?.title}
+          </Typography>
+        </Box>
 
-
-            <Box
-              sx={{
-                position: "absolute",
-                inset: 0,
-                background: "rgba(0,0,0,0.55)",
-              }}
-            />
-
-
-            <Box
-              sx={{
-                position: "absolute",
-                top: "25%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                textAlign: "center",
-                color: "#fff",
-                width: "90%",
-                zIndex: 5,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: 26,
-                  fontWeight: 700,
-                  mb: 1,
-                }}
-              >
-                {data[current]?.subtitle}
-              </Typography>
-
-              <Typography
-                sx={{
-                  fontSize: 16,
-                  mb: 4,
-                  opacity: 0.9,
-                }}
-              >
-                {data[current]?.title}
-              </Typography>
-
-              {/* Green Button */}
-              <Box
-                onClick={() =>
-                  navigate(getRouteByCounter(data[current]?.counter))
-                }
-                sx={{
-                  alignSelf: { xs: "stretch", sm: "flex-start" },
-                  mt: 2,
-                  px: 5,
-                  py: 1.6,
-                  borderRadius: "50px",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  fontSize: "17px",
-                  letterSpacing: 1,
-
-                  position: "relative",
-                  overflow: "hidden",
-                  cursor: "pointer",
-                  display: "inline-block",
-
-                  color: "#fff",
-
-                  // 🔥 Gradient background
-                  background: "linear-gradient(135deg, #c40613, #ff1e2d, #8b0000)",
-                  backgroundSize: "200% 200%",
-                  animation: "gradientMove 5s ease infinite",
-
-                  boxShadow:
-                    "0 0 15px rgba(196,6,19,0.6), 0 8px 25px rgba(0,0,0,0.4)",
-
-                  transition: "all 0.4s ease",
-
-                  "&:hover": {
-                    transform: "translateY(-4px) scale(1.05)",
-                    boxShadow:
-                      "0 0 25px rgba(255,30,45,0.9), 0 12px 35px rgba(0,0,0,0.6)",
-                  },
-
-                  "&:active": {
-                    transform: "scale(0.95)",
-                  },
-
-                  // ✨ Shine effect
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: "-75%",
-                    width: "50%",
-                    height: "100%",
-                    background:
-                      "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
-                    transform: "skewX(-25deg)",
-                    transition: "0.7s",
-                  },
-
-                  "&:hover::before": {
-                    left: "130%",
-                  },
-
-                  "@keyframes gradientMove": {
-                    "0%": { backgroundPosition: "0% 50%" },
-                    "50%": { backgroundPosition: "100% 50%" },
-                    "100%": { backgroundPosition: "0% 50%" },
-                  },
-                }}
-              >
-                EXPLORE SERVICES →
-              </Box>
-
-            </Box>
-
-            {/* Prev Button */}
-            <Box
-              onClick={prevSlide}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: 10,
-                transform: "translateY(-50%)",
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "rgba(0,0,0,0.6)",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 22,
-                cursor: "pointer",
-                zIndex: 6,
-              }}
-            >
-              ‹
-            </Box>
-
-            {/* Next Button */}
-            <Box
-              onClick={nextSlide}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                right: 10,
-                transform: "translateY(-50%)",
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "rgba(0,0,0,0.6)",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 22,
-                cursor: "pointer",
-                zIndex: 6,
-              }}
-            >
-              ›
-            </Box>
-          </motion.div>
-        </AnimatePresence>
+        {/* ===== Bottom Button ===== */}
+        <Box
+          onClick={() =>
+            navigate(getRouteByCounter(data[current]?.counter))
+          }
+          sx={{
+            mb: 2,
+            px: 5,
+            py: 1.6,
+            borderRadius: "50px",
+            textTransform: "uppercase",
+            fontWeight: 700,
+            fontSize: "16px",
+            letterSpacing: 1,
+            cursor: "pointer",
+            color: "#fff",
+            background:
+              "linear-gradient(135deg, #c40613, #ff1e2d, #8b0000)",
+            boxShadow:
+              "0 0 15px rgba(196,6,19,0.6), 0 8px 25px rgba(0,0,0,0.4)",
+            transition: "all 0.4s ease",
+            "&:hover": {
+              transform: "translateY(-3px) scale(1.05)",
+              boxShadow:
+                "0 0 25px rgba(255,30,45,0.9), 0 12px 35px rgba(0,0,0,0.6)",
+            },
+          }}
+        >
+          EXPLORE more
+        </Box>
       </Box>
+
+      {/* Prev Button */}
+      <Box
+        onClick={prevSlide}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: 10,
+          transform: "translateY(-50%)",
+          width: 40,
+          height: 40,
+          borderRadius: "50%",
+          background: "rgba(0,0,0,0.6)",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 22,
+          cursor: "pointer",
+          zIndex: 6,
+        }}
+      >
+        ‹
+      </Box>
+
+      {/* Next Button */}
+      <Box
+        onClick={nextSlide}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          right: 10,
+          transform: "translateY(-50%)",
+          width: 40,
+          height: 40,
+          borderRadius: "50%",
+          background: "rgba(0,0,0,0.6)",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 22,
+          cursor: "pointer",
+          zIndex: 6,
+        }}
+      >
+        ›
+      </Box>
+    </motion.div>
+  </AnimatePresence>
+</Box>
     </Box>
   );
 };
@@ -1189,3 +1181,5 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
     </Box>
   </Box>
 ));
+
+
