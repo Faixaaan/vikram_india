@@ -69,15 +69,17 @@ export const endpoints = {
      getFacilitiesData:"/page/facilities"
   },
   teaProcessingMachinery:{
-    drying:"/page/ctc_tea_processing_drying",
-    withering:"/page/ctc_tea_processing_withering",
-    rolling:"/page/ctc_tea_processing_rolling",
+    drying:"/page/ctc_drying",
+    withering:"/page/ctc_withering",
+    rolling:"/page/ctc_rolling",
     quality:"/page/ctc_tea_processing_quality",
     fermenting:"/page/ctc_tea_processing_fermanting",
-    sorting:"/page/ctc_tea_processing_sorting",
+    sorting:"/page/ctc_sorting",
     packing:"/page/ctc_tea_processing_packing",
     workshop:"/page/ctc_tea_processing_working",
-    utilities:"/page/ctc_tea_processing_utilities"
+    utilities:"/page/ctc_tea_processing_utilities",
+    roller:"/page/ctc_roller",
+    oxidation:"/page/ctc_oxidation"
   },
   HotDipGalvanization:{
     SettingPage:"/page/hotdip_settings",

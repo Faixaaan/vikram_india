@@ -45,6 +45,8 @@ const Withering = () => {
   const [tableData, setTableData] = useState([])
   console.log(tableData, 'tableData')
 
+  console.log(data, 'data__')
+
   const fetchDryingData = async () => {
     try {
       const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
@@ -74,7 +76,7 @@ const Withering = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Withering Process</Typography>
         </Breadcrumbs>
 
@@ -148,7 +150,7 @@ const Withering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Chemical Withering System
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -157,7 +159,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -170,120 +172,12 @@ const Withering = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
-
-                      >
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
-
-                      </Typography>
-
-
-
-                    </Grid>
-
-
-
-                    {/* BOTTOM FULL WIDTH CONTENT */}
-
-
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-             <Accordion sx={{
-              background: "#fff",
-              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-              borderRadius: "8px",
-              "&:before": { display: "none" },
-              mt: 4
-            }}>
-              <AccordionSummary sx={{
-                backgroundColor: "#f8f8f8",
-                borderBottom: "1px solid #eee",
-                borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Pyhsical Withering System
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box>
-                  <Grid container spacing={2}>
-                    {/* RIGHT IMAGE */}
-                    <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
-                    </Grid>
-
-                    {/* LEFT CONTENT */}
-                    <Grid item size={{ xs: 12, md: 8 }}>
-
-                      <Typography
-                        sx={{
-                          fontSize: "16px",
-                          fontFamily: "Roboto",
-                          textAlign: "justify",
-                          mt: 0
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section1_desc || ""
                         }}
 
                       >
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
-
-                      </Typography>
-
-
-
-                    </Grid>
-
-
-
-                    {/* BOTTOM FULL WIDTH CONTENT */}
-
-
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-             <Accordion sx={{
-              background: "#fff",
-              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-              borderRadius: "8px",
-              "&:before": { display: "none" },
-              mt: 4
-            }}>
-              <AccordionSummary sx={{
-                backgroundColor: "#f8f8f8",
-                borderBottom: "1px solid #eee",
-                borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Automated Withering System
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box>
-                  <Grid container spacing={2}>
-                    {/* RIGHT IMAGE */}
-                    <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
-                    </Grid>
-
-                    {/* LEFT CONTENT */}
-                    <Grid item size={{ xs: 12, md: 8 }}>
-
-                      <Typography
-                        sx={{
-                          fontSize: "16px",
-                          fontFamily: "Roboto",
-                          textAlign: "justify",
-                          mt: 0
-                        }}
-
-                      >
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
 
                       </Typography>
 
@@ -313,7 +207,7 @@ const Withering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Fabricated Witehring System 
+                 {data?.section2_title}
                 </Typography>
               </AccordionSummary>
 
@@ -322,7 +216,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
+                      <img src={data?.section2_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -335,10 +229,71 @@ const Withering = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                                                __html: data?.section2_desc || ""
+                                            }}
 
                       >
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+                      
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  {data?.section3_title}
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={data?.section3_image} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section3_desc || ""
+                        }}
+
+                      >
+
 
                       </Typography>
 
@@ -368,7 +323,7 @@ const Withering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Axial Flow Fan
+                 {data?.section4_title}
                 </Typography>
               </AccordionSummary>
 
@@ -377,7 +332,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
+                      <img src={data?.section4_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -390,10 +345,13 @@ const Withering = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                                                __html: data?.section4_desc || ""
+                                            }}
 
                       >
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+                      
 
                       </Typography>
 
@@ -410,6 +368,65 @@ const Withering = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
+              <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                 {data?.section5_title}
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={data?.section5_image} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+                        dangerouslySetInnerHTML={{
+                                                __html: data?.section5_desc || ""
+                                            }}
+
+                      >
+
+                      
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+          
 
           </Grid>
         </Grid>

@@ -45,7 +45,6 @@ const ManagementTeam = () => {
             const res = await axiosInstance.get(endpoints.AboutUs.ManagmentTeamData);
             const data = res?.data?.data || [];
 
-            // Replace null category with "Others"
             const formattedData = data.map(item => ({
                 ...item,
                 category: item.category || "Others"
@@ -53,12 +52,36 @@ const ManagementTeam = () => {
 
             setManagementData(formattedData);
 
-            // Unique categories
-            const uniqueCategories = [...new Set(
-                formattedData.map(item => item.category)
-            )];
+            // Get unique categories
+            const uniqueCategories = [
+                ...new Set(formattedData.map(item => item.category))
+            ];
 
-            setCategories(uniqueCategories);
+            // 🔥 Force Order:
+            // Director → Leadership → Others
+            const sortedCategories = [
+                ...uniqueCategories.filter(cat =>
+                    cat.toLowerCase().includes("director")
+                ),
+                ...uniqueCategories.filter(cat =>
+                    cat.toLowerCase().includes("leadership")
+                ),
+                ...uniqueCategories.filter(cat =>
+                    !cat.toLowerCase().includes("director") &&
+                    !cat.toLowerCase().includes("leadership")
+                )
+            ];
+
+            setCategories(sortedCategories);
+
+            // Ensure default tab is Director if exists
+            const directorIndex = sortedCategories.findIndex(cat =>
+                cat.toLowerCase().includes("director")
+            );
+
+            if (directorIndex !== -1) {
+                setTabIndex(directorIndex);
+            }
 
         } catch (err) {
             console.log(err);
@@ -117,9 +140,7 @@ const ManagementTeam = () => {
                                             href="https://www.vikramindia.in/pdf/roc-compliance-annual-return.pdf"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            sx={{
-                                                borderBottom: "1px solid #eee",
-                                            }}
+                                            sx={{ borderBottom: "1px solid #eee" }}
                                         >
                                             <ListItemText primary={item} />
                                         </ListItemButton>
@@ -150,7 +171,7 @@ const ManagementTeam = () => {
                     {/* Right Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 5 }}>
 
-                        {/* Dynamic Tabs */}
+                        {/* Tabs */}
                         {categories.length > 0 && (
                             <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
                                 <Box sx={{
@@ -194,7 +215,6 @@ const ManagementTeam = () => {
                                             />
                                         ))}
                                     </Tabs>
-
                                 </Box>
                             </Box>
                         )}
@@ -213,12 +233,11 @@ const ManagementTeam = () => {
                             >
                                 <Grid container spacing={2}>
 
-                                    {/* Image Left */}
                                     {index % 2 === 0 && (
                                         <Grid item size={{ xs: 12, md: 4 }}>
                                             <img
                                                 src={member.profile_pic || "/no-image.png"}
-                                                alt={member.name}
+                                                alt={member.name || "Management member"}
                                                 style={{
                                                     width: "100%",
                                                     borderRadius: "8px"
@@ -227,7 +246,6 @@ const ManagementTeam = () => {
                                         </Grid>
                                     )}
 
-                                    {/* Content */}
                                     <Grid item size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }}>
                                         <Box
                                             sx={{ padding: "20px" }}
@@ -245,24 +263,17 @@ const ManagementTeam = () => {
                                                 {member.name}
                                             </Typography>
 
-                                            <Typography sx={{
-                                                fontSize: "14px",
-                                                backgroundColor: "none",
-                                                padding: "0px 0px",
-                                                display: "inline-block",
-                                                mt: 0
-                                            }}>
+                                            <Typography sx={{ fontSize: "14px" }}>
                                                 {member.designation}
                                             </Typography>
                                         </Box>
                                     </Grid>
 
-                                    {/* Image Right */}
                                     {index % 2 !== 0 && (
-                                        <Grid item  size={{xs:12,md:4}}>
+                                        <Grid item size={{ xs: 12, md: 4 }}>
                                             <img
                                                 src={member.profile_pic || "/no-image.png"}
-                                                alt={member.name}
+                                                alt={member.name || "Management member"}
                                                 style={{
                                                     width: "100%",
                                                     borderRadius: "8px"

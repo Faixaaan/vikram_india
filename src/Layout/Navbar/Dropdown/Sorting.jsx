@@ -47,7 +47,7 @@ const Sorting = () => {
 
   const fetchDryingData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.sorting);
       setData(res?.data?.data)
       if (res?.data.data) {
         const parsedData = JSON.parse(res?.data?.data?.table_data);
@@ -74,7 +74,7 @@ const Sorting = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Sorting, Cleaning, Grading and Storage System</Typography>
         </Breadcrumbs>
 
@@ -148,7 +148,7 @@ const Sorting = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 Fibre Extractor
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -157,7 +157,7 @@ const Sorting = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -170,65 +170,13 @@ const Sorting = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
-
-                      >
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
-
-                      </Typography>
-
-
-
-                    </Grid>
-
-
-
-                    {/* BOTTOM FULL WIDTH CONTENT */}
-
-
-                  </Grid>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-              <Accordion sx={{
-              background: "#fff",
-              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-              borderRadius: "8px",
-              "&:before": { display: "none" },
-              mt: 4
-            }}>
-              <AccordionSummary sx={{
-                backgroundColor: "#f8f8f8",
-                borderBottom: "1px solid #eee",
-                borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
-                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 Vibro Screen sorter
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box>
-                  <Grid container spacing={2}>
-                    {/* RIGHT IMAGE */}
-                    <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
-                    </Grid>
-
-                    {/* LEFT CONTENT */}
-                    <Grid item size={{ xs: 12, md: 8 }}>
-
-                      <Typography
-                        sx={{
-                          fontSize: "16px",
-                          fontFamily: "Roboto",
-                          textAlign: "justify",
-                          mt: 0
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section1_desc || ""
                         }}
 
                       >
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
 
                       </Typography>
 
@@ -258,7 +206,7 @@ const Sorting = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 Bucket Elevator With Sortage Bin
+                  {data?.section2_title}
                 </Typography>
               </AccordionSummary>
 
@@ -267,7 +215,7 @@ const Sorting = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={image1} style={{ width: "100%" }} />
+                      <img src={data?.section2_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -280,10 +228,13 @@ const Sorting = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section2_desc || ""
+                        }}
 
                       >
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
 
                       </Typography>
 
@@ -300,7 +251,66 @@ const Sorting = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
-             
+            <Accordion sx={{
+              background: "#fff",
+              boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+              borderRadius: "8px",
+              "&:before": { display: "none" },
+              mt: 4
+            }}>
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                  {data?.section3_title}
+                </Typography>
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <Box>
+                  <Grid container spacing={2}>
+                    {/* RIGHT IMAGE */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <img src={data?.section3_image} style={{ width: "100%" }} />
+                    </Grid>
+
+                    {/* LEFT CONTENT */}
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "Roboto",
+                          textAlign: "justify",
+                          mt: 0
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: data?.section3_desc || ""
+                        }}
+
+                      >
+
+
+
+                      </Typography>
+
+
+
+                    </Grid>
+
+
+
+                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                  </Grid>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+
+
 
           </Grid>
         </Grid>
