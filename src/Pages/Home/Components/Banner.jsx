@@ -1165,19 +1165,19 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
           "linear-gradient(145deg, rgba(0,0,0,0.9), rgba(20,40,60,0.75))",
         backdropFilter: "blur(18px)",
         borderRadius: "28px",
-        px: 4,
-        py: 3,
+        px: 2,
+        py: 1,
         border: "1px solid rgba(255,255,255,0.35)",
         transition: ".4s",
         "&:hover": { transform: "scale(1.05)" },
+        textAlign: "center",
+        width: "60%",
       }}
     >
-      <Typography sx={{ color: "#fff", fontSize: 22, fontWeight: 600 }}>
+      <Typography sx={{ color: "#fff", fontSize: 18, fontWeight: 600, width: "80%", textAlign: "center", mx: "auto" }}>
         {data?.subtitle}
       </Typography>
-      <Typography sx={{ color: "#ddd", fontSize: 14 }}>
-        {data?.title}
-      </Typography>
+     
     </Box>
   </Box>
 ));
