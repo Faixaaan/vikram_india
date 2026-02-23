@@ -121,7 +121,14 @@ const ManagementTeam = () => {
                                                 borderBottom: "1px solid #eee",
                                             }}
                                         >
-                                            <ListItemText primary={item} />
+                                            <ListItemText
+                                                primary={item}
+                                                primaryTypographyProps={{
+                                                    fontSize: "14px",
+                                                    fontWeight: 500,
+                                                    fontFamily: "Roboto"
+                                                }}
+                                            />
                                         </ListItemButton>
                                     );
                                 }
@@ -140,7 +147,14 @@ const ManagementTeam = () => {
                                             }
                                         }}
                                     >
-                                        <ListItemText primary={item} />
+                                        <ListItemText
+                                            primary={item}
+                                            primaryTypographyProps={{
+                                                fontSize: "14px",
+                                                fontWeight: 500,
+                                                fontFamily: "Roboto"
+                                            }}
+                                        />
                                     </ListItemButton>
                                 );
                             })}
@@ -283,7 +297,7 @@ const ManagementTeam = () => {
                                     mt: 4,
                                     boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
                                     borderRadius: "12px",
-                                    p: {xs: 1, md: 3},
+                                    p: { xs: 1, md: 3 },
                                     background: "#fff"
                                 }}
                             >
