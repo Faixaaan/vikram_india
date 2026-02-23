@@ -841,7 +841,7 @@ const Banner = () => {
           ref={logoRef}
           sx={{
             position: "absolute",
-            top: "35%",
+            top: "45%",
             left: "50%",
             transform: "translate(-50%,-50%)",
             zIndex: 5,
@@ -920,7 +920,7 @@ const Banner = () => {
           data={top}
           onClick={() => navigate(getRouteByCounter(1))}
           sx={{
-            top: "8%",
+            top: "12%",
             left: "8%",
           }}
         />
@@ -931,7 +931,7 @@ const Banner = () => {
           data={left}
           onClick={() => navigate(getRouteByCounter(2))}
           sx={{
-            bottom: "42%",
+            bottom: "25%",
             left: "8%",
           }}
         />
@@ -942,7 +942,7 @@ const Banner = () => {
           data={right}
           onClick={() => navigate(getRouteByCounter(3))}
           sx={{
-            top: "8%",
+            top: "12%",
             right: "8%",
           }}
         />
@@ -953,7 +953,7 @@ const Banner = () => {
           data={bottom}
           onClick={() => navigate(getRouteByCounter(4))}
           sx={{
-            bottom: "42%",
+            bottom: "25%",
             right: "8%",
           }}
         />

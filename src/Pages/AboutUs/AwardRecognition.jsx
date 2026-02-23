@@ -13,6 +13,8 @@ import {
     Pagination,
 } from "@mui/material";
 
+import { useTheme, useMediaQuery } from "@mui/material";
+
 import { Link } from "react-router-dom";
 import '../../App.css'
 import QMS from '../../Assets/Qms.jpg'
@@ -141,6 +143,11 @@ const AwardRecognition = () => {
             behavior: "smooth"
         });
     }, []);
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
@@ -149,14 +156,14 @@ const AwardRecognition = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Award & Recognition</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Award & Recognition</Typography>
                 </Breadcrumbs>
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -169,7 +176,7 @@ const AwardRecognition = () => {
                             Product & Services
                         </Typography>
 
-                       
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -236,12 +243,7 @@ const AwardRecognition = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:4}}>
-                        
-                        
-
-
-
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 4 }}>
 
                         {/* Introduction */}
 
@@ -267,11 +269,14 @@ const AwardRecognition = () => {
 
                                 <Grid container spacing={3}>
                                     {ImageData
-                                        .slice((page - 1) * 4, (page - 1) * 4 + 4)
+                                        .slice(
+                                            (page - 1) * (isMobile ? 4 : 8),
+                                            (page - 1) * (isMobile ? 4 : 8) + (isMobile ? 4 : 8)
+                                        ).slice((page - 1) * 4, (page - 1) * 4 + 4)
                                         .map((item, index) => (
                                             <Grid
                                                 item
-                                                size={{ xs: 12, sm: 4, md: 3 }}
+                                                size={{ xs: 6, sm: 4, md: 3 }}
                                                 key={index}
                                                 sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                             >
@@ -348,7 +353,7 @@ const AwardRecognition = () => {
                                             .map((item, index) => (
                                                 <Grid
                                                     item
-                                                    size={{ xs: 12, sm: 4, md: 3 }}
+                                                    size={{ xs: 6, sm: 4, md: 3 }}
                                                     key={index}
                                                     sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                                 >
