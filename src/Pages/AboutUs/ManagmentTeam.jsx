@@ -220,7 +220,7 @@ const ManagementTeam = () => {
                         )}
 
                         {/* Profile Cards */}
-                        {filteredData.map((member, index) => (
+                        {/* {filteredData.map((member, index) => (
                             <Box
                                 key={member.id}
                                 sx={{
@@ -233,6 +233,7 @@ const ManagementTeam = () => {
                             >
                                 <Grid container spacing={2}>
 
+                                  
                                     {index % 2 === 0 && (
                                         <Grid item size={{ xs: 12, md: 4 }}>
                                             <img
@@ -246,6 +247,7 @@ const ManagementTeam = () => {
                                         </Grid>
                                     )}
 
+                                   
                                     <Grid item size={{ xs: 12, md: 8 }} sx={{ bgcolor: "#B5BEB2" }}>
                                         <Box
                                             sx={{ padding: "20px" }}
@@ -269,6 +271,7 @@ const ManagementTeam = () => {
                                         </Box>
                                     </Grid>
 
+                                 
                                     {index % 2 !== 0 && (
                                         <Grid item size={{ xs: 12, md: 4 }}>
                                             <img
@@ -283,6 +286,178 @@ const ManagementTeam = () => {
                                     )}
 
                                 </Grid>
+                            </Box>
+                        ))} */}
+
+                        {/* Profile Cards */}
+                        {filteredData.map((member, index) => (
+                            <Box
+                                key={member.id}
+                                sx={{
+                                    mt: 4,
+                                    boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                                    borderRadius: "12px",
+                                    p: {xs: 1, md: 3},
+                                    background: "#fff"
+                                }}
+                            >
+
+
+                                {/* ===================== DESKTOP ONLY ===================== */}
+                                <Box sx={{ display: { xs: "none", md: "block" } }}>
+                                    <Grid container spacing={3} alignItems="stretch">
+
+                                        {index % 2 === 0 ? (
+                                            <>
+                                                {/* Image Left */}
+                                                <Grid item size={{ md: 4 }}>
+                                                    <Box
+                                                        component="img"
+                                                        src={member.profile_pic || "/no-image.png"}
+                                                        alt={member.name}
+                                                        sx={{
+                                                            width: "100%",
+                                                            height: "100%",
+                                                            objectFit: "cover",
+                                                            borderRadius: "10px",
+                                                            //   boxShadow: "0 4px 15px rgba(0,0,0,0.15)"
+                                                        }}
+                                                    />
+                                                </Grid>
+
+                                                {/* Description Right */}
+                                                <Grid item size={{ md: 8 }} sx={{ display: "flex", flexDirection: "column" }}>
+                                                    <Box
+                                                        sx={{
+                                                            flexGrow: 1,
+                                                            backgroundColor: "#B5BEB2",
+                                                            p: 3,
+                                                            borderTopLeftRadius: "10px",
+                                                            borderTopRightRadius: "10px"
+                                                        }}
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: member.profile_desc || ""
+                                                        }}
+                                                    />
+
+                                                    <Box
+                                                        sx={{
+                                                            background:
+                                                                "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                                                            p: 2,
+                                                            color: "#fff",
+                                                            borderBottomLeftRadius: "10px",
+                                                            borderBottomRightRadius: "10px"
+                                                        }}
+                                                    >
+                                                        <Typography sx={{ fontSize: "20px", fontWeight: 600 }}>
+                                                            {member.name}
+                                                        </Typography>
+                                                        <Typography sx={{ fontSize: "14px" }}>
+                                                            {member.designation}
+                                                        </Typography>
+                                                    </Box>
+                                                </Grid>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {/* Description Left */}
+                                                <Grid item size={{ md: 8 }} sx={{ display: "flex", flexDirection: "column" }}>
+                                                    <Box
+                                                        sx={{
+                                                            flexGrow: 1,
+                                                            backgroundColor: "#B5BEB2",
+                                                            p: 3,
+                                                            borderTopLeftRadius: "10px",
+                                                            borderTopRightRadius: "10px"
+                                                        }}
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: member.profile_desc || ""
+                                                        }}
+                                                    />
+
+                                                    <Box
+                                                        sx={{
+                                                            background:
+                                                                "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                                                            p: 2,
+                                                            color: "#fff",
+                                                            borderBottomLeftRadius: "10px",
+                                                            borderBottomRightRadius: "10px"
+                                                        }}
+                                                    >
+                                                        <Typography sx={{ fontSize: "20px", fontWeight: 600 }}>
+                                                            {member.name}
+                                                        </Typography>
+                                                        <Typography sx={{ fontSize: "14px" }}>
+                                                            {member.designation}
+                                                        </Typography>
+                                                    </Box>
+                                                </Grid>
+
+                                                {/* Image Right */}
+                                                <Grid item size={{ md: 4 }}>
+                                                    <Box
+                                                        component="img"
+                                                        src={member.profile_pic || "/no-image.png"}
+                                                        alt={member.name}
+                                                        sx={{
+                                                            width: "100%",
+                                                            height: "100%",
+                                                            objectFit: "cover",
+                                                            borderRadius: "10px",
+                                                            //   boxShadow: "0 4px 15px rgba(0,0,0,0.15)"
+                                                        }}
+                                                    />
+                                                </Grid>
+                                            </>
+                                        )}
+
+                                    </Grid>
+                                </Box>
+
+                                {/* ===================== TAB + MOBILE ONLY ===================== */}
+                                <Box sx={{ display: { xs: "block", md: "none" } }}>
+
+                                    {/* Image Top */}
+                                    <img
+                                        src={member.profile_pic || "/no-image.png"}
+                                        alt={member.name}
+                                        style={{ width: "100%", borderRadius: "8px" }}
+                                    />
+
+                                    {/* Description */}
+                                    <Box
+                                        sx={{
+                                            padding: "20px",
+                                            backgroundColor: "#B5BEB2",
+                                            mt: 2
+                                        }}
+                                        dangerouslySetInnerHTML={{
+                                            __html: member.profile_desc || ""
+                                        }}
+                                    />
+
+                                    {/* Name + Designation */}
+                                    <Box
+                                        sx={{
+                                            background:
+                                                "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                                            padding: "15px 20px",
+                                            color: "#fff"
+                                        }}
+                                    >
+                                        <Typography sx={{ fontSize: "20px", fontWeight: 600 }}>
+                                            {member.name}
+                                        </Typography>
+
+                                        <Typography sx={{ fontSize: "14px" }}>
+                                            {member.designation}
+                                        </Typography>
+                                    </Box>
+
+                                </Box>
+
                             </Box>
                         ))}
 
