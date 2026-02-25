@@ -82,7 +82,7 @@ const TeaDrying = () => {
 
   const fetchDryingData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+      const res = await axiosInstance.get(endpoints.Orthodox.orthodoxDrying);
       setData(res?.data?.data)
     }
     catch (err) {
@@ -105,7 +105,7 @@ const TeaDrying = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Drying Process</Typography>
         </Breadcrumbs>
 
@@ -180,7 +180,7 @@ const TeaDrying = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Tray Type Dryer
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -189,7 +189,7 @@ const TeaDrying = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section1_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -202,10 +202,13 @@ const TeaDrying = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section1_desc || ""
+                      }}
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo!
+
 
                     </Typography>
 
@@ -237,7 +240,7 @@ const TeaDrying = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Combination Dryer
+                  {data?.section2_title}
                 </Typography>
               </AccordionSummary>
 
@@ -246,7 +249,7 @@ const TeaDrying = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section2_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -259,10 +262,13 @@ const TeaDrying = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section2_desc || ""
+                      }}
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo!
+
 
                     </Typography>
 
@@ -294,7 +300,7 @@ const TeaDrying = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Fluid Bed Dryer
+                 {data?.section3_title}
                 </Typography>
               </AccordionSummary>
 
@@ -303,7 +309,7 @@ const TeaDrying = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section3_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -316,10 +322,13 @@ const TeaDrying = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                     dangerouslySetInnerHTML={{
+                          __html: data?.section3_desc || ""
+                        }}
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo!
+                      
 
                     </Typography>
 
@@ -338,10 +347,10 @@ const TeaDrying = () => {
 
               </AccordionDetails>
             </Accordion>
-            
-            
 
-           
+
+
+
 
 
           </Grid>

@@ -82,7 +82,7 @@ const TeaFermenting = () => {
 
   const fetchDryingData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+      const res = await axiosInstance.get(endpoints.Orthodox.orthodoxOxidation);
       setData(res?.data?.data)
     }
     catch (err) {
@@ -105,7 +105,7 @@ const TeaFermenting = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Oxidation Process</Typography>
         </Breadcrumbs>
 
@@ -180,7 +180,7 @@ const TeaFermenting = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Continous Belt Fermeneter
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -189,7 +189,7 @@ const TeaFermenting = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section1_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -202,10 +202,14 @@ const TeaFermenting = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section1_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis omnis ullam repudiandae praesentium fugit tempore cumque. Beatae corporis aspernatur quibusdam rem enim blanditiis dolore excepturi accusantium. Ipsa accusamus quis magnam ullam, totam enim itaque, officia cum sed nihil alias architecto earum quod repudiandae minus. Incidunt eaque reprehenderit ipsum ad iure sit fugiat recusandae explicabo, officia quod nisi a nulla beatae facere est consequuntur. Perspiciatis mollitia quasi nemo sunt odio assumenda laboriosam. Corrupti tempora dicta cum recusandae totam accusantium architecto, expedita neque, laboriosam, ipsum saepe modi.
+
 
                     </Typography>
 
@@ -237,7 +241,7 @@ const TeaFermenting = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Heading Second (2)
+                  {data?.section2_title}
                 </Typography>
               </AccordionSummary>
 
@@ -246,7 +250,7 @@ const TeaFermenting = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section2_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -259,10 +263,14 @@ const TeaFermenting = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section2_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, laborum? Laboriosam, sint esse natus libero architecto adipisci quod modi molestias? Sint, culpa reprehenderit veritatis suscipit rem tenetur, consequuntur illum explicabo nisi, nulla a hic eum ratione esse vitae sequi? Ad, nostrum at a laboriosam dolore tempora hic magni eaque error sunt repudiandae natus dignissimos qui officiis ratione velit obcaecati aspernatur omnis optio quos aliquam amet pariatur exercitationem officia. Error perspiciatis delectus ratione atque libero, similique eos asperiores ex nulla labore excepturi maxime dolore reiciendis ut omnis aspernatur ipsam hic facere!
+
 
                     </Typography>
 
@@ -281,10 +289,10 @@ const TeaFermenting = () => {
 
               </AccordionDetails>
             </Accordion>
-            
-            
 
-           
+
+
+
 
 
           </Grid>

@@ -82,7 +82,7 @@ const TeaWithering = () => {
 
   const fetchDryingData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+      const res = await axiosInstance.get(endpoints.Orthodox.orthodoxWithering);
       setData(res?.data?.data)
     }
     catch (err) {
@@ -105,7 +105,7 @@ const TeaWithering = () => {
             Home
           </MLink>
           <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
-          <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">Orthodox Tea Processing Machinery</Typography>
           <Typography color="text.primary" sx={{ fontSize: "15px" }}>Withering Process</Typography>
         </Breadcrumbs>
 
@@ -180,7 +180,7 @@ const TeaWithering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Chemical Withering System
+                  {data?.section1_title}
                 </Typography>
               </AccordionSummary>
 
@@ -189,7 +189,7 @@ const TeaWithering = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section1_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -202,10 +202,14 @@ const TeaWithering = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section1_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo..
+
 
                     </Typography>
 
@@ -237,7 +241,7 @@ const TeaWithering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Physical Withering System
+                  {data?.section2_title}
                 </Typography>
               </AccordionSummary>
 
@@ -246,7 +250,7 @@ const TeaWithering = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section2_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -259,10 +263,14 @@ const TeaWithering = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section2_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur dolorum expedita rem sit ipsa natus ratione ea dignissimos magni cupiditate quasi officia autem placeat magnam illum unde voluptas soluta, laudantium nisi rerum suscipit. Maxime iusto totam tempora, aliquid inventore recusandae accusamus? Voluptatem vero ad earum cum explicabo, tenetur impedit cupiditate odio incidunt sapiente. Id doloremque excepturi illum tempore? Corrupti voluptatibus eligendi sapiente repudiandae tempore, aspernatur aliquid laborum deleniti autem deserunt incidunt dolorum vero est. Perspiciatis quibusdam, dolorum assumenda quae et tempora quo maxime, repudiandae omnis ratione, aspernatur voluptate corrupti esse quisquam saepe illo accusamus magnam? Vel maxime cumque nemo?
+
 
                     </Typography>
 
@@ -294,7 +302,7 @@ const TeaWithering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Automated Withering System
+                  {data?.section3_title}
                 </Typography>
               </AccordionSummary>
 
@@ -303,7 +311,7 @@ const TeaWithering = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section3_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -316,10 +324,14 @@ const TeaWithering = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section3_desc || ""
+                      }}
+
 
                     >
 
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, ipsum inventore rerum magni deleniti ex magnam iste officiis culpa, minus natus temporibus doloribus aut. Omnis delectus, perspiciatis nihil sapiente ad nisi distinctio aperiam, accusantium culpa quas neque corporis, ullam amet aspernatur nostrum sequi cumque? Harum, accusamus? Officia quisquam ea excepturi fugiat. Nihil minima natus fugiat aliquid, cum, quia ipsa, rem facilis excepturi sapiente consequuntur unde veniam. Corporis molestias esse corrupti, natus voluptates odio dolore, distinctio soluta rem id, sit vitae excepturi nobis vero maxime cumque!
+
 
                     </Typography>
 
@@ -351,7 +363,7 @@ const TeaWithering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Fabricated Withering Trough
+                  {data?.section4_title}
                 </Typography>
               </AccordionSummary>
 
@@ -360,7 +372,7 @@ const TeaWithering = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section4_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -373,10 +385,14 @@ const TeaWithering = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section4_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio vel quis praesentium eos. Rem, laudantium numquam ducimus voluptate a libero non minus temporibus expedita accusamus sit molestias deserunt! Ipsam corrupti harum reprehenderit distinctio voluptatibus incidunt minus explicabo doloribus cupiditate enim quis quidem similique provident porro, obcaecati, iure hic ad itaque impedit autem, at inventore officiis. Corrupti mollitia accusamus distinctio esse. Rem maxime facilis consectetur praesentium! Illum placeat dolores architecto commodi cumque cupiditate autem deleniti repellat nisi quod impedit voluptas harum, est officia voluptatum iusto ullam.
+
 
                     </Typography>
 
@@ -408,7 +424,7 @@ const TeaWithering = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  Axial Flow Fan
+                  {data?.section5_title}
                 </Typography>
               </AccordionSummary>
 
@@ -417,7 +433,7 @@ const TeaWithering = () => {
                 <Grid container spacing={2}>
                   {/* RIGHT IMAGE */}
                   <Grid item size={{ xs: 12, md: 4 }}>
-                    <img src={controllerImage} style={{ width: "100%" }} />
+                    <img src={data?.section5_image} style={{ width: "100%" }} />
                   </Grid>
 
                   {/* LEFT CONTENT */}
@@ -430,10 +446,14 @@ const TeaWithering = () => {
                         textAlign: "justify",
                         mt: 0
                       }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.section5_desc || ""
+                      }}
+
 
                     >
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, repudiandae voluptatibus quam numquam tempore nesciunt harum ad pariatur tempora natus hic ipsam libero ducimus maxime voluptatem expedita odio. Dolor, numquam debitis. Voluptate molestias doloremque odio dolore animi esse, excepturi aperiam vel voluptates, ab obcaecati blanditiis laudantium? Vitae consectetur alias perferendis minus beatae. Repellat officiis ipsam fugit, nulla ullam perspiciatis debitis pariatur iste. Beatae similique voluptate sit fugiat, ut iste ipsum, rem corporis culpa accusamus praesentium voluptas, perspiciatis nisi facere provident reiciendis veniam ipsa!
+
 
                     </Typography>
 
@@ -453,7 +473,8 @@ const TeaWithering = () => {
               </AccordionDetails>
             </Accordion>
 
-           
+
+
 
 
           </Grid>
