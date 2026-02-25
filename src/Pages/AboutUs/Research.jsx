@@ -178,14 +178,13 @@ const Research = () => {
 
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "left" } }} >
+                                    <Grid size={{ xs: 12, lg: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", lg: "left" } }} >
                                         <img src={data?.section1_img} />
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 8 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#121111ff" }}
+                                    <Grid size={{ xs: 12, lg: 8 }} >
+                                        <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#121111ff" }}
                                             dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                         >
-
                                         </Typography>
 
                                     </Grid>

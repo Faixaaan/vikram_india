@@ -156,23 +156,15 @@ const GroupProfile = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
-                        
-
-
-                        {/* Introduction */}
-
 
                         <Box>
-                           
-
-                            {/* profile picture box */}
-
+ 
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
+                                    <Grid size={{ xs: 12, lg: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
                                         <img src={data?.section1_img} />
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
+                                    <Grid size={{ xs: 12, lg: 8.6 }} >
                                         <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
                                             {data?.section1_title}
                                         </Typography>
@@ -182,10 +174,10 @@ const GroupProfile = () => {
                                     </Grid>
                                 </Grid>
                                 <Grid container spacing={2} mt={4}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
+                                    <Grid size={{ xs: 12, lg: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
                                         <img src={data?.section2_img} />
                                     </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
+                                    <Grid size={{ xs: 12, lg: 8.6 }} >
                                         <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}>
                                             {data?.section2_title}
                                         </Typography>

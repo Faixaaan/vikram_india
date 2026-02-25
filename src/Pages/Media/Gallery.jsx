@@ -180,9 +180,16 @@ const Gallery = () => {
                                             backgroundColor:
                                                 item === "PHOTO GALLERY" ? "green" : "#f5f5f5",
                                         },
+                                        
                                     }}
                                 >
-                                    <ListItemText primary={item} />
+                                    <ListItemText primary={item} 
+                                      primaryTypographyProps={{
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            fontFamily: "Roboto",
+                                        }}
+                                    />
                                 </ListItemButton>
                             ))}
                         </List>
@@ -201,12 +208,13 @@ const Gallery = () => {
                                     fontWeight: 600,
                                     mb: 2,
                                     fontFamily: "Roboto",
+                                    textAlign: {xs: "center", md: "left"},
                                 }}
                             >
                                 {data?.category2_heading}
                             </Typography>
 
-                            <Grid container spacing={3}>
+                            <Grid container spacing={3} justifyContent={{ xs: "center", md: "flex-start" }}>
                                 {mediaData.map((item, index) => (
                                     <Grid item xs={12} sm={4} md={4} key={index}>
                                         <Box

@@ -136,22 +136,5 @@ const SideBar = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Open Sans",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
 
 export default SideBar;

@@ -45,6 +45,9 @@ const Navbar = () => {
   const [openProductsDesktop, setOpenProductsDesktop] = useState(false);
   const [openProductsMobile, setOpenProductsMobile] = useState(false);
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   // NEW DROPDOWN STATE
   const [openAboutDesktop, setOpenAboutDesktop] = useState(false);
   const [openAboutMobile, setOpenAboutMobile] = useState(false);
@@ -72,15 +75,41 @@ const Navbar = () => {
     return () => window.removeEventListener("click", closeMenu);
   }, []);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        setShowNavbar(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling Down
+        setShowNavbar(false);
+      } else {
+        // Scrolling Up
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <>
       <AppBar
-        position="sticky"
+        position="fixed"
         sx={{
           background: "#fff",
           color: "#000",
           paddingY: 1,
           boxShadow: "0px 2px 10px rgba(0,0,0,0.1)",
+          top: showNavbar ? 0 : "-110px",
+          transition: "top 0.4s ease-in-out",
+          zIndex: 1100,
         }}
       >
         <Container maxWidth="xl">
@@ -92,7 +121,7 @@ const Navbar = () => {
             {/* DESKTOP MENU */}
             <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 1 }}>
               {pages.map((item) => {
-             
+
                 if (item.title === "PRODUCTS AND SERVICES") {
                   return (
                     <Box

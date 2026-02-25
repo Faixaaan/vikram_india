@@ -6,27 +6,19 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Paper,
+
     Container,
-    TextField,
-    InputAdornment,
-    Button,
+
 } from "@mui/material";
 
-import SelectIcon from "@mui/icons-material/ArrowDropDown";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/news-ban.jpg"; // update your image
+
 import "../../App.css";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import client1 from '../../Assets/mm-structure-brochure.jpg'
 import client2 from '../../Assets/tea-machinery-division.jpg'
@@ -73,14 +65,14 @@ const Download = () => {
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth="xl">
                 {/* Breadcrumb */}
-                  <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
-                                    <MLink component={Link} to="/" underline="hover" color="inherit">
-                                        Home
-                                    </MLink>
-                                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
-                
-                                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>Download</Typography>
-                                </Breadcrumbs>
+                <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
+                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                        Home
+                    </MLink>
+                    <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>
+
+                    <Typography color="text.primary" sx={{ fontSize: "14px" }}>Download</Typography>
+                </Breadcrumbs>
 
                 {/* PAGE TITLE */}
                 <Typography
@@ -99,9 +91,9 @@ const Download = () => {
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
                     <Grid item size={{ xs: 12, md: 3 }}>
-                        
 
-                        
+
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -136,8 +128,8 @@ const Download = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }}>
-                        
-                        
+
+
 
                         {/* Introduction */}
 
@@ -158,7 +150,7 @@ const Download = () => {
                                 {mediaData.map((item, index) => (
                                     <Grid
                                         item
-                                        size={{ xs: 12, sm: 4, md: 4 }}
+                                        size={{ xs: 12, sm: 6, md: 6 , lg: 4 }}
                                         key={index}
                                         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                     >

@@ -6,23 +6,21 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Paper,
+
     Container,
-    TextField,
-    InputAdornment,
-    Button,
+
 } from "@mui/material";
 
-import SelectIcon from "@mui/icons-material/ArrowDropDown";
+
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/news-ban.jpg"; // update your image
+
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -127,12 +125,12 @@ const News = () => {
 
                         <Accordion
                             sx={{
-                            background: "#fff",
-                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                            borderRadius: "8px",
-                            "&:before": { display: "none" },
-                            mt: 0
-                        }}
+                                background: "#fff",
+                                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                                borderRadius: "8px",
+                                "&:before": { display: "none" },
+                                mt: 0
+                            }}
                         >
                             {/* Accordion Header */}
                             <AccordionSummary sx={{
@@ -142,9 +140,9 @@ const News = () => {
                             }} expandIcon={<ExpandMoreIcon />}>
                                 <Typography
                                     sx={{
-                                        fontSize: "20px",
+                                        fontSize: {xs: "18px", md: "20px"},
                                         fontFamily: "Roboto",
-                                        fontWeight: 600,
+                                        fontWeight: 500,
                                     }}
                                 >
                                     Media
@@ -156,7 +154,7 @@ const News = () => {
                                 <Grid container spacing={2} alignItems="center">
 
                                     {/* Image - 4 Grid */}
-                                    <Grid item size={{xs:12,md:4}}>
+                                    <Grid item size={{ xs: 12, md: 4 }}>
                                         <img
                                             src={data?.category1_sec1_image}
                                             alt=""
@@ -171,13 +169,13 @@ const News = () => {
                                     {/* Description - 8 Grid */}
                                     <Grid
                                         item
-                                        size={{xs:12,md:8}}
-                                      
+                                        size={{ xs: 12, md: 8 }}
+
                                         sx={{ display: "flex", alignItems: "center" }}
                                     >
                                         <Typography
                                             sx={{
-                                                fontSize: "20px",
+                                                fontSize: { xs: "16", md: "18px" },
                                                 fontFamily: "Roboto",
                                                 textAlign: "justify",
                                             }}
@@ -269,10 +267,11 @@ const News = () => {
 };
 
 const headingStyle = {
-    fontSize: "20px",
+    fontSize: { xs: "14px", md: "16px" },
+
     fontWeight: 600,
-    mt: 4,
-    mb: 2,
+    mt: {xs: 2, md: 3},
+    // mb: {xs: 0, md: 0},
     fontFamily: "Roboto",
     display: "flex",
     alignItems: "center",

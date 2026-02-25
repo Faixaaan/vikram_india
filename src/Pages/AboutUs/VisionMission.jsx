@@ -189,11 +189,11 @@ const VisionMission = () => {
                                 background: "#fff"
                             }}>
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
+                                    <Grid size={{ xs: 12, lg: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
                                         <img src={group1} />
                                     </Grid>
 
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
+                                    <Grid size={{ xs: 12, lg: 8.6 }} >
                                         <Typography variant="h6" sx={{ fontFamily: "", fontSize: "20px", lineHeight: "120%", marginBottom: "15px", fontWeight: "600", color: "#ee1d25" }}>
                                             {data?.section1_title}
                                         </Typography>
@@ -295,22 +295,5 @@ const VisionMission = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
 
 export default VisionMission;
