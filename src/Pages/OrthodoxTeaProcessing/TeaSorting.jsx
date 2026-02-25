@@ -387,10 +387,7 @@ const TeaSorting = () => {
                       }}
                       dangerouslySetInnerHTML={{
                         __html: data?.section4_desc || ""
-                      }}
-
-
-                    >
+                      }}>
 
 
 
