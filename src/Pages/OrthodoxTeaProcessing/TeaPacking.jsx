@@ -200,7 +200,7 @@ const TeaPacking = () => {
                         </Typography>
                          <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                            Vibratory Platforms
+                            Vibrartory Platforms
                         </Typography>
                          <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
