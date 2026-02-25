@@ -26,7 +26,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
-import controllerImage from "../../../src/Assets/rolling.jpg";
+
 
 
 const leftMenu = [
