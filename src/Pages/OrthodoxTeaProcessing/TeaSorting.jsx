@@ -53,8 +53,7 @@ const TeaSorting = () => {
     }
     catch (err) {
       console.log(err)
-    }
-  }
+    }}
   useEffect(() => {
     fetchDryingData()
     window.scrollTo({

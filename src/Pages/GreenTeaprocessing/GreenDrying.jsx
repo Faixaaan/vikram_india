@@ -33,7 +33,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const leftMenu = [
     "STEAMING PROCESS",
     "ROASTING PROCESS (PANNING)",
-    
+
     "ROLLING AND SHAPING PROCESS",
     "DRYING PROCESS",
     "SORTING & GRADING PROCESS",
@@ -50,7 +50,7 @@ const GreenDrying = () => {
 
     const fetchDryingData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.withering);
+            const res = await axiosInstance.get(endpoints.GreenTea.GreenTeaRolling);
             setData(res?.data?.data)
         }
         catch (err) {
@@ -72,16 +72,16 @@ const GreenDrying = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{ fontSize: "15px",textDecoration:"none" }}  component={Link} underline="hover" to="/products/processing-card">Green Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Rolling and Shaping Process</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/processing-card">Green Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Rolling and Shaping Process</Typography>
                 </Breadcrumbs>
 
-                
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -94,7 +94,7 @@ const GreenDrying = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -126,10 +126,10 @@ const GreenDrying = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
-                      
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
-                       
+
+
 
                         {/* Technical Specification Table */}
 
@@ -146,42 +146,54 @@ const GreenDrying = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Open Top Tea Roller
+                                    {data?.section1_title}
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                
-                                <Grid container spacing={3} alignItems="flex-start">
 
-                                    {/* LEFT TEXT */}
-                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
-                                        <Box
-                                            component="img"
-                                            src={controllerImage}
-                                            alt="VFBD Machine"
-                                            sx={{
-                                                width: "100%",
-                                                
-                                            }}
-                                        />
+                                <Grid container spacing={2}>
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }}>
+                                        <img src={data?.section1_image} style={{ width: "100%" }} />
                                     </Grid>
-                                    <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+
+                                    {/* LEFT CONTENT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                                        <Typography
+                                            sx={{
+                                                fontSize: "16px",
+                                                fontFamily: "Roboto",
+                                                textAlign: "justify",
+                                                mt: 0
+                                            }}
+                                            dangerouslySetInnerHTML={{
+                                                __html: data?.section1_desc || ""
+                                            }}
+
+
+                                        >
+
+
+
                                         </Typography>
 
+
+
                                     </Grid>
 
-                                    {/* RIGHT IMAGE */}
-                                    
+
+
+                                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
                                 </Grid>
 
-                              
+
 
                             </AccordionDetails>
                         </Accordion>
-
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -195,43 +207,57 @@ const GreenDrying = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    Circular Green Tea Shapers
+                                    {data?.section2_title}
                                 </Typography>
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                
-                                <Grid container spacing={3} alignItems="flex-start">
 
-                                    {/* LEFT TEXT */}
-                                    <Grid item size={{ xs: 12, md: 4 }} textAlign="right">
-                                        <Box
-                                            component="img"
-                                            src={controllerImage}
-                                            alt="VFBD Machine"
-                                            sx={{
-                                                width: "100%",
-                                                
-                                            }}
-                                        />
+                                <Grid container spacing={2}>
+                                    {/* RIGHT IMAGE */}
+                                    <Grid item size={{ xs: 12, md: 4 }}>
+                                        <img src={data?.section2_image} style={{ width: "100%" }} />
                                     </Grid>
-                                    <Grid item size={{ xs: 12, md: 8 }} >
-                                        <Typography>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum esse doloribus vitae optio laudantium accusantium omnis rerum ratione, aliquam mollitia totam nostrum debitis ullam similique voluptas reprehenderit at impedit architecto dolores. Quidem laudantium accusamus officia ad culpa maiores voluptate voluptas, repellat beatae illo ea necessitatibus commodi nulla. Nulla odit magni molestias provident ullam odio! Neque enim rem excepturi possimus dolor veritatis eveniet culpa doloremque nobis commodi quis quos amet accusantium numquam distinctio sed sequi voluptas optio, reiciendis atque aperiam minima earum dignissimos repellat! Corporis tenetur et quibusdam nulla! Impedit quisquam perferendis quo eveniet, explicabo fugiat exercitationem temporibus unde asperiores.
+
+                                    {/* LEFT CONTENT */}
+                                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                                        <Typography
+                                            sx={{
+                                                fontSize: "16px",
+                                                fontFamily: "Roboto",
+                                                textAlign: "justify",
+                                                mt: 0
+                                            }}
+                                            dangerouslySetInnerHTML={{
+                                                __html: data?.section2_desc || ""
+                                            }}
+
+
+                                        >
+
+
+
                                         </Typography>
 
+
+
                                     </Grid>
 
-                                    {/* RIGHT IMAGE */}
-                                    
+
+
+                                    {/* BOTTOM FULL WIDTH CONTENT */}
+
+
                                 </Grid>
 
-                              
+
 
                             </AccordionDetails>
                         </Accordion>
+                       
 
-                        
+
 
 
 

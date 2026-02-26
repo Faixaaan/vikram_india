@@ -102,6 +102,14 @@ export const endpoints = {
     orthodoxRolling: "/page/orthodox_rolling",
     orthodoxSorting: "/page/orthodox_sorting",
     orthodoxOxidation: "/page/orthodox_oxidation",
+  },
+  GreenTea: {
+    GreenTeaBlending: "/page/green_tea_blending",
+    GreenTeaDrying: "/page/green_tea_drying",
+    GreenTeaSorting: "/page/green_tea_sorting",
+    GreenTeaSteaming: "/page/green_tea_steaming",
+    GreenTeaRoasting: "/page/green_tea_roasting",
+    GreenTeaRolling: "/page/green_tea_rolling",
   }
 
 
