@@ -35,7 +35,7 @@ const leftMenu = [
     "OXIDATION PROCESS",
     "DRYING PROCESS",
     "SORTING,CLEANING,GRADING AND STORAGE SYSTEM",
-    "ROLLER SHARPENING MACHINE",
+    "WORKSHOP MACHINERY",
 
 ];
 
@@ -47,7 +47,7 @@ const Packing = () => {
 
     const fetchDryingData = async () => {
         try {
-            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.roller);
+            const res = await axiosInstance.get(endpoints.teaProcessingMachinery.workshop);
             setData(res?.data?.data)
             if (res?.data.data) {
                 const parsedData = JSON.parse(res?.data?.data?.table_data);
@@ -75,7 +75,7 @@ const Packing = () => {
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Roller Sharpening Machine</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>WORKSHOP MACHINERY</Typography>
                 </Breadcrumbs>
 
 
@@ -107,10 +107,10 @@ const Packing = () => {
                                     to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "ROLLER SHARPENING MACHINE" ? "Green" : "transparent",
-                                        color: item === "ROLLER SHARPENING MACHINE" ? "#fff" : "#000",
+                                        backgroundColor: item === "WORKSHOP MACHINERY" ? "Green" : "transparent",
+                                        color: item === "WORKSHOP MACHINERY" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "ROLLER SHARPENING MACHINE" ? "Green" : "#f5f5f5",
+                                            backgroundColor: item === "WORKSHOP MACHINERY" ? "Green" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -126,11 +126,10 @@ const Packing = () => {
                                 </ListItemButton>
                             ))}
                         </List>
-                    </Grid> 
+                    </Grid>
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-
 
 
 
@@ -178,7 +177,7 @@ const Packing = () => {
 
 
 
-                                            </Typography>  
+                                            </Typography>
 
 
 
@@ -186,7 +185,7 @@ const Packing = () => {
 
 
 
-                                  
+
 
 
                                     </Grid>
@@ -215,7 +214,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section2_image} style={{ width: "100%" }} />
+                                            <img src={data?.section1_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -229,7 +228,7 @@ const Packing = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                    __html: data?.section2_desc || ""
+                                                    __html: data?.section1_desc || ""
                                                 }}
 
                                             >
@@ -244,7 +243,7 @@ const Packing = () => {
 
 
 
-                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
 
 
                                     </Grid>
@@ -273,7 +272,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section3_image} style={{ width: "100%" }} />
+                                            <img src={data?.section2_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -331,7 +330,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section4_image} style={{ width: "100%" }} />
+                                            <img src={data?.section2_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -380,7 +379,123 @@ const Packing = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                    {data?.section5_title}
+                                   {data?.section5_title}
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={data?.section3_image} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: data?.section5_desc || ""
+                                                }}
+
+                                            >
+
+
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    {data?.section6_title}
+                                </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        {/* RIGHT IMAGE */}
+                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                            <img src={data?.section4_image} style={{ width: "100%" }} />
+                                        </Grid>
+
+                                        {/* LEFT CONTENT */}
+                                        <Grid item size={{ xs: 12, md: 8 }}>
+
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    mt: 0
+                                                }}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: data?.section6_desc || ""
+                                                }}
+
+                                            >
+
+
+
+                                            </Typography>
+
+
+
+                                        </Grid>
+
+
+
+                                        {/* BOTTOM FULL WIDTH CONTENT */}
+
+
+                                    </Grid>
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion sx={{
+                            background: "#fff",
+                            boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                            borderRadius: "8px",
+                            "&:before": { display: "none" },
+                            mt: 4
+                        }}>
+                            <AccordionSummary sx={{
+                                backgroundColor: "#f8f8f8",
+                                borderBottom: "1px solid #eee",
+                                borderRadius: "8px"
+                            }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
+                                <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
+                                    {data?.section7_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -403,7 +518,7 @@ const Packing = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                    __html: data?.section5_desc || ""
+                                                    __html: data?.section7_desc || ""
                                                 }}
 
                                             >

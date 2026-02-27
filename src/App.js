@@ -104,7 +104,7 @@ function App() {
           <Route path="/products/ctc/oxidation-process" element={<Fermenting />} />
           <Route path="/products/ctc/drying-process" element={<Drying />} />
           <Route path="/products/ctc/sorting,cleaning,grading-and-storage-system" element={<Sorting />} />
-          <Route path="/products/ctc/roller-sharpening-machine" element={<Packing />} />
+          <Route path="/products/ctc/workshop-machinery" element={<Packing />} />
           <Route path="/products/ctc/utilities" element={<Utilities />} />
           <Route path="/products/ctc/teawithering-process" element={<TeaWithering />} />
           <Route path="/products/ctc/tearolling-process" element={<TeaRolling />} />

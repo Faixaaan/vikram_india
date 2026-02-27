@@ -76,7 +76,7 @@ export const endpoints = {
     fermenting: "/page/ctc_tea_processing_fermanting",
     sorting: "/page/ctc_sorting",
     packing: "/page/ctc_tea_processing_packing",
-    workshop: "/page/ctc_tea_processing_working",
+    workshop: "/page/ctc_workshop_machinery",
     utilities: "/page/ctc_tea_processing_utilities",
     roller: "/page/ctc_roller",
     oxidation: "/page/ctc_oxidation"
