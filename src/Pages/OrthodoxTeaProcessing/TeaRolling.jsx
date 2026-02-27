@@ -302,7 +302,7 @@ const TeaRolling = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "red" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  PERFORATED SHIFTERS
+                  {data?.section3_title}
                 </Typography>
               </AccordionSummary>
 

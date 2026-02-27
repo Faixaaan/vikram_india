@@ -438,7 +438,7 @@ const Rolling = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                  GHOOGIE
+                  {data?.section6_title}
                 </Typography>
               </AccordionSummary>
 
@@ -447,7 +447,7 @@ const Rolling = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section5_image} style={{ width: "100%" }} />
+                      <img src={data?.section6_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -461,7 +461,7 @@ const Rolling = () => {
                           mt: 0
                         }}
                         dangerouslySetInnerHTML={{
-                          __html: data?.section5_desc || ""
+                          __html: data?.section6_desc || ""
                         }}
 
                       >
@@ -483,6 +483,7 @@ const Rolling = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
+         
             
 
           </Grid>
