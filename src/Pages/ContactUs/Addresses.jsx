@@ -57,13 +57,13 @@ const Adresses = () => {
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth="xl">
         {/* Breadcrumb */}
-        <Breadcrumbs sx={{ mb:3, fontSize: "14px" }}>
+        <Breadcrumbs sx={{ mb: 3, fontSize: "14px" }}>
           <MLink component={Link} to="/" underline="hover" color="inherit">
             Home
           </MLink>
-          <Typography color="inherit" sx={{fontSize: "14px"}}>Contact Us</Typography>
+          <Typography color="inherit" sx={{ fontSize: "14px" }}>Contact Us</Typography>
 
-          <Typography color="text.primary" sx={{fontSize: "14px"}} >Adresses</Typography>
+          <Typography color="text.primary" sx={{ fontSize: "14px" }} >Adresses</Typography>
         </Breadcrumbs>
 
         {/* PAGE TITLE */}
@@ -83,7 +83,7 @@ const Adresses = () => {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item size={{ xs: 12, md: 3 }}>
-            
+
 
             <List sx={{ border: "1px solid #ddd" }}>
               {leftMenu.map((item) => (
@@ -118,70 +118,150 @@ const Adresses = () => {
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }}>
-            
-          
+
+
 
             {/* Introduction */}
 
-            <Accordion
-              sx={{
-                background: "#fff",
-                boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                borderRadius: "8px",
-                "&:before": { display: "none" },
-                mt: 0,
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  backgroundColor: "#f8f8f8",
-                  borderBottom: "1px solid #eee",
-                  borderRadius: "8px",
-                }}
-                expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-              >
-                <Typography
-                  sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                >
-                 {data?.adresses_title}
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Box sx={{ paddingBottom: "10px" }}>
-                  <Grid container spacing={2}>
-                    <Grid item size={{ xs: 12, md: 5 }}>
-                      <img
-                        src={data?.adresses_image}
-                        alt=""
-                        style={{
-                          width: "100%",
-                          borderRadius: "6px",
-                          height: "300px",
-                        }}
-                      />
-                    </Grid>
-                    <Grid
-                      item
-                      size={{ xs: 12, md: 7 }}
-                      sx={{ display: "flex", alignItems: "center" }}
+            {
+              contactData?.map((item) => {
+                return (
+                  <Accordion
+                    sx={{
+                      background: "#fff",
+                      boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                      borderRadius: "8px",
+                      "&:before": { display: "none" },
+                     
+                    }}
+                  >
+                    <AccordionSummary
+                      sx={{
+                        backgroundColor: "#f8f8f8",
+                        borderBottom: "1px solid #eee",
+                        borderRadius: "8px",
+                      }}
+                      expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
                     >
                       <Typography
-                        sx={{
-                          fontSize: "20px",
-                          fontFamily: "Roboto",
-                          textAlign: "justify",
-                        }}
+                        sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
                       >
-                        {data?.adresses_descripion}
+                        {item?.category}
                       </Typography>
-                    </Grid>
-                  </Grid>
+                    </AccordionSummary>
 
+                    <AccordionDetails>
+                      <Box>
+                        <Typography></Typography>
+                        <Grid container spacing={2} sx={{ mt: 4 }}>
+                          <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: "600",
+                                fontFamily: "Roboto",
+                              }}
+                            >
+                              {item?.name}
+                            </Typography>
+                            <ul style={{ padding: "0px" }}>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                {item?.location}
+                              </li>
 
-                </Box>
-              </AccordionDetails>
-            </Accordion>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Phone No. + 91 33 2230 7299
+                              </li>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Email:{" "}
+                                <span style={{ color: "red" }}>
+                                  {item?.email}
+                                </span>
+                              </li>
+                            </ul>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: "600",
+                                fontFamily: "Roboto",
+                              }}
+                            >
+                              Office/Works
+                            </Typography>
+                            <ul style={{ padding: "0px" }}>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Vill : Jaladhulaguri, N.D.T. Complex
+                              </li>
+
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                New Karala P.O. Dhulaguri P.S. Sankarail Dist. Howrah
+                                -711 302 West Bengal India
+                              </li>
+                              <li
+                                style={{
+                                  listStyle: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "Roboto",
+                                  fontWeight: "600",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                Email:{" "}
+                                <span style={{ color: "red" }}>
+                                  sales@vikramindia.in
+                                </span>
+                              </li>
+                            </ul>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </AccordionDetails>
+                  </Accordion>
+                )
+              })
+            }
 
             {/* map  */}
             {
