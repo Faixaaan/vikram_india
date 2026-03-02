@@ -17,6 +17,7 @@ import {
     TableRow,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -28,6 +29,7 @@ import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
 import controllerImage from "../../../src/Assets/rolling.jpg";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -45,6 +47,7 @@ const leftMenu = [
 const Foreign = () => {
 
     const [data, setData] = useState([])
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
     const fetchDryingData = async () => {
         try {
@@ -70,16 +73,16 @@ const Foreign = () => {
                     <MLink component={Link} to="/" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Garden & Plant Equipment</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Foreign Object Remover</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Garden & Plant Equipment</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Foreign Object Remover</Typography>
                 </Breadcrumbs>
 
-                
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -92,7 +95,7 @@ const Foreign = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -121,17 +124,22 @@ const Foreign = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
                             FOREIGN OBJECT REMOVER
@@ -278,6 +286,10 @@ const Foreign = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
         </Box>
     );
 };

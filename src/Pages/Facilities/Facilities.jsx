@@ -97,10 +97,10 @@ const Facilities = () => {
                                     to={`/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "FACILITIES" ? "green" : "transparent",
+                                        backgroundColor: item === "FACILITIES" ? "#1A73E8" : "transparent",
                                         color: item === "FACILITIES" ? "#fff" : "#000",
                                         "&:hover": {
-                                            backgroundColor: item === "FACILITIES" ? "green" : "#f5f5f5",
+                                            backgroundColor: item === "FACILITIES" ? "#1A73E8" : "#f5f5f5",
                                         },
                                         fontFamily: "Roboto"
                                     }}
@@ -251,7 +251,7 @@ const Facilities = () => {
                                 <Box>
                                     <Grid container spacing={3} alignItems="center">
                                         {/* RIGHT SIDE – Image (4 Grid) */}
-                                        <Grid item size={{ xs: 12, md: 4 }}>
+                                        <Grid item size={{ xs: 12, md: 6 }}>
                                             <Box
                                                 sx={{
                                                     display: "flex",
@@ -271,7 +271,34 @@ const Facilities = () => {
                                             </Box>
                                         </Grid>
                                         {/* LEFT SIDE – Paragraph (8 Grid) */}
-                                        <Grid item size={{ xs: 12, md: 8 }}>
+                                        <Grid item size={{ xs: 12, md: 6 }}>
+                                           <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "flex-start",
+                                                }}
+                                            >
+                                                <img
+                                                    src={data?.accordion2_image}
+                                                    alt=""
+                                                    style={{
+                                                        width: "100%",
+                                                        height: "auto",
+                                                        maxWidth: "100%",
+                                                    }}
+                                                />
+                                            </Box>
+                                        </Grid>
+
+
+
+                                    </Grid>
+                                      <Grid container spacing={3} alignItems="center">
+                                        {/* RIGHT SIDE – Image (4 Grid) */}
+                                       
+                                        {/* LEFT SIDE – Paragraph (8 Grid) */}
+                                        <Grid item size={{ xs: 12}}>
                                             <Typography
                                                 sx={{
                                                     fontSize: "18px",

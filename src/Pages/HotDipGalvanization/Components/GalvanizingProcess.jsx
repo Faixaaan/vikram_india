@@ -133,7 +133,7 @@ const GalvanizingProcess = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-                        
+
 
 
 

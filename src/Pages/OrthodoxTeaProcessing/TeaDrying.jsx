@@ -17,6 +17,7 @@ import {
   TableRow,
   Paper,
   Container,
+  Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -27,6 +28,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
 import controllerImage from "../../../src/Assets/rolling.jpg";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -79,6 +81,7 @@ const specifications = [
 const TeaDrying = () => {
 
   const [data, setData] = useState([])
+  const [openEnquiry, setOpenEnquiry] = useState(false);
 
   const fetchDryingData = async () => {
     try {
@@ -157,6 +160,11 @@ const TeaDrying = () => {
                 </ListItemButton>
               ))}
             </List>
+            <Box sx={{ mt: 4 }}>
+              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                Enquiry Form
+              </Button>
+            </Box>
           </Grid>
 
           {/* Right Content Section */}
@@ -287,7 +295,7 @@ const TeaDrying = () => {
 
               </AccordionDetails>
             </Accordion>
-            
+
 
 
 
@@ -297,6 +305,10 @@ const TeaDrying = () => {
           </Grid>
         </Grid>
       </Container>
+      <EnquiryForm
+        open={openEnquiry}
+        onClose={() => setOpenEnquiry(false)}
+      />
     </Box>
   );
 };

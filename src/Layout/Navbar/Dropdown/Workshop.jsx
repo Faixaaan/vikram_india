@@ -17,6 +17,7 @@ import {
     TableRow,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -35,6 +36,7 @@ import Milling from '../../../Assets/Auto_miling.jpg'
 import sharp_edge from '../../../Assets/sharp-edge.png'
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
+import EnquiryForm from "../../../Pages/HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -53,9 +55,7 @@ const Workshop = () => {
 
     const [data, setData] = useState([]);
     const [parsedData, setParseData] = useState([])
-    const [blizzParseData, setBlizzardParseData] = useState([])
-    const [featuredParseData, setFeaturedParseData] = useState([])
-    const [helixParsedData, sethelixParsedData] = useState([])
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
     const getData = async () => {
         try {
@@ -137,6 +137,11 @@ const Workshop = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
@@ -274,7 +279,7 @@ const Workshop = () => {
 
                             </AccordionDetails>
                         </Accordion>
-                       
+
 
 
 
@@ -282,6 +287,10 @@ const Workshop = () => {
                     </Grid>
                 </Grid>
             </Container>
+             <EnquiryForm
+                    open={openEnquiry}
+                    onClose={() => setOpenEnquiry(false)}
+                  />
         </Box>
     );
 };

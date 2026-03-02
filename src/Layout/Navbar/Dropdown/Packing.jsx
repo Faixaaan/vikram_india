@@ -17,6 +17,7 @@ import {
     TableRow,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -27,6 +28,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 import image1 from '../../../Assets/machine-big-03.jpg'
+import EnquiryForm from "../../../Pages/HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -43,6 +45,7 @@ const Packing = () => {
 
     const [data, setData] = useState([])
     const [tableData, setTableData] = useState([])
+    const [openEnquiry, setOpenEnquiry] = useState(false);
     console.log(tableData, 'tableData')
 
     const fetchDryingData = async () => {
@@ -126,6 +129,11 @@ const Packing = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
@@ -379,7 +387,7 @@ const Packing = () => {
                                 borderRadius: "8px"
                             }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                                   {data?.section5_title}
+                                    {data?.section5_title}
                                 </Typography>
                             </AccordionSummary>
 
@@ -546,6 +554,10 @@ const Packing = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
         </Box>
     );
 };

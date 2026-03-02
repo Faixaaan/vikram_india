@@ -17,6 +17,7 @@ import {
     TableRow,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -28,6 +29,7 @@ import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
 import controllerImage from "../../../src/Assets/rolling.jpg";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -47,6 +49,7 @@ const leftMenu = [
 const GreenBlending = () => {
 
     const [data, setData] = useState([])
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
     const fetchDryingData = async () => {
         try {
@@ -123,6 +126,11 @@ const GreenBlending = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
@@ -325,6 +333,11 @@ const GreenBlending = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
+
         </Box>
     );
 };

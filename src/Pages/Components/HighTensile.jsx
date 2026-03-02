@@ -14,6 +14,7 @@ import {
     AccordionDetails,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -36,6 +37,7 @@ import {
     TableHead,
     TableRow,
 } from "@mui/material";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 
@@ -96,7 +98,7 @@ const img = [
 const HighTensile = () => {
 
     const [data, setData] = useState([])
-
+    const [openEnquiry, setOpenEnquiry] = useState(false);
     console.log(data, 'technicalData')
 
     const [featuresSepcData, setFeaturesSpecData] = useState([])
@@ -194,11 +196,16 @@ const HighTensile = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-                        
+
 
 
 
@@ -316,6 +323,10 @@ const HighTensile = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                    open={openEnquiry}
+                    onClose={() => setOpenEnquiry(false)}
+                  />
         </Box>
     );
 };

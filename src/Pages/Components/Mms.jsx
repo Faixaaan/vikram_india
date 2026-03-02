@@ -14,6 +14,7 @@ import {
   AccordionDetails,
   Paper,
   Container,
+  Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -23,6 +24,7 @@ import structure4 from '../../Assets/mm-structure-04.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -38,6 +40,7 @@ const leftMenu = [
 const Introduction = () => {
 
   const [data, setData] = useState([]);
+     const [openEnquiry, setOpenEnquiry] = useState(false);
 
 
   const fetchData = async () => {
@@ -116,11 +119,16 @@ const Introduction = () => {
                 </ListItemButton>
               ))}
             </List>
+            <Box sx={{ mt: 4 }}>
+              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                Enquiry Form
+              </Button>
+            </Box>
           </Grid>
 
           {/* Right Content Section */}
           <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-            
+
 
 
 
@@ -298,7 +306,7 @@ const Introduction = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
-             <Accordion sx={{
+            <Accordion sx={{
               background: "#fff",
               boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
               borderRadius: "8px",
@@ -311,7 +319,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 {data?.section4_title}
+                  {data?.section4_title}
                 </Typography>
               </AccordionSummary>
 
@@ -333,13 +341,13 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
-                         dangerouslySetInnerHTML={{
+                        dangerouslySetInnerHTML={{
                           __html: data?.section4_description
                         }}
-                        
+
                       >
 
-                    
+
 
                       </Typography>
 
@@ -369,7 +377,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 {data?.section5_title}
+                  {data?.section5_title}
                 </Typography>
               </AccordionSummary>
 
@@ -391,13 +399,13 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
-                         dangerouslySetInnerHTML={{
+                        dangerouslySetInnerHTML={{
                           __html: data?.section5_description
                         }}
-                        
+
                       >
 
-                    
+
 
                       </Typography>
 
@@ -427,7 +435,7 @@ const Introduction = () => {
                 borderRadius: "8px"
               }} expandIcon={<ExpandMoreIcon sx={{ color: "#1A73E8" }} />}>
                 <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 500 }}>
-                 {data?.section6_title}
+                  {data?.section6_title}
                 </Typography>
               </AccordionSummary>
 
@@ -449,13 +457,13 @@ const Introduction = () => {
                           textAlign: "justify",
                           mt: 0
                         }}
-                         dangerouslySetInnerHTML={{
+                        dangerouslySetInnerHTML={{
                           __html: data?.section6_description
                         }}
-                        
+
                       >
 
-                    
+
 
                       </Typography>
 
@@ -472,10 +480,14 @@ const Introduction = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
-            
+
           </Grid>
         </Grid>
       </Container>
+      <EnquiryForm
+        open={openEnquiry}
+        onClose={() => setOpenEnquiry(false)}
+      />
     </Box>
   );
 };

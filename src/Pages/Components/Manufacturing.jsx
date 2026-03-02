@@ -13,6 +13,7 @@ import {
     AccordionSummary,
     AccordionDetails,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -27,6 +28,7 @@ import structure4 from '../../Assets/mm-structure-04.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 
@@ -50,6 +52,7 @@ const Manufacturing = () => {
 
     const [imageData, setImageData] = useState([])
     const [data, setData] = useState([])
+    const [openEnquiry, setOpenEnquiry] = useState(false);
     console.log(data, 'porduct_portfolio')
 
 
@@ -138,6 +141,11 @@ const Manufacturing = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
@@ -479,13 +487,17 @@ const Manufacturing = () => {
                                     </Box>
                                 </AccordionDetails>
                             </Accordion>
-                            
+
 
                         </Box>
 
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
         </Box>
     );
 };

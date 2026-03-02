@@ -8,6 +8,8 @@ import {
   Button,
 } from "@mui/material";
 import "../../../App.css"
+import MenuItem from '@mui/material/MenuItem';
+
 
 const style = {
   position: "absolute",
@@ -22,34 +24,49 @@ const style = {
 };
 
 const EnquiryForm = ({ open, onClose }) => {
+  const currencies = [
+    {
+      value: 'Tea Procesing Machienry',
+      label: 'Tea Procesing Machienry',
+    },
+    {
+      value: 'Hot Dip Galvanization',
+      label: 'Hot Dip Galvanization',
+    },
+    {
+      value: 'Module Mounting Structure',
+      label: 'Module Mounting Structure',
+    },
+
+  ];
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style}>
         <Typography
           variant="h6"
-          sx={{ mb: 2, fontWeight: 600, textAlign: "center",fontSize:"28px",fontFamily:"Roboto" }}
+          sx={{ mb: 2, fontWeight: 600, textAlign: "center", fontSize: "28px", fontFamily: "Roboto" }}
         >
-         HDG Enquiry Form
+          Enquiry Form
         </Typography>
 
         <Grid container spacing={2}>
           {/* Name */}
-          <Grid item size={{xs:12}}>
+          <Grid item size={{ xs: 12 }}>
             <TextField fullWidth label="Name" size="small" />
           </Grid>
 
           {/* Company */}
-          <Grid item  size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField fullWidth label="Company Name" size="small" />
           </Grid>
 
           {/* Type of Material */}
-          <Grid item  size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField fullWidth label="Type of Material" size="small" />
           </Grid>
 
           {/* Total Tonnage */}
-          <Grid item  size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField
               fullWidth
               label="Total Tonnage"
@@ -57,14 +74,30 @@ const EnquiryForm = ({ open, onClose }) => {
               type="number"
             />
           </Grid>
+          <Grid item size={{ xs: 12, sm: 6 }}>
+            <TextField
+              fullWidth
+              
+              select
+              label="Select Type"
+              size="small"
+              defaultValue=""
 
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
           {/* Contact Person */}
-          <Grid item size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 12 }}>
             <TextField fullWidth label="Contact Person Name" size="small" />
           </Grid>
 
           {/* Email */}
-          <Grid item size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField
               fullWidth
               label="Email ID"
@@ -74,7 +107,7 @@ const EnquiryForm = ({ open, onClose }) => {
           </Grid>
 
           {/* Contact Number */}
-          <Grid item  size={{xs:12,sm:6}}>
+          <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField
               fullWidth
               label="Contact Number"
@@ -84,7 +117,7 @@ const EnquiryForm = ({ open, onClose }) => {
           </Grid>
 
           {/* Buttons */}
-          <Grid item size={{xs:12}}>
+          <Grid item size={{ xs: 12 }}>
             <Button
               variant="contained"
               fullWidth

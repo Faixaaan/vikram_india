@@ -14,6 +14,7 @@ import {
     AccordionDetails,
     Paper,
     Container,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -23,6 +24,7 @@ import structure4 from '../../Assets/mm-structure-04.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -38,6 +40,7 @@ const leftMenu = [
 const ProfileAvailability = () => {
 
     const [data, setData] = useState([]);
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
 
     const fetchData = async () => {
@@ -116,6 +119,11 @@ const ProfileAvailability = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
@@ -164,12 +172,12 @@ const ProfileAvailability = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                        __html: data?.section1_description
-                                                    }}
+                                                    __html: data?.section1_description
+                                                }}
 
                                             >
 
-                                               
+
 
                                             </Typography>
 
@@ -222,12 +230,12 @@ const ProfileAvailability = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                        __html: data?.section2_description
-                                                    }}
+                                                    __html: data?.section2_description
+                                                }}
 
                                             >
 
-                                               
+
 
                                             </Typography>
 
@@ -280,12 +288,12 @@ const ProfileAvailability = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                        __html: data?.section3_description
-                                                    }}
+                                                    __html: data?.section3_description
+                                                }}
 
                                             >
 
-                                               
+
 
                                             </Typography>
 
@@ -338,12 +346,12 @@ const ProfileAvailability = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                        __html: data?.section4_description
-                                                    }}
+                                                    __html: data?.section4_description
+                                                }}
 
                                             >
 
-                                               
+
 
                                             </Typography>
 
@@ -396,12 +404,12 @@ const ProfileAvailability = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                        __html: data?.section5_description
-                                                    }}
+                                                    __html: data?.section5_description
+                                                }}
 
                                             >
 
-                                               
+
 
                                             </Typography>
 
@@ -418,10 +426,14 @@ const ProfileAvailability = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
-                        
+
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
         </Box>
     );
 };

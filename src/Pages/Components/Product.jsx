@@ -20,6 +20,7 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
+    Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
@@ -37,6 +38,7 @@ import structure4 from '../../Assets/product-04.jpg'
 import structure5 from '../../Assets/product-05.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
 const leftMenu = [
@@ -60,6 +62,7 @@ const Product = () => {
 
     const [imageData, setImageData] = useState([])
     const [data, setData] = useState({})
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
     console.log(data, 'qualityData')
 
@@ -147,11 +150,16 @@ const Product = () => {
                                 </ListItemButton>
                             ))}
                         </List>
+                        <Box sx={{ mt: 4 }}>
+                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                                Enquiry Form
+                            </Button>
+                        </Box>
                     </Grid>
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }} >
-                        
+
 
 
 
@@ -389,6 +397,10 @@ const Product = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EnquiryForm
+                open={openEnquiry}
+                onClose={() => setOpenEnquiry(false)}
+            />
         </Box>
     );
 };
