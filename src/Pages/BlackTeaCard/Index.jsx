@@ -29,10 +29,13 @@ const ProcessingCard = () => {
 
     const navigate = useNavigate()
     const [data, setData] = useState([])
+    const [cardDataa, setCardData] = useState([])
 
     const getData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction);
+            const CardRes = await axiosInstance.get(endpoints.TpmCard.InnerCard);
+            setCardData(CardRes?.data?.data)
             setData(res?.data?.data)
         }
         catch (err) {
@@ -45,9 +48,13 @@ const ProcessingCard = () => {
     }, [])
 
 
-    const handleClick = (path) => {
-        navigate(path);
+     const BlackhandleClick = () => {
+        navigate('/products/ctc/withering-process');
     };
+
+    const GreenhandleClick =()=>{
+       navigate('/products/ctc/teawithering-process'); 
+    }
 
 
 
@@ -145,79 +152,139 @@ const ProcessingCard = () => {
                         paddingBottom: "150px!important"
                     }}
                 >
-                    
+
 
                     {/* Subtitle */}
 
 
                     {/* Learn More Button */}
                     <Grid container spacing={3} justifyContent="center"   >
-                        {/* Four Responsive Cards */}
-                        {cardData.map((card) => (
-                            <Grid
-                                item
-                                size={{ xs: 12, sm: 6, md: 3 }}
-                                key={card.id}
+                        <Grid
+                            item
+                            size={{ xs: 12, sm: 6, md: 3 }}
 
+
+                        >
+                            <Card
+                                sx={{
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
+                                    '&:hover': {
+                                        transform: 'translateY(-4px)',
+                                        boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+                                    },
+                                    cursor: "pointer",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}
+                                onClick={BlackhandleClick}
                             >
-                                <Card
+                                {/* Card Image */}
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={cardDataa.black_tea_image1}
+                                    alt='image'
                                     sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        borderRadius: '8px',
-                                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                        transition: 'transform 0.3s, box-shadow 0.3s',
-                                        '&:hover': {
-                                            transform: 'translateY(-4px)',
-                                            boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
-                                        },
-                                        cursor: "pointer",
-                                        alignItems: "center",
-                                        justifyContent: "center"
+
+                                        width: '100%',
                                     }}
-                                    onClick={() => handleClick(card.path)}
-                                >
-                                    {/* Card Image */}
-                                    <CardMedia
-                                        component="img"
-                                        height="200"
-                                        image={card.image}
-                                        alt={card.title}
+                                />
+
+                                {/* Card Content */}
+                                <CardContent sx={{
+                                    flexGrow: 1, p: 2, '&:hover': {
+                                        backgroundColor: "#e5e5e5"
+                                    },
+                                }}>
+                                    <Typography
+                                        gutterBottom
+                                        variant="h6"
+                                        component="div"
                                         sx={{
+                                            fontWeight: 600,
+                                            fontSize: { xs: '16px', md: '18px' },
+                                            fontFamily: 'Open Sans',
+                                            color: '#333',
+                                            mb: 1,
+                                            textAlign: 'center'
 
-                                            width: '100%',
                                         }}
-                                    />
-
-                                    {/* Card Content */}
-                                    <CardContent sx={{
-                                        flexGrow: 1, p: 2, '&:hover': {
-                                            backgroundColor: "#e5e5e5"
-                                        },
-                                    }}>
-                                        <Typography
-                                            gutterBottom
-                                            variant="h6"
-                                            component="div"
-                                            sx={{
-                                                fontWeight: 600,
-                                                fontSize: { xs: '16px', md: '18px' },
-                                                fontFamily: 'Open Sans',
-                                                color: '#333',
-                                                mb: 1,
-                                                textAlign: 'center'
-
-                                            }}
-                                        >
-                                            {card.title}
-                                        </Typography>
+                                    >
+                                        {cardDataa.black_tea_title1}
+                                    </Typography>
 
 
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        ))}
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                        <Grid
+                            item
+                            size={{ xs: 12, sm: 6, md: 3 }}
+
+
+                        >
+                            <Card
+                                sx={{
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
+                                    '&:hover': {
+                                        transform: 'translateY(-4px)',
+                                        boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+                                    },
+                                    cursor: "pointer",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}
+                                onClick={GreenhandleClick}
+                            >
+                                {/* Card Image */}
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={cardDataa.black_tea_image2}
+                                    alt='image'
+                                    sx={{
+
+                                        width: '100%',
+                                    }}
+                                />
+
+                                {/* Card Content */}
+                                <CardContent sx={{
+                                    flexGrow: 1, p: 2, '&:hover': {
+                                        backgroundColor: "#e5e5e5"
+                                    },
+                                }}>
+                                    <Typography
+                                        gutterBottom
+                                        variant="h6"
+                                        component="div"
+                                        sx={{
+                                            fontWeight: 600,
+                                            fontSize: { xs: '16px', md: '18px' },
+                                            fontFamily: 'Open Sans',
+                                            color: '#333',
+                                            mb: 1,
+                                            textAlign: 'center'
+
+                                        }}
+                                    >
+                                        {cardDataa.black_tea_title2}
+                                    </Typography>
+
+
+                                </CardContent>
+                            </Card>
+                        </Grid>
                     </Grid>
 
                 </Box>

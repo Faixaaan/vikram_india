@@ -110,6 +110,9 @@ export const endpoints = {
     GreenTeaSteaming: "/page/green_tea_steaming",
     GreenTeaRoasting: "/page/green_tea_roasting",
     GreenTeaRolling: "/page/green_tea_rolling",
+  },
+  TpmCard:{
+     InnerCard:"/page/tea_processing_category"
   }
 
 
