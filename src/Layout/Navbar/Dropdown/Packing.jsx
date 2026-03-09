@@ -61,6 +61,7 @@ const Packing = () => {
             console.log(err)
         }
     }
+
     useEffect(() => {
         fetchDryingData()
         window.scrollTo({
@@ -78,10 +79,8 @@ const Packing = () => {
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px", textDecoration: "none" }} component={Link} underline="hover" to="/products/tea-processing-machinery/black-tea">CTC Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>WORKSHOP MACHINERY</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Workshop Machinery</Typography>
                 </Breadcrumbs>
-
-
 
 
 
@@ -141,7 +140,7 @@ const Packing = () => {
 
 
 
-
+                        {/* section - 1 */}
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -200,6 +199,10 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+                        {/* section - 2 */}
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -222,7 +225,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section1_image} style={{ width: "100%" }} />
+                                            <img src={data?.section2_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -236,7 +239,7 @@ const Packing = () => {
                                                     mt: 0
                                                 }}
                                                 dangerouslySetInnerHTML={{
-                                                    __html: data?.section1_desc || ""
+                                                    __html: data?.section2_desc || ""
                                                 }}
 
                                             >
@@ -258,6 +261,11 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+
+                        {/* section - 3 */}
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -280,7 +288,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section2_image} style={{ width: "100%" }} />
+                                            <img src={data?.section3_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -316,6 +324,10 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+                        {/* section - 4 */}
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -338,7 +350,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section2_image} style={{ width: "100%" }} />
+                                            <img src={data?.section4_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -374,6 +386,10 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+                        {/* section - 5 */}
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -396,7 +412,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section3_image} style={{ width: "100%" }} />
+                                            <img src={data?.section5_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -432,6 +448,10 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+                        {/* section - 6 */}
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -454,7 +474,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section4_image} style={{ width: "100%" }} />
+                                            <img src={data?.section6_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
@@ -490,6 +510,12 @@ const Packing = () => {
                                 </Box>
                             </AccordionDetails>
                         </Accordion>
+
+
+                        {/* section - 7 */}
+
+
+
                         <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
@@ -512,7 +538,7 @@ const Packing = () => {
                                     <Grid container spacing={2}>
                                         {/* RIGHT IMAGE */}
                                         <Grid item size={{ xs: 12, md: 4 }}>
-                                            <img src={data?.section5_image} style={{ width: "100%" }} />
+                                            <img src={data?.section7_image} style={{ width: "100%" }} />
                                         </Grid>
 
                                         {/* LEFT CONTENT */}
