@@ -453,7 +453,7 @@ const Sorting = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section2_image} style={{ width: "100%" }} />
+                      <img src={data?.section6_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -511,7 +511,7 @@ const Sorting = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section2_image} style={{ width: "100%" }} />
+                      <img src={data?.section7_image} style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
