@@ -269,6 +269,19 @@ const Facilities = () => {
                                                     }}
                                                 />
                                             </Box>
+                                            <Box>
+                                                <Typography
+                                                sx={{
+                                                    fontSize: "18px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    fontWeight: "600",
+                                                    lineHeight: "120%",
+                                                }}
+                                            >
+                                                {data?.accordion1_desc2}
+                                            </Typography>
+                                            </Box>
                                         </Grid>
                                         {/* LEFT SIDE – Paragraph (8 Grid) */}
                                         <Grid item size={{ xs: 12, md: 6 }}>
@@ -289,17 +302,8 @@ const Facilities = () => {
                                                     }}
                                                 />
                                             </Box>
-                                        </Grid>
-
-
-
-                                    </Grid>
-                                      <Grid container spacing={3} alignItems="center">
-                                        {/* RIGHT SIDE – Image (4 Grid) */}
-                                       
-                                        {/* LEFT SIDE – Paragraph (8 Grid) */}
-                                        <Grid item size={{ xs: 12}}>
-                                            <Typography
+                                            <Box>
+                                                <Typography
                                                 sx={{
                                                     fontSize: "18px",
                                                     fontFamily: "Roboto",
@@ -310,7 +314,16 @@ const Facilities = () => {
                                             >
                                                 {data?.accordion1_desc2}
                                             </Typography>
+                                            </Box>
                                         </Grid>
+
+
+
+                                    </Grid>
+                                      <Grid container spacing={3} alignItems="center">
+                                        {/* RIGHT SIDE – Image (4 Grid) */}
+                                       
+                                        
 
 
 
