@@ -22,7 +22,6 @@ import {
 import SelectIcon from "@mui/icons-material/ArrowDropDown";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/apply-online.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -34,25 +33,110 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 const ApplyOnline = () => {
   const [data, setData] = useState({})
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    country: "",
+    resume: null,
+    image: null,
+  });
+
+
+  const [captcha, setCaptcha] = useState("");
+  const [userCaptcha, setUserCaptcha] = useState("");
+
+
+
   const fetchCarrerData = async () => {
     try {
 
       const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
       setData(resData?.data?.data)
-
-
     }
     catch (err) {
       console.log(err)
     }
   }
+
+  // ================= CAPTCHA =================
+  const generateCaptcha = () => {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let result = "";
+    for (let i = 0; i < 5; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setCaptcha(result);
+  };
+
+  // ================= INPUT CHANGE =================
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // ================= SUBMIT =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (userCaptcha !== captcha) {
+      alert("Invalid captcha ❌");
+      return;
+    }
+
+    const form = new FormData();
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("mobile", formData.mobile);
+    form.append("country", formData.country);
+    form.append("resume", formData.resume);
+    form.append("image", formData.image);
+
+    try {
+      const res = await axiosInstance.post(
+        endpoints.Career.careerForm,
+        form
+      );
+
+      console.log(res.data);
+      alert("Application submitted successfully ✅");
+
+      // RESET
+      setFormData({
+        name: "",
+        email: "",
+        mobile: "",
+        country: "",
+        resume: null,
+        image: null,
+      });
+
+      setUserCaptcha("");
+      generateCaptcha();
+
+    } catch (err) {
+      console.log(err.response?.data); // 👈 আসল error
+      alert(err.response?.data?.message || "Submission failed ❌");
+    }
+  };
+
+
   useEffect(() => {
     fetchCarrerData()
+    generateCaptcha()
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }, []);
+
+
+
+
+
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth="xl">
@@ -121,48 +205,7 @@ const ApplyOnline = () => {
 
 
 
-            {/* Introduction */}
 
-            {/* <Box sx={{
-              paddingBottom: "10px", mt: 4, boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-              borderRadius: "12px",
-              p: 0,
-
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundColor: "#fff", // fallback
-              padding: "20px 20px 0px 20px",
-            }}>
-              <Grid container spacing={2}>
-                <Grid item size={{ xs: 12, md: 4 }}>
-                  <img
-                    src={data?.image}
-                    alt=""
-                    style={{
-                      width: "100%",
-                      borderRadius: "6px",
-                      height: "auto",
-                    }}
-                  />
-                </Grid>
-                <Grid
-                  item
-                  size={{ xs: 12, md: 8 }}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: "20px",
-                      fontFamily: "Roboto",
-                      textAlign: "justify",
-                    }}
-                  >
-                    {data?.description}
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Box> */}
             <Accordion
               sx={{
                 background: "#fff",
@@ -193,18 +236,24 @@ const ApplyOnline = () => {
                     color: "#333",
                   }}
                 >
-                  Apply Now
+                  {/* Apply Now */}
+                  {data?.apply_title}
                 </Typography>
               </AccordionSummary>
 
               <AccordionDetails sx={{ p: 0 }}>
                 <Box
+                  component="form"
+                  onSubmit={handleSubmit}
                   sx={{
+
                     p: { xs: 2, md: 3 },
                     background:
                       "linear-gradient(135deg, #fafafa 0%, #ffffff 100%)",
                     borderRadius: "0 0 8px 8px",
+
                   }}
+
                 >
                   <Grid container spacing={3}>
                     {/* First Row */}
@@ -223,9 +272,12 @@ const ApplyOnline = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
-                          placeholder="Enter your first name"
+                          placeholder="Enter your Full name"
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -253,6 +305,9 @@ const ApplyOnline = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter email address"
@@ -285,6 +340,9 @@ const ApplyOnline = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="mobile"
+                          value={formData.mobile}
+                          onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter mobile number"
@@ -304,44 +362,49 @@ const ApplyOnline = () => {
 
 
                     {/* Country Field */}
-                    <Grid item size={{ xs: 12 }}>
-                      <Box sx={{ position: "relative" }}>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            mb: 1.5,
-                            fontWeight: 600,
-                            color: "#444",
-                            fontSize: "14px",
-                          }}
-                        >
-                          Country <span style={{ color: "#c00" }}>*</span>
-                        </Typography>
-                        <TextField
-                          fullWidth
-                          variant="outlined"
-                          size="small"
-                          placeholder="Select your country"
-                          sx={{
-                            "& .MuiOutlinedInput-root": {
-                              borderRadius: "6px",
-                              "&:hover fieldset": {
-                                borderColor: "#c00",
-                              },
+
+                    <Box sx={{ position: "relative" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          mb: 1.5,
+                          fontWeight: 600,
+                          color: "#444",
+                          fontSize: "14px",
+                        }}
+                      >
+                        Country <span style={{ color: "#c00" }}>*</span>
+                      </Typography>
+                      <TextField
+                        fullWidth
+
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        variant="outlined"
+                        size="small"
+                        placeholder="Select your country"
+
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            borderRadius: "6px",
+                            "&:hover fieldset": {
+                              borderColor: "#c00",
                             },
-                          }}
-                          InputProps={{
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                <SelectIcon
-                                  sx={{ color: "#666", cursor: "pointer" }}
-                                />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      </Box>
-                    </Grid>
+                          },
+                        }}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <SelectIcon
+                                sx={{ color: "#666", cursor: "pointer" }}
+                              />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </Box>
+
 
                     {/* Query Field */}
                     <Grid item size={{ xs: 12 }}>
@@ -357,14 +420,24 @@ const ApplyOnline = () => {
                         >
                           Upload Resume <span style={{ color: "#c00" }}>*</span>
                         </Typography>
-                        <TextField
-                          fullWidth
-                          variant="outlined"
-                          multiline
-                          type="file"
+                        <Button variant="outlined" component="label">
+                          Upload Resume
+                          <input
+                            type="file"
+                            hidden
+                            accept=".jpg,.jpeg,.pdf"
+                            onChange={(e) =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                resume: e.target.files[0],
+                              }))
+                            }
+                          />
+                        </Button>
 
-
-                        />
+                        <Typography variant="caption">
+                          {formData.resume?.name || "No file selected"}
+                        </Typography>
 
                       </Box>
                     </Grid>
@@ -392,6 +465,49 @@ const ApplyOnline = () => {
                           <span style={{ color: "#c00" }}>*</span>
                         </Typography>
 
+                        {/* Image Verification */}
+                        <Box sx={{ mb: 2 }}>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              mb: 1.5,
+                              fontWeight: 600,
+                              color: "#555",
+                              fontSize: "13px",
+                            }}
+                          >
+                            Upload Your Image:
+                          </Typography>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 2,
+                              flexWrap: { xs: "wrap", sm: "nowrap" },
+                            }}
+                          >
+                            <Button variant="outlined" component="label">
+                              Upload Image
+                              <input
+                                type="file"
+                                hidden
+                                accept="image/*"
+                                onChange={(e) =>
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    image: e.target.files[0],
+                                  }))
+                                }
+                              />
+                            </Button>
+
+                            <Typography variant="caption">
+                              {formData.image?.name || "No image selected"}
+                            </Typography>
+
+                          </Box>
+                        </Box>
+
                         {/* CAPTCHA Section */}
                         <Box sx={{ mb: 3 }}>
                           <Typography
@@ -413,43 +529,28 @@ const ApplyOnline = () => {
                               flexWrap: { xs: "wrap", sm: "nowrap" },
                             }}
                           >
-                            <TextField
-                              variant="outlined"
-                              size="small"
-                              placeholder="Enter code"
-                              sx={{
-                                width: { xs: "100%", sm: "150px" },
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: "6px",
-                                },
-                              }}
-                            />
-                            <Box
-                              sx={{
-                                width: "140px",
-                                height: "45px",
-                                background:
-                                  "linear-gradient(45deg, #e0e0e0, #f5f5f5)",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                border: "2px solid #ddd",
-                                borderRadius: "6px",
-                                boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-                              }}
-                            >
-                              <Typography
+                            <Grid item xs={12}>
+                              <TextField
+                                placeholder="Enter captcha"
+                                value={userCaptcha}
+                                onChange={(e) => setUserCaptcha(e.target.value)}
+                              />
+
+                              <Box
+                                onClick={generateCaptcha}
                                 sx={{
-                                  fontFamily: "'Courier New', monospace",
-                                  fontSize: "20px",
-                                  fontWeight: "bold",
-                                  letterSpacing: "2px",
-                                  color: "#333",
+                                  mt: 1,
+                                  p: 1,
+                                  border: "1px solid #ccc",
+                                  display: "inline-block",
+                                  cursor: "pointer",
                                 }}
                               >
-                                7XG4L
-                              </Typography>
-                            </Box>
+                                <Typography sx={{ fontFamily: "monospace" }}>
+                                  {captcha}
+                                </Typography>
+                              </Box>
+                            </Grid>
                             <Typography
                               variant="caption"
                               sx={{
@@ -463,68 +564,7 @@ const ApplyOnline = () => {
                           </Box>
                         </Box>
 
-                        {/* Image Verification */}
-                        <Box>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              mb: 1.5,
-                              fontWeight: 600,
-                              color: "#555",
-                              fontSize: "13px",
-                            }}
-                          >
-                            Image Verification:
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 2,
-                              flexWrap: { xs: "wrap", sm: "nowrap" },
-                            }}
-                          >
-                            <TextField
-                              variant="outlined"
-                              size="small"
-                              placeholder="Enter image verification code"
-                              sx={{
-                                width: { xs: "100%", sm: "200px" },
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: "6px",
-                                },
-                              }}
-                            />
-                            <Box
-                              sx={{
-                                width: "120px",
-                                height: "45px",
-                                backgroundColor: "#f0f0f0",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                border: "1px solid #ddd",
-                                borderRadius: "6px",
-                                cursor: "pointer",
-                                transition: "all 0.2s",
-                                "&:hover": {
-                                  backgroundColor: "#e8e8e8",
-                                  borderColor: "#c00",
-                                },
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  fontSize: "12px",
-                                  color: "#666",
-                                  fontWeight: 500,
-                                }}
-                              >
-                                Refresh Image
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </Box>
+
                       </Box>
                     </Grid>
 
@@ -540,11 +580,9 @@ const ApplyOnline = () => {
                           borderTop: "1px solid #eee",
                         }}
                       >
-
-
-
                         <Button
                           variant="contained"
+                          type="submit"
                           sx={{
                             alignSelf: { xs: "stretch", sm: "flex-start" },
                             // mt: 2,

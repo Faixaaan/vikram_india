@@ -8,24 +8,22 @@ import {
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-// 🔴 Dummy Data (same as Initiatives)
-const noticeData = [
-  { id: 1, date: "07/02/2026", title: "Geography Classes suspension" },
-  { id: 2, date: "07/02/2026", title: "Department of Hindi faculty meeting" },
-  { id: 3, date: "07/02/2026", title: "Post-publication Re-examination Notice" },
-  { id: 4, date: "07/02/2026", title: "Mathematics departmental meeting" },
-  { id: 5, date: "06/02/2026", title: "CIE FOR PHYSICS HONOURS" },
-  { id: 6, date: "06/02/2026", title: "HR CLASS" },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNotices } from "../../../Redux/slices/noticeSlice";
+
 
 const AllNotice = () => {
 
   const navigate = useNavigate();
 
-  // Scroll top
+  const dispatch = useDispatch();
+  const { notices } = useSelector((state) => state.notice);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    dispatch(fetchNotices());
+  }, [dispatch]);
+
 
   return (
     <Box
@@ -88,9 +86,9 @@ const AllNotice = () => {
           variant="contained"
           sx={{
             alignSelf: { xs: "stretch", sm: "flex-start" },
-                px: {xs: 1.8, sm:2.2, md: 2.4},
-                                    py: {xs: 0.7, sm: 0.9},
-                                    fontSize: {xs:"16px", sm: "18px"},
+            px: { xs: 1.8, sm: 2.2, md: 2.4 },
+            py: { xs: 0.7, sm: 0.9 },
+            fontSize: { xs: "16px", sm: "18px" },
             borderRadius: "30px",
             textTransform: "none",
             fontWeight: 600,
@@ -142,7 +140,7 @@ const AllNotice = () => {
       {/* GRID */}
       {/* LIST STYLE */}
       <Box sx={{ width: { xs: "95%", sm: "70%", md: "55%" }, mx: "auto" }}>
-        {noticeData.map((item, index) => (
+        {notices.map((item, index) => (
           <Box
             key={item.id}
             onClick={() => navigate(`/notice/${item.id}`)}
@@ -152,7 +150,7 @@ const AllNotice = () => {
               justifyContent: "space-between",
               backgroundColor: "#fff",
               borderRadius: "12px",
-              p: {xs: 1.5, md: 3},
+              p: { xs: 1.5, md: 3 },
               mb: { xs: 1.5, md: 3 },
               cursor: "pointer",
               boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
@@ -181,7 +179,7 @@ const AllNotice = () => {
               {/* Title */}
               <Typography
                 sx={{
-                  fontSize: {xs: "16", md: "18px"},
+                  fontSize: { xs: "16", md: "18px" },
                   fontWeight: 600,
                   lineHeight: 1.5,
                 }}

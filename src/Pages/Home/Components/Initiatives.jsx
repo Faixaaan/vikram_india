@@ -10,88 +10,8 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link, useNavigate } from 'react-router-dom';
 
-
-
-
-// 🔴 Dummy Notice Data
-const noticeData = [
-  {
-    id: 1,
-    date: "07/02/2026",
-    title: "Geography Classes suspension",
-    link: "#",
-  },
-  {
-    id: 2,
-    date: "07/02/2026",
-    title: "Department of Hindi faculty meeting",
-    link: "#",
-  },
-  {
-    id: 3,
-    date: "07/02/2026",
-    title:
-      "Post - publication Re-examination / Review and/or F.S.I (self-inspection of evaluated answer scripts)) for B.A/B.Sc. SEM-II (Hons./ General / Major) Examinations, 2025 (under CBCS & CCF)",
-    link: "#",
-  },
-  {
-    id: 4,
-    date: "07/02/2026",
-    title: "Mathematics departmental meeting",
-    link: "#",
-  },
-  {
-    id: 5,
-    date: "06/02/2026",
-    title: "CIE FOR PHYSICS HONOURS",
-    link: "#",
-  },
-  {
-    id: 6,
-    date: "06/02/2026",
-    title: "HR CLASS",
-    link: "#",
-  },
-
-  {
-    id: 7,
-    date: "07/02/2026",
-    title: "Geography Classes suspension",
-    link: "#",
-  },
-  {
-    id: 8,
-    date: "07/02/2026",
-    title: "Department of Hindi faculty meeting",
-    link: "#",
-  },
-  {
-    id: 9,
-    date: "07/02/2026",
-    title:
-      "Post - publication Re-examination / Review and/or F.S.I (self-inspection of evaluated answer scripts)) for B.A/B.Sc. SEM-II (Hons./ General / Major) Examinations, 2025 (under CBCS & CCF)",
-    link: "#",
-  },
-  {
-    id: 10,
-    date: "07/02/2026",
-    title: "Mathematics departmental meeting",
-    link: "#",
-  },
-  {
-    id: 11,
-    date: "06/02/2026",
-    title: "CIE FOR PHYSICS HONOURS",
-    link: "#",
-  },
-  {
-    id: 12,
-    date: "06/02/2026",
-    title: "HR CLASS",
-    link: "#",
-  },
-];
-
+import { useSelector, useDispatch } from "react-redux";
+import { fetchNotices } from "../../../Redux/slices/noticeSlice";
 
 
 const Initiatives = () => {
@@ -107,18 +27,10 @@ const Initiatives = () => {
   const navigate = useNavigate();
 
 
-  // 🔹 Counter state
-  const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
+  const [counts, setCounts] = useState(new Array(6).fill(0));
 
-  const targetCounts = [40, 10000, 2000, 50, 15, 500];
-  const labels = [
-    "Years Experience",
-    "Happy Clients",
-    "Crore + Turnover",
-    "Countries",
-    "Awards",
-    "Team Members",
-  ];
+  const dispatch = useDispatch();
+  const { notices } = useSelector((state) => state.notice);
 
   const fetchData = async () => {
     try {
@@ -130,9 +42,50 @@ const Initiatives = () => {
   };
 
 
+
+
   useEffect(() => {
     fetchData();
-  }, []);
+
+    if (!notices.length) {
+      dispatch(fetchNotices());
+    }
+  }, [dispatch, notices.length]);
+
+
+  const counterData = [
+    {
+      number: data?.sec3counter1_number,
+      text: data?.sec3counter1_text,
+    },
+    {
+      number: data?.sec3counter2_number,
+      text: data?.sec3counter2_text,
+    },
+    {
+      number: data?.sec3counter3_number,
+      text: data?.sec3counter3_text,
+    },
+    {
+      number: data?.sec3counter4_number,
+      text: data?.sec3counter4_text,
+    },
+    {
+      number: data?.sec3counter5_number,
+      text: data?.sec3counter5_text,
+    },
+    {
+      number: data?.sec3counter6_number,
+      text: data?.sec3counter6_text,
+    },
+  ];
+
+
+  const extractNumber = (value) => {
+    return parseInt(value?.replace(/\D/g, "")) || 0;
+  };
+  const targetCounts = counterData.map(item => extractNumber(item.number));
+
 
 
   useEffect(() => {
@@ -148,42 +101,42 @@ const Initiatives = () => {
   }, []);
 
 
- useEffect(() => {
-  const isMobile = window.innerWidth < 600; // MUI xs breakpoint
+  useEffect(() => {
+    const isMobile = window.innerWidth < 600; // MUI xs breakpoint
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting && !hasStarted && userScrolled) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted && userScrolled && targetCounts.some(val => val > 0)) {
 
-        setHasStarted(true);
+          setHasStarted(true);
 
-        targetCounts.forEach((target, index) => {
-          let start = 0;
+          targetCounts.forEach((target, index) => {
+            let start = 0;
 
-          const interval = setInterval(() => {
-            start += Math.ceil(target / 80);
+            const interval = setInterval(() => {
+              start += Math.ceil(target / 80);
 
-            setCounts(prev => {
-              const updated = [...prev];
-              updated[index] = start >= target ? target : start;
-              return updated;
-            });
+              setCounts(prev => {
+                const updated = [...prev];
+                updated[index] = start >= target ? target : start;
+                return updated;
+              });
 
-            if (start >= target) clearInterval(interval);
-          }, 70);
-        });
+              if (start >= target) clearInterval(interval);
+            }, 70);
+          });
+        }
+      },
+      {
+        threshold: isMobile ? 0.45 : 0.7,
+        rootMargin: "0px 0px -50px 0px",
       }
-    },
-    {
-      threshold: isMobile ? 0.45 : 0.7,
-      rootMargin: "0px 0px -50px 0px", 
-    }
-  );
+    );
 
-  if (sectionRef.current) observer.observe(sectionRef.current);
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
-  return () => observer.disconnect();
-}, [hasStarted, userScrolled]);
+    return () => observer.disconnect();
+  }, [hasStarted, userScrolled, targetCounts]);
 
 
 
@@ -236,7 +189,7 @@ const Initiatives = () => {
         >
 
           <Grid container spacing={2} sx={{ width: '90%' }}>
-            {counts.map((count, index) => (
+            {counterData.map((item, index) => (
               <Grid
                 item
                 size={{ xs: 6, sm: 6, md: 4 }}
@@ -274,7 +227,9 @@ const Initiatives = () => {
                       lineHeight: '100%',
                     }}
                   >
-                    {count}+
+                    {item.number?.includes("+")
+                      ? `${counts[index]}+`
+                      : counts[index]}
                   </Typography>
 
                   <Typography
@@ -285,7 +240,7 @@ const Initiatives = () => {
 
                     }}
                   >
-                    {labels[index]}
+                    {item.text}
                   </Typography>
                 </Box>
               </Grid>
@@ -309,7 +264,7 @@ const Initiatives = () => {
               content: '""',
               position: "absolute",
               inset: 0,
-              backgroundImage: `url(${data?.sec3right_bg_img})`,
+              backgroundImage: `url(${data?.notice_bg_img})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               transition: "transform 1.2s ease",
@@ -406,7 +361,7 @@ const Initiatives = () => {
                 }}
 
               >
-                UpComing Initiative
+                {data?.notice_title}
               </Typography>
 
 
@@ -450,11 +405,13 @@ const Initiatives = () => {
                   },
                 }}
               >
-                {[...noticeData, ...noticeData].map((item, index) => (
+                {[...notices].map((item, index) => (
                   <Box
-                    key={index}
-                    component={Link}
-                    to={`/notice/${item.id}`}
+                    key={item.id}
+                    // component={Link}
+                    // to={`/notice/${item.id}`}
+
+                    onClick={() => navigate(`/notice/${item.id}`)}
 
                     // href={item.link}
                     sx={{

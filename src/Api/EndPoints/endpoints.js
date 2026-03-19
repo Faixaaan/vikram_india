@@ -1,18 +1,26 @@
 import Introduction from "../../Pages/Components/Mms";
 
 export const endpoints = {
+  pageSetting: {
+    navFooter: "/page/site_settings"
+  },
+
   Banner: {
     getBanner: '/home-banners',
     getBannerCarsousel: "home-sec-one"
   },
+
   Career: {
     getCarrers: "/career-content",
-    cmsCareerData: "/page/career"
+    cmsCareerData: "/page/career",
+    careerForm: "/apply-form"
   },
+
   Csr: {
     getCsrData: "/csr-content",
     cmsCsrData: "/page/csr"
   },
+
   ModuleMounting: {
     getModuleMountingManufaturing: "/module-mounting-manufacturing-image",
     getHighTensile: "/module-mounting-high-tensile-image",
@@ -38,6 +46,13 @@ export const endpoints = {
     getHomeCms: "/page/home",
     client: "/our-client"
   },
+
+  Initiatives: {
+    allNotice: "/notice",
+    noticeDetails: (id) => `/notice-details/${id}`
+  },
+
+
   AboutUs: {
     getBlockData: "/blog",
     groupPofile: "/page/about_group_profile",
@@ -111,11 +126,8 @@ export const endpoints = {
     GreenTeaRoasting: "/page/green_tea_roasting",
     GreenTeaRolling: "/page/green_tea_rolling",
   },
-  TpmCard:{
-     InnerCard:"/page/tea_processing_category"
+  TpmCard: {
+    InnerCard: "/page/tea_processing_category"
   }
-
-
-
 
 }

@@ -13,16 +13,18 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../Assets/logo 1.png";
+// import data.logo from "../../Assets/logo 1.png";
 import "../../App.css";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const pages = [
   { title: "HOME", link: "/home" },
   { title: "ABOUT US", link: "/about/group-profile" },
   { title: "PRODUCTS AND SERVICES", link: "/products" },
   { title: "FACILITIES", link: "/facilities" },
- 
- { title: "CAREERS", link: "/careers/working-with-us" },
+
+  { title: "CAREERS", link: "/careers/working-with-us" },
   { title: "Blog", link: "/blogs" },
   { title: "CONTACT US", link: "/contact/addresses" },
 ];
@@ -50,6 +52,24 @@ const Navbar = () => {
   // NEW DROPDOWN STATE
   const [openAboutDesktop, setOpenAboutDesktop] = useState(false);
   const [openAboutMobile, setOpenAboutMobile] = useState(false);
+  const [data, setData] = useState({});
+
+
+  /* ================= FETCH DATA ================= */
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+        const settingData = res?.data?.data || {};
+        setData(settingData);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -114,7 +134,7 @@ const Navbar = () => {
         <Container maxWidth="xl">
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: { xs: "0px", md: "0px 16px" } }}>
             <Box sx={{ display: "flex", alignItems: "center" }} component={Link} to={"/home"}>
-              <img src={Logo} alt="Vikram India" style={{ width: 200, height: "auto" }} />
+              <img src={data?.logo} alt="Vikram India" style={{ width: 200, height: "auto" }} />
             </Box>
 
             {/* DESKTOP MENU */}

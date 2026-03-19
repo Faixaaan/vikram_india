@@ -254,7 +254,7 @@ const Clientele = () => {
                         {/* Static Tabs */}
                         <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
                             {isMobile678 ? (
-                                // ===== MOBILE (≤678px) =====
+                             
                                 <Grid container spacing={2} sx={{ maxWidth: 400, justifyContent: "center", }}>
                                     {staticTabs.map((tab, index) => (
                                         <Grid item xs={6} key={index}>
@@ -281,7 +281,7 @@ const Clientele = () => {
                                     ))}
                                 </Grid>
                             ) : (
-                                // ===== TAB & DESKTOP =====
+                            
                                 <Tabs
                                     value={tabIndex}
                                     onChange={handleTabChange}
@@ -324,31 +324,15 @@ const Clientele = () => {
                             )}
                         </Box>
 
-                        {/* Introduction */}
+                 
 
 
                         <Box>
 
-                            {/* <Box sx={{ mt: 4 }}>
-                                <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >
-                                        <img src={data?.section1_img} />
-                                    </Grid>
-                                    <Grid size={{ xs: 12, md: 8.6 }} >
-                                        <Typography sx={{ fontFamily: "", fontSize: { sm: "18px", xs: "16px" }, lineHeight: "120%", marginBottom: "15px", fontWeight: "500", color: "#121111ff" }}
-                                            dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
-
-                                        >
-
-                                        </Typography>
-
-                                    </Grid>
-                                </Grid>
-
-                            </Box> */}
+                          
 
 
-                            {/* profile picture box */}
+                         
                             <Box sx={{ mt: 6 }}>
                                 <Typography
                                     sx={{

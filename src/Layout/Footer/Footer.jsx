@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Grid, Button, Container } from "@mui/material";
-import BgImg from "../../Assets/Footer.png";
-import Logo from '../../Assets/logo 1.png'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import BgImg from "../../Assets/Footer.png";
+
+
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../Api/Axios/axios";
+import { endpoints } from "../../Api/EndPoints/endpoints";
 
 const Footer = () => {
+    const [data, setData] = useState({});
+
+    /* ================= FETCH DATA ================= */
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+                const settingData = res?.data?.data || {};
+                setData(settingData);
+
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <>
             <Box
                 sx={{
                     maxWidth: "100vw",
-                    backgroundImage: `url(${BgImg})`,
+                    backgroundImage: `url(${data?.footer_background})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     padding: { xs: "30px 15px", md: "60px 0px 30px 0px" },
@@ -27,7 +45,7 @@ const Footer = () => {
                     <Grid item size={{ xs: 12, md: 3 }}>
                         <Box
                             sx={{
-                                width: {xs: "85%", sm: "70%", md: "100%"},
+                                width: { xs: "85%", sm: "70%", md: "100%" },
                                 display: "flex",
                                 flexDirection: { xs: "row", md: "column" },
                                 alignItems: { xs: "flex-start", md: "center" },
@@ -37,7 +55,7 @@ const Footer = () => {
                         >
                             <Box
                                 component="img"
-                                src={Logo}
+                                src={data.footer_logo}
                                 alt="vikram india"
                                 sx={{
                                     width: { xs: "180px", md: "200px" },

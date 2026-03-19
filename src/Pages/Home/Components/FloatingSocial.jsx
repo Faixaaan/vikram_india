@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 export default function FloatingSocial() {
     const [open, setOpen] = useState(true);
+
+    const [data, setData] = useState({});
+
+    /* ================= FETCH DATA ================= */
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+                const settingData = res?.data?.data || {};
+                setData(settingData);
+
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
 
     // ✅ Detect mobile screen
     const isMobile = useMediaQuery("(max-width:600px)");
@@ -127,23 +148,23 @@ export default function FloatingSocial() {
                 <Box sx={{ borderRadius: "0 0 0 15px", overflow: "visible" }}>
                     <Box
                         component="a"
-                        href="#"
+                        href="https://www.facebook.com/vikramindialtd/"
                         target="_blank"
                         sx={socialItemStyle("#3b5998")}
                     >
-                        <Typography className="label">Facebook</Typography>
+                        <Typography className="label">{data?.facebook}</Typography>
                         <FacebookIcon />
                     </Box>
 
                     <Box
                         component="a"
-                        href="#"
+                        href="https://www.instagram.com/vikramindiakol/"
                         target="_blank"
                         sx={socialItemStyle(
                             "linear-gradient(45deg, #bc1888, #cc2366, #dc2743, #e6683c, #f09433)"
                         )}
                     >
-                        <Typography className="label">Instagram</Typography>
+                        <Typography className="label">{data?.instagram}</Typography>
                         <InstagramIcon />
                     </Box>
 
@@ -153,7 +174,7 @@ export default function FloatingSocial() {
                         target="_blank"
                         sx={{ ...socialItemStyle("#0077B5"), borderRadius: "0 0 0 10px" }}
                     >
-                        <Typography className="label">LinkedIn</Typography>
+                        <Typography className="label">{data?.linkedin}</Typography>
                         <LinkedInIcon />
                     </Box>
                 </Box>

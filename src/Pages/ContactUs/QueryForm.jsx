@@ -75,7 +75,18 @@ const QueryForm = () => {
       const res = await axiosInstance.post(endpoints.contactUs.queryForm, formData)
 
       alert("Form submitted");
+
+
+      setFormData({
+        first_name: "",
+        last_name: "",
+        mobile: "",
+        email: "",
+        country: "",
+        query: "",
+      });
     }
+
     catch (err) {
       console.log(err)
     }
@@ -402,6 +413,7 @@ const QueryForm = () => {
                         </Typography>
                         <TextField
                           fullWidth
+                          name="query"
                           value={formData.query}
                           onChange={handleChange}
                           variant="outlined"
@@ -461,28 +473,6 @@ const QueryForm = () => {
 
                         }}
                       >
-                        {/* <Button
-                          variant="contained"
-                          type="submit"
-                          sx={{
-                            backgroundColor: "#c00",
-                            borderRadius: "6px",
-                            padding: "10px 40px",
-                            fontSize: "15px",
-                            fontWeight: 600,
-                            textTransform: "none",
-                            boxShadow: "0 2px 8px rgba(192,0,0,0.2)",
-                            "&:hover": {
-                              backgroundColor: "#a00",
-                              boxShadow: "0 4px 12px rgba(192,0,0,0.3)",
-                              transform: "translateY(-1px)",
-                            },
-                            transition: "all 0.2s ease",
-                            minWidth: "140px",
-                          }}
-                        >
-                          Submit
-                        </Button> */}
 
 
                         <Button

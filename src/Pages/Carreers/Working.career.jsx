@@ -21,9 +21,7 @@ import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import group2 from "../../Assets/working-01.jpg";
-import group3 from '../../Assets/working-02.jpg'
-import group4 from '../../Assets/working-03.jpg'
+
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -31,16 +29,15 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const WorkingCareer = () => {
 
-  const [carrerData, setCarrerData] = useState([])
+  
   const [data, setData] = useState({})
 
   const fetchCarrerData = async () => {
     try {
-      const res = await axiosInstance.get(endpoints.Career.getCarrers)
+     
       const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
       setData(resData?.data?.data)
 
-      setCarrerData(res?.data?.data)
     }
     catch (err) {
       console.log(err)
@@ -80,7 +77,8 @@ const WorkingCareer = () => {
             fontFamily: "Roboto",
           }}
         >
-          CAREERS
+        
+          careers
         </Typography>
 
         <Grid container spacing={3}>
@@ -126,11 +124,11 @@ const WorkingCareer = () => {
 
             {/* Introduction */}
 
-            {
-              carrerData?.map((item, i) => {
-                return (
+            
+             
+           
                   <Accordion
-                    key={i}
+                  
                     sx={{
                       mt: 0,
                       mb:2,
@@ -151,7 +149,7 @@ const WorkingCareer = () => {
                           fontWeight: 600,
                         }}
                       >
-                        {item?.title || `Career ${i + 1}`}
+                        {data?.title}
                       </Typography>
                     </AccordionSummary>
 
@@ -162,7 +160,7 @@ const WorkingCareer = () => {
                         {/* Image - 4 Grid */}
                         <Grid item  size={{xs:12,md:4}} sx={{ display: "flex", justifyContent: "center" }}>
                           <img
-                            src={item?.image}
+                            src={data?.image}
                             alt=""
                             style={{
                               width: "100%",
@@ -182,16 +180,16 @@ const WorkingCareer = () => {
                               color: "#121111ff",
                               fontFamily:"Roboto"
                             }}
-                            dangerouslySetInnerHTML={{ __html: item?.description }}
+                            dangerouslySetInnerHTML={{ __html: data?.description }}
                           />
                         </Grid>
 
                       </Grid>
                     </AccordionDetails>
                   </Accordion>
-                );
-              })
-            }
+             
+             
+            
 
 
 

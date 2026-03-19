@@ -3,16 +3,35 @@ import {
     Box,
     Typography,
     Divider,
-    Button
+    Button,
+    CircularProgress
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNoticeDetails } from "../../../Redux/slices/noticeSlice";
 
 const NoticeDetails = () => {
 
     const { id } = useParams();
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+    const { noticeDetails, loading } = useSelector((state) => state.notice);
+
+    // ✅ API CALL
+    useEffect(() => {
+        if (id) {
+            dispatch(fetchNoticeDetails(Number(id)));
+        }
+
+        console.log("ID 👉", id);
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        console.log("DETAIL 👉", noticeDetails);
+    }, [noticeDetails]);
 
     useEffect(() => {
         window.scrollTo({
@@ -22,10 +41,14 @@ const NoticeDetails = () => {
         });
     }, [id]);
 
+    if (!loading && !noticeDetails) {
+        return <Typography>No Data Found</Typography>;
+    }
+
     return (
         <Box
             sx={{
-               
+
                 backgroundColor: "#f4f4f4",
                 display: "flex",
                 flexDirection: "column",
@@ -35,14 +58,14 @@ const NoticeDetails = () => {
                 gap: "40px"
             }}
         >
-            <Box sx={{ display: "flex", justifyContent:"space-between", width: {xs: "50%" , sm:"80%"}, margin: "0 auto", alignItems: "center", flexDirection: {xs:"column", sm: "row"}, gap: {xs: "20px", sm: "0px"} }} >
+            <Box sx={{ display: "flex", justifyContent: "space-between", width: { xs: "50%", sm: "80%" }, margin: "0 auto", alignItems: "center", flexDirection: { xs: "column", sm: "row" }, gap: { xs: "20px", sm: "0px" } }} >
                 <Button
                     variant="contained"
                     sx={{
                         alignSelf: { xs: "stretch", sm: "flex-start" },
-                   px: {xs: 1.8, sm:2.2, md: 2.4},
-                                    py: {xs: 0.7, sm: 0.9},
-                                    fontSize: {xs:"16px", sm: "18px"},
+                        px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                        py: { xs: 0.7, sm: 0.9 },
+                        fontSize: { xs: "16px", sm: "18px" },
                         borderRadius: "30px",
                         textTransform: "none",
                         fontWeight: 600,
@@ -84,13 +107,15 @@ const NoticeDetails = () => {
                 >
                     <span>Back to Home</span>
                 </Button>
+               
+
                 <Button
                     variant="contained"
                     sx={{
                         alignSelf: { xs: "stretch", sm: "flex-start" },
-                     px: {xs: 1.8, sm:2.2, md: 2.4},
-                                    py: {xs: 0.7, sm: 0.9},
-                                    fontSize: {xs:"16px", sm: "18px"},
+                        px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                        py: { xs: 0.7, sm: 0.9 },
+                        fontSize: { xs: "16px", sm: "18px" },
                         borderRadius: "30px",
                         textTransform: "none",
                         fontWeight: 600,
@@ -144,46 +169,58 @@ const NoticeDetails = () => {
                     boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                 }}
             >
-                <Typography
-                    sx={{
-                        fontSize: { xs: "22px", sm: "24px", md: "28px" },
-                        fontWeight: 900,
-                        textTransform: "uppercase",
-                        mb: 2,
-                    }}
-                >
-                    VikramIndia B2B Business Expansion & Partnership Announcement
-                </Typography>
+                {loading ? (
+                    <Box textAlign="center">
+                        <CircularProgress />
+                    </Box>
+                ) : (
+                    <>
+                        {/* 📰 TITLE */}
+                        <Typography
+                            sx={{
+                                fontSize: { xs: "22px", md: "28px" },
+                                fontWeight: 900,
+                                textTransform: "uppercase",
+                                mb: 2
+                            }}
+                        >
+                            {noticeDetails?.title}
+                        </Typography>
 
-                <Divider
-                    sx={{
-                        height: "3px",
-                        backgroundColor: "#d32f2f",
-                        mb: 4,
-                    }}
-                />
+                        <Divider
+                            sx={{
+                                height: "3px",
+                                backgroundColor: "#d32f2f",
+                                mb: 4
+                            }}
+                        />
 
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexWrap: "wrap",
-                        mb: 2,
-                    }}
-                >
-                    <Typography sx={{ fontWeight: 600 , fontSize: {xs: "15px", sm: "16px"}}}>
-                        Ref. VI/B2B/2026/01
-                    </Typography>
+                        {/* 📅 DATE */}
+                        <Box
+                            sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                flexWrap: "wrap",
+                                mb: 2
+                            }}
+                        >
+                            <Typography sx={{ fontWeight: 600 }}>
+                                Date: {noticeDetails?.date}
+                            </Typography>
+                        </Box>
 
-                    <Typography sx={{ fontWeight: 600 , fontSize: {xs: "15px", sm: "16px"}}}>
-                        Date: 12/02/2026
-                    </Typography>
-                </Box>
-
-                <Typography sx={{ mb: 2, fontSize: {xs: "16px", md: "17px"}, lineHeight:{xs: 1.4, md: 1.6} }}>
-                    VikramIndia is pleased to announce the expansion of its B2B
-                    distribution network across multiple regions in India.
-                </Typography>
+                        {/* 📄 CONTENT */}
+                        <Box
+                            sx={{
+                                fontSize: { xs: "16px", md: "17px" },
+                                lineHeight: 1.6
+                            }}
+                            dangerouslySetInnerHTML={{
+                                __html: noticeDetails?.content_desc || "",
+                            }}
+                        />
+                    </>
+                )}
             </Box>
 
         </Box>

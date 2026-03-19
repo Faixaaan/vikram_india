@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
+
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -123,145 +123,7 @@ const Adresses = () => {
 
             {/* Introduction */}
 
-            {
-              contactData?.map((item) => {
-                return (
-                  <Accordion
-                    sx={{
-                      background: "#fff",
-                      boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
-                      borderRadius: "8px",
-                      "&:before": { display: "none" },
-                     
-                    }}
-                  >
-                    <AccordionSummary
-                      sx={{
-                        backgroundColor: "#f8f8f8",
-                        borderBottom: "1px solid #eee",
-                        borderRadius: "8px",
-                      }}
-                      expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
-                    >
-                      <Typography
-                        sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}
-                      >
-                        {item?.category}
-                      </Typography>
-                    </AccordionSummary>
-
-                    <AccordionDetails>
-                      <Box>
-                        <Typography></Typography>
-                        <Grid container spacing={2} sx={{ mt: 4 }}>
-                          <Grid size={{ xs: 12, md: 6 }}>
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: "600",
-                                fontFamily: "Roboto",
-                              }}
-                            >
-                              {item?.name}
-                            </Typography>
-                            <ul style={{ padding: "0px" }}>
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                {item?.location}
-                              </li>
-
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                Phone No. + 91 33 2230 7299
-                              </li>
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                Email:{" "}
-                                <span style={{ color: "red" }}>
-                                  {item?.email}
-                                </span>
-                              </li>
-                            </ul>
-                          </Grid>
-                          <Grid size={{ xs: 12, md: 6 }}>
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: "600",
-                                fontFamily: "Roboto",
-                              }}
-                            >
-                              Office/Works
-                            </Typography>
-                            <ul style={{ padding: "0px" }}>
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                Vill : Jaladhulaguri, N.D.T. Complex
-                              </li>
-
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                New Karala P.O. Dhulaguri P.S. Sankarail Dist. Howrah
-                                -711 302 West Bengal India
-                              </li>
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  fontSize: "16px",
-                                  fontFamily: "Roboto",
-                                  fontWeight: "600",
-                                  marginTop: "8px",
-                                }}
-                              >
-                                Email:{" "}
-                                <span style={{ color: "red" }}>
-                                  sales@vikramindia.in
-                                </span>
-                              </li>
-                            </ul>
-                          </Grid>
-                        </Grid>
-                      </Box>
-                    </AccordionDetails>
-                  </Accordion>
-                )
-              })
-            }
+           
 
             {/* map  */}
             {
