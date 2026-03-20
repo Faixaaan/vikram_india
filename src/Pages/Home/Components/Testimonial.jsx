@@ -512,6 +512,8 @@ import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 const Testimonial = () => {
   const [data, setData] = useState([]);
+  const [heading, setHeading] = useState([]);
+
   const [openModal, setOpenModal] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
@@ -522,7 +524,13 @@ const Testimonial = () => {
         const res = await axiosInstance.get(
           endpoints.Testimonials.getTestimonialsData
         );
+
+        const dataResHeading = await axiosInstance.get(endpoints.HomeCms.getHomeCms)
+
+
         setData(res?.data?.data || []);
+        setHeading(dataResHeading?.data?.data)
+
       } catch (err) {
         console.log(err);
       }
@@ -548,8 +556,8 @@ const Testimonial = () => {
   );
 
   return (
-    <Box sx={{ pt: {xs: 8, md: 10}, pb: {xs: 0, md: 10}, background: "#f5f5f5" }}>
-    
+    <Box sx={{ pt: { xs: 8, md: 10 }, pb: { xs: 0, md: 10 }, background: "#f5f5f5" }}>
+
       <Box
         sx={{
           display: "flex",
@@ -572,7 +580,7 @@ const Testimonial = () => {
               display: "inline-block",
             }}
           >
-            Testimonials
+            {heading?.testimonial_head}
           </Typography>
 
           <Box

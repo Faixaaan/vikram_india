@@ -397,7 +397,9 @@ const Initiatives = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: { xs: 1, md: 2 },
-                  animation: "scrollUp 30s linear infinite",
+                  // controll speed
+                  animation: "scrollUp 10s linear infinite",
+                  willChange: "transform",
 
                   "@keyframes scrollUp": {
                     "0%": { transform: "translateY(0%)" },

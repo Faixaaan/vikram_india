@@ -26,6 +26,25 @@ const Footer = () => {
         fetchData();
     }, []);
 
+    const aboutLinks = [
+        { label: "Mission and Vision", path: "/about/vision-&-mission" },
+        { label: "Company Milestone", path: "/about/company-profile" },
+        { label: "Clientele", path: "/about/clientele" },
+        { label: "Awards", path: "/about/award-and-recognition" },
+        { label: "Corporate Policies", path: "/about/quality-policy" },
+        { label: "Case Studies", path: "/about/research-and-development" },
+    ];
+
+    const quickLinks = [
+        { label: "Home", path: "/home" },
+        { label: "Product and Services", path: "/products/processing-card" },
+        { label: "Manufacturing Facilities", path: "/facilities" },
+        { label: "CSR", path: "/csr" },
+        { label: "Media", path: "/media/news" },
+        { label: "Blog", path: "/blogs" },
+        { label: "Career", path: "/careers/working-with-us" },
+    ];
+
     return (
         <>
             <Box
@@ -149,55 +168,50 @@ const Footer = () => {
                             ABOUT US
                         </Typography>
 
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                            {aboutLinks.map((item) => (
+                                <Typography
+                                    key={item.label}
+                                    component={Link}
+                                    to={item.path}
+                                    sx={{
+                                        fontSize: { xs: "14px", md: "16px" },
+                                        mb: 1,
+                                        cursor: "pointer",
+                                        fontFamily: "Roboto",
+                                        fontWeight: 400,
+                                        color: "#000",
+                                        textDecoration: "none",
 
-                        {[
-                            "Mission and Vision",
-                            "Company Milestone",
-                            "Clientele",
-                            "Awards",
-                            "Corporate Policies",
-                            "Case Studies",
-                        ].map((item) => (
-                            <Typography
-                                key={item}
-                                sx={{
-                                    fontSize: { xs: "14px", md: "16px" },
-                                    mb: 1,
-                                    cursor: "pointer",
-                                    fontFamily: "Roboto",
-                                    fontWeight: 400,
-                                    color: "#000",
+                                        width: "fit-content",
+                                        position: "relative",
 
+                                        "&::after": {
+                                            content: '""',
+                                            position: "absolute",
+                                            left: 0,
+                                            bottom: "-3px",
+                                            width: "100%",
+                                            height: "2px",
+                                            backgroundColor: "#EE1D25",
+                                            transform: "scaleX(0)",
+                                            transformOrigin: "left",
+                                            transition: "transform 0.35s ease",
+                                        },
 
-                                    width: "fit-content",
-                                    position: "relative",
+                                        "&:hover": {
+                                            color: "#EE1D25",
+                                        },
 
-                                    "&::after": {
-                                        content: '""',
-                                        position: "absolute",
-                                        left: 0,
-                                        bottom: "-3px",
-                                        width: "100%",
-                                        height: "2px",
-                                        backgroundColor: "#EE1D25",
-                                        transform: "scaleX(0)",
-                                        transformOrigin: "left",
-                                        transition: "transform 0.35s ease",
-                                    },
-
-                                    "&:hover": {
-                                        color: "#EE1D25",
-                                    },
-
-                                    "&:hover::after": {
-                                        transform: "scaleX(1)",
-                                    },
-                                }}
-                            >
-                                {item}
-                            </Typography>
-
-                        ))}
+                                        "&:hover::after": {
+                                            transform: "scaleX(1)",
+                                        },
+                                    }}
+                                >
+                                    {item.label}
+                                </Typography>
+                            ))}
+                        </Box>
                     </Grid>
 
                     {/* QUICK LINKS */}
@@ -212,8 +226,8 @@ const Footer = () => {
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
-                                pb: "6px",                // space between text & border
-                                width: "fit-content",     // so border matches text width
+                                pb: "6px",
+                                width: "fit-content",
                                 position: "relative",
                                 display: "inline-block",
                                 "&::after": {
@@ -221,7 +235,7 @@ const Footer = () => {
                                     position: "absolute",
                                     left: 0,
                                     bottom: 0,
-                                    width: "70%",           // <-- your 70% border
+                                    width: "70%",
                                     height: "1px",
                                     backgroundColor: "#000",
                                 },
@@ -230,56 +244,51 @@ const Footer = () => {
                             QUICK LINKS
                         </Typography>
 
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
 
-                        {[
-                            "Home",
-                            "Product and Services",
-                            "Manufacturing Facilities",
-                            "CSR",
-                            "Media",
-                            "Blog",
-                            "Career",
-                        ].map((item) => (
-                            <Typography
-                                key={item}
-                                sx={{
-                                    fontSize: { xs: "14px", md: "16px" },
-                                    mb: 1,
-                                    cursor: "pointer",
-                                    fontFamily: "Roboto",
-                                    fontWeight: 400,
-                                    color: "#000",
+                            {quickLinks.map((item) => (
+                                <Typography
+                                    key={item.label}
+                                    component={Link}
+                                    to={item.path}
+                                    sx={{
+                                        fontSize: { xs: "14px", md: "16px" },
+                                        mb: 1,
+                                        cursor: "pointer",
+                                        fontFamily: "Roboto",
+                                        fontWeight: 400,
+                                        color: "#000",
+                                        textDecoration: "none",
 
-                                    // 🔥 MOST IMPORTANT
-                                    width: "fit-content",        // 🔥 click area = text width
-                                    position: "relative",
+                                        width: "fit-content",
+                                        position: "relative",
 
-                                    "&::after": {
-                                        content: '""',
-                                        position: "absolute",
-                                        left: 0,
-                                        bottom: "-3px",
-                                        width: "100%",
-                                        height: "2px",
-                                        backgroundColor: "#EE1D25",
-                                        transform: "scaleX(0)",
-                                        transformOrigin: "left",
-                                        transition: "transform 0.35s ease",
-                                    },
+                                        "&::after": {
+                                            content: '""',
+                                            position: "absolute",
+                                            left: 0,
+                                            bottom: "-3px",
+                                            width: "100%",
+                                            height: "2px",
+                                            backgroundColor: "#EE1D25",
+                                            transform: "scaleX(0)",
+                                            transformOrigin: "left",
+                                            transition: "transform 0.35s ease",
+                                        },
 
-                                    "&:hover": {
-                                        color: "#EE1D25",
-                                    },
+                                        "&:hover": {
+                                            color: "#EE1D25",
+                                        },
 
-                                    "&:hover::after": {
-                                        transform: "scaleX(1)",
-                                    },
-                                }}
-                            >
-                                {item}
-                            </Typography>
-
-                        ))}
+                                        "&:hover::after": {
+                                            transform: "scaleX(1)",
+                                        },
+                                    }}
+                                >
+                                    {item.label}
+                                </Typography>
+                            ))}
+                        </Box>
                     </Grid>
 
                     {/* CORPORATE OFFICE */}
@@ -296,8 +305,8 @@ const Footer = () => {
                                 color: "#000",
                                 width: "100%",
                                 fontFamily: "Roboto",
-                                pb: "6px",                // space between text & border
-                                width: "fit-content",     // so border matches text width
+                                pb: "6px",
+                                width: "fit-content",
                                 position: "relative",
                                 display: "inline-block",
                                 "&::after": {
@@ -305,7 +314,7 @@ const Footer = () => {
                                     position: "absolute",
                                     left: 0,
                                     bottom: 0,
-                                    width: "70%",           // <-- your 70% border
+                                    width: "70%",
                                     height: "1px",
                                     backgroundColor: "#000",
                                 },
@@ -316,33 +325,33 @@ const Footer = () => {
 
 
                         <Box sx={{ mb: 2 }}>
-                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Tobacco House</Typography>
+                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}> Vill:{data?.title1}</Typography>
                             <Typography sx={{
                                 fontSize: "14px", fontfamily: "Roboto"
                             }}>
-                                1, Old Court House Corner, Kolkata - 700 001
+                                {data?.address1}
                             </Typography>
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
-                                Phone No. +91 33 2230 7299 (4 lines)
+                                Phone No. {data?.number1}
                             </Typography>
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
-                                Email: info@vikramindia.in
+                                Email: {data?.email1}
                             </Typography>
                         </Box>
 
                         <Box>
                             <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Office / Works</Typography>
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
-                                Vill: Jathgidhari, N.D.T. Complex, New Karala
+                                Vill: {data?.address2}
                             </Typography>
-                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
+                            {/* <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 P.O: Daharpur, P.S: Sadar, Dist
-                            </Typography>
-                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
+                            </Typography> */}
+                            {/* <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Howrah – 711 302 West Bengal, India
-                            </Typography>
+                            </Typography> */}
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
-                                Email: sales@vikramindia.in
+                                Email: {data?.email2}
                             </Typography>
                         </Box>
                     </Grid>

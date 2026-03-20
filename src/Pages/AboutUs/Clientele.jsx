@@ -54,14 +54,21 @@ const Clientele = () => {
 
     const [clientData, setClientData] = useState([])
     const [data, setData] = useState({})
+    const [heading, setHeading] = useState({})
+
 
 
     const fetchImageData = async () => {
         try {
             const res = await axiosInstance.get(endpoints.AboutUs.clientImage)
             const dataRes = await axiosInstance.get(endpoints.AboutUs.clientele)
+            const dataResHeading = await axiosInstance.get(endpoints.HomeCms.getHomeCms)
+
+
+            
             setData(dataRes?.data?.data)
             setClientData(res?.data?.data)
+            setHeading(dataResHeading?.data?.data)
         }
         catch (err) {
             console.log(err)
@@ -222,7 +229,7 @@ const Clientele = () => {
                                     textTransform: "uppercase",
                                 }}
                             >
-                                Our Esteemed Clientele
+                                {heading?.clientele_head}
                             </Typography>
 
                             {/* Green underline accent */}

@@ -38,8 +38,13 @@ const ApplyOnline = () => {
     email: "",
     mobile: "",
     country: "",
+    role: "",
+    state: "",
+    city: "",
+    pincode: "",
+    address: "",
     resume: null,
-    image: null,
+    // image: null,
   });
 
 
@@ -93,7 +98,13 @@ const ApplyOnline = () => {
     form.append("mobile", formData.mobile);
     form.append("country", formData.country);
     form.append("resume", formData.resume);
-    form.append("image", formData.image);
+    form.append("role", formData.role);
+    form.append("state", formData.state);
+    form.append("city", formData.city);
+    form.append("pincode", formData.pincode);
+    form.append("address", formData.address);
+
+    // form.append("image", formData.image);
 
     try {
       const res = await axiosInstance.post(
@@ -110,8 +121,13 @@ const ApplyOnline = () => {
         email: "",
         mobile: "",
         country: "",
+        role: "",
+        state: "",
+        city: "",
+        pincode: "",
+        address: "",
         resume: null,
-        image: null,
+        // image: null,
       });
 
       setUserCaptcha("");
@@ -301,6 +317,41 @@ const ApplyOnline = () => {
                             fontSize: "14px",
                           }}
                         >
+                          Role <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="role"
+                          value={formData.role}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Enter your Role"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+                        />
+                      </Box>
+                    </Grid>
+
+
+
+                    <Grid item size={{ xs: 12, md: 6 }}>
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
                           Email <span style={{ color: "#c00" }}>*</span>
                         </Typography>
                         <TextField
@@ -340,13 +391,14 @@ const ApplyOnline = () => {
                         </Typography>
                         <TextField
                           fullWidth
+
                           name="mobile"
                           value={formData.mobile}
                           onChange={handleChange}
                           variant="outlined"
                           size="small"
                           placeholder="Enter mobile number"
-                          type="tel"
+                          type="number"
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -359,51 +411,206 @@ const ApplyOnline = () => {
                       </Box>
                     </Grid>
 
-
-
                     {/* Country Field */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
 
-                    <Box sx={{ position: "relative" }}>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          mb: 1.5,
-                          fontWeight: 600,
-                          color: "#444",
-                          fontSize: "14px",
-                        }}
-                      >
-                        Country <span style={{ color: "#c00" }}>*</span>
-                      </Typography>
-                      <TextField
-                        fullWidth
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Country <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
 
-                        name="country"
-                        value={formData.country}
-                        onChange={handleChange}
-                        variant="outlined"
-                        size="small"
-                        placeholder="Select your country"
+                          name="country"
+                          value={formData.country}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your country"
 
-                        sx={{
-                          "& .MuiOutlinedInput-root": {
-                            borderRadius: "6px",
-                            "&:hover fieldset": {
-                              borderColor: "#c00",
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
                             },
-                          },
-                        }}
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <SelectIcon
-                                sx={{ color: "#666", cursor: "pointer" }}
-                              />
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    </Box>
+                          }}
+
+                        />
+                      </Box>
+
+                    </Grid>
+
+                    {/* STATE */}
+
+                    <Grid item size={{ xs: 12, md: 4 }}>
+
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          State <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+
+                          name="state"
+                          value={formData.state}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your state"
+
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+
+                        />
+                      </Box>
+
+                    </Grid>
+
+
+                    {/* CITY */}
+
+                    <Grid item size={{ xs: 12, md: 4 }}>
+
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          City <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+
+                          name="city"
+                          value={formData.city}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your city"
+
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+
+                        />
+                      </Box>
+
+                    </Grid>
+
+
+                    {/* PIN CODE */}
+
+                    <Grid item size={{ xs: 12, md: 4 }}>
+
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Pincode <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          type="number"
+                          name="pincode"
+                          value={formData.pincode}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your pincode"
+
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+
+                        />
+                      </Box>
+
+                    </Grid>
+
+                    {/* ADDRESS */}
+
+                    <Grid item size={{ xs: 12, md: 8 }}>
+
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Address <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+
+                          name="address"
+                          value={formData.address}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your address"
+
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+
+                        />
+                      </Box>
+
+                    </Grid>
 
 
                     {/* Query Field */}
@@ -466,7 +673,7 @@ const ApplyOnline = () => {
                         </Typography>
 
                         {/* Image Verification */}
-                        <Box sx={{ mb: 2 }}>
+                        {/* <Box sx={{ mb: 2 }}>
                           <Typography
                             variant="body2"
                             sx={{
@@ -506,7 +713,7 @@ const ApplyOnline = () => {
                             </Typography>
 
                           </Box>
-                        </Box>
+                        </Box> */}
 
                         {/* CAPTCHA Section */}
                         <Box sx={{ mb: 3 }}>
@@ -563,8 +770,6 @@ const ApplyOnline = () => {
                             </Typography>
                           </Box>
                         </Box>
-
-
                       </Box>
                     </Grid>
 

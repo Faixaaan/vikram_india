@@ -201,7 +201,7 @@ const Fermenting = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
-            <Accordion sx={{
+            {/* <Accordion sx={{
               background: "#fff",
               boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
               borderRadius: "8px",
@@ -221,12 +221,11 @@ const Fermenting = () => {
               <AccordionDetails>
                 <Box>
                   <Grid container spacing={2}>
-                    {/* RIGHT IMAGE */}
+               
                     <Grid item size={{ xs: 12, md: 4 }}>
                       <img src={data?.section2_image} style={{ width: "100%" }} />
                     </Grid>
 
-                    {/* LEFT CONTENT */}
                     <Grid item size={{ xs: 12, md: 8 }}>
 
                       <Typography
@@ -252,13 +251,13 @@ const Fermenting = () => {
 
 
 
-                    {/* BOTTOM FULL WIDTH CONTENT */}
+                
 
 
                   </Grid>
                 </Box>
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
 
 
           </Grid>

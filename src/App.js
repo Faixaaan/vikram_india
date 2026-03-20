@@ -78,6 +78,8 @@ import NoticeDetails from "./Pages/Home/Components/NoticeDetails";
 
 import Landing from "./Pages/Landing/Landing";
 import AllNotice from "./Pages/Home/Components/AllNotice";
+import MediaDetails from "./Pages/Home/Components/MediaDetails";
+import SuccessPage from "./Pages/Sucess/SuccessPage";
 
 
 function App() {
@@ -183,6 +185,9 @@ function App() {
           <Route path="/media/news" element={<News />} />
           <Route path="/media/photo-gallery" element={<Gallery />} />
           <Route path="/media/download" element={<Download />} />
+          <Route path="/media/details" element={<MediaDetails />} />
+
+
           <Route path="/csr" element={<CSR />} />
           <Route path="/products/hot-dip" element={<HotDip />} />
           <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
@@ -222,6 +227,8 @@ function App() {
           <Route path="/products/garden-&-plantation-equipments/harvesting-tool" element={<Harvesting />} />
           <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
           <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
+          <Route path="/success-page" element={<SuccessPage />} />
+
         </Route>
       </Routes>
 

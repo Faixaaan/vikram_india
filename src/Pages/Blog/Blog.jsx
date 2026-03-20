@@ -12,7 +12,7 @@ import {
   Tab,
   Divider,
   Breadcrumbs,
-   Link as MLink,
+  Link as MLink,
 } from "@mui/material";
 import blogImage from "../../Assets/blog.jpg";
 import { useNavigate } from "react-router-dom";
@@ -20,34 +20,12 @@ import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { Link } from 'react-router-dom';
 
-const blogs = [
-  {
-    id: 1,
-    title: "Test 2",
-    date: "May 21",
-    category: "News",
-    image: blogImage,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    isPopular: true,
-    createdAt: "2025-05-21"
-  },
-  {
-    id: 2,
-    title: "QC Test 10",
-    date: "May 16",
-    category: "Test",
-    image: blogImage,
-    description: "This is a short blog description.",
-    isPopular: false,
-    createdAt: "2025-05-16"
-  }
-];
 
 const Blog = () => {
   const [tab, setTab] = useState(0);
-  const navigate = useNavigate();
   const [data, setData] = useState([])
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
 
   const fetchBlogData = async () => {
@@ -65,16 +43,28 @@ const Blog = () => {
     fetchBlogData();
   }, [])
 
+  // 🔥 HTML REMOVE (for excerpt safety)
+  const stripHtml = (html) => {
+    if (!html) return "";
+    return html.replace(/<[^>]*>/g, "");
+  };
 
 
-
-
+  // 🔥 FINAL FILTER (CATEGORY + SEARCH)
   const filteredBlogs =
-    tab === 0
-      ? blogs.filter((blog) => blog.isPopular)
-      : [...blogs].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    (tab === 0
+      ? data.filter((blog) => blog.category_id === "New")
+      : data.filter((blog) => blog.category_id === "Top")
+    ).filter((blog) => {
+      const searchText = search.toLowerCase();
+
+      return (
+        blog.title.toLowerCase().includes(searchText) ||
+        stripHtml(blog.excerpt).toLowerCase().includes(searchText)
       );
+    });
+
+
 
   return (
     <Box sx={{ py: 4, px: { xs: 2, md: 6 } }}>
@@ -196,6 +186,8 @@ const Blog = () => {
               placeholder="Search Blog"
               size="small"
               sx={{ mb: 3 }}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
 
             {/* Tabs */}
@@ -206,15 +198,15 @@ const Blog = () => {
               indicatorColor="error"
               variant="fullWidth"
             >
-              <Tab label="Popular" />
-              <Tab label="Latest" />
+              <Tab label="New Blog" />
+              <Tab label="Top Blog" />
             </Tabs>
 
             <Divider sx={{ mb: 1 }} />
 
             {/* Sidebar Items */}
             {filteredBlogs.map((item) => (
-              <Box key={item.id} sx={{ display: "flex", mb: 2 }}>
+              <Box key={item.id} sx={{ display: "flex", mb: 1, cursor: "pointer", borderBottom: "1px solid #ccc", paddingBottom: 1 }} onClick={() => navigate(`/blogs/blog-detail/${item?.slug}`)}>
                 <Box
                   component="img"
                   src={item.image}
@@ -241,7 +233,7 @@ const Blog = () => {
                     color="text.secondary"
                     sx={{ fontFamily: "Roboto", fontSize: "16px" }}
                   >
-                    {item.date}
+                    {item.created_at}
                   </Typography>
                 </Box>
               </Box>

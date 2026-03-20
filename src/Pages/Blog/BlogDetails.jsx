@@ -50,7 +50,7 @@ const BlogDetail = () => {
   return (
     <Box sx={{ py: 6, px: { xs: 2, md: 6 }, background: "#f9f9f9" }}>
       <Container maxWidth="xl">
-        <Grid container spacing={4}>
+        {/* <Grid container spacing={4}> */}
 
           {/* LEFT – BLOG CONTENT */}
           <Grid item size={{xs:12,md:8}}>
@@ -132,99 +132,9 @@ const BlogDetail = () => {
             </Card>
           </Grid>
 
-          {/* RIGHT – SIDEBAR */}
-          <Grid item  size={{xs:12,md:4}}>
-            <Box sx={{ position: "sticky", top: 90 }}>
+          
 
-              {/* Recent Posts */}
-              <Card
-                sx={{
-                  mb: 4,
-                  borderRadius: 3,
-                  boxShadow: "0px 6px 20px rgba(0,0,0,0.08)"
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{
-                      fontFamily: "Roboto",
-                      fontWeight: 700,
-                      mb: 2,
-                      fontSize: "18px"
-                    }}
-                  >
-                    Recent Posts
-                  </Typography>
-
-                  {recentPosts.map((post, index) => (
-                    <Box key={index} sx={{ mb: 1.5 }}>
-                      <Typography
-                        sx={{
-                          fontFamily: "Roboto",
-                          fontSize: "14px",
-                          cursor: "pointer",
-                          "&:hover": { color: "red" }
-                        }}
-                      >
-                        {post}
-                      </Typography>
-                      <Divider sx={{ mt: 1 }} />
-                    </Box>
-                  ))}
-                </CardContent>
-              </Card>
-
-              {/* Features / Tags */}
-              <Card
-                sx={{
-                  borderRadius: 3,
-                  boxShadow: "0px 6px 20px rgba(0,0,0,0.08)"
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{
-                      fontFamily: "Roboto",
-                      fontWeight: 700,
-                      mb: 2,
-                      fontSize: "18px"
-                    }}
-                  >
-                    Features
-                  </Typography>
-
-                  <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                    {["Manufacturing", "QC", "Technology", "Engineering"].map(
-                      (tag) => (
-                        <Box
-                          key={tag}
-                          sx={{
-                            px: 2,
-                            py: 0.5,
-                            borderRadius: 2,
-                            border: "1px solid #ddd",
-                            fontSize: "13px",
-                            fontFamily: "Roboto",
-                            cursor: "pointer",
-                            "&:hover": {
-                              background: "red",
-                              color: "#fff",
-                              borderColor: "red"
-                            }
-                          }}
-                        >
-                          {tag}
-                        </Box>
-                      )
-                    )}
-                  </Box>
-                </CardContent>
-              </Card>
-
-            </Box>
-          </Grid>
-
-        </Grid>
+        {/* </Grid> */}
       </Container>
     </Box>
   );

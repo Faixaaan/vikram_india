@@ -6,13 +6,13 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+
   Breadcrumbs,
   Link as MLink,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Paper,
+
   Container,
   TextField,
   InputAdornment,
@@ -22,7 +22,7 @@ import {
 import SelectIcon from "@mui/icons-material/ArrowDropDown";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
+
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -40,6 +40,10 @@ const QueryForm = () => {
     mobile: "",
     email: "",
     country: "",
+    state: "",
+    city: "",
+    pincode: "",
+    address: "",
     query: "",
   });
 
@@ -83,6 +87,10 @@ const QueryForm = () => {
         mobile: "",
         email: "",
         country: "",
+        state: "",
+        city: "",
+        pincode: "",
+        address: "",
         query: "",
       });
     }
@@ -355,7 +363,7 @@ const QueryForm = () => {
                     </Grid>
 
                     {/* Country Field */}
-                    <Grid item size={{ xs: 12 }}>
+                    <Grid item size={{ xs: 12, md: 4 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
                           variant="body2"
@@ -375,7 +383,7 @@ const QueryForm = () => {
                           onChange={handleChange}
                           variant="outlined"
                           size="small"
-                          placeholder="Select your country"
+                          placeholder="Type your country"
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -384,15 +392,156 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                          InputProps={{
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                <SelectIcon
-                                  sx={{ color: "#666", cursor: "pointer" }}
-                                />
-                              </InputAdornment>
-                            ),
+                          // InputProps={{
+                          //   endAdornment: (
+                          //     <InputAdornment position="end">
+                          //       <SelectIcon
+                          //         sx={{ color: "#666", cursor: "pointer" }}
+                          //       />
+                          //     </InputAdornment>
+                          //   ),
+                          // }}
+                        />
+                      </Box>
+                    </Grid>
+
+                     {/* State Field */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
                           }}
+                        >
+                          State <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="state"
+                          value={formData.state}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your state"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+                         
+                        />
+                      </Box>
+                    </Grid>
+
+                    {/* City Field */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          City <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="city"
+                          value={formData.city}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your city"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+                         
+                        />
+                      </Box>
+                    </Grid>
+
+                    {/* Pincode Field */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Pincode <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          type="number"
+                          name="pincode"
+                          value={formData.pincode}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Enter your pincode"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+                         
+                        />
+                      </Box>
+                    </Grid>
+
+                    {/* Address Field */}
+                    <Grid item size={{ xs: 12, md: 4 }}>
+                      <Box sx={{ position: "relative" }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            mb: 1.5,
+                            fontWeight: 600,
+                            color: "#444",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Address <span style={{ color: "#c00" }}>*</span>
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="address"
+                          value={formData.address}
+                          onChange={handleChange}
+                          variant="outlined"
+                          size="small"
+                          placeholder="Type your address"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              borderRadius: "6px",
+                              "&:hover fieldset": {
+                                borderColor: "#c00",
+                              },
+                            },
+                          }}
+                         
                         />
                       </Box>
                     </Grid>
@@ -409,7 +558,7 @@ const QueryForm = () => {
                             fontSize: "14px",
                           }}
                         >
-                          Query <span style={{ color: "#c00" }}>*</span>
+                         Write Your Query <span style={{ color: "#c00" }}>*</span>
                         </Typography>
                         <TextField
                           fullWidth
