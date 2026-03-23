@@ -9,7 +9,10 @@ import {
 } from "@mui/material";
 import "../../../App.css"
 import MenuItem from '@mui/material/MenuItem';
-
+import { useState } from "react";
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -39,9 +42,79 @@ const EnquiryForm = ({ open, onClose }) => {
     },
 
   ];
+
+  const [formData, setFormData] = useState({
+    company_name: "",
+    meterial: "",
+    tonnage: "",
+    type: "",
+    name: "",
+    email: "",
+    number: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // error clear
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors({});
+
+    try {
+      const res = await axiosInstance.post(
+        endpoints.enqueryForm.submitenqueryForm,
+        formData
+      );
+
+      // ✅ redirect with form name
+    navigate("/thankyou-page", {
+      state: { formType: "Enquiry Form" },
+    });
+
+      // reset form
+      setFormData({
+        company_name: "",
+        meterial: "",
+        tonnage: "",
+        type: "",
+        name: "",
+        email: "",
+        number: "",
+      });
+
+      onClose(); // modal close
+
+    } catch (err) {
+      console.log(err);
+
+      if (err.response?.data?.errors) {
+        setErrors(err.response.data.errors); // 🔥 important
+      } else {
+        alert(err.response?.data?.message || "Something went wrong");
+      }
+    }
+  };
+
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={style}>
+      <Box sx={style} component="form" onSubmit={handleSubmit}>
         <Typography
           variant="h6"
           sx={{ mb: 2, fontWeight: 600, textAlign: "center", fontSize: "28px", fontFamily: "Roboto" }}
@@ -52,17 +125,34 @@ const EnquiryForm = ({ open, onClose }) => {
         <Grid container spacing={2}>
           {/* Name */}
           <Grid item size={{ xs: 12 }}>
-            <TextField fullWidth label="Name" size="small" />
+            <TextField fullWidth label="Name"
+              size="small"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              error={!!errors.name}
+              helperText={errors.name?.[0]}
+            />
           </Grid>
 
           {/* Company */}
           <Grid item size={{ xs: 12, sm: 6 }}>
-            <TextField fullWidth label="Company Name" size="small" />
+            <TextField fullWidth label="Company Name" name="company_name"
+              value={formData.company_name}
+              onChange={handleChange}
+              size="small"
+              error={!!errors.company_name}
+              helperText={errors.company_name?.[0]} />
           </Grid>
 
           {/* Type of Material */}
           <Grid item size={{ xs: 12, sm: 6 }}>
-            <TextField fullWidth label="Type of Material" size="small" />
+            <TextField fullWidth label="Type of Material" name="meterial"
+              value={formData.meterial}
+              onChange={handleChange}
+              size="small"
+              error={!!errors.meterial}
+              helperText={errors.meterial?.[0]} />
           </Grid>
 
           {/* Total Tonnage */}
@@ -70,19 +160,26 @@ const EnquiryForm = ({ open, onClose }) => {
             <TextField
               fullWidth
               label="Total Tonnage"
+              name="tonnage"
+              value={formData.tonnage}
+              onChange={handleChange}
               size="small"
               type="number"
+              error={!!errors.tonnage}
+              helperText={errors.tonnage?.[0]}
             />
           </Grid>
           <Grid item size={{ xs: 12, sm: 6 }}>
             <TextField
               fullWidth
-              
               select
               label="Select Type"
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
               size="small"
-              defaultValue=""
-
+              error={!!errors.type}
+              helperText={errors.type?.[0]}
             >
               {currencies.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -93,7 +190,12 @@ const EnquiryForm = ({ open, onClose }) => {
           </Grid>
           {/* Contact Person */}
           <Grid item size={{ xs: 12, sm: 12 }}>
-            <TextField fullWidth label="Contact Person Name" size="small" />
+            <TextField fullWidth label="Contact Person Name" name="name"
+              value={formData.name}
+              onChange={handleChange}
+              size="small"
+              error={!!errors.name}
+              helperText={errors.name?.[0]} />
           </Grid>
 
           {/* Email */}
@@ -101,8 +203,13 @@ const EnquiryForm = ({ open, onClose }) => {
             <TextField
               fullWidth
               label="Email ID"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               size="small"
               type="email"
+              error={!!errors.email}
+              helperText={errors.email?.[0]}
             />
           </Grid>
 
@@ -111,8 +218,13 @@ const EnquiryForm = ({ open, onClose }) => {
             <TextField
               fullWidth
               label="Contact Number"
+              name="number"
+              value={formData.number}
+              onChange={handleChange}
               size="small"
               type="tel"
+              error={!!errors.number}
+              helperText={errors.number?.[0]}
             />
           </Grid>
 
@@ -122,6 +234,7 @@ const EnquiryForm = ({ open, onClose }) => {
               variant="contained"
               fullWidth
               sx={{ mt: 1 }}
+              type="submit"
             >
               Submit Enquiry
             </Button>

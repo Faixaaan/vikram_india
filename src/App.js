@@ -227,7 +227,7 @@ function App() {
           <Route path="/products/garden-&-plantation-equipments/harvesting-tool" element={<Harvesting />} />
           <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
           <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
-          <Route path="/success-page" element={<SuccessPage />} />
+          <Route path="/thankyou-page" element={<SuccessPage />} />
 
         </Route>
       </Routes>

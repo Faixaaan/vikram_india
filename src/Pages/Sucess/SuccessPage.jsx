@@ -4,8 +4,12 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+import { useLocation } from "react-router-dom";
+
 const SuccessPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+const formType = location.state?.formType || "Form";
 
   return (
     <Box
@@ -70,7 +74,7 @@ const SuccessPage = () => {
             fontFamily: "Roboto",
           }}
         >
-          Submission Successful
+         {formType}  Submission Successful
         </Typography>
 
         {/* DESCRIPTION */}
@@ -82,7 +86,7 @@ const SuccessPage = () => {
             fontFamily: "Roboto",
           }}
         >
-          Your form has been submitted successfully. We will get back to you soon.
+          Your  {formType} has been submitted successfully. We will get back to you soon.
         </Typography>
 
         {/* BUTTON */}

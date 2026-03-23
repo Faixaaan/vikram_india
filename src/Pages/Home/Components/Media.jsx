@@ -13,7 +13,7 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import MediaBanner from "../../../Assets/MediaBanner.png";
+import MediaBanner from "../../../Assets/MediaBanner.jpg";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 
@@ -23,7 +23,7 @@ const MotionCard = motion(Card);
 const StackedCard = ({ card, index }) => {
   const { scrollYProgress } = useScroll();
   const navigate = useNavigate();
-  
+
 
   const handleClick = () => {
     navigate("/media/details", {
@@ -60,14 +60,14 @@ const StackedCard = ({ card, index }) => {
         overflow: "hidden",
 
 
-        background: "linear-gradient(145deg, #238d58, #1a1a1a)",
+        background: "linear-gradient(145deg, #149a57, #1a1a1a)",
         border: "1px solid rgb(255, 255, 255)",
-        boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
+        // boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
         transition: "all 0.4s ease",
 
         "&:hover": {
           transform: "translateY(-6px)",
-          boxShadow: "0 35px 70px rgba(0,0,0,0.8)",
+          // boxShadow: "0 35px 70px rgba(0,0,0,0.8)",
           border: "1px solid #1baa6366",
         }
 
@@ -121,10 +121,11 @@ const StackedCard = ({ card, index }) => {
               fontWeight: 800,
               mb: 2,
               lineHeight: 1.3,
-              background: "linear-gradient(70deg, #00ff80, #00c3ff)",
+              background: "linear-gradient(70deg, #ffffff, #00c3ff)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               display: "inline-block",
+              
             }}
           >
             {card.title}
@@ -236,13 +237,14 @@ const Media = () => {
         backgroundImage: `url(${MediaBanner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         py: { xs: 6, md: 10 },
         "&::before": {
           content: '""',
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.92) 100%)",
+           "linear-gradient(180deg, #00572b6e 0%, rgba(57, 57, 57, 0.92) 100%)",
           zIndex: 0,
         },
       }}
@@ -263,7 +265,7 @@ const Media = () => {
                 fontWeight: 700,
                 letterSpacing: "1px",
                 fontFamily: "'Poppins', 'Roboto', sans-serif",
-                background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+                background: "linear-gradient(90deg, #ffffff, #ffffff)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 position: "relative",

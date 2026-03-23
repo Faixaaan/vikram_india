@@ -107,7 +107,7 @@ const Banner = () => {
       );
 
       gsap.from(cardsRef.current, {
-        y: 80,
+        y: 40,
         opacity: 0,
         stagger: 0.25,
         duration: 1.2,
@@ -138,8 +138,8 @@ const Banner = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 80;
-      const y = (e.clientY / innerHeight - 0.5) * 80;
+      const x = (e.clientX / innerWidth - 0.5) * 40;
+      const y = (e.clientY / innerHeight - 0.5) * 40;
 
       gsap.to(containerRef.current, {
         backgroundPosition: `${50 + x}% ${50 + y}%`,
@@ -275,8 +275,8 @@ const Banner = () => {
           data={{ subtitle: cards[0]?.title }}
           onClick={() => navigate(getRouteByCounter(1))}
           sx={{
-            top: "12%",
-            left: "8%",
+            top: "20%",
+            left: "15%",
           }}
         />
 
@@ -287,7 +287,7 @@ const Banner = () => {
           onClick={() => navigate(getRouteByCounter(2))}
           sx={{
             bottom: "25%",
-            left: "8%",
+            left: "15%",
           }}
         />
 
@@ -297,7 +297,7 @@ const Banner = () => {
           data={{ subtitle: cards[2]?.title }}
           onClick={() => navigate(getRouteByCounter(3))}
           sx={{
-            top: "12%",
+            top: "20%",
             right: "8%",
           }}
         />

@@ -45,6 +45,18 @@ const Adresses = () => {
 
 
 
+  const groupByCategory = (data) => {
+    return data.reduce((acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = [];
+      }
+      acc[item.category].push(item);
+      return acc;
+    }, {});
+  };
+
+  const groupedData = groupByCategory(contactData);
+
 
   useEffect(() => {
     fetchContactData()
@@ -53,6 +65,9 @@ const Adresses = () => {
       behavior: "smooth",
     });
   }, []);
+
+
+
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
       <Container maxWidth="xl">
@@ -123,10 +138,10 @@ const Adresses = () => {
 
             {/* Introduction */}
 
-           
+
 
             {/* map  */}
-            {
+            {/* {
               contactData?.map((item) => {
                 return (
                   <Accordion
@@ -264,6 +279,99 @@ const Adresses = () => {
                   </Accordion>
                 )
               })
+            } */}
+
+            {
+              Object.entries(groupedData).map(([category, items], index) => (
+                <Accordion
+                  key={index}
+                  sx={{
+                    background: "#fff",
+                    boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
+                    borderRadius: "8px",
+                    "&:before": { display: "none" },
+                    mt: 4,
+                  }}
+                >
+                  {/* CATEGORY TITLE */}
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: "#c00" }} />}
+                    sx={{
+                      backgroundColor: "#f8f8f8",
+                      borderBottom: "1px solid #eee",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: { md: "20px", xs: "16px" }, fontWeight: 600 }}>
+                      {category}
+                    </Typography>
+                  </AccordionSummary>
+
+                  {/* ALL ADDRESSES INSIDE CATEGORY */}
+                  <AccordionDetails sx={{ p: 3 }}>
+  
+  <Box
+    sx={{
+      display: "grid",
+      gridTemplateColumns: {
+        xs: "1fr",
+        md: "1fr 1fr", // 🔥 2 column always desktop e
+      },
+      gap: 3,
+      alignItems: "start", // 🔥 IMPORTANT (overlap fix)
+    }}
+  >
+    
+    {items.map((item) => (
+      <Box
+        key={item.id}
+        sx={{
+          p: 2.5,
+          border: "1px solid #e5e5e5",
+          borderRadius: "10px",
+          background: "#fff",
+        }}
+      >
+        
+        {/* TITLE */}
+        <Typography sx={{ fontSize: "18px", fontWeight: 600, mb: 1 }}>
+          {item.name}
+        </Typography>
+
+        {/* LOCATION */}
+        <Box
+          sx={{
+            fontSize: "14px",
+            color: "#444",
+            lineHeight: 1.6,
+            "& p": { m: 0 },
+          }}
+          dangerouslySetInnerHTML={{ __html: item.location }}
+        />
+
+        {/* PHONE */}
+        {item.number && (
+          <Typography sx={{ mt: 1, fontSize: "14px" }}>
+            <b>Phone:</b> {item.number}
+          </Typography>
+        )}
+
+        {/* EMAIL */}
+        {item.email && (
+          <Typography sx={{ mt: 0.5, fontSize: "14px" }}>
+            <b>Email:</b>{" "}
+            <span style={{ color: "#c40613" }}>{item.email}</span>
+          </Typography>
+        )}
+
+      </Box>
+    ))}
+
+  </Box>
+
+</AccordionDetails>
+                </Accordion>
+              ))
             }
 
 

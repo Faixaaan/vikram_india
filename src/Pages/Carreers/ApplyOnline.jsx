@@ -27,11 +27,16 @@ import "../../App.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import { useNavigate } from "react-router-dom";
+
 
 const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const ApplyOnline = () => {
   const [data, setData] = useState({})
+  const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -81,11 +86,29 @@ const ApplyOnline = () => {
       ...prev,
       [name]: value,
     }));
+
+    // error remove when typing
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   // ================= SUBMIT =================
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({});
+
+
+
+    // ✅ resume validation
+    if (!formData.resume) {
+      setErrors((prev) => ({
+        ...prev,
+        resume: ["Resume is required"],
+      }));
+      return;
+    }
 
     if (userCaptcha !== captcha) {
       alert("Invalid captcha ❌");
@@ -113,7 +136,9 @@ const ApplyOnline = () => {
       );
 
       console.log(res.data);
-      alert("Application submitted successfully ✅");
+      navigate("/thankyou-page", {
+        state: { formType: "Apply Online Form" },
+      });
 
       // RESET
       setFormData({
@@ -134,8 +159,13 @@ const ApplyOnline = () => {
       generateCaptcha();
 
     } catch (err) {
-      console.log(err.response?.data); // 👈 আসল error
-      alert(err.response?.data?.message || "Submission failed ❌");
+      const apiError = err.response?.data;
+
+      if (apiError?.errors) {
+        setErrors(apiError.errors); // 👈 main logic
+      }
+
+      alert(apiError?.message || "Submission failed ❌");
     }
   };
 
@@ -294,6 +324,9 @@ const ApplyOnline = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter your Full name"
+                          error={!!errors.name}
+                          helperText={errors.name?.[0]}
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -327,6 +360,7 @@ const ApplyOnline = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter your Role"
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -363,6 +397,9 @@ const ApplyOnline = () => {
                           size="small"
                           placeholder="Enter email address"
                           type="email"
+
+                          error={!!errors.email}
+                          helperText={errors.email?.[0]}
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -399,6 +436,8 @@ const ApplyOnline = () => {
                           size="small"
                           placeholder="Enter mobile number"
                           type="number"
+                          error={!!errors.mobile}
+                          helperText={errors.mobile?.[0]}
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -558,6 +597,9 @@ const ApplyOnline = () => {
                           size="small"
                           placeholder="Type your pincode"
 
+                          error={!!errors.pincode}
+                          helperText={errors.pincode?.[0]}
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -633,19 +675,30 @@ const ApplyOnline = () => {
                             type="file"
                             hidden
                             accept=".jpg,.jpeg,.pdf"
-                            onChange={(e) =>
+                            onChange={(e) => {
                               setFormData((prev) => ({
                                 ...prev,
                                 resume: e.target.files[0],
-                              }))
-                            }
+                              }));
+
+                              // clear error
+                              setErrors((prev) => ({
+                                ...prev,
+                                resume: "",
+                              }));
+                            }}
                           />
                         </Button>
 
                         <Typography variant="caption">
                           {formData.resume?.name || "No file selected"}
                         </Typography>
-
+                        {/* 👇 ERROR MESSAGE */}
+                        {errors.resume && (
+                          <Typography color="error" variant="caption" sx={{ display: "block", mt: 1 }}>
+                            {errors.resume[0]}
+                          </Typography>
+                        )}
                       </Box>
                     </Grid>
 

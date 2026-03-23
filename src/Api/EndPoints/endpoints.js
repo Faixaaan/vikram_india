@@ -71,6 +71,11 @@ export const endpoints = {
     cmsContact: "/page/contact",
     queryForm: "/query-form"
   },
+
+   enqueryForm: {
+    submitenqueryForm: "/service-form"
+   },
+
   homeMedia: {
     getHomeMediaData: "/home-media"
   },

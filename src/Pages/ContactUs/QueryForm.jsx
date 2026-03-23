@@ -15,11 +15,9 @@ import {
 
   Container,
   TextField,
-  InputAdornment,
+
   Button,
 } from "@mui/material";
-
-import SelectIcon from "@mui/icons-material/ArrowDropDown";
 
 import { Link } from "react-router-dom";
 
@@ -28,6 +26,7 @@ import "../../App.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import { useNavigate } from "react-router-dom";
 
 const leftMenu = ["ADDRESSES", "QUERY FORM"];
 
@@ -46,12 +45,22 @@ const QueryForm = () => {
     address: "",
     query: "",
   });
+  const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+
+    // 🔥 error clear for that field
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
     }));
   };
 
@@ -78,7 +87,9 @@ const QueryForm = () => {
 
       const res = await axiosInstance.post(endpoints.contactUs.queryForm, formData)
 
-      alert("Form submitted");
+      navigate("/thankyou-page", {
+        state: { formType: "Query Form" },
+      });
 
 
       setFormData({
@@ -93,13 +104,14 @@ const QueryForm = () => {
         address: "",
         query: "",
       });
+      setErrors({}); // clear errors
+    } catch (err) {
+      console.log(err);
+
+      if (err.response?.data?.errors) {
+        setErrors(err.response.data.errors); // 🔥 MAIN LINE
+      }
     }
-
-    catch (err) {
-      console.log(err)
-    }
-
-
   };
 
 
@@ -248,6 +260,12 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter your first name"
+
+
+                          error={!!errors.first_name} // 🔥 red border
+                          helperText={errors.first_name?.[0]} // 🔥 error text
+
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -281,6 +299,10 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter your last name"
+
+                          error={!!errors.last_name}
+                          helperText={errors.last_name?.[0]}
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -315,6 +337,10 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter mobile number"
+
+                          error={!!errors.mobile}
+                          helperText={errors.mobile?.[0]}
+
                           type="tel"
                           sx={{
                             "& .MuiOutlinedInput-root": {
@@ -349,6 +375,10 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter email address"
+
+                          error={!!errors.email}
+                          helperText={errors.email?.[0]}
+
                           type="email"
                           sx={{
                             "& .MuiOutlinedInput-root": {
@@ -384,6 +414,7 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Type your country"
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -392,20 +423,20 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                          // InputProps={{
-                          //   endAdornment: (
-                          //     <InputAdornment position="end">
-                          //       <SelectIcon
-                          //         sx={{ color: "#666", cursor: "pointer" }}
-                          //       />
-                          //     </InputAdornment>
-                          //   ),
-                          // }}
+                        // InputProps={{
+                        //   endAdornment: (
+                        //     <InputAdornment position="end">
+                        //       <SelectIcon
+                        //         sx={{ color: "#666", cursor: "pointer" }}
+                        //       />
+                        //     </InputAdornment>
+                        //   ),
+                        // }}
                         />
                       </Box>
                     </Grid>
 
-                     {/* State Field */}
+                    {/* State Field */}
                     <Grid item size={{ xs: 12, md: 4 }}>
                       <Box sx={{ position: "relative" }}>
                         <Typography
@@ -435,7 +466,7 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                         
+
                         />
                       </Box>
                     </Grid>
@@ -462,6 +493,9 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Type your city"
+
+
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -470,7 +504,7 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                         
+
                         />
                       </Box>
                     </Grid>
@@ -498,6 +532,10 @@ const QueryForm = () => {
                           variant="outlined"
                           size="small"
                           placeholder="Enter your pincode"
+
+                          error={!!errors.pincode}
+                          helperText={errors.pincode?.[0]}
+
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               borderRadius: "6px",
@@ -506,7 +544,7 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                         
+
                         />
                       </Box>
                     </Grid>
@@ -541,7 +579,7 @@ const QueryForm = () => {
                               },
                             },
                           }}
-                         
+
                         />
                       </Box>
                     </Grid>
@@ -558,7 +596,7 @@ const QueryForm = () => {
                             fontSize: "14px",
                           }}
                         >
-                         Write Your Query <span style={{ color: "#c00" }}>*</span>
+                          Write Your Query <span style={{ color: "#c00" }}>*</span>
                         </Typography>
                         <TextField
                           fullWidth

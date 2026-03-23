@@ -6,9 +6,12 @@ import { Box, Typography, Grid, Button, Container } from "@mui/material";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import EnquiryForm from "../../Pages/HotDipGalvanization/Components/EnquiryForm";
 
 const Footer = () => {
     const [data, setData] = useState({});
+    const [openEnquiry, setOpenEnquiry] = useState(false);
+
 
     /* ================= FETCH DATA ================= */
     useEffect(() => {
@@ -127,7 +130,7 @@ const Footer = () => {
                                         height: "300%",
                                     },
                                 }}
-
+                                onClick={() => setOpenEnquiry(true)}
 
                             >
                                 <span> Get a Quote </span>
@@ -376,6 +379,10 @@ const Footer = () => {
                         </Link>
                     </Box>
                 </Container>
+                <EnquiryForm
+                    open={openEnquiry}
+                    onClose={() => setOpenEnquiry(false)}
+                />
             </Box >
         </>
     );

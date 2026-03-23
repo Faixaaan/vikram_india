@@ -134,24 +134,30 @@ const MediaDetails = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 background:
-                    "linear-gradient(135deg, #2c2f6b, #3b1c4f, #1b3c4f)",
-                p: 3,
+                    "linear-gradient(135deg, #313698, #572578, #225a7a)",
+                p: {xs: 1, md: 3},
             }}
         >
             <Box
                 sx={{
                     width: "100%",
                     maxWidth: "1200px",
+
                     borderRadius: "30px",
-                    p: 6,
+                    p: {xs:2, md: 6},
                     background:
                         "linear-gradient(135deg, rgba(28, 28, 58, 0.9), rgba(10,10,20,0.95))",
                     color: "#fff",
                     display: "flex",
+                    flexDirection: {xs: "column", md: "row"},
+                    justifyContent: "center",
+                    height: {xs: "800px", md: "400px"},
                     gap: 4,
                     position: "relative",
                     overflow: "hidden",
                     perspective: "1200px", // 🔥 3D DEPTH
+                    alignItems: "center"
+
                 }}
             >
                 {/* LEFT */}
@@ -163,12 +169,12 @@ const MediaDetails = () => {
 
                     <Typography
                         variant="h2"
-                        sx={{ fontWeight: "bold", mt: 2 }}
+                        sx={{ fontWeight: "bold", mt: {xs:0, md:2} , fontSize: {xs: "1.6rem", sm: "2.5rem", md: "3rem"}}}
                     >
                         Media Details <br /> Title
                     </Typography>
 
-                    <Typography sx={{ mt: 3, opacity: 0.7 }}>
+                    <Typography sx={{ mt: {xs: 2, md: 3}, opacity: 0.9 , color: "#ffffff"}}>
                         Loree ipsum dolor sit amet, consectetur adipiscing elit. Loree ipsum dolor sit amet,
                         consectetur adipiscing elit.Loree ipsum dolor sit amet, consectetur adipiscing elit.
                         Loree ipsum dolor sit amet, consectetur adipiscing elit. Loree ipsum dolor sit amet,
@@ -180,7 +186,7 @@ const MediaDetails = () => {
                     <Button
                         onClick={() => navigate("/home", { state: { scrollTo: "media" } })}
                         sx={{
-                            mt: 6,
+                            mt: {xs: 1, md: 6},
                             borderRadius: "30px",
                             background: "rgba(255,255,255,0.1)",
                             color: "#fff",
@@ -204,7 +210,8 @@ const MediaDetails = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        zIndex: 1
+                        zIndex: 1,
+                        
                     }}
                 >
                     {images.map((img, i) => (
@@ -253,7 +260,7 @@ const MediaDetails = () => {
                         position: "absolute",
                         top: 20,
                         right: 30,
-                        opacity: 0.7,
+                        opacity: 0.9,
                     }}
                 >
                     January 15, 2024
