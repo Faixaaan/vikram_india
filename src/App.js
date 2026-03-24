@@ -40,7 +40,7 @@ import BlogDetail from "./Pages/Blog/BlogDetails";
 import News from "./Pages/Media/News";
 import Gallery from "./Pages/Media/Gallery";
 import Download from "./Pages/Media/Donwload";
-import CSR from "./Pages/Csr/Csr";
+// import CSR from "./Pages/Csr/Csr";
 import TeaWithering from "./Pages/OrthodoxTeaProcessing/TeaWithering";
 import TeaRolling from "./Pages/OrthodoxTeaProcessing/TeaRolling";
 import TeaFermenting from "./Pages/OrthodoxTeaProcessing/TeaFermenting";
@@ -185,10 +185,9 @@ function App() {
           <Route path="/media/news" element={<News />} />
           <Route path="/media/photo-gallery" element={<Gallery />} />
           <Route path="/media/download" element={<Download />} />
-          <Route path="/media/details" element={<MediaDetails />} />
+          <Route path="/media/details/:id" element={<MediaDetails />} />
 
 
-          <Route path="/csr" element={<CSR />} />
           <Route path="/products/hot-dip" element={<HotDip />} />
           <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
           <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
@@ -212,7 +211,7 @@ function App() {
           <Route path="/media/news" element={<News />} />
           <Route path="/media/photo-gallery" element={<Gallery />} />
           <Route path="/media/download" element={<Download />} />
-          <Route path="/csr" element={<CSR />} />
+          {/* <Route path="/csr" element={<CSR />} /> */}
           <Route path="/products/hot-dip" element={<HotDip />} />
           <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
           <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
   <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
     {crumbs.map((item, i) =>
       item === "Home" ? (
-        <MLink key={i} component={Link} to="/" underline="hover" color="inherit">
+        <MLink key={i} component={Link} to="/home" underline="hover" color="inherit">
           {item}
         </MLink>
       ) : (

@@ -50,18 +50,18 @@ const QualityPolicy = () => {
         { src: OHSAS, alt: "ohsas" }
     ]
 
-     const [data, setData] = useState([]);
-    
-        const fetchData = async () => {
-            try {
-                const res = await axiosInstance.get(endpoints.AboutUs.qualityPolicy)
-                setData(res?.data?.data)
-            }
-            catch (err) {
-                console.log(err)
-            }
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.AboutUs.qualityPolicy)
+            setData(res?.data?.data)
         }
-    
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
     useEffect(() => {
         fetchData()
@@ -75,19 +75,19 @@ const QualityPolicy = () => {
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Quality Policy</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Quality Policy</Typography>
                 </Breadcrumbs>
 
-               
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -100,7 +100,7 @@ const QualityPolicy = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -167,10 +167,10 @@ const QualityPolicy = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
-                       
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
-                        
+
+
 
 
                         {/* Introduction */}
@@ -189,25 +189,52 @@ const QualityPolicy = () => {
                                 background: "#fff"
                             }}>
                                 <Grid container spacing={2} mt={2}>
-                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "lrft" }, alignItems: "flex-start" }} >
-                                        <img src={data?.image} />
+                                    <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" }, alignItems: "flex-start" }} >
+                                        <img
+                                            src={data?.image}
+                                            alt="quality"
+                                            style={{
+                                                width: "100%",
+                                                maxWidth: "280px",
+                                                height: "280px",
+                                                objectFit: "cover",
+                                                borderRadius: "10px",
+                                            }}
+                                        />
                                     </Grid>
 
                                     <Grid size={{ xs: 12, md: 8 }} >
 
                                         <Typography sx={{ fontFamily: "Roboto", fontSize: { xs: "18px", md: "20px" }, textAlign: "justify", marginTop: "15px!important", fontWeight: "500", lineHeight: "120%", color: "#121111ff" }}
-                                        dangerouslySetInnerHTML={{ __html: data?.q_policy_desc }}
+                                            dangerouslySetInnerHTML={{ __html: data?.q_policy_desc }}
                                         >
-                                           
-                                        </Typography>
-                                        
 
-                                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
+                                        </Typography>
+
+
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                alignItems: { xs: "flex-start", md: "center" },
+                                                mt: 5,
+                                                flexDirection: { xs: "column", md: "row" },
+                                                gap: 2,
+                                            }}
+                                        >
                                             <Typography sx={{ fontFamily: "Roboto", fontSize: "14px", lineHeight: "120%" }}>
                                                 {data?.left_text}
                                             </Typography>
                                             <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
-                                                <img src={data?.sign_img} alt="" />
+                                                <img
+                                                    src={data?.sign_img}
+                                                    alt="signature"
+                                                    style={{
+                                                        width: "120px",
+                                                        height: "auto",
+                                                        objectFit: "contain",
+                                                    }}
+                                                />
                                             </Box>
                                         </Box>
                                     </Grid>

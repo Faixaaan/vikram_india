@@ -103,7 +103,7 @@ const ManagementTeam = () => {
 
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography sx={{ fontSize: "15px" }}>About Us</Typography>

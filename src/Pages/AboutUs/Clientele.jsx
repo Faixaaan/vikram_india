@@ -46,75 +46,65 @@ const leftMenu = [
 
 const Clientele = () => {
 
-
-
-
     const [page, setPage] = useState(1);
-
-
-    const [clientData, setClientData] = useState([])
     const [data, setData] = useState({})
-    const [heading, setHeading] = useState({})
-
-
-
-    const fetchImageData = async () => {
-        try {
-            const res = await axiosInstance.get(endpoints.AboutUs.clientImage)
-            const dataRes = await axiosInstance.get(endpoints.AboutUs.clientele)
-            const dataResHeading = await axiosInstance.get(endpoints.HomeCms.getHomeCms)
-
-
-            
-            setData(dataRes?.data?.data)
-            setClientData(res?.data?.data)
-            setHeading(dataResHeading?.data?.data)
-        }
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-
-
-
-
-
-    useEffect(() => {
-        fetchImageData()
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }, []);
-
-
+    const [categories, setCategories] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
-
-    const handleTabChange = (event, newValue) => {
-        setTabIndex(newValue);
-    };
-
-    const staticTabs = [
-        "Module Mounting Structure",
-        "Hot Dip Galvanizing",
-        "Tea Processing Machinery",
-        "Transmission Towers",
-
-    ];
 
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const isMobile678 = useMediaQuery("(max-width:1100px)");
+    const isVerySmall = useMediaQuery("(max-width:420px)");
+
+    const fetchData = async () => {
+        try {
+            // 🔥 CMS DATA
+            const cmsRes = await axiosInstance.get(endpoints.AboutUs.clientele);
+
+            // 🔥 CATEGORY IMAGE DATA
+            const categoryRes = await axiosInstance.get("/about-client-categories-image");
+
+            setData(cmsRes?.data?.data || {});
+            setCategories(categoryRes?.data?.data || []);
+
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
+
+    const handleTabChange = (event, newValue) => {
+        setTabIndex(newValue);
+        setPage(1); // reset pagination
+    };
+
+    // const staticTabs = [
+    //     "Module Mounting Structure",
+    //     "Hot Dip Galvanizing",
+    //     "Tea Processing Machinery",
+    //     "Transmission Towers",
+
+    // ];
+
+    // 🔥 CURRENT IMAGES
+    const currentImages = categories[tabIndex]?.images || [];
+
 
     return (
         <Box sx={{ padding: { xs: 2, md: 4 } }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
@@ -123,9 +113,6 @@ const Clientele = () => {
                 </Breadcrumbs>
 
                 {/* PAGE TITLE */}
-
-
-
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
@@ -229,7 +216,7 @@ const Clientele = () => {
                                     textTransform: "uppercase",
                                 }}
                             >
-                                {heading?.clientele_head}
+                                {data?.title}
                             </Typography>
 
                             {/* Green underline accent */}
@@ -253,17 +240,16 @@ const Clientele = () => {
                                     fontFamily: "Roboto",
                                 }}
                             >
-                                We proudly collaborate with leading organizations across industries,
-                                delivering excellence through innovation and quality.
+                                {data?.sub_desc}
                             </Typography>
                         </Box>
 
                         {/* Static Tabs */}
                         <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
                             {isMobile678 ? (
-                             
+
                                 <Grid container spacing={2} sx={{ maxWidth: 400, justifyContent: "center", }}>
-                                    {staticTabs.map((tab, index) => (
+                                    {categories.map((cat, index) => (
                                         <Grid item xs={6} key={index}>
                                             <Box
                                                 onClick={() => setTabIndex(index)}
@@ -282,13 +268,13 @@ const Clientele = () => {
                                                     transition: "0.3s",
                                                 }}
                                             >
-                                                {tab}
+                                                {cat.category}
                                             </Box>
                                         </Grid>
                                     ))}
                                 </Grid>
                             ) : (
-                            
+
                                 <Tabs
                                     value={tabIndex}
                                     onChange={handleTabChange}
@@ -307,10 +293,10 @@ const Clientele = () => {
                                         borderRadius: "10px",
                                     }}
                                 >
-                                    {staticTabs.map((tab, index) => (
+                                    {categories.map((cat, index) => (
                                         <Tab
                                             key={index}
-                                            label={tab}
+                                            label={cat.category}
                                             sx={{
                                                 textTransform: "capitalize",
                                                 fontWeight: 600,
@@ -331,15 +317,7 @@ const Clientele = () => {
                             )}
                         </Box>
 
-                 
-
-
                         <Box>
-
-                          
-
-
-                         
                             <Box sx={{ mt: 6 }}>
                                 <Typography
                                     sx={{
@@ -350,11 +328,11 @@ const Clientele = () => {
                                         textTransform: "capitalize",
                                     }}
                                 >
-                                    The list includes the following
+                                    {data?.section1_title}
                                 </Typography>
 
                                 <Grid container spacing={3}>
-                                    {clientData
+                                    {currentImages
                                         .slice(
                                             (page - 1) * (isMobile ? 4 : 12),
                                             (page - 1) * (isMobile ? 4 : 12) + (isMobile ? 4 : 12)
@@ -362,7 +340,11 @@ const Clientele = () => {
                                         .map((item, index) => (
                                             <Grid
                                                 item
-                                                size={{ xs: 6, sm: 4, md: 3 }}
+                                                size={{
+                                                    xs: isVerySmall ? 12 : 6, // 🔥 main logic
+                                                    sm: 4,
+                                                    md: 3
+                                                }}
                                                 key={index}
                                                 sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                             >
@@ -385,7 +367,7 @@ const Clientele = () => {
                                                 >
                                                     <img
                                                         src={item.image}
-                                                        alt={item.name}
+                                                        alt={item.title}
                                                         style={{
                                                             width: "100%",
                                                             height: "80px",
@@ -415,7 +397,7 @@ const Clientele = () => {
                                 {/* PAGINATION */}
                                 <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
                                     <Pagination
-                                        count={Math.ceil(clientData.length / (isMobile ? 4 : 12))}
+                                        count={Math.ceil(currentImages.length / (isMobile ? 4 : 12))}
                                         page={page}
                                         onChange={(e, value) => setPage(value)}
                                         color="primary"

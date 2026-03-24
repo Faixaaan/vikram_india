@@ -66,7 +66,7 @@ const Download = () => {
             <Container maxWidth="xl">
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "14px" }}>Media</Typography>

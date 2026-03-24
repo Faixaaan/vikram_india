@@ -6,16 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { IoMdArrowBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { axiosInstance } from "../../../Api/Axios/axios";
+import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const images = [
-    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
-    "https://images.unsplash.com/photo-1519681393784-d120267933ba",
-];
 
 const MediaDetails = () => {
     const [index, setIndex] = useState(0);
@@ -23,6 +19,44 @@ const MediaDetails = () => {
     const autoPlayRef = useRef(null);
 
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    // 🔥 DYNAMIC DATA STATE
+    const [media, setMedia] = useState(null);
+    const [images, setImages] = useState([]);
+
+    // 🔥 FETCH DATA
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance.get(
+                    endpoints.homeMedia.getHomeMediaData
+                );
+
+                const item = res?.data?.data?.find(
+                    (i) => i.id == id
+                );
+
+                setMedia(item);
+
+                // 🔥 IMAGE HANDLE
+                if (item?.gallery_images) {
+                    try {
+                        const parsed = JSON.parse(item.gallery_images);
+                        setImages(parsed);
+                    } catch {
+                        setImages([item.image]);
+                    }
+                } else if (item?.image) {
+                    setImages([item.image]);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchData();
+    }, [id]);
 
     // 🔥 NEXT / PREV
     const nextSlide = () => {
@@ -35,12 +69,14 @@ const MediaDetails = () => {
 
     // 🔥 AUTO PLAY
     useEffect(() => {
+        if (images.length === 0) return;
+
         autoPlayRef.current = setInterval(() => {
             nextSlide();
         }, 3000);
 
         return () => clearInterval(autoPlayRef.current);
-    }, []);
+    }, [images]);
 
     // 🔥 PAUSE ON HOVER
     const stopAutoPlay = () => clearInterval(autoPlayRef.current);
@@ -48,7 +84,7 @@ const MediaDetails = () => {
         autoPlayRef.current = setInterval(nextSlide, 3000);
     };
 
-
+    // 🔥 SCROLL TOP
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -56,7 +92,7 @@ const MediaDetails = () => {
         });
     }, []);
 
-    // 🔥 GSAP ENTRY ANIMATION
+    // 🔥 GSAP ENTRY
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.fromTo(
@@ -84,7 +120,7 @@ const MediaDetails = () => {
         }, containerRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [images]);
 
     // 🔥 POSITION LOGIC
     const getStyle = (i) => {
@@ -125,6 +161,11 @@ const MediaDetails = () => {
         };
     };
 
+    // ❌ LOADING / NO DATA
+    if (!media) {
+        return <div style={{ color: "#fff", textAlign: "center" }}>Loading...</div>;
+    }
+
     return (
         <Box
             ref={containerRef}
@@ -135,58 +176,47 @@ const MediaDetails = () => {
                 justifyContent: "center",
                 background:
                     "linear-gradient(135deg, #313698, #572578, #225a7a)",
-                p: {xs: 1, md: 3},
+                p: { xs: 1, md: 3 },
             }}
         >
             <Box
                 sx={{
                     width: "100%",
                     maxWidth: "1200px",
-
                     borderRadius: "30px",
-                    p: {xs:2, md: 6},
+                    p: { xs: 2, md: 6 },
                     background:
                         "linear-gradient(135deg, rgba(28, 28, 58, 0.9), rgba(10,10,20,0.95))",
                     color: "#fff",
                     display: "flex",
-                    flexDirection: {xs: "column", md: "row"},
+                    flexDirection: { xs: "column", md: "row" },
                     justifyContent: "center",
-                    height: {xs: "800px", md: "400px"},
+                    height: { xs: "800px", md: "400px" },
                     gap: 4,
                     position: "relative",
                     overflow: "hidden",
-                    perspective: "1200px", // 🔥 3D DEPTH
+                    perspective: "1200px",
                     alignItems: "center"
-
                 }}
             >
                 {/* LEFT */}
-                <Box className="left-content" sx={{
-                    flex: 1, position: "relative",
-                    zIndex: 10
-                }}>
-
+                <Box className="left-content" sx={{ flex: 1, position: "relative", zIndex: 10 }}>
 
                     <Typography
                         variant="h2"
-                        sx={{ fontWeight: "bold", mt: {xs:0, md:2} , fontSize: {xs: "1.6rem", sm: "2.5rem", md: "3rem"}}}
+                        sx={{ fontWeight: "bold", mt: { xs: 0, md: 2 }, fontSize: { xs: "1.6rem", sm: "2.5rem", md: "3rem" } }}
                     >
-                        Media Details <br /> Title
+                        {media.title}
                     </Typography>
 
-                    <Typography sx={{ mt: {xs: 2, md: 3}, opacity: 0.9 , color: "#ffffff"}}>
-                        Loree ipsum dolor sit amet, consectetur adipiscing elit. Loree ipsum dolor sit amet,
-                        consectetur adipiscing elit.Loree ipsum dolor sit amet, consectetur adipiscing elit.
-                        Loree ipsum dolor sit amet, consectetur adipiscing elit. Loree ipsum dolor sit amet,
-                        consectetur adipiscing elit. Loree ipsum dolor sit amet,
-                        consectetur adipiscing elit.Loree ipsum dolor sit amet, consectetur adipiscing elit.
-                        Loree ipsum dolor sit amet, consectetur adipiscing elit.
+                    <Typography sx={{ mt: { xs: 2, md: 3 }, opacity: 0.9, color: "#ffffff" }}>
+                        {media.description}
                     </Typography>
 
                     <Button
                         onClick={() => navigate("/home", { state: { scrollTo: "media" } })}
                         sx={{
-                            mt: {xs: 1, md: 6},
+                            mt: { xs: 1, md: 6 },
                             borderRadius: "30px",
                             background: "rgba(255,255,255,0.1)",
                             color: "#fff",
@@ -211,14 +241,13 @@ const MediaDetails = () => {
                         alignItems: "center",
                         justifyContent: "center",
                         zIndex: 1,
-                        
                     }}
                 >
                     {images.map((img, i) => (
                         <motion.img
                             key={i}
                             src={img}
-                            drag="x" // 🔥 DRAG ENABLE
+                            drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             onDragEnd={(e, info) => {
                                 if (info.offset.x < -50) nextSlide();
@@ -238,7 +267,6 @@ const MediaDetails = () => {
                         />
                     ))}
 
-                    {/* BUTTONS */}
                     <IconButton
                         onClick={prevSlide}
                         sx={{ position: "absolute", left: "-40px", color: "#fff" }}
@@ -263,7 +291,7 @@ const MediaDetails = () => {
                         opacity: 0.9,
                     }}
                 >
-                    January 15, 2024
+                    {media.date}
                 </Typography>
             </Box>
         </Box>

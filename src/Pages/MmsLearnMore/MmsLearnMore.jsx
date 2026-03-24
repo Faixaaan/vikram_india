@@ -77,7 +77,7 @@ const MmsLearnMore = () => {
             <Typography sx={{ color: "#fff", fontSize: "14px" }}>
               <Typography
                 component={Link}
-                to="/"
+                to="/home"
                 underline="none"
                 sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
               >

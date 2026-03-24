@@ -24,7 +24,7 @@ const OurClient = () => {
   }, []);
 
   const handleComingsoon = () => {
-    navigatee("/page-coming-soon");
+    navigatee("/about/clientele");
   };
 
   // duplicate for infinite loop

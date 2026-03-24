@@ -49,6 +49,7 @@ const EnquiryForm = ({ open, onClose }) => {
     tonnage: "",
     type: "",
     name: "",
+      contact_person: "",  
     email: "",
     number: "",
   });
@@ -95,6 +96,7 @@ const EnquiryForm = ({ open, onClose }) => {
         tonnage: "",
         type: "",
         name: "",
+        contact_person: "",
         email: "",
         number: "",
       });
@@ -190,12 +192,12 @@ const EnquiryForm = ({ open, onClose }) => {
           </Grid>
           {/* Contact Person */}
           <Grid item size={{ xs: 12, sm: 12 }}>
-            <TextField fullWidth label="Contact Person Name" name="name"
-              value={formData.name}
+            <TextField fullWidth label="Contact Person Name" name="contact_person"
+              value={formData.contact_person}
               onChange={handleChange}
               size="small"
-              error={!!errors.name}
-              helperText={errors.name?.[0]} />
+              error={!!errors.contact_person}
+              helperText={errors.contact_person?.[0]} />
           </Grid>
 
           {/* Email */}

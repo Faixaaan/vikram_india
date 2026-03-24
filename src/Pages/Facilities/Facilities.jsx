@@ -56,7 +56,7 @@ const Facilities = () => {
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Facilities</Typography>
@@ -182,6 +182,16 @@ const Facilities = () => {
                                 <Box sx={{ mt: 4 }}>
 
                                     <Grid container spacing={2}>
+                                         <Typography
+                                                sx={{
+                                                    fontSize: "18px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    fontWeight: "500"
+                                                }}
+                                            >
+                                                {data?.accordion1_title2}
+                                            </Typography>
                                         <Grid item size={{ xs: 12, md: 5 }}>
                                             <iframe src={data?.accordion1_link2} width="100%" height="300" style={{ border: "0" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </Grid>
@@ -196,16 +206,7 @@ const Facilities = () => {
                                             >
                                                 {data?.accordion1_desc2}
                                             </Typography>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: "20px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    fontWeight: "600"
-                                                }}
-                                            >
-                                                {data?.accordion1_title2}
-                                            </Typography>
+                                           
                                         </Grid>
 
 

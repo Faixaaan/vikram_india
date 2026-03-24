@@ -94,7 +94,7 @@ const Product = () => {
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>

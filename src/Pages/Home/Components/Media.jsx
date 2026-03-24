@@ -25,11 +25,9 @@ const StackedCard = ({ card, index }) => {
   const navigate = useNavigate();
 
 
-  const handleClick = () => {
-    navigate("/media/details", {
-      state: { fromMedia: true }   // 🔥 IMPORTANT
-    });
-  };
+const handleClick = () => {
+  navigate(`/media/details/${card.id}`);
+};
 
 
 

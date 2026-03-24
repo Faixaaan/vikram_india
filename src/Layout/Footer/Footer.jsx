@@ -42,7 +42,7 @@ const Footer = () => {
         { label: "Home", path: "/home" },
         { label: "Product and Services", path: "/products/processing-card" },
         { label: "Manufacturing Facilities", path: "/facilities" },
-        { label: "CSR", path: "/csr" },
+        // { label: "CSR", path: "/csr" },
         { label: "Media", path: "/media/news" },
         { label: "Blog", path: "/blogs" },
         { label: "Career", path: "/careers/working-with-us" },

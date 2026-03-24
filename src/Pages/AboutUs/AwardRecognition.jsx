@@ -146,6 +146,8 @@ const AwardRecognition = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isVerySmall = useMediaQuery("(max-width:420px)");
+
 
 
     return (
@@ -153,7 +155,7 @@ const AwardRecognition = () => {
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
-                    <MLink component={Link} to="/" underline="hover" color="inherit">
+                    <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
                     <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
@@ -276,7 +278,11 @@ const AwardRecognition = () => {
                                         .map((item, index) => (
                                             <Grid
                                                 item
-                                                size={{ xs: 6, sm: 4, md: 3 }}
+                                                size={{
+                                                    xs: isVerySmall ? 12 : 6, // 🔥 main logic
+                                                    sm: 4,
+                                                    md: 3
+                                                }}
                                                 key={index}
                                                 sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                             >
@@ -353,7 +359,11 @@ const AwardRecognition = () => {
                                             .map((item, index) => (
                                                 <Grid
                                                     item
-                                                    size={{ xs: 6, sm: 4, md: 3 }}
+                                                    size={{
+                                                        xs: isVerySmall ? 12 : 6, // 🔥 main logic
+                                                        sm: 4,
+                                                        md: 3
+                                                    }}
                                                     key={index}
                                                     sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                                                 >
