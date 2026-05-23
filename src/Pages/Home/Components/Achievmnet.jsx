@@ -35,7 +35,7 @@ const Achievmnet = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundAttachment: { xs: "scroll", md: "fixed" },
+                // backgroundAttachment: { xs: "scroll", md: "fixed" },
 
                 padding: { xs: "30px 0", sm: "40px 0", md: "80px 0 60px" },
                 borderTop: "1px solid #1E1E1E",
@@ -58,11 +58,12 @@ const Achievmnet = () => {
                         // push only on bigger screens
                         mr: { xs: 0, md: "-70px", lg: "-80px", xl: "-130px" },
                         background: {
-                            xs: "linear-gradient(180deg, #00743a 0%, #276f9e 100%)", // mobile (full background)
-                            sm: "linear-gradient(140deg,  #00743a 70%, #276f9e 100%)", // tablet
-                            md: "linear-gradient(100deg, #ffffff00, #00743a22, #00743a, #176ba3)", // desktop
-                            lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #006030, #176ba3)", // large
+                            xs: "linear-gradient(180deg, #e9e9e9 0%, #323232 100%)", // mobile (full background)
+                            sm: "linear-gradient(140deg,  #282828 70%, #282828 100%)", // tablet
+                            md: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // desktop
+                            lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // large
                         },
+                       
 
                         borderRadius: { xs: "20px", md: "32px" },
                         p: { xs: 2, sm: 3, md: 4 },
@@ -82,7 +83,7 @@ const Achievmnet = () => {
                             p: { xs: "20px", sm: "24px", md: "40px" },
                             borderRadius: "24px",
 
-                            background: "rgba(255,255,255,0.15)",
+                            background: "linear-gradient(180deg, #00743a 0%, #276f9e 100%)",
                             backdropFilter: "blur(16px)",
                             WebkitBackdropFilter: "blur(16px)",
 

@@ -80,6 +80,11 @@ import Landing from "./Pages/Landing/Landing";
 import AllNotice from "./Pages/Home/Components/AllNotice";
 import MediaDetails from "./Pages/Home/Components/MediaDetails";
 import SuccessPage from "./Pages/Sucess/SuccessPage";
+import AcoustoScan from "./Pages/Acoustoscan/AcoustoScan";
+import India from "./Pages/Acoustoscan/locations/India";
+import Colombia from "./Pages/Acoustoscan/locations/Colombia";
+import Australia from "./Pages/Acoustoscan/locations/Australia";
+import TowerLineTransmission from "./Pages/Tlt/TowerLineTransmission";
 
 
 function App() {
@@ -214,6 +219,7 @@ function App() {
           {/* <Route path="/csr" element={<CSR />} /> */}
           <Route path="/products/hot-dip" element={<HotDip />} />
           <Route path="/products/mms-learnMore" element={<MmsLearnMore />} />
+          <Route path="/products/towerline-transmission" element={<TowerLineTransmission />} />
           <Route path="/products/hdp-learnMore" element={<HdpLearnMore />} />
           <Route path="/products/introduction" element={<HotDipIntroduction />} />
           <Route path="/products/service-capabilities" element={<ServiceCapabilities />} />
@@ -227,6 +233,11 @@ function App() {
           <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
           <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
           <Route path="/thankyou-page" element={<SuccessPage />} />
+          <Route path="/acousto-scan" element={<AcoustoScan />} />
+
+          <Route path="/acousto/india" element={<India />} />
+          <Route path="/acousto/colombia" element={<Colombia />} />
+          <Route path="/acousto/australia" element={<Australia />} />
 
         </Route>
       </Routes>

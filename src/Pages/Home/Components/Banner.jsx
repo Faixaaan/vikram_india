@@ -89,7 +89,7 @@ const Banner = () => {
       case 3:
         return "/products/processing-card";
       default:
-        return "/products";
+        return "/products/towerline-transmission";
     }
   };
 

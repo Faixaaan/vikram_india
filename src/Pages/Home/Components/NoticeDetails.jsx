@@ -45,6 +45,18 @@ const NoticeDetails = () => {
         return <Typography>No Data Found</Typography>;
     }
 
+    const formatDate = (dateString) => {
+        if (!dateString) return "";
+
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString("en-US", {
+            month: "2-digit",
+            day: "2-digit",
+            year: "numeric",
+        });
+    };
+
     return (
         <Box
             sx={{
@@ -107,7 +119,7 @@ const NoticeDetails = () => {
                 >
                     <span>Back to Home</span>
                 </Button>
-               
+
 
                 <Button
                     variant="contained"
@@ -205,7 +217,7 @@ const NoticeDetails = () => {
                             }}
                         >
                             <Typography sx={{ fontWeight: 600 }}>
-                                Date: {noticeDetails?.date}
+                                Date: {formatDate(noticeDetails?.date)}
                             </Typography>
                         </Box>
 

@@ -73,6 +73,7 @@ const Footer = () => {
                                 alignItems: { xs: "flex-start", md: "center" },
                                 justifyContent: { xs: "space-between", md: "center" },
                                 textAlign: { xs: "left", md: "center" },
+                              
                             }}
                         >
                             <Box
@@ -80,7 +81,7 @@ const Footer = () => {
                                 src={data.footer_logo}
                                 alt="vikram india"
                                 sx={{
-                                    width: { xs: "180px", md: "200px" },
+                                    width: { xs: "160px", md: "200px" },
                                     marginBottom: { xs: "0px", md: "12px" }
                                 }}
                             />
@@ -92,12 +93,13 @@ const Footer = () => {
                                     mt: { xs: 1, md: 2 },
                                     px: { xs: 1.8, sm: 2.2, md: 2.4 },
                                     py: { xs: 0.7, sm: 0.9 },
-                                    fontSize: { xs: "16px", sm: "18px" },
+                                    fontSize: { xs: "14px", sm: "18px" },
                                     borderRadius: "8px",
                                     textTransform: "none",
                                     fontWeight: 600,
                                     display: "flex",
                                     justifyContent: "flex-start",
+                                    minWidth: "110px",
 
 
 

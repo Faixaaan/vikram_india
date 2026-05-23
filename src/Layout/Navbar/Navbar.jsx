@@ -25,7 +25,7 @@ const pages = [
   { title: "FACILITIES", link: "/facilities" },
 
   { title: "CAREERS", link: "/careers/working-with-us" },
-  { title: "Blog", link: "/blogs" },
+  { title: "BLOG", link: "/blogs" },
   { title: "CONTACT US", link: "/contact/addresses" },
 ];
 

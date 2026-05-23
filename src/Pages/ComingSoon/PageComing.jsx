@@ -26,7 +26,7 @@ const PageComing = () => {
           animation: "fadeIn 1.2s ease",
         }}
       >
-        🚧 Coming Soon
+        🚧 Project Will Launch Soon
       </Typography>
 
       <Typography
