@@ -63,7 +63,7 @@ const Achievmnet = () => {
                             md: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // desktop
                             lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // large
                         },
-                       
+
 
                         borderRadius: { xs: "20px", md: "32px" },
                         p: { xs: 2, sm: 3, md: 4 },
@@ -78,6 +78,11 @@ const Achievmnet = () => {
                                 md: "55%",
                                 lg: "45%",
                                 xl: "40%",
+                            },
+
+                            height: {
+                                xs: "auto",
+                                md: "550px", // fixed height desktop
                             },
 
                             p: { xs: "20px", sm: "24px", md: "40px" },
@@ -151,24 +156,67 @@ const Achievmnet = () => {
                             </Typography>
                         </Box>
 
+
                         {/* Description */}
-                        <Typography
+                        <Box
                             sx={{
-                                fontSize: { xs: "14px", sm: "15px", md: "18px" },
-                                color: "#eaeaea",
-                                lineHeight: 1.8,
-                                maxWidth: { xs: "100%", md: "520px" },
+                                flex: 1,
+                                maxHeight: {
+                                    xs: "120px",
+                                    sm: "150px",
+                                    md: "300px",
+                                },
+                                overflowY: "auto",
+
+                                // Firefox
+                                scrollbarWidth: "thin",
+                                scrollbarColor: "#ff9898 rgba(255,255,255,0.08)",
+
+                                // Chrome, Edge, Safari
+                                "&::-webkit-scrollbar": {
+                                    width: "8px",
+                                },
+
+                                "&::-webkit-scrollbar-track": {
+                                    background: "rgba(255,255,255,0.08)",
+                                    borderRadius: "20px",
+                                    margin: "6px 0",
+                                },
+
+                                "&::-webkit-scrollbar-thumb": {
+                                    background:
+                                        "linear-gradient(180deg, #ff9898, #dc301d)",
+                                    borderRadius: "20px",
+                                    border: "2px solid transparent",
+                                    backgroundClip: "padding-box",
+                                    transition: "all .3s ease",
+                                },
+
+                                "&::-webkit-scrollbar-thumb:hover": {
+                                    background:
+                                        "linear-gradient(180deg, #ffb3b3, #ff4d4d)",
+                                },
                             }}
                         >
-                            {data?.sec4description}
-                        </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: { xs: "14px", sm: "15px", md: "18px" },
+                                    color: "#eaeaea",
+                                    lineHeight: 1.8,
+                                    maxWidth: { xs: "100%", md: "520px" },
+                                    pr: 1, // text scrollbar-er sathe lege na thakar jonno
+                                }}
+                            >
+                                {data?.sec4description}
+                            </Typography>
+                        </Box>
 
                         {/* Button */}
                         <Button
                             variant="contained"
                             sx={{
                                 alignSelf: { xs: "stretch", sm: "flex-start" },
-                                mt: 2,
+                                mt: "auto",
                                 px: { xs: 1.8, sm: 2.2, md: 2.4 },
                                 py: { xs: 0.7, sm: 0.8 },
                                 fontSize: { xs: "16px", sm: "17px" },
