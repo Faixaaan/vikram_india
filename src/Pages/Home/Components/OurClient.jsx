@@ -28,7 +28,12 @@ const OurClient = () => {
   };
 
   // duplicate for infinite loop
-  const loopData = [...data, ...data];
+  // split data into 2 rows
+  const firstRow = data.slice(0, Math.ceil(data.length / 2));
+  const secondRow = data.slice(Math.ceil(data.length / 2));
+
+  const loopFirst = [...firstRow, ...firstRow];
+  const loopSecond = [...secondRow, ...secondRow];
 
   return (
     <Box
@@ -90,12 +95,13 @@ const OurClient = () => {
 
 
         {/* Slider Wrapper */}
+        {/* Slider Wrapper */}
         <Box
           sx={{
             position: "relative",
             overflow: "hidden",
             borderRadius: "20px",
-            py: {xs: 1, sm: 2, md: 4},
+            py: { xs: 2, sm: 3, md: 5 },
             mt: { xs: "60px", md: "120px" },
             background: "rgba(255,255,255,0.6)",
             backdropFilter: "blur(10px)",
@@ -114,31 +120,75 @@ const OurClient = () => {
             }}
           />
 
-          {/* Moving Track */}
+          {/* First Line (Right → Left) */}
           <Box
-            className="client-track"
             sx={{
               display: "flex",
               width: "max-content",
-              animation: "scroll 35s linear infinite",
+              animation: "scrollLeft 200s linear infinite",
+              mb: 4,
+
               "&:hover": {
                 animationPlayState: "paused",
               },
             }}
           >
-            {loopData.map((logo, index) => (
+            {loopFirst.map((logo, index) => (
               <Box
                 key={index}
                 sx={{
                   minWidth: { xs: 150, sm: 200 },
-                  mx: { md: "10px" },
+                  mx: 2,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
 
-                  transition: "all .3s ease",
-                  "&:hover": {
+                  transition: ".3s",
 
+                  "&:hover": {
+                    transform: "scale(1.08)",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={logo?.image}
+                  alt="client"
+                  sx={{
+                    maxWidth: 140,
+                    maxHeight: 80,
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+
+          {/* Second Line (Left → Right) */}
+          <Box
+            sx={{
+              display: "flex",
+              width: "max-content",
+              animation: "scrollRight 200s linear infinite",
+
+              "&:hover": {
+                animationPlayState: "paused",
+              },
+            }}
+          >
+            {loopSecond.map((logo, index) => (
+              <Box
+                key={index}
+                sx={{
+                  minWidth: { xs: 150, sm: 200 },
+                  mx: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                  transition: ".3s",
+
+                  "&:hover": {
                     transform: "scale(1.08)",
                   },
                 }}
@@ -221,11 +271,24 @@ const OurClient = () => {
       {/* Keyframes */}
       <style>
         {`
-          @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-          }
-        `}
+    @keyframes scrollLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes scrollRight {
+      from {
+        transform: translateX(-50%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  `}
       </style>
     </Box>
   );
