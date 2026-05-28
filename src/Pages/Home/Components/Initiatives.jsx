@@ -16,8 +16,6 @@ import { fetchNotices } from "../../../Redux/slices/noticeSlice";
 
 const Initiatives = () => {
 
-
-
   const [data, setdata] = useState([]);
 
   const sectionRef = useRef(null);
@@ -411,13 +409,23 @@ const Initiatives = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: { xs: 1, md: 2 },
-                  // controll speed
-                  animation: "scrollUp 10s linear infinite",
+
+                  // ✅ CONDITION
+                  animation:
+                    notices.length > 4
+                      ? "scrollUp 10s linear infinite"
+                      : "none",
+
                   willChange: "transform",
 
                   "@keyframes scrollUp": {
-                    "0%": { transform: "translateY(0%)" },
-                    "100%": { transform: "translateY(-50%)" },
+                    "0%": {
+                      transform: "translateY(0%)",
+                    },
+
+                    "100%": {
+                      transform: "translateY(-50%)",
+                    },
                   },
                 }}
               >

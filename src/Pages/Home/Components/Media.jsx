@@ -1,210 +1,36 @@
+import React, { useEffect, useRef, useState } from "react";
 
-
-
-import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
-  Card,
-  CardContent,
   Button,
   Container,
 } from "@mui/material";
-import { motion, useScroll, useTransform } from "framer-motion";
+
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+
 import { useNavigate } from "react-router-dom";
 
-import MediaBanner from "../../../Assets/MediaBanner.jpg";
+
+
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 
-const MotionCard = motion(Card);
+const MotionBox = motion(Box);
 
+const Media = () => {
+  const [mediaData, setMediaData] = useState([]);
+  const [heading, setHeading] = useState({});
 
-const StackedCard = ({ card, index }) => {
-  const { scrollYProgress } = useScroll();
   const navigate = useNavigate();
 
+  const sectionRef = useRef(null);
 
-const handleClick = () => {
-  navigate(`/media/details/${card.id}`);
-};
-
-
-
-
-  const start = index * 0.15;
-  const end = start + 0.25;
-
-  const y = useTransform(scrollYProgress, [start, end], [100, 0]);
-  const scale = useTransform(scrollYProgress, [start, end], [0.92, 1]);
-  const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-
-  return (
-    <MotionCard
-      style={{
-        y,
-        scale,
-        opacity,
-        position: "sticky",
-        top: window.innerWidth < 900 ? 80 : 120,
-        zIndex: 20 + index,
-      }}
-      sx={{
-        mb: { xs: 4, md: 6 },
-
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        borderRadius: "22px",
-        overflow: "hidden",
-
-
-        background: "linear-gradient(145deg, #149a57, #1a1a1a)",
-        border: "1px solid rgb(255, 255, 255)",
-        // boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
-        transition: "all 0.4s ease",
-
-        "&:hover": {
-          transform: "translateY(-6px)",
-          // boxShadow: "0 35px 70px rgba(0,0,0,0.8)",
-          border: "1px solid #1baa6366",
-        }
-
-      }}
-    >
-      {/* IMAGE */}
-      <Box
-        sx={{
-          width: { xs: "100%", md: "45%" },
-          height: { xs: 200, sm: 230, md: "auto" },
-        }}
-      >
-        <img
-          src={card.image}
-          alt={card.title}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </Box>
-
-      {/* CONTENT */}
-      <Box
-        sx={{
-          width: { xs: "100%", md: "55%" },
-          p: { xs: 2, md: 4 },
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <CardContent sx={{ p: 0 }}>
-          <Typography
-            sx={{
-              fontSize: "0.75rem",
-              color: "#ffffff",
-              letterSpacing: "1.5px",
-              fontWeight: 600,
-              mb: 1,
-              textTransform: "uppercase",
-            }}
-          >
-            {card.date}
-          </Typography>
-
-          <Typography
-            sx={{
-              fontSize: { xs: "1.3rem", md: "1.6rem" },
-              fontWeight: 800,
-              mb: 2,
-              lineHeight: 1.3,
-              background: "linear-gradient(70deg, #ffffff, #00c3ff)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              display: "inline-block",
-              
-            }}
-          >
-            {card.title}
-          </Typography>
-
-          <Typography
-            sx={{
-              color: "rgb(255, 255, 255)",
-              lineHeight: 1.7,
-              fontSize: "0.95rem",
-            }}
-          >
-            {card.description}
-          </Typography>
-        </CardContent>
-
-        <Box sx={{ display: "flex", justifyContent: "flex-start", mt: { xs: 1.8, md: 4 } }}>
-          <Button
-            variant="contained"
-            sx={{
-              alignSelf: { xs: "stretch", sm: "flex-start" },
-              px: { xs: 1.8, sm: 2.2, md: 2.4 },
-              py: { xs: 0.7, sm: 0.8 },
-              fontSize: { xs: "16px", sm: "17px" },
-              borderRadius: "30px",
-              textTransform: "none",
-              fontWeight: 600,
-
-              position: "relative",
-              overflow: "hidden",
-
-              background: "#971d05",
-
-              // text always on top
-              zIndex: 1,
-
-              "& span": {
-                position: "relative",
-                zIndex: 2,
-              },
-
-              // center burst layer
-              "&:before": {
-                content: '""',
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                width: 0,
-                height: 0,
-                background: "#000",
-                borderRadius: "50%",
-                transform: "translate(-12%, -50%)",
-                transition: "all 1s ease",
-                zIndex: 0,
-              },
-
-              "&:hover:before": {
-                width: "300%",
-                height: "300%",
-              },
-
-              "&:hover": {
-                background: "#971d05",
-              },
-            }}
-            onClick={handleClick}
-          >
-            <span>Know More</span>
-          </Button>
-        </Box>
-      </Box>
-    </MotionCard>
-  );
-};
-
-/* ===================== MAIN MEDIA ===================== */
-const Media = () => {
-
-  const [mediaData, setMediaData] = useState([]);
-  const [heading, setHeading] = useState([]);
-
+  /* ================= FETCH ================= */
 
   const fetchMediaData = async () => {
     try {
@@ -212,9 +38,11 @@ const Media = () => {
         endpoints.homeMedia.getHomeMediaData
       );
 
-      const dataResHeading = await axiosInstance.get(endpoints.HomeCms.getHomeCms)
-      setHeading(dataResHeading?.data?.data)
+      const headingRes = await axiosInstance.get(
+        endpoints.HomeCms.getHomeCms
+      );
 
+      setHeading(headingRes?.data?.data || {});
       setMediaData(res?.data?.data || []);
     } catch (err) {
       console.log(err);
@@ -225,80 +53,341 @@ const Media = () => {
     fetchMediaData();
   }, []);
 
+  /* ================= SCROLL ================= */
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // smoother horizontal scroll
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "-40%"]
+  );
 
   return (
     <Box
-      id="media-section"
+      ref={sectionRef}
       sx={{
-        width: "100%",
         position: "relative",
-        backgroundImage: `url(${MediaBanner})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        py: { xs: 6, md: 10 },
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          inset: 0,
-          background:
-           "linear-gradient(180deg, #00572b6e 0%, rgba(57, 57, 57, 0.92) 100%)",
-          zIndex: 0,
+
+        // IMPORTANT
+        height: {
+          xs: "180vh",
+          md: "220vh",
         },
+   
+
+        background: "#071019",
+
+        overflow: "clip",
       }}
     >
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            mb: "50px",
-          }}
-        >
-          <Box sx={{ textAlign: "center" }}>
+      {/* BG */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background: "#fff",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+
+        }}
+      />
+
+      {/* ================= STICKY ================= */}
+
+      <Box
+        sx={{
+          position: "sticky",
+          top: 0,
+
+          height: "100vh",
+
+          overflow: "hidden",
+
+          display: "flex",
+          alignItems: "center",
+
+          zIndex: 2,
+               p: "100px 10px",
+        }}
+      >
+        <Container maxWidth={false}>
+          {/* ================= HEADER ================= */}
+
+
+          <Box
+            sx={{
+              mb: { xs: 5, md: 8 },
+
+              display: "flex",
+              flexDirection: "column",
+
+              justifyContent: "center",
+              alignItems: "center",
+
+              textAlign: "center",
+            }}
+          >
+            <Box maxWidth="850px">
+              <Typography
+                sx={{
+                  color: "#111827",
+
+                  fontWeight: 800,
+
+                  fontSize: {
+                    xs: "2.2rem",
+                    md: "4.5rem",
+                  },
+
+                  lineHeight: 1.05,
+
+                  letterSpacing: "-2px",
+                }}
+              >
+                {heading?.media_head}
+              </Typography>
+
+              <Box
+                sx={{
+                  width: 120,
+                  height: 5,
+
+                  borderRadius: "20px",
+
+                  mt: 2,
+                  mx: "auto",
+
+                  background:
+                    "linear-gradient(90deg,#1BAA63,#276f9e)",
+                }}
+              />
+
+              <Typography
+                sx={{
+                  mt: 3,
+
+                  color: "#6b7280",
+
+                  lineHeight: 1.9,
+
+                  maxWidth: "720px",
+
+                  mx: "auto",
+
+                  fontSize: {
+                    xs: "14px",
+                    md: "18px",
+                  },
+                }}
+              >
+                Discover premium events, industrial
+                achievements, media coverage and featured
+                stories in an immersive modern experience.
+              </Typography>
+            </Box>
+
             <Typography
-              variant="h2"
               sx={{
-                fontSize: { xs: "1.9rem", md: "2.6rem" },
-                fontWeight: 700,
-                letterSpacing: "1px",
-                fontFamily: "'Poppins', 'Roboto', sans-serif",
-                background: "linear-gradient(90deg, #ffffff, #ffffff)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                position: "relative",
-                display: "inline-block",
+                color: "#9ca3af",
+
+                letterSpacing: "4px",
+
+                textTransform: "uppercase",
+
+                fontSize: "13px",
+
+                mt: 4,
               }}
             >
-              {heading?.media_head}
+              Scroll →
             </Typography>
-
-            {/* Subtle underline accent */}
-            <Box
-              sx={{
-                width: 80,
-                height: 4,
-                margin: "14px auto 0",
-                borderRadius: "10px",
-                background: "linear-gradient(90deg, #1BAA63, #276f9e)",
-              }}
-            />
           </Box>
-        </Box>
 
-        {/* STACKED SCROLL SECTION */}
-        <Box
-          sx={{
-            position: "relative",
-            pb: { xs: 2 },
-          }}
-        >
-          {mediaData.map((card, index) => (
-            <StackedCard key={card.id} card={card} index={index} />
-          ))}
-        </Box>
+          {/* ================= SLIDER ================= */}
 
-      </Container>
+          <MotionBox
+            style={{ x }}
+            sx={{
+              display: "flex",
+
+              gap: {
+                xs: 3,
+                md: 4,
+              },
+
+              width: "max-content",
+            }}
+          >
+            {mediaData.map((card, index) => (
+              <MotionBox
+                key={card.id}
+                whileHover={{
+                  y: -8,
+                }}
+                transition={{
+                  duration: 0.35,
+                }}
+                sx={{
+                  width: {
+                    xs: "86vw",
+                    sm: "420px",
+                    md: "480px",
+                  },
+
+                  borderRadius: "32px",
+
+                  overflow: "hidden",
+
+                  flexShrink: 0,
+
+                  background:
+                    "rgb(0, 0, 0)",
+
+                  backdropFilter: "blur(14px)",
+
+                  border:
+                    "1px solid rgba(255,255,255,0.08)",
+
+                  boxShadow:
+                    "0 20px 60px rgba(0,0,0,.45)",
+                }}
+              >
+                {/* IMAGE */}
+                <Box
+                  sx={{
+                    height: {
+                      xs: 240,
+                      md: 300,
+                    },
+
+                    overflow: "hidden",
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={card.image}
+                    alt={card.title}
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+
+                      objectFit: "cover",
+
+                      transition: ".8s ease",
+
+                      "&:hover": {
+                        transform: "scale(1.08)",
+                      },
+                    }}
+                  />
+                </Box>
+
+                {/* CONTENT */}
+                <Box
+                  sx={{
+                    p: {
+                      xs: 2.5,
+                      md: 4,
+                    },
+                  }}
+                >
+                  {/* DATE */}
+                  <Typography
+                    sx={{
+                      color: "#1BAA63",
+
+                      fontWeight: 700,
+
+                      fontSize: "13px",
+
+                      letterSpacing: "2px",
+
+                      mb: 2,
+                    }}
+                  >
+                    {card.date}
+                  </Typography>
+
+                  {/* TITLE */}
+                  <Typography
+                    sx={{
+                      color: "#fff",
+
+                      fontWeight: 800,
+
+                      lineHeight: 1.2,
+
+                      fontSize: {
+                        xs: "1.4rem",
+                        md: "2rem",
+                      },
+
+                      mb: 2,
+                    }}
+                  >
+                    {card.title}
+                  </Typography>
+
+                  {/* DESC */}
+                  <Typography
+                    sx={{
+                      color: "rgba(255,255,255,.68)",
+
+                      lineHeight: 1.9,
+
+                      fontSize: {
+                        xs: "14px",
+                        md: "15px",
+                      },
+
+                      mb: 4,
+                    }}
+                  >
+                    {card.description}
+                  </Typography>
+
+                  {/* BUTTON */}
+                  <Button
+                    onClick={() =>
+                      navigate(
+                        `/media/details/${card.id}`
+                      )
+                    }
+                    sx={{
+                      px: 4,
+                      py: 1.3,
+
+                      borderRadius: "50px",
+
+                      textTransform: "none",
+
+                      fontWeight: 700,
+
+                      color: "#fff",
+
+                      background:
+                        "linear-gradient(90deg,#1BAA63,#276f9e)",
+
+                      "&:hover": {
+                        background:
+                          "linear-gradient(90deg,#276f9e,#1BAA63)",
+                      },
+                    }}
+                  >
+                    Explore More
+                  </Button>
+                </Box>
+              </MotionBox>
+            ))}
+          </MotionBox>
+        </Container>
+      </Box>
     </Box>
   );
 };

@@ -37,6 +37,7 @@ const OurClient = () => {
 
   return (
     <Box
+      id="our-client-section"
       sx={{
         width: "100%",
         py: { md: 8, xs: 5 },
@@ -57,7 +58,7 @@ const OurClient = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mb: "50px",
+            mb: "10px",
           }}
         >
           <Box sx={{ textAlign: "center" }}>
@@ -78,7 +79,7 @@ const OurClient = () => {
               Our Trusted Clients
             </Typography>
 
-            {/* Subtle underline accent */}
+           
             <Box
               sx={{
                 width: 80,
@@ -102,7 +103,7 @@ const OurClient = () => {
             overflow: "hidden",
             borderRadius: "20px",
             py: { xs: 2, sm: 3, md: 5 },
-            mt: { xs: "60px", md: "120px" },
+            mt: { xs: "60px", md: "80px" },
             background: "rgba(255,255,255,0.6)",
             backdropFilter: "blur(10px)",
             boxShadow: "0 20px 50px rgba(0,0,0,.08)",

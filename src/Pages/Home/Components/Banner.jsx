@@ -9,6 +9,7 @@ import { endpoints } from "../../../Api/EndPoints/endpoints";
 import BackgroundImage from "../../../images/bannerimage/hero2.png";
 import SettingImage from "../../../images/bannerimage/Setting.png";
 import vikramindialogo from "../../../images/bannerimage/vikramindialogo.png";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -152,6 +153,26 @@ const Banner = () => {
   }, []);
 
 
+
+  const handleScrollToClients = () => {
+    const section = document.getElementById("our-client-section");
+
+    if (section) {
+      const yOffset = -70;
+
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
+
+
   return (
     <Box
       ref={containerRef}
@@ -189,6 +210,236 @@ const Banner = () => {
           },
         }}
       >
+
+        {/* ================= SCROLL DOWN BUTTON ================= */}
+        {/* ================= SCROLL DOWN BUTTON ================= */}
+
+        <Box
+
+          sx={{
+            position: "absolute",
+            bottom: { xs: 20, md: 30 },
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 30,
+
+
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+
+            transition: "all .4s ease",
+
+            // "&:hover .scroll-text": {
+            //   opacity: 1,
+            //   transform: "translateY(0px)",
+            // },
+
+            "&:hover .mouse-wrapper": {
+              transform: "scale(1.08)",
+              boxShadow:
+                "0 0 25px rgba(255,255,255,0.35), 0 0 45px rgba(0,255,255,0.25)",
+            },
+
+            "@keyframes wheelMove": {
+              "0%": {
+                opacity: 1,
+                transform: "translateY(0px)",
+              },
+
+              "100%": {
+                opacity: 0,
+                transform: "translateY(12px)",
+              },
+            },
+
+            "@keyframes glowPulse": {
+              "0%": {
+                boxShadow:
+                  "0 0 15px rgba(255,255,255,0.2), 0 0 25px rgba(0,255,255,0.12)",
+              },
+
+              "50%": {
+                boxShadow:
+                  "0 0 30px rgba(255,255,255,0.35), 0 0 60px rgba(0,255,255,0.25)",
+              },
+
+              "100%": {
+                boxShadow:
+                  "0 0 15px rgba(255,255,255,0.2), 0 0 25px rgba(0,255,255,0.12)",
+              },
+            },
+
+            "@keyframes arrowFloat": {
+              "0%": {
+                opacity: 0,
+                transform: "translateY(-6px) scale(0.9)",
+              },
+
+              "50%": {
+                opacity: 1,
+                transform: "translateY(0px) scale(1)",
+              },
+
+              "100%": {
+                opacity: 0,
+                transform: "translateY(10px) scale(1.05)",
+              },
+            },
+          }}
+        >
+
+
+          {/* ================= MOUSE ================= */}
+
+          <Box
+            className="mouse-wrapper"
+            sx={{
+              width: 42,
+              height: 72,
+
+              borderRadius: "30px",
+              border: "3px solid #00ff0d",
+
+              position: "relative",
+
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05))",
+
+              backdropFilter: "blur(12px)",
+
+              animation: "glowPulse 3s ease-in-out infinite",
+
+              transition: ".4s ease",
+              cursor: "pointer",
+
+              "&:hover": {
+                transform: "scale(1.08)",
+                boxShadow:
+                  "0 0 25px rgba(255,255,255,0.35), 0 0 45px rgba(0,255,255,0.25)",
+              },
+
+              "&:hover .scroll-text": {
+                opacity: 1,
+                transform: "translateY(0px)",
+              },
+            }}
+            onClick={handleScrollToClients}
+          >
+            {/* INNER WHEEL */}
+
+            <Box
+              sx={{
+                width: 6,
+                height: 14,
+
+                borderRadius: "10px",
+
+                background:
+                  "linear-gradient(180deg, #ffffff, rgba(255,255,255,0.25))",
+
+                mt: 1.1,
+
+                animation: "wheelMove 1.5s infinite",
+              }}
+
+            />
+
+            <Typography
+              className="scroll-text"
+              sx={{
+                position: "absolute",
+                top: -35,
+
+                color: "#fff",
+                fontSize: "16px",
+                fontWeight: 600,
+                letterSpacing: "3px",
+
+                opacity: 0,
+                transform: "translateY(10px)",
+
+                transition: ".4s ease",
+
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+
+                textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+              }}
+            >
+              Scroll Down
+            </Typography>
+
+            {/* SOFT OUTER GLOW */}
+
+            <Box
+              sx={{
+                position: "absolute",
+                inset: -7,
+
+                borderRadius: "40px",
+
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            />
+
+            {/* LINE */}
+
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: -42,
+
+                width: "2px",
+                height: 34,
+
+                background:
+                  "linear-gradient(to bottom, rgba(255,255,255,0.95), transparent)",
+              }}
+            />
+          </Box>
+
+          {/* ================= FUTURISTIC ARROWS ================= */}
+
+          <Box
+            sx={{
+              mt: 1.5,
+
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+
+              lineHeight: 0.7,
+            }}
+          >
+            {[0].map((item) => (
+              <KeyboardDoubleArrowDownIcon
+                key={item}
+                sx={{
+                  fontSize: 40,
+
+                  color: "#00ff0d",
+
+                  transform: "scaleX(1.4)",
+
+                  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.35))",
+
+                  animation: "arrowFloat 1.8s infinite",
+
+                  animationDelay: `${item * 0.18}s`,
+
+                  mt: "-8px",
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
 
 
         {/* CENTER LOGO */}
@@ -386,14 +637,7 @@ const Banner = () => {
                   {cards[current]?.title}
                 </Typography>
 
-                {/* <Typography
-                  sx={{
-                    fontSize: 16,
-                    opacity: 0.9,
-                  }}
-                >
-                  {data[current]?.title}
-                </Typography> */}
+
               </Box>
 
               {/* ===== Bottom Button ===== */}
@@ -517,7 +761,7 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
     <Box
       sx={{
         background:
-          "linear-gradient(145deg, rgba(0,0,0,0.9), rgba(20,40,60,0.75))",
+          "linear-gradient(125deg, #14b91d , #1171b0)",
         backdropFilter: "blur(18px)",
         borderRadius: "28px",
         px: 2,

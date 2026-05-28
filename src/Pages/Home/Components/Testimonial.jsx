@@ -73,7 +73,10 @@ const Testimonial = () => {
   );
 
   return (
-    <Box sx={{ pt: { xs: 8, md: 10 }, pb: { xs: 0, md: 10 }, background: "#f5f5f5" }}>
+    <Box sx={{
+      pt: { xs: 8, md: 10 }, pb: { xs: 0, md: 10 },
+      background: "radial-gradient(circle at top left, #10131a, #0f172a 40%, #111827 100%)",
+    }}>
 
       <Box
         sx={{
@@ -118,7 +121,7 @@ const Testimonial = () => {
           mx: "auto",
           px: { xs: 2, md: 6 },
           position: "relative",
-          pb: 8,
+          pb: { xs: 8, md: 0 },
         }}
       >
         <Swiper
@@ -160,7 +163,7 @@ const Testimonial = () => {
             <SwiperSlide key={index} style={{ padding: "10px 0px" }}>
 
 
-              <Card
+              {/* <Card
                 sx={{
                   height: 300,
                   borderRadius: "20px",
@@ -184,7 +187,6 @@ const Testimonial = () => {
               >
 
 
-                {/* Top */}
                 <Box>
                   <Box sx={{ display: "flex", gap: 2 }}>
                     <Avatar
@@ -221,7 +223,6 @@ const Testimonial = () => {
                   </CardContent>
                 </Box>
 
-                {/* Watch Button */}
                 <Box
                   onClick={() => {
                     setSelectedTestimonial(item);
@@ -264,6 +265,184 @@ const Testimonial = () => {
                     Watch Review
                   </Typography>
                 </Box>
+              </Card> */}
+
+              <Card
+                sx={{
+                  position: "relative",
+                  overflow: "hidden",
+                  minHeight: 360,
+                  borderRadius: "28px",
+                  p: 3,
+                  background: "#ffffff",
+                  border: "1px solid rgba(255,255,255,0.7)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  transition: "all .4s ease",
+                  boxShadow:
+                    "0 10px 40px rgba(15, 23, 42, 0.08)",
+
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: -100,
+                    right: -100,
+                    width: 280,
+                    height: 280,
+                    borderRadius: "50%",
+                    background:
+                      "linear-gradient(135deg, rgba(27,170,99,.12), rgba(39,111,158,.10))",
+                  },
+
+                  "&:hover": {
+                    transform: "translateY(-10px)",
+                    boxShadow:
+                      "0 25px 60px rgba(15,23,42,.16)",
+                  },
+                }}
+              >
+                {/* Quote */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 15,
+                    right: 15,
+                    fontSize: { xs: "100px", md: "120px" },
+                    color: "rgba(39, 110, 158, 0.19)",
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    fontFamily: "'Poppins', sans-serif",
+                    zIndex: 0,
+                    userSelect: "none",
+                    pointerEvents: "none",
+                  }}
+                >
+                  ”
+                </Box>
+
+                {/* TOP */}
+                <Box sx={{ position: "relative", zIndex: 2 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2,
+                    }}
+                  >
+                    <Avatar
+                      src={item.image}
+                      sx={{
+                        width: 70,
+                        height: 70,
+                        border: "4px solid #fff",
+                        boxShadow:
+                          "0 8px 20px rgba(0,0,0,.12)",
+                      }}
+                    />
+
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontWeight: 700,
+                          fontSize: "20px",
+                          color: "#111827",
+                          mb: 0.5,
+                        }}
+                      >
+                        {item.name}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          color: "#6b7280",
+                          fontSize: "13px",
+                          mb: 0.5,
+                        }}
+                      >
+                        Verified Client
+                      </Typography>
+
+                      {renderStars(item.rating)}
+                    </Box>
+                  </Box>
+
+                  {/* MESSAGE */}
+                  <CardContent sx={{ px: 0, pt: 3 }}>
+                    <Typography
+                      sx={{
+                        fontSize: "15px",
+                        lineHeight: 1.9,
+                        color: "#4b5563",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 5,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {item.msg}
+                    </Typography>
+                  </CardContent>
+                </Box>
+
+                {/* BUTTON */}
+                <Box
+                  onClick={() => {
+                    setSelectedTestimonial(item);
+                    setOpenModal(true);
+                  }}
+                  sx={{
+                    position: "relative",
+                    zIndex: 2,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.5,
+                    width: "190px",
+                    height: "56px",
+                    borderRadius: "50px",
+                    background:
+                      "linear-gradient(90deg, #1BAA63, #276f9e)",
+                    cursor: "pointer",
+                    px: 1,
+                    transition: "all .35s ease",
+                    boxShadow:
+                      "0 10px 20px rgba(39,111,158,.18)",
+
+                    "&:hover": {
+                      transform: "scale(1.03)",
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 42,
+                      height: 42,
+                      borderRadius: "50%",
+                      background: "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PlayArrowIcon
+                      sx={{
+                        color: "#1BAA63",
+                        fontSize: 24,
+                        ml: "2px",
+                      }}
+                    />
+                  </Box>
+
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: "15px",
+                      color: "#fff",
+                    }}
+                  >
+                    Watch Review
+                  </Typography>
+                </Box>
               </Card>
             </SwiperSlide>
           ))}
@@ -281,7 +460,15 @@ const Testimonial = () => {
             width: 45,
             height: 45,
             borderRadius: "50%",
-            background: "linear-gradient(90deg, #1fbf6f, #2574a9)",
+            background:
+              "linear-gradient(135deg, #1BAA63, #276f9e)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 8px 20px rgba(0,0,0,.25)",
+            border: "1px solid rgba(255,255,255,.1)",
+
+            "&:hover": {
+              transform: "translateY(-3px)",
+            },
 
             display: { xs: "none", md: "flex" },
             alignItems: "center",
@@ -350,43 +537,43 @@ const Testimonial = () => {
           </Typography>
 
           <Box
-  sx={{
-    position: "relative",
-    paddingTop: "56.25%",
-    borderRadius: "10px",
-    overflow: "hidden",
-    background: "#000",
-  }}
->
-  {selectedTestimonial?.video ? (
-    <video
-      src={selectedTestimonial.video}
-      controls
-      autoPlay
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }}
-    />
-  ) : (
-    <Box
-      sx={{
-        position: "absolute",
-        inset: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "#fff",
-        fontSize: "14px",
-      }}
-    >
-      No Video Available
-    </Box>
-  )}
-</Box>
+            sx={{
+              position: "relative",
+              paddingTop: "56.25%",
+              borderRadius: "10px",
+              overflow: "hidden",
+              background: "#000",
+            }}
+          >
+            {selectedTestimonial?.video ? (
+              <video
+                src={selectedTestimonial.video}
+                controls
+                autoPlay
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#fff",
+                  fontSize: "14px",
+                }}
+              >
+                No Video Available
+              </Box>
+            )}
+          </Box>
         </Box>
       </Modal>
     </Box>
