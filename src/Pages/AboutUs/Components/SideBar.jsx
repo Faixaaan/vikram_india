@@ -27,6 +27,7 @@ const leftMenu = [
     "MANUFACTURING WITH HIGH TENSILE IS PROJECT",
     "PRODUCTS",
     "SOLAR PUMPS (AC PUMPS)",
+    
 
 ];
 

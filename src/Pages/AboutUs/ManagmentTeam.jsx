@@ -24,7 +24,8 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
@@ -159,13 +160,20 @@ const ManagementTeam = () => {
                                         key={item}
                                         component={Link}
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
-                                        sx={{
+                                            sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
-                                            }
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
+                                            },
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText

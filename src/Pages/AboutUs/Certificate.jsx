@@ -39,7 +39,7 @@ const leftMenu = [
 
 
 
-const CompanyProfile = () => {
+const Certificate = () => {
 
     const [data, setData] = useState([]);
 
@@ -94,7 +94,7 @@ const CompanyProfile = () => {
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "COMPANY PROFILE";
+                                const isActive = item === "CERTIFICATES";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -131,7 +131,7 @@ const CompanyProfile = () => {
                                         key={item}
                                         component={Link}
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
-                                        sx={{
+                                            sx={{
                                             borderBottom: "1px solid #eee",
                                             background: isActive
                                                 ? "linear-gradient(125deg, #14b91d, #1171b0)"
@@ -173,127 +173,13 @@ const CompanyProfile = () => {
                         <Box>
 
 
-                            {/* profile picture box */}
-
-
-                            <Box
-                                sx={{
-                                    mt: 4,
-                                    boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                    borderRadius: "12px",
-                                    p: { xs: 2, md: 3 },
-                                    background: "#fff"
-                                }}
-                            >
-
-                                {/* ================= DESKTOP ONLY ================= */}
-                                <Box sx={{ display: { xs: "none", md: "block" } }}>
-                                    <Grid container spacing={3} alignItems="stretch">
-
-                                        {/* TEXT LEFT */}
-                                        <Grid item size={{ md: 8 }}>
-                                            <Typography
-                                                dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
-                                            />
-                                        </Grid>
-
-                                        {/* IMAGE RIGHT */}
-                                        <Grid item size={{ md: 4 }}>
-                                            <Box
-                                                component="img"
-                                                src={data?.section1_img}
-                                                sx={{
-                                                    width: "100%",
-                                                    height: "auto",
-                                                    maxHeight: "400px",
-                                                    objectFit: "cover",
-                                                    borderRadius: "10px"
-                                                }}
-                                            />
-                                        </Grid>
-
-                                    </Grid>
-                                </Box>
-
-                                {/* ================= TAB + MOBILE ONLY ================= */}
-                                <Box sx={{ display: { xs: "block", md: "none" } }}>
-
-                                    <img
-                                        src={data?.section1_img}
-                                        style={{ width: "50%", borderRadius: "8px", justifyContent: "center", display: "block", margin: "0 auto" }}
-                                    />
-
-                                    <Box
-                                        sx={{ mt: 2 }}
-                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
-                                    />
-
-                                </Box>
-
-                            </Box>
 
 
 
-
-                            <Box
-                                sx={{
-                                    mt: 4,
-                                    boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                                    borderRadius: "12px",
-                                    p: { xs: 2, md: 3 },
-                                    background: "#fff"
-                                }}
-                            >
-
-                                {/* ================= DESKTOP ONLY ================= */}
-                                <Box sx={{ display: { xs: "none", md: "block" } }}>
-                                    <Grid container spacing={3} alignItems="stretch">
-
-                                        {/* IMAGE LEFT */}
-                                        <Grid item size={{ md: 4 }}>
-                                            <Box
-                                                component="img"
-                                                src={data?.section2_img}
-                                                sx={{
-                                                    width: "100%",
-                                                    height: "auto",
-                                                    maxHeight: "400px",
-                                                    objectFit: "cover",
-                                                    borderRadius: "10px"
-                                                }}
-                                            />
-                                        </Grid>
-
-                                        {/* TEXT RIGHT */}
-                                        <Grid item size={{ md: 8 }}>
-                                            <Typography
-                                                dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
-                                            />
-                                        </Grid>
-
-                                    </Grid>
-                                </Box>
-
-                                {/* ================= TAB + MOBILE ONLY ================= */}
-                                <Box sx={{ display: { xs: "block", md: "none" } }}>
-
-                                    <img
-                                        src={data?.section2_img}
-                                        style={{ width: "50%", borderRadius: "8px", justifyContent: "center", display: "block", margin: "0 auto" }}
-                                    />
-
-                                    <Box
-                                        sx={{ mt: 2 }}
-                                        dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
-                                    />
-
-                                </Box>
-
-                            </Box>
 
                             {/* text */}
 
-                            {/* <Box sx={{ mt: 4 }}>
+                            <Box sx={{ mt: 4 }}>
 
                                 <Typography sx={{ fontSize: "18px", fontWeight: "400", fontFamily: "Roboto", lineHeight: "120%" }}
                                     dangerouslySetInnerHTML={{ __html: data?.section3_desc }}
@@ -302,11 +188,11 @@ const CompanyProfile = () => {
 
                                 </Typography>
 
-                            </Box> */}
+                            </Box>
 
                             {/* image  */}
 
-                            {/* <Grid container spacing={2} mt={6}>
+                            <Grid container spacing={2} mt={6}>
                                 <Grid size={{ xs: 12, sm: 4 }}>
                                     <Link to=''>
                                         <img src={data?.image1} alt='' style={{ width: "100%" }} />
@@ -322,7 +208,7 @@ const CompanyProfile = () => {
                                         <img src={data?.image3} alt='' style={{ width: "100%" }} />
                                     </Link>
                                 </Grid>
-                            </Grid> */}
+                            </Grid>
 
 
                         </Box>
@@ -336,4 +222,4 @@ const CompanyProfile = () => {
 
 
 
-export default CompanyProfile;
+export default Certificate;

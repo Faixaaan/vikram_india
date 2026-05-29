@@ -15,8 +15,6 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/group-profile-01.jpg'
-import group2 from '../../Assets/group-profile-02.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -29,7 +27,8 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
@@ -85,16 +84,16 @@ const Testimonials = () => {
 
     const paginatedTestimonials = testimonials.slice(startIndex, endIndex);
     const [data, setData] = useState([]);
-        
-            const fetchData = async () => {
-                try {
-                    const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
-                    setData(res?.data?.data)
-                }
-                catch (err) {
-                    console.log(err)
-                }
-            }
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.Testimonials.getTestimonialsData)
+            setData(res?.data?.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
 
 
@@ -206,12 +205,18 @@ const Testimonials = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Open Sans"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText

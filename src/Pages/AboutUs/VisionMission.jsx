@@ -6,7 +6,7 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
     Container,
@@ -15,12 +15,6 @@ import {
 import { Link } from "react-router-dom";
 import '../../App.css'
 import group1 from '../../Assets/chairman.jpg'
-import group2 from '../../Assets/vision-boy.png'
-import BgImage from '../../Assets/vision-bg.jpg'
-import QMS from '../../Assets/Qms.jpg'
-import EMS from '../../Assets/ems.jpg'
-import OHSAS from '../../Assets/ohsas.jpg'
-import signature from '../../Assets/signature.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -33,11 +27,12 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-    
+
 
 
 ];
@@ -47,23 +42,18 @@ const leftMenu = [
 const VisionMission = () => {
 
 
-    const Imgee = [
-        { src: QMS, alt: "qms" },
-        { src: EMS, alt: "ems" },
-        { src: OHSAS, alt: "ohsas" }
-    ]
 
     const [data, setData] = useState([]);
-    
-        const fetchData = async () => {
-            try {
-                const res = await axiosInstance.get(endpoints.AboutUs.our_vision)
-                setData(res?.data?.data)
-            }
-            catch (err) {
-                console.log(err)
-            }
+
+    const fetchData = async () => {
+        try {
+            const res = await axiosInstance.get(endpoints.AboutUs.our_vision)
+            setData(res?.data?.data)
         }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         fetchData()
@@ -80,16 +70,16 @@ const VisionMission = () => {
                     <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Vision & Mission</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Vision & Mission</Typography>
                 </Breadcrumbs>
 
-                
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -102,7 +92,7 @@ const VisionMission = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -145,12 +135,18 @@ const VisionMission = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Roboto"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText
@@ -169,8 +165,8 @@ const VisionMission = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
-                       
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
+
 
 
                         {/* Introduction */}
@@ -198,11 +194,11 @@ const VisionMission = () => {
                                             {data?.section1_title}
                                         </Typography>
                                         <Typography sx={{ fontFamily: "Roboto", fontSize: "16px", textAlign: "justify", marginTop: "15px!important", fontWeight: "400", lineHeight: "120%", color: "#121111ff" }}
-                                        
-                                        dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
+
+                                            dangerouslySetInnerHTML={{ __html: data?.section1_desc }}
                                         >
                                         </Typography>
-                                       
+
 
                                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "60px", flexDirection: { xs: "column", md: "row" } }}>
                                             <Typography sx={{ fontFamily: "Roboto", fontSize: "14px", lineHeight: "120%" }}>
@@ -256,10 +252,10 @@ const VisionMission = () => {
                                             }}
                                             dangerouslySetInnerHTML={{ __html: data?.section2_desc }}
                                         >
-                                            
+
                                         </Typography>
 
-                                        
+
                                     </Grid>
 
                                     {/* BOY IMAGE *BOTTOM ALIGNED* */}

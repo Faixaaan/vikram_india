@@ -162,13 +162,21 @@ const QueryForm = () => {
                   to={`/contact/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor:
-                      item === "QUERY FORM" ? "green" : "transparent",
+
+                    background:
+                      item === "QUERY FORM"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "QUERY FORM" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor:
-                        item === "QUERY FORM" ? "green" : "#f5f5f5",
+                      background:
+                        item === "QUERY FORM"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
+
                     fontFamily: "Roboto",
                   }}
                 >

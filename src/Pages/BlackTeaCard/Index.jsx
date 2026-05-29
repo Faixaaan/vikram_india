@@ -118,7 +118,7 @@ const ProcessingCard = () => {
                                 underline="none"
                                 sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
                             >
-                                Tmd Division Machine Structure
+                                TMD Machine Structure
                             </Typography>
                             {" / "}
                             <Typography

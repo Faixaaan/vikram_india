@@ -49,9 +49,10 @@ const EnquiryForm = ({ open, onClose }) => {
     tonnage: "",
     type: "",
     name: "",
-      contact_person: "",  
+    contact_person: "",
     email: "",
     number: "",
+    remarks: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -85,9 +86,9 @@ const EnquiryForm = ({ open, onClose }) => {
       );
 
       // ✅ redirect with form name
-    navigate("/thankyou-page", {
-      state: { formType: "Enquiry Form" },
-    });
+      navigate("/thankyou-page", {
+        state: { formType: "Enquiry Form" },
+      });
 
       // reset form
       setFormData({
@@ -99,6 +100,7 @@ const EnquiryForm = ({ open, onClose }) => {
         contact_person: "",
         email: "",
         number: "",
+        remarks: ""
       });
 
       onClose(); // modal close
@@ -227,6 +229,22 @@ const EnquiryForm = ({ open, onClose }) => {
               type="tel"
               error={!!errors.number}
               helperText={errors.number?.[0]}
+            />
+          </Grid>
+
+          {/* Remarks */}
+          <Grid item size={{ xs: 12 }}>
+            <TextField
+              fullWidth
+              label="Remarks"
+              name="remarks"
+              value={formData.remarks}
+              onChange={handleChange}
+              multiline
+              rows={4}
+              size="small"
+              error={!!errors.remarks}
+              helperText={errors.remarks?.[0]}
             />
           </Grid>
 

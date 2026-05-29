@@ -6,7 +6,6 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
     Breadcrumbs,
     Link as MLink,
     Container,
@@ -14,13 +13,11 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/chairman-policy.png'
-import group2 from '../../Assets/vision-boy.png'
-import BgImage from '../../Assets/vision-bg.jpg'
+
 import QMS from '../../Assets/Qms.jpg'
 import EMS from '../../Assets/ems.jpg'
 import OHSAS from '../../Assets/ohsas.jpg'
-import signature from '../../Assets/signature.jpg'
+
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -33,7 +30,8 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
@@ -43,12 +41,6 @@ const leftMenu = [
 
 const QualityPolicy = () => {
 
-
-    const Imgee = [
-        { src: QMS, alt: "qms" },
-        { src: EMS, alt: "ems" },
-        { src: OHSAS, alt: "ohsas" }
-    ]
 
     const [data, setData] = useState([]);
 
@@ -143,12 +135,18 @@ const QualityPolicy = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Roboto"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText
@@ -260,24 +258,6 @@ const QualityPolicy = () => {
             </Container>
         </Box>
     );
-};
-
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
 };
 
 export default QualityPolicy;

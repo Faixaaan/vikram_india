@@ -6,13 +6,13 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+
   Breadcrumbs,
   Link as MLink,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Paper,
+
   Container,
 } from "@mui/material";
 
@@ -108,13 +108,21 @@ const Adresses = () => {
                   to={`/contact/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor:
-                      item === "ADDRESSES" ? "green" : "transparent",
+
+                    background:
+                      item === "ADDRESSES"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "ADDRESSES" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor:
-                        item === "ADDRESSES" ? "green" : "#f5f5f5",
+                      background:
+                        item === "ADDRESSES"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
+
                     fontFamily: "Roboto",
                   }}
                 >
@@ -309,67 +317,67 @@ const Adresses = () => {
 
                   {/* ALL ADDRESSES INSIDE CATEGORY */}
                   <AccordionDetails sx={{ p: 3 }}>
-  
-  <Box
-    sx={{
-      display: "grid",
-      gridTemplateColumns: {
-        xs: "1fr",
-        md: "1fr 1fr", // 🔥 2 column always desktop e
-      },
-      gap: 3,
-      alignItems: "start", // 🔥 IMPORTANT (overlap fix)
-    }}
-  >
-    
-    {items.map((item) => (
-      <Box
-        key={item.id}
-        sx={{
-          p: 2.5,
-          border: "1px solid #e5e5e5",
-          borderRadius: "10px",
-          background: "#fff",
-        }}
-      >
-        
-        {/* TITLE */}
-        <Typography sx={{ fontSize: "18px", fontWeight: 600, mb: 1 }}>
-          {item.name}
-        </Typography>
 
-        {/* LOCATION */}
-        <Box
-          sx={{
-            fontSize: "14px",
-            color: "#444",
-            lineHeight: 1.6,
-            "& p": { m: 0 },
-          }}
-          dangerouslySetInnerHTML={{ __html: item.location }}
-        />
+                    <Box
+                      sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                          xs: "1fr",
+                          md: "1fr 1fr", // 🔥 2 column always desktop e
+                        },
+                        gap: 3,
+                        alignItems: "start", // 🔥 IMPORTANT (overlap fix)
+                      }}
+                    >
 
-        {/* PHONE */}
-        {item.number && (
-          <Typography sx={{ mt: 1, fontSize: "14px" }}>
-            <b>Phone:</b> {item.number}
-          </Typography>
-        )}
+                      {items.map((item) => (
+                        <Box
+                          key={item.id}
+                          sx={{
+                            p: 2.5,
+                            border: "1px solid #e5e5e5",
+                            borderRadius: "10px",
+                            background: "#fff",
+                          }}
+                        >
 
-        {/* EMAIL */}
-        {item.email && (
-          <Typography sx={{ mt: 0.5, fontSize: "14px" }}>
-            <b>Email:</b>{" "}
-            <span style={{ color: "#c40613" }}>{item.email}</span>
-          </Typography>
-        )}
+                          {/* TITLE */}
+                          <Typography sx={{ fontSize: "18px", fontWeight: 600, mb: 1 }}>
+                            {item.name}
+                          </Typography>
 
-      </Box>
-    ))}
+                          {/* LOCATION */}
+                          <Box
+                            sx={{
+                              fontSize: "14px",
+                              color: "#444",
+                              lineHeight: 1.6,
+                              "& p": { m: 0 },
+                            }}
+                            dangerouslySetInnerHTML={{ __html: item.location }}
+                          />
 
-  </Box>
+                          {/* PHONE */}
+                          {item.number && (
+                            <Typography sx={{ mt: 1, fontSize: "14px" }}>
+                              <b>Phone:</b> {item.number}
+                            </Typography>
+                          )}
 
-</AccordionDetails>
+                          {/* EMAIL */}
+                          {item.email && (
+                            <Typography sx={{ mt: 0.5, fontSize: "14px" }}>
+                              <b>Email:</b>{" "}
+                              <span style={{ color: "#c40613" }}>{item.email}</span>
+                            </Typography>
+                          )}
+
+                        </Box>
+                      ))}
+
+                    </Box>
+
+                  </AccordionDetails>
                 </Accordion>
               ))
             }

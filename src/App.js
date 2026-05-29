@@ -1,9 +1,7 @@
 import "././App.css";
-import Navbar from "./Layout/Navbar/Navbar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./Pages/Home/Index";
-import Footer from "./Layout/Footer/Footer";
 import Withering from "./Layout/Navbar/Dropdown/Withering";
 import Rolling from "./Layout/Navbar/Dropdown/Rolling";
 import Fermenting from "./Layout/Navbar/Dropdown/Fermenting";
@@ -17,7 +15,6 @@ import Workshop from "./Layout/Navbar/Dropdown/Workshop";
 import Introduction from "./Pages/Components/Mms";
 import Manufacturing from "./Pages/Components/Manufacturing";
 import HighTensile from "./Pages/Components/HighTensile";
-import SolarPumps from "./Pages/Components/SolarPumps";
 import Product from "./Pages/Components/Product";
 import ProcessingCard from "./Pages/TeaProcessingCard/Index";
 import { useEffect } from "react";
@@ -26,7 +23,6 @@ import CompanyProfile from "./Pages/AboutUs/CompanyProfile";
 import VisionMission from "./Pages/AboutUs/VisionMission";
 import ManagementTeam from "./Pages/AboutUs/ManagmentTeam";
 import AwardRecognition from "./Pages/AboutUs/AwardRecognition";
-import Testimonials from "./Pages/AboutUs/Testimonials";
 import Clientele from "./Pages/AboutUs/Clientele";
 import QualityPolicy from "./Pages/AboutUs/QualityPolicy";
 import Research from "./Pages/AboutUs/Research";
@@ -46,7 +42,6 @@ import TeaRolling from "./Pages/OrthodoxTeaProcessing/TeaRolling";
 import TeaFermenting from "./Pages/OrthodoxTeaProcessing/TeaFermenting";
 import TeaDrying from "./Pages/OrthodoxTeaProcessing/TeaDrying";
 import TeaSorting from "./Pages/OrthodoxTeaProcessing/TeaSorting";
-import TeaPacking from "./Pages/OrthodoxTeaProcessing/TeaPacking";
 import GreenSteaming from "./Pages/GreenTeaprocessing/GreenSteaming";
 import GreenPacking from "./Pages/GreenTeaprocessing/GreenPacking";
 import GreenSorting from "./Pages/GreenTeaprocessing/GreenSorting";
@@ -58,7 +53,6 @@ import TeaIngredient from "./Pages/GardenPlantMachienry/TeaIngredient";
 import GreenRolling from "./Pages/GreenTeaprocessing/TeaProcessingRolling";
 import HotDip from "./Pages/HotDipGalvanization/HotDip";
 import MmsLearnMore from "./Pages/MmsLearnMore/MmsLearnMore";
-import ProductsLayout from "./Pages/Components/ProductLayout";
 import HdpLearnMore from "./Pages/HotDipGalvanization/HotDip";
 import HotDipIntroduction from "./Pages/HotDipGalvanization/Components/introduction";
 import ServiceCapabilities from "./Pages/HotDipGalvanization/Components/ServiceCapabilities";
@@ -85,6 +79,7 @@ import India from "./Pages/Acoustoscan/locations/India";
 import Colombia from "./Pages/Acoustoscan/locations/Colombia";
 import Australia from "./Pages/Acoustoscan/locations/Australia";
 import TowerLineTransmission from "./Pages/Tlt/TowerLineTransmission";
+import Certificate from "./Pages/AboutUs/Certificate";
 
 
 function App() {
@@ -153,10 +148,12 @@ function App() {
           <Route path="/products/processing-card" element={<ProcessingCard />} />
           <Route path="/about/group-profile" element={<GroupProfile />} />
           <Route path="/about/company-profile" element={<CompanyProfile />} />
+          <Route path="/about/certificates" element={<Certificate />} />
+
           <Route path="/about/vision-&-mission" element={<VisionMission />} />
           <Route path="/about/management-team" element={<ManagementTeam />} />
           <Route
-            path="/about/award-and-recognition"
+            path="/about/awards-and-recognitions"
             element={<AwardRecognition />}
           />
 
@@ -166,10 +163,7 @@ function App() {
           <Route path="/about/company-profile" element={<CompanyProfile />} />
           <Route path="/about/vision-&-mission" element={<VisionMission />} />
           <Route path="/about/management-team" element={<ManagementTeam />} />
-          <Route
-            path="/about/award-and-recognition"
-            element={<AwardRecognition />}
-          />
+          
 
           <Route path="/about/clientele" element={<Clientele />} />
           <Route path="/about/quality-policy" element={<QualityPolicy />} />

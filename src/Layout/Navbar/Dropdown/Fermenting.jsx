@@ -6,28 +6,22 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+
   Breadcrumbs,
   Link as MLink,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+
   Container,
   Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import FanImage from "../../../Assets/logo 1.png"; // update your image
+
 import '../../../App.css'
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
-import image1 from '../../../Assets/machine-big-03.jpg'
+
 import EnquiryForm from "../../../Pages/HotDipGalvanization/Components/EnquiryForm";
 
 
@@ -45,7 +39,7 @@ const Fermenting = () => {
 
   const [data, setData] = useState([])
   const [tableData, setTableData] = useState([])
-    const [openEnquiry, setOpenEnquiry] = useState(false);
+  const [openEnquiry, setOpenEnquiry] = useState(false);
   console.log(tableData, 'tableData')
 
   const fetchDryingData = async () => {
@@ -110,12 +104,22 @@ const Fermenting = () => {
                   to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "OXIDATION PROCESS" ? "Green" : "transparent",
+
+                    background:
+                      item === "OXIDATION PROCESS"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "OXIDATION PROCESS" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor: item === "OXIDATION PROCESS" ? "Green" : "#f5f5f5",
+                      background:
+                        item === "OXIDATION PROCESS"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
-                    fontFamily: "Roboto"
+
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -130,7 +134,26 @@ const Fermenting = () => {
               ))}
             </List>
             <Box sx={{ mt: 4 }}>
-              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={() => setOpenEnquiry(true)}
+                sx={{
+                  padding: "8px 15px!important",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  fontFamily: "Roboto",
+
+                  background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                    boxShadow: "none",
+                  },
+                }}
+              >
                 Enquiry Form
               </Button>
             </Box>

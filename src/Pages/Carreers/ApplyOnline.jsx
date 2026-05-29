@@ -6,20 +6,19 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+ 
   Breadcrumbs,
   Link as MLink,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Paper,
+
   Container,
   TextField,
-  InputAdornment,
+
   Button,
 } from "@mui/material";
 
-import SelectIcon from "@mui/icons-material/ArrowDropDown";
 
 import { Link } from "react-router-dom";
 import "../../App.css";
@@ -223,13 +222,21 @@ const ApplyOnline = () => {
                   to={`/careers/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor:
-                      item === "APPLY NOW" ? "green" : "transparent",
+
+                    background:
+                      item === "APPLY NOW"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "APPLY NOW" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor:
-                        item === "APPLY NOW" ? "green" : "#f5f5f5",
+                      background:
+                        item === "APPLY NOW"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
+
                     fontFamily: "Roboto",
                   }}
                 >

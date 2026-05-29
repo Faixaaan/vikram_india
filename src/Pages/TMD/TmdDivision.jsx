@@ -115,7 +115,7 @@ const TmdDivision = () => {
                                 component="span"
                                 sx={{ color: "#fff", fontWeight: 500 }}
                             >
-                                Tmd Division Machine Structure
+                                TMD Machine Structure
                             </Typography>
                         </Typography>
                     </Box>

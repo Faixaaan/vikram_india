@@ -6,7 +6,6 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
     Breadcrumbs,
     Link as MLink,
     Container,
@@ -14,8 +13,7 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/group-profile-01.jpg'
-import group2 from '../../Assets/group-profile-02.jpg'
+
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { axiosInstance } from '../../Api/Axios/axios';
 
@@ -28,7 +26,8 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
@@ -65,17 +64,17 @@ const GroupProfile = () => {
                     <MLink component={Link} to="/home" underline="hover" color="inherit" >
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Group Profile</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Group Profile</Typography>
                 </Breadcrumbs>
-  
+
 
 
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -88,7 +87,7 @@ const GroupProfile = () => {
                             Product & Services
                         </Typography>
 
-                       
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -131,12 +130,18 @@ const GroupProfile = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Roboto"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText
@@ -155,10 +160,10 @@ const GroupProfile = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
                         <Box>
- 
+
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, lg: 3.4 }} sx={{ display: "flex", justifyContent: "center" }} >

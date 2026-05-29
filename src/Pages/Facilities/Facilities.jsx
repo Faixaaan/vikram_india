@@ -91,12 +91,22 @@ const Facilities = () => {
                                     to={`/${item.toLowerCase().replace(/ /g, "-")}`}
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "FACILITIES" ? "#1A73E8" : "transparent",
+
+                                        background:
+                                            item === "FACILITIES"
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
+
                                         color: item === "FACILITIES" ? "#fff" : "#000",
+
                                         "&:hover": {
-                                            backgroundColor: item === "FACILITIES" ? "#1A73E8" : "#f5f5f5",
+                                            background:
+                                                item === "FACILITIES"
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                         },
-                                        fontFamily: "Roboto"
+
+                                        fontFamily: "Roboto",
                                     }}
                                 >
                                     <ListItemText
@@ -182,16 +192,16 @@ const Facilities = () => {
                                 <Box sx={{ mt: 4 }}>
 
                                     <Grid container spacing={2}>
-                                         <Typography
-                                                sx={{
-                                                    fontSize: "18px",
-                                                    fontFamily: "Roboto",
-                                                    textAlign: "justify",
-                                                    fontWeight: "500"
-                                                }}
-                                            >
-                                                {data?.accordion1_title2}
-                                            </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontSize: "18px",
+                                                fontFamily: "Roboto",
+                                                textAlign: "justify",
+                                                fontWeight: "500"
+                                            }}
+                                        >
+                                            {data?.accordion1_title2}
+                                        </Typography>
                                         <Grid item size={{ xs: 12, md: 5 }}>
                                             <iframe src={data?.accordion1_link2} width="100%" height="300" style={{ border: "0" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </Grid>
@@ -206,7 +216,7 @@ const Facilities = () => {
                                             >
                                                 {data?.accordion1_desc2}
                                             </Typography>
-                                           
+
                                         </Grid>
 
 
@@ -316,7 +326,7 @@ const Facilities = () => {
 
                                     </Grid>
                                     <Grid container spacing={3} alignItems="center">
-                                        {/* RIGHT SIDE – Image (4 Grid) */}
+
 
 
 
@@ -333,7 +343,7 @@ const Facilities = () => {
                             </AccordionDetails>
                         </Accordion>
 
-                        <Accordion sx={{
+                        {/* <Accordion sx={{
                             background: "#fff",
                             boxShadow: "0px 2px 8px rgba(0,0,0,0.10)",
                             borderRadius: "8px",
@@ -388,7 +398,7 @@ const Facilities = () => {
 
 
                             </AccordionDetails>
-                        </Accordion>
+                        </Accordion> */}
 
 
 

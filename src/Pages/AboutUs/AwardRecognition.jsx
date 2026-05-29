@@ -47,13 +47,11 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-
-
-
 ];
 
 
@@ -182,7 +180,7 @@ const AwardRecognition = () => {
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
-                                const isActive = item === "AWARD AND RECOGNITION";
+                                const isActive = item === "AWARDS AND RECOGNITIONS";
 
                                 // Special case for PDF link
                                 if (item === "ROC COMPLIANCE ANNUAL RETURN") {
@@ -221,12 +219,18 @@ const AwardRecognition = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Roboto"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText

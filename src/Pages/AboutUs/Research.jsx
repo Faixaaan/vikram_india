@@ -6,7 +6,6 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
     Breadcrumbs,
     Link as MLink,
     Container,
@@ -17,11 +16,7 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/research.jpg'
-import group2 from '../../Assets/group-profile-02.jpg'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -34,11 +29,12 @@ const leftMenu = [
     "VISION & MISSION",
     "MANAGEMENT TEAM",
     "ROC COMPLIANCE ANNUAL RETURN",
-    "AWARD AND RECOGNITION",
+    "CERTIFICATES",
+    "AWARDS AND RECOGNITIONS",
     "RESEARCH AND DEVELOPMENT",
     "QUALITY POLICY",
     "CLIENTELE",
-   
+
 
 
 ];
@@ -74,16 +70,16 @@ const Research = () => {
                     <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>About Us</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>About Us</Typography>
 
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Research & Development</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Research & Development</Typography>
                 </Breadcrumbs>
 
-                
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -96,7 +92,7 @@ const Research = () => {
                             Product & Services
                         </Typography>
 
-                        
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => {
@@ -139,12 +135,18 @@ const Research = () => {
                                         to={`/about/${item.toLowerCase().replace(/ /g, "-")}`}
                                         sx={{
                                             borderBottom: "1px solid #eee",
-                                            backgroundColor: isActive ? "green" : "transparent",
+                                            background: isActive
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
                                             color: isActive ? "#fff" : "#000",
+
                                             "&:hover": {
-                                                backgroundColor: isActive ? "green" : "#f5f5f5",
+                                                background: isActive
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                             },
-                                            fontFamily: "Roboto"
+
+                                            fontFamily: "Roboto",
                                         }}
                                     >
                                         <ListItemText
@@ -163,16 +165,16 @@ const Research = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:3}}>
-                        
-                    
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
+
+
 
 
                         {/* Introduction */}
 
 
                         <Box sx={{ mt: 3 }}>
-                           
+
 
                             {/* profile picture box */}
 
@@ -218,9 +220,9 @@ const Research = () => {
                                 <AccordionDetails>
                                     {/* CONTENT INSIDE ACCORDION */}
                                     <Typography sx={headingStyle}
-                                    
-                                    dangerouslySetInnerHTML={{ __html: data?.latest_rnd }}>
-                                        
+
+                                        dangerouslySetInnerHTML={{ __html: data?.latest_rnd }}>
+
 
                                     </Typography>
 

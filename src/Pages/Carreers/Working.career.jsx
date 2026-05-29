@@ -6,18 +6,17 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+  
   Breadcrumbs,
   Link as MLink,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Paper,
+
   Container,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/contact-ban.jpg"; // update your image
 import "../../App.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -29,12 +28,12 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const WorkingCareer = () => {
 
-  
+
   const [data, setData] = useState({})
 
   const fetchCarrerData = async () => {
     try {
-     
+
       const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
       setData(resData?.data?.data)
 
@@ -77,7 +76,7 @@ const WorkingCareer = () => {
             fontFamily: "Roboto",
           }}
         >
-        
+
           careers
         </Typography>
 
@@ -94,13 +93,21 @@ const WorkingCareer = () => {
                   to={`/careers/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor:
-                      item === "WORKING WITH US" ? "green" : "transparent",
+
+                    background:
+                      item === "WORKING WITH US"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "WORKING WITH US" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor:
-                        item === "WORKING WITH US" ? "green" : "#f5f5f5",
+                      background:
+                        item === "WORKING WITH US"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
+
                     fontFamily: "Roboto",
                   }}
                 >
@@ -124,72 +131,72 @@ const WorkingCareer = () => {
 
             {/* Introduction */}
 
-            
-             
-           
-                  <Accordion
-                  
-                    sx={{
-                      mt: 0,
-                      mb:2,
-                      boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                      borderRadius: "12px !important",
-                      "&:before": { display: "none" }, // remove default divider line
-                    }}
-                  >
-                    {/* Accordion Header */}
-                    <AccordionSummary sx={{
-                                backgroundColor: "#f8f8f8",
-                                borderBottom: "1px solid #eee",
-                                borderRadius: "8px"
-                            }} expandIcon={<ExpandMoreIcon />}>
-                      <Typography
-                        sx={{
-                          fontSize: "18px",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {data?.title}
-                      </Typography>
-                    </AccordionSummary>
 
-                    {/* Accordion Content */}
-                    <AccordionDetails>
-                      <Grid container spacing={2} alignItems="center">
 
-                        {/* Image - 4 Grid */}
-                        <Grid item  size={{xs:12,md:4}} sx={{ display: "flex", justifyContent: "center" }}>
-                          <img
-                            src={data?.image}
-                            alt=""
-                            style={{
-                              width: "100%",
-                              height: "auto",
-                              borderRadius: "8px",
-                            }}
-                          />
-                        </Grid>
 
-                        {/* Description - 8 Grid */}
-                        <Grid item xs={12} md={8} size={{xs:12,md:8}}>
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              lineHeight: "140%",
-                              fontWeight: 500,
-                              color: "#121111ff",
-                              fontFamily:"Roboto"
-                            }}
-                            dangerouslySetInnerHTML={{ __html: data?.description }}
-                          />
-                        </Grid>
+            <Accordion
 
-                      </Grid>
-                    </AccordionDetails>
-                  </Accordion>
-             
-             
-            
+              sx={{
+                mt: 0,
+                mb: 2,
+                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
+                borderRadius: "12px !important",
+                "&:before": { display: "none" }, // remove default divider line
+              }}
+            >
+              {/* Accordion Header */}
+              <AccordionSummary sx={{
+                backgroundColor: "#f8f8f8",
+                borderBottom: "1px solid #eee",
+                borderRadius: "8px"
+              }} expandIcon={<ExpandMoreIcon />}>
+                <Typography
+                  sx={{
+                    fontSize: "18px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {data?.title}
+                </Typography>
+              </AccordionSummary>
+
+              {/* Accordion Content */}
+              <AccordionDetails>
+                <Grid container spacing={2} alignItems="center">
+
+                  {/* Image - 4 Grid */}
+                  <Grid item size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: "center" }}>
+                    <img
+                      src={data?.image}
+                      alt=""
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        borderRadius: "8px",
+                      }}
+                    />
+                  </Grid>
+
+                  {/* Description - 8 Grid */}
+                  <Grid item xs={12} md={8} size={{ xs: 12, md: 8 }}>
+                    <Typography
+                      sx={{
+                        fontSize: "16px",
+                        lineHeight: "140%",
+                        fontWeight: 500,
+                        color: "#121111ff",
+                        fontFamily: "Roboto"
+                      }}
+                      dangerouslySetInnerHTML={{ __html: data?.description }}
+                    />
+                  </Grid>
+
+                </Grid>
+              </AccordionDetails>
+            </Accordion>
+
+
+
 
 
 

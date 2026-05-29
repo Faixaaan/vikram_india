@@ -45,7 +45,7 @@ const Withering = () => {
 
   const [data, setData] = useState([])
   const [tableData, setTableData] = useState([])
-   const [openEnquiry, setOpenEnquiry] = useState(false);
+  const [openEnquiry, setOpenEnquiry] = useState(false);
   console.log(tableData, 'tableData')
 
   console.log(data, 'data__')
@@ -112,12 +112,22 @@ const Withering = () => {
                   to={`/products/ctc/${item.toLowerCase().replace(/ /g, "-")}`}
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "WITHERING PROCESS" ? "Green" : "transparent",
+
+                    background:
+                      item === "WITHERING PROCESS"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "WITHERING PROCESS" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor: item === "WITHERING PROCESS" ? "Green" : "#f5f5f5",
+                      background:
+                        item === "WITHERING PROCESS"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
-                    fontFamily: "Roboto"
+
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -132,7 +142,26 @@ const Withering = () => {
               ))}
             </List>
             <Box sx={{ mt: 4 }}>
-              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={() => setOpenEnquiry(true)}
+                sx={{
+                  padding: "8px 15px!important",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  fontFamily: "Roboto",
+
+                  background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                    boxShadow: "none",
+                  },
+                }}
+              >
                 Enquiry Form
               </Button>
             </Box>
@@ -440,9 +469,9 @@ const Withering = () => {
         </Grid>
       </Container>
       <EnquiryForm
-                      open={openEnquiry}
-                      onClose={() => setOpenEnquiry(false)}
-                  />
+        open={openEnquiry}
+        onClose={() => setOpenEnquiry(false)}
+      />
     </Box>
   );
 };
