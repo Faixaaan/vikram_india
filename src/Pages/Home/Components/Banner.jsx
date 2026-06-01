@@ -88,7 +88,7 @@ const Banner = () => {
       case 2:
         return "/products/hot-dip";
       case 3:
-        return "/products/processing-card";
+        return "/products/tea-processing-machinery/Tmd-Division-machine-structure";
       default:
         return "/products/towerline-transmission";
     }
@@ -108,7 +108,7 @@ const Banner = () => {
       );
 
       gsap.from(cardsRef.current, {
-        y: 40,
+        y: 20,
         opacity: 0,
         stagger: 0.25,
         duration: 1.2,
@@ -116,8 +116,8 @@ const Banner = () => {
 
       cardsRef.current.forEach((card, i) => {
         gsap.to(card, {
-          y: i % 2 === 0 ? -2 : 2,
-          duration: 5 + i * 0.5,
+          y: i % 2 === 0 ? -0.5 : 0.5,
+          duration: 10 + i,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
@@ -296,11 +296,11 @@ const Banner = () => {
           <Box
             className="mouse-wrapper"
             sx={{
-              width: 42,
-              height: 72,
+              width: 30,
+              height: 52,
 
               borderRadius: "30px",
-              border: "3px solid #00ff0d",
+              border: "3px solid #ffffff",
 
               position: "relative",
 
@@ -310,7 +310,7 @@ const Banner = () => {
               justifyContent: "center",
 
               background:
-                "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05))",
+                "linear-gradient(125deg, #0dde18 , #0e89db)",
 
               backdropFilter: "blur(12px)",
 
@@ -336,13 +336,13 @@ const Banner = () => {
 
             <Box
               sx={{
-                width: 6,
+                width: 4,
                 height: 14,
 
                 borderRadius: "10px",
 
                 background:
-                  "linear-gradient(180deg, #ffffff, rgba(255,255,255,0.25))",
+                  "linear-gradient(180deg, #ff0808, #ff000051)",
 
                 mt: 1.1,
 
@@ -355,9 +355,9 @@ const Banner = () => {
               className="scroll-text"
               sx={{
                 position: "absolute",
-                top: -35,
+                top: -40,
 
-                color: "#fff",
+                color: "#eb1400",
                 fontSize: "16px",
                 fontWeight: 600,
                 letterSpacing: "3px",
@@ -371,6 +371,9 @@ const Banner = () => {
                 whiteSpace: "nowrap",
 
                 textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                background: "#fff",
+                borderRadius: "4px",
+                padding: "5px",
               }}
             >
               Scroll Down
@@ -391,7 +394,7 @@ const Banner = () => {
 
             {/* LINE */}
 
-            <Box
+            {/* <Box
               sx={{
                 position: "absolute",
                 bottom: -42,
@@ -402,7 +405,7 @@ const Banner = () => {
                 background:
                   "linear-gradient(to bottom, rgba(255,255,255,0.95), transparent)",
               }}
-            />
+            /> */}
           </Box>
 
           {/* ================= FUTURISTIC ARROWS ================= */}
@@ -526,8 +529,8 @@ const Banner = () => {
           data={{ subtitle: cards[0]?.title }}
           onClick={() => navigate(getRouteByCounter(1))}
           sx={{
-            top: "20%",
-            left: "15%",
+            top: "5%",
+            left: "3%",
           }}
         />
 
@@ -537,8 +540,8 @@ const Banner = () => {
           data={{ subtitle: cards[1]?.title }}
           onClick={() => navigate(getRouteByCounter(2))}
           sx={{
-            bottom: "25%",
-            left: "15%",
+            bottom: "38%",
+            left: "3%",
           }}
         />
 
@@ -548,8 +551,8 @@ const Banner = () => {
           data={{ subtitle: cards[2]?.title }}
           onClick={() => navigate(getRouteByCounter(3))}
           sx={{
-            top: "20%",
-            right: "8%",
+            top: "4%",
+            right: "-4%",
           }}
         />
 
@@ -559,8 +562,8 @@ const Banner = () => {
           data={{ subtitle: cards[3]?.title }}
           onClick={() => navigate(getRouteByCounter(4))}
           sx={{
-            bottom: "25%",
-            right: "8%",
+            bottom: "38%",
+            right: "-4%",
           }}
         />
       </Box>

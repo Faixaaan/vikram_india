@@ -121,17 +121,17 @@ const Media = () => {
         <Container maxWidth="lg">
           <Box maxWidth="850px" mx="auto">
             <Typography
+              variant="h2"
               sx={{
-                color: "#111827",
-                fontWeight: 800,
-
-                fontSize: {
-                  xs: "2.5rem",
-                  md: "5rem",
-                },
-
-                lineHeight: 1.05,
-                letterSpacing: "-2px",
+                fontSize: { xs: "1.9rem", md: "2.6rem" },
+                fontWeight: 700,
+                letterSpacing: "1px",
+                fontFamily: "'Poppins', 'Roboto', sans-serif",
+                background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                position: "relative",
+                display: "inline-block",
               }}
             >
               {heading?.media_head}

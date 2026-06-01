@@ -186,7 +186,7 @@ const VisionMission = () => {
                             }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, lg: 3.4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "" }, alignItems: "flex-start" }} >
-                                        <img src={group1} />
+                                        <img src={data?.section1_image} alt=""/>
                                     </Grid>
 
                                     <Grid size={{ xs: 12, lg: 8.6 }} >
@@ -229,7 +229,7 @@ const VisionMission = () => {
                                     minHeight: "300px",
                                 }}
                             >
-                                <Grid container>
+                                <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, md: 8 }}>
                                         <Typography
                                             sx={{
