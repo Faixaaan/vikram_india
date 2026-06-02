@@ -40,7 +40,7 @@ useEffect(() => {
 
       <Banner />
       {/* <ModuleMounting /> */}
-      <OurClient />
+      {/* <OurClient /> */}
       <Initiatives />
       <Achievmnet />
       <Testimonial />

@@ -1,4 +1,13 @@
 
+
+
+
+// ------------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------------
+
+
+
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,15 +15,15 @@ import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 
-// import BackgroundImage from "../../../images/bannerimage/hero2.png";
-// import SettingImage from "../../../images/bannerimage/Setting.png";
+import BackgroundImage from "../../../images/bannerimage/hero2.png";
+import SettingImage from "../../../images/bannerimage/Setting.png";
 import vikramindialogo from "../../../images/bannerimage/vikramindialogo.png";
-// import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Banner = () => {
   const [data, setData] = useState({});
@@ -97,36 +106,36 @@ const Banner = () => {
 
 
   /* ================= DESKTOP ANIMATION ================= */
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     if (!logoRef.current) return;
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!logoRef.current) return;
 
-  //     gsap.fromTo(
-  //       logoRef.current,
-  //       { scale: 0.6, opacity: 0 },
-  //       { scale: 1, opacity: 1, duration: 1.4 }
-  //     );
+      gsap.fromTo(
+        logoRef.current,
+        { scale: 0.6, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.4 }
+      );
 
-  //     gsap.from(cardsRef.current, {
-  //       y: 20,
-  //       opacity: 0,
-  //       stagger: 0.25,
-  //       duration: 1.2,
-  //     });
+      gsap.from(cardsRef.current, {
+        y: 20,
+        opacity: 0,
+        stagger: 0.25,
+        duration: 1.2,
+      });
 
-  //     cardsRef.current.forEach((card, i) => {
-  //       gsap.to(card, {
-  //         y: i % 2 === 0 ? -0.5 : 0.5,
-  //         duration: 10 + i,
-  //         repeat: -1,
-  //         yoyo: true,
-  //         ease: "sine.inOut",
-  //       });
-  //     });
-  //   }, containerRef);
+      cardsRef.current.forEach((card, i) => {
+        gsap.to(card, {
+          y: i % 2 === 0 ? -0.5 : 0.5,
+          duration: 10 + i,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
+    }, containerRef);
 
-  //   return () => ctx.revert();
-  // }, []);
+    return () => ctx.revert();
+  }, []);
 
   const cards = [
     { id: 1, title: data?.service1_name },
@@ -136,41 +145,41 @@ const Banner = () => {
   ];
 
 
-  // useEffect(() => {
-  //   const handleMouseMove = (e) => {
-  //     const { innerWidth, innerHeight } = window;
-  //     const x = (e.clientX / innerWidth - 0.5) * 40;
-  //     const y = (e.clientY / innerHeight - 0.5) * 40;
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 40;
+      const y = (e.clientY / innerHeight - 0.5) * 40;
 
-  //     gsap.to(containerRef.current, {
-  //       backgroundPosition: `${50 + x}% ${50 + y}%`,
-  //       duration: 0.5,
-  //     });
-  //   };
+      gsap.to(containerRef.current, {
+        backgroundPosition: `${50 + x}% ${50 + y}%`,
+        duration: 0.5,
+      });
+    };
 
-  //   window.addEventListener("mousemove", handleMouseMove);
-  //   return () => window.removeEventListener("mousemove", handleMouseMove);
-  // }, []);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
 
 
-  // const handleScrollToClients = () => {
-  //   const section = document.getElementById("our-client-section");
+  const handleScrollToClients = () => {
+    const section = document.getElementById("our-client-section");
 
-  //   if (section) {
-  //     const yOffset = -70;
+    if (section) {
+      const yOffset = -70;
 
-  //     const y =
-  //       section.getBoundingClientRect().top +
-  //       window.pageYOffset +
-  //       yOffset;
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
 
-  //     window.scrollTo({
-  //       top: y,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // };
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
 
 
   return (
@@ -180,22 +189,18 @@ const Banner = () => {
         width: "100%",
         position: "relative",
         overflow: "hidden",
-
-        height: {
-          md: "850px",
-        },
+        minHeight: { xs: "65vh", md: "85vh" },
 
         backgroundImage: { md: `url(${data?.banner_img})` },
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
       {/* ================= DESKTOP ================= */}
       <Box
         sx={{
           display: { xs: "none", md: "block" },
-          height: "850px",
+          minHeight: { md: "85vh", lg: "90vh" },
           position: "relative",
 
           "@keyframes spinSlow": {
@@ -218,7 +223,7 @@ const Banner = () => {
         {/* ================= SCROLL DOWN BUTTON ================= */}
         {/* ================= SCROLL DOWN BUTTON ================= */}
 
-        {/* <Box
+        <Box
 
           sx={{
             position: "absolute",
@@ -235,6 +240,10 @@ const Banner = () => {
 
             transition: "all .4s ease",
 
+            // "&:hover .scroll-text": {
+            //   opacity: 1,
+            //   transform: "translateY(0px)",
+            // },
 
             "&:hover .mouse-wrapper": {
               transform: "scale(1.08)",
@@ -291,6 +300,7 @@ const Banner = () => {
         >
 
 
+          {/* ================= MOUSE ================= */}
 
           <Box
             className="mouse-wrapper"
@@ -331,7 +341,7 @@ const Banner = () => {
             }}
             onClick={handleScrollToClients}
           >
-            
+            {/* INNER WHEEL */}
 
             <Box
               sx={{
@@ -378,6 +388,7 @@ const Banner = () => {
               Scroll Down
             </Typography>
 
+            {/* SOFT OUTER GLOW */}
 
             <Box
               sx={{
@@ -390,9 +401,23 @@ const Banner = () => {
               }}
             />
 
+            {/* LINE */}
+
+            {/* <Box
+              sx={{
+                position: "absolute",
+                bottom: -42,
+
+                width: "2px",
+                height: 34,
+
+                background:
+                  "linear-gradient(to bottom, rgba(255,255,255,0.95), transparent)",
+              }}
+            /> */}
           </Box>
 
-      
+          {/* ================= FUTURISTIC ARROWS ================= */}
 
           <Box
             sx={{
@@ -426,10 +451,10 @@ const Banner = () => {
               />
             ))}
           </Box>
-        </Box> */}
+        </Box>
 
 
-
+        {/* CENTER LOGO */}
         <Box
           ref={logoRef}
           sx={{
@@ -448,7 +473,7 @@ const Banner = () => {
           }}
         >
 
-
+          {/* 🔥 NEW GLOW LAYER */}
           <Box
             sx={{
               position: "absolute",
@@ -462,7 +487,7 @@ const Banner = () => {
             }}
           />
 
-
+          {/* Existing pulse glow */}
           <Box
             sx={{
               position: "absolute",
@@ -476,7 +501,7 @@ const Banner = () => {
             }}
           />
 
-
+          {/* Existing spinning ring */}
           <Box
             sx={{
               position: "absolute",
@@ -490,7 +515,7 @@ const Banner = () => {
             }}
           />
 
-
+          {/* Logo */}
           <Box
             component="img"
             src={vikramindialogo}
@@ -507,14 +532,14 @@ const Banner = () => {
         </Box>
 
 
-
+        {/* LEFT TOP */}
         <GlassCard
           ref={(el) => (cardsRef.current[0] = el)}
           data={{ subtitle: cards[0]?.title }}
           onClick={() => navigate(getRouteByCounter(1))}
           sx={{
-            top: "40px",
-            left: "40px",
+            top: "5%",
+            left: "3%",
           }}
         />
 
@@ -524,8 +549,8 @@ const Banner = () => {
           data={{ subtitle: cards[1]?.title }}
           onClick={() => navigate(getRouteByCounter(2))}
           sx={{
-            bottom: "320px",
-            left: "40px",
+            bottom: "38%",
+            left: "3%",
           }}
         />
 
@@ -535,8 +560,8 @@ const Banner = () => {
           data={{ subtitle: cards[2]?.title }}
           onClick={() => navigate(getRouteByCounter(3))}
           sx={{
-            top: "40px",
-            right: "-55px",
+            top: "4%",
+            right: "-4%",
           }}
         />
 
@@ -546,8 +571,8 @@ const Banner = () => {
           data={{ subtitle: cards[3]?.title }}
           onClick={() => navigate(getRouteByCounter(4))}
           sx={{
-            bottom: "320px",
-            right: "-55px",
+            bottom: "38%",
+            right: "-4%",
           }}
         />
       </Box>
@@ -727,7 +752,7 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
       ...sx,
     }}
   >
-    {/* <Box
+    <Box
       component="img"
       src={SettingImage}
       sx={{
@@ -742,7 +767,7 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
           "100%": { transform: "rotate(360deg)" },
         },
       }}
-    /> */}
+    />
 
 
     <Box
@@ -767,3 +792,5 @@ const GlassCard = React.forwardRef(({ data, onClick, sx }, ref) => (
     </Box>
   </Box>
 ));
+
+

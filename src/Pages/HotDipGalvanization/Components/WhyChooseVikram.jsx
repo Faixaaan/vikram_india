@@ -104,14 +104,25 @@ const WhyChooseVikramIndia = () => {
                                     key={item}
                                     component={Link}
                                     to={`/products/${item.toLowerCase().replace(/ /g, "-")}`}
+                                    
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "WHY CHOOSE US" ? "#1A73E8" : "transparent",
+
+                                        background:
+                                            item === "WHY CHOOSE US"
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
+
                                         color: item === "WHY CHOOSE US" ? "#fff" : "#000",
+
                                         "&:hover": {
-                                            backgroundColor: item === "WHY CHOOSE US" ? "#1A73E8" : "#f5f5f5",
+                                            background:
+                                                item === "WHY CHOOSE US"
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                         },
-                                        fontFamily: "Roboto"
+
+                                        fontFamily: "Roboto",
                                     }}
                                 >
                                     <ListItemText
@@ -127,7 +138,23 @@ const WhyChooseVikramIndia = () => {
                         </List>
 
                         <Box sx={{ mt: 4 }}>
-                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                            <Button variant="contained"
+                                sx={{
+                                    padding: "8px 15px!important",
+                                    fontSize: "16px",
+                                    fontWeight: "500",
+                                    fontFamily: "Roboto",
+
+                                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                                    boxShadow: "none",
+
+                                    "&:hover": {
+                                        background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                                        boxShadow: "none",
+                                    },
+                                }}
+                                fullWidth onClick={() => setOpenEnquiry(true)}>
                                 Enquiry Form
                             </Button>
                         </Box>
@@ -135,7 +162,7 @@ const WhyChooseVikramIndia = () => {
 
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
-                        
+
 
 
 

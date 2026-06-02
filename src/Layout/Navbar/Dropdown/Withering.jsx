@@ -196,7 +196,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section1_image} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -253,7 +253,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section2_image} style={{ width: "100%" }} />
+                      <img src={data?.section2_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -369,7 +369,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section4_image} style={{ width: "100%" }} />
+                      <img src={data?.section4_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -427,7 +427,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section5_image} style={{ width: "100%" }} />
+                      <img src={data?.section5_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -446,19 +446,9 @@ const Withering = () => {
 
                       >
 
-
-
                       </Typography>
-
-
-
                     </Grid>
-
-
-
                     {/* BOTTOM FULL WIDTH CONTENT */}
-
-
                   </Grid>
                 </Box>
               </AccordionDetails>

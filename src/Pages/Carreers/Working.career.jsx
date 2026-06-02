@@ -9,9 +9,7 @@ import {
 
   Breadcrumbs,
   Link as MLink,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
+
 
   Container,
 } from "@mui/material";
@@ -19,7 +17,6 @@ import {
 import { Link } from "react-router-dom";
 import "../../App.css";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -27,7 +24,7 @@ import { endpoints } from "../../Api/EndPoints/endpoints";
 const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const WorkingCareer = () => {
-
+  const [currentImage, setCurrentImage] = useState(0);
 
   const [data, setData] = useState({})
 
@@ -44,6 +41,26 @@ const WorkingCareer = () => {
   }
 
 
+  const images = data?.images
+    ? JSON.parse(data.images)
+    : [];
+
+  const handleNext = () => {
+    if (!images.length) return;
+
+    setCurrentImage((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrev = () => {
+    if (!images.length) return;
+
+    setCurrentImage((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
 
   useEffect(() => {
     window.scrollTo({
@@ -52,9 +69,11 @@ const WorkingCareer = () => {
     });
     fetchCarrerData()
   }, []);
+
+
   return (
     <Box sx={{ padding: { xs: 2, md: 4 } }}>
-      <Container sx={{p: 0}} maxWidth="xl">
+      <Container sx={{ p: 0 }} maxWidth="xl">
         {/* Breadcrumb */}
         <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
           <MLink component={Link} to="/home" underline="hover" color="inherit">
@@ -190,64 +209,148 @@ const WorkingCareer = () => {
             <Box>
 
               {/* TOP LABEL */}
-              <Typography
-                sx={{
-                  color: "#14b91d",
-                  fontSize: "14px",
-                  fontWeight: 700,
-                  letterSpacing: "3px",
-                  textTransform: "uppercase",
-                  mb: 2,
-                }}
-              >
-                CAREERS
-              </Typography>
 
-              {/* BIG TITLE */}
-              <Typography
-                sx={{
-                  fontSize: { xs: "42px", md: "72px" },
-                  fontWeight: 800,
-                  lineHeight: 1,
-                  color: "#111",
-                  maxWidth: "900px",
-                  mb: 3,
-                }}
-              >
-                {data?.title}
-              </Typography>
+              <Box sx={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", pb: "20px" }}>
 
-              
+                <Typography
+                  sx={{
+                    color: "#14b91d",
+                    fontSize: "14px",
+                    fontWeight: 700,
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    mb: 2,
+                  }}
+                >
+                  CAREERS
+                </Typography>
+
+                {/* BIG TITLE */}
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.9rem", md: "2.6rem" },
+                    fontWeight: 700,
+                    letterSpacing: "1px",
+                    fontFamily: "'Poppins', 'Roboto', sans-serif",
+                    background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    position: "relative",
+                    display: "inline-block",
+                  }}
+                >
+                  {data?.title}
+                </Typography>
+              </Box>
+
+
 
               {/* LARGE IMAGE */}
               <Box
-                component="img"
-                src={data?.image}
-                alt={data?.title}
                 sx={{
-                  width: "100%",
-                  height: { xs: "280px", md: "500px" },
-                  objectFit: "cover",
-                  borderRadius: "30px",
+                  position: "relative",
                   mb: 6,
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src={
+                    images?.length
+                      ? images[currentImage]
+                      : data?.image
+                  }
+                  alt={data?.title}
+                  sx={{
+                    width: "100%",
+                    height: { xs: "280px", md: "500px" },
+                    objectFit: "cover",
+                    borderRadius: "30px",
+                    transition: "all .4s ease",
+                  }}
+                />
 
+                {/* PREVIOUS */}
+                <Box
+                  onClick={handlePrev}
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: 20,
+                    transform: "translateY(-50%)",
+
+                    width: 55,
+                    height: 55,
+
+                    borderRadius: "50%",
+
+                    background:
+                      "rgba(255,255,255,0.9)",
+
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+
+                    cursor: "pointer",
+
+                    fontSize: "30px",
+                    fontWeight: 700,
+
+                    boxShadow:
+                      "0 10px 30px rgba(0,0,0,.15)",
+
+                    transition: ".3s",
+
+                    "&:hover": {
+                      transform:
+                        "translateY(-50%) scale(1.08)",
+                    },
+                  }}
+                >
+                  ‹
+                </Box>
+
+                {/* NEXT */}
+                <Box
+                  onClick={handleNext}
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    right: 20,
+                    transform: "translateY(-50%)",
+
+                    width: 55,
+                    height: 55,
+
+                    borderRadius: "50%",
+
+                    background:
+                      "rgba(255,255,255,0.9)",
+
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+
+                    cursor: "pointer",
+
+                    fontSize: "30px",
+                    fontWeight: 700,
+
+                    boxShadow:
+                      "0 10px 30px rgba(0,0,0,.15)",
+
+                    transition: ".3s",
+
+                    "&:hover": {
+                      transform:
+                        "translateY(-50%) scale(1.08)",
+                    },
+                  }}
+                >
+                  ›
+                </Box>
+              </Box>
               {/* CONTENT SECTION */}
               <Grid container spacing={5}>
-                <Grid item xs={12} md={4}>
-                  <Typography
-                    sx={{
-                      fontSize: "32px",
-                      fontWeight: 800,
-                      lineHeight: 1.2,
-                      position: "sticky",
-                      top: "100px",
-                    }}
-                  >
-                    {data?.title}
-                  </Typography>
-                </Grid>
 
                 <Grid item xs={12} md={8}>
                   <Box
@@ -268,14 +371,14 @@ const WorkingCareer = () => {
 
 
               {/* EMPLOYEE BENEFITS */}
-              {/* EMPLOYEE BENEFITS */}
-              <Box
 
+
+              <Box
                 sx={{
                   mt: 12,
                   mb: 10,
 
-                  p: { xs: 1.5, md: 6 },
+                  p: { xs: 3, md: 6 },
 
                   borderRadius: "40px",
 
@@ -316,219 +419,139 @@ const WorkingCareer = () => {
                   },
                 }}
               >
-
                 <Typography
                   sx={{
-                    fontSize: "14px",
-                    fontWeight: 700,
-                    letterSpacing: "3px",
-                    color: "#7dd3fc",
-                    textTransform: "uppercase",
-                    mb: 1,
-                  }}
-                >
-                  BENEFITS & PERKS
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontSize: { xs: "38px", md: "60px" },
+                    fontSize: { xs: "32px", md: "60px" },
                     fontWeight: 800,
                     color: "#fff",
-                    mb: 2,
+                    mb: 5,
+                    textAlign: "center",
                   }}
                 >
                   Employee Benefits
                 </Typography>
 
-                <Typography
+                {/* SINGLE CARD */}
+                <Box
                   sx={{
-                    color: "#dadada",
-                    maxWidth: "800px",
-                    lineHeight: 1.9,
-                    mb: 8,
-                    fontSize: "17px",
+                    background: "#fff",
+                    borderRadius: "30px",
+                    p: { xs: 3, md: 6 },
+
+                    boxShadow: "0 15px 50px rgba(0,0,0,0.12)",
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, illum commodi hic temporibus architecto illo corrupti cumque fugiat ad unde accusamus, nisi provident veniam eaque sunt quos laudantium nesciunt aut.
-                </Typography>
-
-                {[
-                  {
-                    title: "Career Growth",
-                    description: `
-        <p>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, illum commodi hic temporibus architecto illo corrupti cumque fugiat ad unde accusamus, nisi provident veniam eaque sunt quos laudantium nesciunt aut.
-        </p>
-
-        <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-        </ul>
-      `,
-                  },
-                  {
-                    title: "Learning & Development",
-                    description: `
-        <p>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, illum commodi hic temporibus architecto illo corrupti cumque fugiat ad unde accusamus, nisi provident veniam eaque sunt quos laudantium nesciunt aut.
-        </p>
-
-        <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-        </ul>
-      `,
-                  },
-
-                  {
-                    title: "Recognition & Rewards",
-                    description: `
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, illum commodi hic temporibus architecto illo corrupti cumque fugiat ad unde accusamus, nisi provident veniam eaque sunt quos laudantium nesciunt aut.
-
-        <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-        </ul>
-      `,
-                  },
-                  {
-                    title: "Recognition & Rewards",
-                    description: `
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, illum commodi hic temporibus architecto illo corrupti cumque fugiat ad unde accusamus, nisi provident veniam eaque sunt quos laudantium nesciunt aut.
-        </p>
-
-        <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.</li>
-        </ul>
-      `,
-                  },
-                ].map((item, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      position: "relative",
-                      overflow: "hidden",
-
-                      p: { xs: 1, md: 5 },
-
-                      mb: 4,
-
-                      borderRadius: "32px",
-
-                      background: "#fff",
-
-                      border: "1px solid rgba(0,0,0,0.06)",
-
-                      boxShadow: "0 10px 40px rgba(0,0,0,0.05)",
-
-                      transition: ".4s ease",
-
-                      "&:hover": {
-                        transform: "translateY(-6px)",
-                        boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
-                      },
-                    }}
-                  >
-                    {/* Gradient Circle */}
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: "-120px",
-                        right: "-120px",
-
-                        width: "280px",
-                        height: "280px",
-
-                        borderRadius: "50%",
-
-                        background:
-                          "linear-gradient(135deg,#14b91d,#1171b0)",
-
-                        opacity: 0.08,
-
-                        filter: "blur(10px)",
-                      }}
-                    />
-
-                    {/* Number */}
-                    <Typography
-                      sx={{
-                        position: "absolute",
-                        top: 25,
-                        right: 30,
-
-                        fontSize: { xs: "50px", md: "80px" },
-
-                        fontWeight: 800,
-
-                        color: "rgba(0,0,0,0.05)",
-
-                        lineHeight: 1,
-                      }}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </Typography>
-
-                    <Grid container spacing={4}>
-                      {/* Left */}
-                      <Grid item xs={12} md={4}>
-                        <Typography
-                          sx={{
-                            fontSize: { xs: "28px", md: "36px" },
-                            fontWeight: 800,
-                            color: "#111",
-                            position: "relative",
-                            zIndex: 2,
-                          }}
-                        >
-                          {item.title}
-                        </Typography>
-                      </Grid>
-
-                      {/* Right */}
-                      <Grid item xs={12} md={9}>
+                  <Grid container spacing={2}>
+                    {[
+                      "Career Growth",
+                      "Learning & Development",
+                      "Recognition & Rewards",
+                      "Work-Life Balance",
+                      "Flexible Working",
+                      "Health & Wellness",
+                      "Employee Discounts",
+                      "Team Events",
+                    ].map((item, index) => (
+                      <Grid
+                        key={index}
+                        size={{
+                          xs: 12,
+                          sm: 6,
+                          md: 4,
+                          lg: 3,
+                        }}
+                      >
                         <Box
                           sx={{
                             position: "relative",
-                            zIndex: 2,
 
-                            color: "#555",
+                            display: "flex",
+                            alignItems: "center",
 
-                            fontSize: "16px",
+                            minHeight: "70px",
 
-                            lineHeight: 2,
+                            px: 3,
+                            py: 2,
 
-                            "& p": {
-                              mb: 2,
+                            borderRadius: "16px",
+
+                            background:
+                              "rgba(255,255,255,0.85)",
+
+                            backdropFilter: "blur(12px)",
+
+                            border:
+                              "1px solid rgba(20,185,29,0.15)",
+
+                            boxShadow:
+                              "0 8px 25px rgba(0,0,0,0.06)",
+
+                            transition: "all .35s ease",
+
+                            "&:hover": {
+                              transform: "translateY(-4px)",
+                              boxShadow:
+                                "0 15px 35px rgba(0,0,0,0.12)",
                             },
+                            overflow: "hidden",
 
-                            "& ul": {
-                              pl: 3,
-                              mt: 2,
-                            },
+                            "&:before": {
+                              content: '""',
+                              position: "absolute",
+                              top: "-50px",
+                              right: "-50px",
 
-                            "& li": {
-                              mb: 1,
+                              width: "120px",
+                              height: "120px",
+
+                              borderRadius: "50%",
+
+                              background:
+                                "linear-gradient(135deg,#14b91d,#1171b0)",
+
+                              opacity: 0.08,
                             },
                           }}
-                          dangerouslySetInnerHTML={{
-                            __html: item.description,
-                          }}
-                        />
+                        >
+                          {/* Number */}
+                          <Typography
+                            sx={{
+                              fontSize: "14px",
+                              fontWeight: 800,
+
+                              color: "#14b91d",
+
+                              mr: 1.5,
+
+                              minWidth: "28px",
+                            }}
+                          >
+                            {String(index + 1).padStart(2, "0")}
+                          </Typography>
+
+                          {/* Title */}
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "15px",
+                                md: "16px",
+                              },
+
+                              fontWeight: 600,
+
+                              color: "#111",
+
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {item}
+                          </Typography>
+                        </Box>
                       </Grid>
-                    </Grid>
-                  </Box>
-                ))}
+                    ))}
+                  </Grid>
+                </Box>
               </Box>
-
             </Box>
           </Grid>
 

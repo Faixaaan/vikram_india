@@ -330,7 +330,7 @@ const Footer = () => {
 
 
                         <Box sx={{ mb: 2 }}>
-                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}> Vill:{data?.title1}</Typography>
+                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>{data?.title1}</Typography>
                             <Typography sx={{
                                 fontSize: "14px", fontfamily: "Roboto"
                             }}>
@@ -345,9 +345,9 @@ const Footer = () => {
                         </Box>
 
                         <Box>
-                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>Office / Works</Typography>
+                            <Typography sx={{ fontWeight: 700, fontfamily: "Roboto" }}>{data?.title2}</Typography>
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
-                                Vill: {data?.address2}
+                                {data?.address2}
                             </Typography>
                             {/* <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 P.O: Daharpur, P.S: Sadar, Dist
@@ -355,6 +355,9 @@ const Footer = () => {
                             {/* <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Howrah – 711 302 West Bengal, India
                             </Typography> */}
+                            <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
+                                Phone No. {data?.number2}
+                            </Typography>
                             <Typography sx={{ fontSize: "14px", fontfamily: "Roboto" }}>
                                 Email: {data?.email2}
                             </Typography>

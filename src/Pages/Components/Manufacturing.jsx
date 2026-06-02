@@ -120,14 +120,26 @@ const Manufacturing = () => {
                                     key={item}
                                     component={Link}
                                     to={`/products/mms/${item.toLowerCase().replace(/ /g, "-")}`}
+
+
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PRODUCT & PORTFOLIO" ? "#1A73E8" : "transparent",
+
+                                        background:
+                                            item === "PRODUCT & PORTFOLIO"
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
+
                                         color: item === "PRODUCT & PORTFOLIO" ? "#fff" : "#000",
+
                                         "&:hover": {
-                                            backgroundColor: item === "PRODUCT & PORTFOLIO" ? "#1A73E8" : "#f5f5f5",
+                                            background:
+                                                item === "PRODUCT & PORTFOLIO"
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                         },
-                                        fontFamily: "Roboto"
+
+                                        fontFamily: "Roboto",
                                     }}
                                 >
                                     <ListItemText
@@ -142,7 +154,21 @@ const Manufacturing = () => {
                             ))}
                         </List>
                         <Box sx={{ mt: 4 }}>
-                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                            <Button variant="contained" sx={{
+                                padding: "8px 15px!important",
+                                fontSize: "16px",
+                                fontWeight: "500",
+                                fontFamily: "Roboto",
+
+                                background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                                boxShadow: "none",
+
+                                "&:hover": {
+                                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                                    boxShadow: "none",
+                                },
+                            }} fullWidth onClick={() => setOpenEnquiry(true)}>
                                 Enquiry Form
                             </Button>
                         </Box>

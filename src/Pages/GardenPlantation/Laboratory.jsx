@@ -100,22 +100,25 @@ const Laboratory = () => {
                   to={`/products/garden-&-plantation-equipments/${item
                     .toLowerCase()
                     .replace(/ /g, "-")}`}
+
+
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor:
+
+                    background:
                       item === "LABORATORY & QUALITY ASSURANCE TOOL"
-                        ? "green"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
                         : "transparent",
-                    color:
-                      item === "LABORATORY & QUALITY ASSURANCE TOOL"
-                        ? "#fff"
-                        : "#000",
+
+                    color: item === "LABORATORY & QUALITY ASSURANCE TOOL" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor:
+                      background:
                         item === "LABORATORY & QUALITY ASSURANCE TOOL"
-                          ? "green"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
                           : "#f5f5f5",
                     },
+
                     fontFamily: "Roboto",
                   }}
                 >
@@ -131,7 +134,23 @@ const Laboratory = () => {
               ))}
             </List>
             <Box sx={{ mt: 4 }}>
-              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+              <Button variant="contained"
+                sx={{
+                  padding: "8px 15px!important",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  fontFamily: "Roboto",
+
+                  background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                    boxShadow: "none",
+                  },
+                }}
+                fullWidth onClick={() => setOpenEnquiry(true)}>
                 Enquiry Form
               </Button>
             </Box>

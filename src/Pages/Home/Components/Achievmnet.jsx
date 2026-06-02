@@ -57,12 +57,12 @@ const Achievmnet = () => {
 
                         // push only on bigger screens
                         mr: { xs: 0, md: "-70px", lg: "-80px", xl: "-130px" },
-                        background: {
-                            xs: "linear-gradient(180deg, #e9e9e9 0%, #323232 100%)", // mobile (full background)
-                            sm: "linear-gradient(140deg,  #282828 70%, #282828 100%)", // tablet
-                            md: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // desktop
-                            lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // large
-                        },
+                        // background: {
+                        //     xs: "linear-gradient(180deg, #e9e9e9 0%, #323232 100%)", // mobile (full background)
+                        //     sm: "linear-gradient(140deg,  #282828 70%, #282828 100%)", // tablet
+                        //     md: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // desktop
+                        //     lg: "linear-gradient(100deg, #ffffff00, #ffffff00, #2e2e2e2f, #2d2d2d)", // large
+                        // },
 
 
                         borderRadius: { xs: "20px", md: "32px" },
@@ -70,7 +70,7 @@ const Achievmnet = () => {
                     }}
                 >
                     {/* Glass Card */}
-                    <Box
+                    {/* <Box
                         sx={{
                             width: {
                                 xs: "100%",
@@ -82,7 +82,7 @@ const Achievmnet = () => {
 
                             height: {
                                 xs: "auto",
-                                md: "550px", // fixed height desktop
+                                md: "550px", 
                             },
 
                             p: { xs: "20px", sm: "24px", md: "40px" },
@@ -100,9 +100,9 @@ const Achievmnet = () => {
                             gap: { xs: 2, md: 3.5 },
                         }}
                     >
-                        {/* Title */}
+                    
                         <Box sx={{ position: "relative", display: "inline-block" }}>
-                            {/* Animated Left Bar */}
+                          
                             <Box
                                 component={motion.div}
                                 animate={{ height: ["40%", "80%", "40%"] }}
@@ -157,7 +157,7 @@ const Achievmnet = () => {
                         </Box>
 
 
-                        {/* Description */}
+                       
                         <Box
                             sx={{
                                 flex: 1,
@@ -168,11 +168,11 @@ const Achievmnet = () => {
                                 },
                                 overflowY: "auto",
 
-                                // Firefox
+                               
                                 scrollbarWidth: "thin",
                                 scrollbarColor: "#ff9898 rgba(255,255,255,0.08)",
 
-                                // Chrome, Edge, Safari
+                              
                                 "&::-webkit-scrollbar": {
                                     width: "8px",
                                 },
@@ -204,14 +204,13 @@ const Achievmnet = () => {
                                     color: "#eaeaea",
                                     lineHeight: 1.8,
                                     maxWidth: { xs: "100%", md: "520px" },
-                                    pr: 1, // text scrollbar-er sathe lege na thakar jonno
+                                    pr: 1,
                                 }}
                             >
                                 {data?.sec4description}
                             </Typography>
                         </Box>
 
-                        {/* Button */}
                         <Button
                             variant="contained"
                             sx={{
@@ -223,13 +222,9 @@ const Achievmnet = () => {
                                 borderRadius: "30px",
                                 textTransform: "none",
                                 fontWeight: 600,
-
                                 position: "relative",
                                 overflow: "hidden",
-
                                 background: "#bd2304",
-
-                                // text always on top
                                 zIndex: 1,
 
                                 "& span": {
@@ -237,7 +232,7 @@ const Achievmnet = () => {
                                     zIndex: 2,
                                 },
 
-                                // center burst layer
+                            
                                 "&:before": {
                                     content: '""',
                                     position: "absolute",
@@ -266,7 +261,7 @@ const Achievmnet = () => {
                             <span>Know More</span>
                         </Button>
 
-                    </Box>
+                    </Box> */}
                 </Box>
             </Container>
         </Box>

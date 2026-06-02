@@ -145,11 +145,15 @@ const Initiatives = () => {
 
     const date = new Date(dateString);
 
-    return date.toLocaleDateString("en-US", {
-      month: "2-digit",
-      day: "2-digit",
-      year: "numeric",
+    const day = String(date.getDate()).padStart(2, "0");
+
+    const month = date.toLocaleString("en-US", {
+      month: "short",
     });
+
+    const year = date.getFullYear();
+
+    return `${day} ${month}, ${year}`;
   };
 
   return (
@@ -341,6 +345,7 @@ const Initiatives = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: 1.2,
+                mb: "25px"
               }}
             >
               <NotificationsActiveIcon
@@ -354,24 +359,20 @@ const Initiatives = () => {
               <Typography
                 sx={{
                   fontSize: "22px",
-                  fontWeight: 800,
-                  // letterSpacing: 1,
+                  fontWeight: 900,
                   textTransform: "uppercase",
 
-                  background: "linear-gradient(270deg, #ffffff, #ffd000, #ffffff)",
-                  backgroundSize: "400% 400%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  color: "#111827",
 
-                  animation: "gradientMove 6s ease infinite",
+                  background: "rgba(255,255,255,0.75)",
+                  px: 2,
+                  py: 0.5,
+                  borderRadius: "10px",
 
-                  "@keyframes gradientMove": {
-                    "0%": { backgroundPosition: "0% 50%" },
-                    "50%": { backgroundPosition: "100% 50%" },
-                    "100%": { backgroundPosition: "0% 50%" },
-                  },
+                  backdropFilter: "blur(8px)",
+
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                 }}
-
               >
                 {data?.notice_title}
               </Typography>
@@ -381,17 +382,17 @@ const Initiatives = () => {
               {/* Bell Ring Animation */}
               <style>
                 {`
-      @keyframes ring {
-        0% { transform: rotate(0); }
-        10% { transform: rotate(15deg); }
-        20% { transform: rotate(-10deg); }
-        30% { transform: rotate(6deg); }
-        40% { transform: rotate(-4deg); }
-        50% { transform: rotate(2deg); }
-        60% { transform: rotate(0); }
-        100% { transform: rotate(0); }
-      }
-    `}
+                          @keyframes ring {
+                         0% { transform: rotate(0); }
+                         10% { transform: rotate(15deg); }
+                          20% { transform: rotate(-10deg); }
+                          30% { transform: rotate(6deg); }
+                          40% { transform: rotate(-4deg); }
+                          50% { transform: rotate(2deg); }
+                          60% { transform: rotate(0); }
+                          100% { transform: rotate(0); }
+                           }
+                            `}
               </style>
             </Box>
 
@@ -459,16 +460,15 @@ const Initiatives = () => {
 
                     <Box
                       sx={{
-                        minWidth: "85px",
+                        minWidth: "140px",
                         background: "linear-gradient(135deg, #1BAA63 0%, #276f9e 100%)",
                         color: "#fff",
                         fontSize: { xs: "14px", md: "16px" },
                         fontWeight: 600,
-                        padding: "6px 8px",
+                        padding: "6px 10px",
                         textAlign: "center",
                         borderRadius: "4px",
                         boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
-                        letterSpacing: "0.5px",
                       }}
                     >
                       {formatDate(item.date)}
