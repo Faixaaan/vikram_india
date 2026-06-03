@@ -1,29 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Container, Grid, Card, CardMedia, CardContent } from "@mui/material";
-import bannerImg from "../../Assets/Module_mounting_banner.jpg"; // change if needed
+import { Box, Typography, Container, Grid, Card, CardMedia, CardContent } from "@mui/material";
+
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import FanImage from "../../Assets/mm-structure-01.jpg"; // update your image
 
 
-const cardData = [
-    {
-        id: 1,
-        title: "Tea Processing Machinery",
-        image: FanImage,
-        path: "/products/processing-card"
-    },
-    {
-        id: 2,
-        title: "Garden & Plantation Equipment",
-        image: FanImage,
-        path: "/products/garden-&-plantation-equipments/harvesting-tool"
-    },
-
-];
 
 const TmdDivision = () => {
 
@@ -136,21 +120,7 @@ const TmdDivision = () => {
                     }}
 
                 >
-                    {/* Title */}
-                    {/* <Typography
-                        sx={{
-                            fontSize: { xs: "22px", sm: "28px", md: "40px" },
-                            fontWeight: 700,
-                            fontFamily: "Roboto",
-                            mb: 2,
-                            color: "#1A73E8",
-                            textTransform: "capitalize"
-                        }}
-                    >
-                        Tmd Division Machine Structure
-                    </Typography>
 
-                    {/* Subtitle */}
 
 
                     {/* Learn More Button */}
@@ -164,58 +134,121 @@ const TmdDivision = () => {
                         >
                             <Card
                                 sx={{
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        transform: 'translateY(-4px)',
-                                        boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
-                                    },
+                                    position: "relative",
+                                    overflow: "hidden",
+                                    borderRadius: "24px",
+                                    background:
+                                        "linear-gradient(145deg, #ffffff 0%, #f8f9fb 100%)",
+                                    border: "2px solid #8bd2a5d6",
+                                    boxShadow:
+                                        "0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.05)",
+                                    transition: "all 0.5s ease",
                                     cursor: "pointer",
-                                    alignItems: "center",
-                                    justifyContent: "center"
+                                    height: "100%",
+
+                                    "&::after": {
+                                        content: '""',
+                                        position: "absolute",
+                                        width: "280px",
+                                        height: "280px",
+                                        borderRadius: "50%",
+                                        bottom: "-180px",
+                                        right: "-160px",
+
+                                        background:
+                                            "linear-gradient(135deg, rgba(10,125,52,0.12), rgba(10,125,52,0.03))",
+
+                                        border: "1px solid rgba(10,125,52,0.08)",
+
+                                        zIndex: 0,
+                                        transition: "all .5s ease",
+                                    },
+
+                                    "&:hover": {
+                                        transform: "translateY(-12px)",
+                                        boxShadow:
+                                            "0 25px 60px rgba(0,0,0,0.15), 0 10px 25px rgba(0,0,0,0.08)",
+
+                                        "&:before": {
+                                            left: "100%",
+                                            top: "100%",
+                                        },
+
+                                        "& .card-image": {
+                                            transform: "scale(1.08)",
+                                        },
+
+                                        "& .card-arrow": {
+                                            transform: "translateX(8px)",
+                                            opacity: 1,
+                                        },
+                                    },
                                 }}
                                 onClick={BlackhandleClick}
                             >
                                 {/* Card Image */}
-                                <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={cardDataa.image1}
-                                    alt='image'
+                                <Box
                                     sx={{
-
-                                        width: '100%',
+                                        overflow: "hidden",
+                                        position: "relative",
                                     }}
-                                />
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        image={cardDataa.image1}
+                                        alt={cardDataa.title1}
+                                        className="card-image"
+                                        sx={{
+                                            height: 260,
+                                            transition: "transform 0.7s ease",
+                                        }}
+                                    />
+
+                                    {/* Gradient Overlay */}
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            inset: 0,
+                                            background:
+                                                "linear-gradient(to top, rgba(0,0,0,0.55), transparent 60%)",
+                                        }}
+                                    />
+                                </Box>
 
                                 {/* Card Content */}
-                                <CardContent sx={{
-                                    flexGrow: 1, p: 2, '&:hover': {
-                                        backgroundColor: "#e5e5e5"
-                                    },
-                                }}>
+                                <CardContent
+                                    sx={{
+                                        p: 3,
+                                        textAlign: "center",
+                                    }}
+                                >
                                     <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
                                         sx={{
-                                            fontWeight: 600,
-                                            fontSize: { xs: '16px', md: '18px' },
-                                            fontFamily: 'Open Sans',
-                                            color: '#333',
-                                            mb: 1,
-                                            textAlign: 'center'
-
+                                            fontSize: { xs: 18, md: 22 },
+                                            fontWeight: 700,
+                                            color: "#111",
+                                            fontFamily: "Roboto",
+                                            mb: 2,
+                                            lineHeight: 1.3,
                                         }}
                                     >
                                         {cardDataa.title1}
                                     </Typography>
 
+                                    <Box
+                                        className="card-arrow"
+                                        sx={{
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: 1,
+                                            color: "#0A7D34",
+                                            fontWeight: 600,
 
+                                            transition: "all 0.4s ease",
+                                        }}
+                                    >
+                                        Explore More →
+                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>
@@ -227,58 +260,125 @@ const TmdDivision = () => {
                         >
                             <Card
                                 sx={{
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        transform: 'translateY(-4px)',
-                                        boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
-                                    },
+                                    position: "relative",
+                                    overflow: "hidden",
+                                    borderRadius: "24px",
+                                    background:
+                                        "linear-gradient(145deg, #ffffff 0%, #f8f9fb 100%)",
+                                    border: "2px solid #8bd2a5d6",
+                                    boxShadow:
+                                        "0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.05)",
+                                    transition: "all 0.5s ease",
                                     cursor: "pointer",
-                                    alignItems: "center",
-                                    justifyContent: "center"
+                                    height: "100%",
+
+                                    "&::after": {
+                                        content: '""',
+                                        position: "absolute",
+                                        width: "280px",
+                                        height: "280px",
+                                        borderRadius: "50%",
+                                        bottom: "-180px",
+                                        right: "-160px",
+
+                                        background:
+                                            "linear-gradient(135deg, #0a7d341f, rgba(10,125,52,0.03))",
+
+                                        border: "1px solid rgba(10,125,52,0.08)",
+
+                                        zIndex: 0,
+                                        transition: "all .5s ease",
+                                    },
+                                    
+                                    "&:hover": {
+                                        transform: "translateY(-12px)",
+                                        boxShadow:
+                                            "0 25px 60px rgba(0,0,0,0.15), 0 10px 25px rgba(0,0,0,0.08)",
+
+                                        "&:before": {
+                                            left: "100%",
+                                            top: "100%",
+                                        },
+
+                                        "& .card-image": {
+                                            transform: "scale(1.08)",
+                                        },
+
+                                        "& .card-arrow": {
+                                            transform: "translateX(8px)",
+                                            opacity: 1,
+                                        },
+                                    },
                                 }}
                                 onClick={GreenhandleClick}
                             >
                                 {/* Card Image */}
-                                <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={cardDataa.image2}
-                                    alt='image'
-                                    sx={{
 
-                                        width: '100%',
+
+                                <Box
+                                    sx={{
+                                        overflow: "hidden",
+                                        position: "relative",
                                     }}
-                                />
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        image={cardDataa.image2}
+                                        alt={cardDataa.title2}
+                                        className="card-image"
+                                        sx={{
+                                            height: 260,
+                                            transition: "transform 0.7s ease",
+                                        }}
+                                    />
+
+                                    {/* Gradient Overlay */}
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            inset: 0,
+                                            background:
+                                                "linear-gradient(to top, rgba(0,0,0,0.55), transparent 60%)",
+                                        }}
+                                    />
+                                </Box>
 
                                 {/* Card Content */}
-                                <CardContent sx={{
-                                    flexGrow: 1, p: 2, '&:hover': {
-                                        backgroundColor: "#e5e5e5"
-                                    },
-                                }}>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
-                                        sx={{
-                                            fontWeight: 600,
-                                            fontSize: { xs: '16px', md: '18px' },
-                                            fontFamily: 'Open Sans',
-                                            color: '#333',
-                                            mb: 1,
-                                            textAlign: 'center'
 
+
+
+                                <CardContent
+                                    sx={{
+                                        p: 3,
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: { xs: 18, md: 22 },
+                                            fontWeight: 700,
+                                            color: "#111",
+                                            fontFamily: "Roboto",
+                                            mb: 2,
+                                            lineHeight: 1.3,
                                         }}
                                     >
                                         {cardDataa.title2}
                                     </Typography>
 
-
+                                    <Box
+                                        className="card-arrow"
+                                        sx={{
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: 1,
+                                            color: "#0A7D34",
+                                            fontWeight: 600,
+                                            transition: "all 0.4s ease",
+                                        }}
+                                    >
+                                        Explore More →
+                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>

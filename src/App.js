@@ -75,11 +75,9 @@ import AllNotice from "./Pages/Home/Components/AllNotice";
 import MediaDetails from "./Pages/Home/Components/MediaDetails";
 import SuccessPage from "./Pages/Sucess/SuccessPage";
 import AcoustoScan from "./Pages/Acoustoscan/AcoustoScan";
-import India from "./Pages/Acoustoscan/locations/India";
-import Colombia from "./Pages/Acoustoscan/locations/Colombia";
-import Australia from "./Pages/Acoustoscan/locations/Australia";
 import TowerLineTransmission from "./Pages/Tlt/TowerLineTransmission";
 import Certificate from "./Pages/AboutUs/Certificate";
+import AcoustoScanDetails from "./Pages/Acoustoscan/AcoustoScanDetails";
 
 
 function App() {
@@ -145,7 +143,7 @@ function App() {
           <Route path="/products/mms/quality-&-safety" element={<Product />} />
 
 
-          <Route path="/products/processing-card" element={<ProcessingCard />} />
+
           <Route path="/about/group-profile" element={<GroupProfile />} />
           <Route path="/about/company-profile" element={<CompanyProfile />} />
           <Route path="/about/certificates" element={<Certificate />} />
@@ -163,7 +161,7 @@ function App() {
           <Route path="/about/company-profile" element={<CompanyProfile />} />
           <Route path="/about/vision-&-mission" element={<VisionMission />} />
           <Route path="/about/management-team" element={<ManagementTeam />} />
-          
+
 
           <Route path="/about/clientele" element={<Clientele />} />
           <Route path="/about/quality-policy" element={<QualityPolicy />} />
@@ -228,10 +226,10 @@ function App() {
           <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
           <Route path="/thankyou-page" element={<SuccessPage />} />
           <Route path="/acousto-scan" element={<AcoustoScan />} />
-
-          <Route path="/acousto/india" element={<India />} />
-          <Route path="/acousto/colombia" element={<Colombia />} />
-          <Route path="/acousto/australia" element={<Australia />} />
+          <Route
+            path="/acousto-scan/:country"
+            element={<AcoustoScanDetails />}
+          />
 
         </Route>
       </Routes>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
-import bannerImg from "../../Assets/Banner.png"; // change if needed
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -95,7 +95,7 @@ const HdpLearnMore = () => {
                 underline="none"
                 sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
               >
-                World-Class Hot Dip Galvanizing Services
+                Hot Dip Galvanizing
               </Typography>
 
 

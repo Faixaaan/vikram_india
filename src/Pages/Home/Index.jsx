@@ -6,6 +6,7 @@ import Achievmnet from './Components/Achievmnet'
 import Initiatives from './Components/Initiatives'
 import OurClient from './Components/OurClient'
 import { useLocation } from 'react-router-dom'
+import AcoustoScan from '../Acoustoscan/AcoustoScan'
 // import ModuleMounting from './Components/Modulemounting'
 
 const Home = () => {
@@ -42,7 +43,8 @@ useEffect(() => {
       {/* <ModuleMounting /> */}
       {/* <OurClient /> */}
       <Initiatives />
-      <Achievmnet />
+      <AcoustoScan />
+      {/* <Achievmnet /> */}
       <Testimonial />
       <Media />
     </>

@@ -52,40 +52,18 @@
 }
 
 /* Map  -  Functionality */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%)
+      scale(0.5);
+    opacity: 1;
+  }
 
-
-.map-container {
-  position: relative;
-  width: 100%;
+  100% {
+    transform: translate(-50%, -50%)
+      scale(2.5);
+    opacity: 0;
+  }
 }
 
-.map-image {
-  width: 100%;
-}
 
-/* COMMON PIN STYLE */
-.pin {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: red;
-  border-radius: 50%;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-}
-
-/* LOCATIONS (adjust manually) */
-.india {
-  top: 55%;
-  left: 68%;
-}
-
-.colombia {
-  top: 65%;
-  left: 30%;
-}
-
-.australia {
-  top: 78%;
-  left: 85%;
-}
