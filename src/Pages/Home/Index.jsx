@@ -42,8 +42,8 @@ useEffect(() => {
       <Banner />
       {/* <ModuleMounting /> */}
       {/* <OurClient /> */}
-      <Initiatives />
       <AcoustoScan />
+      <Initiatives />
       {/* <Achievmnet /> */}
       <Testimonial />
       <Media />

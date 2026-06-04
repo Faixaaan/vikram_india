@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
@@ -34,12 +34,12 @@ const AcoustoScan = () => {
      
       }}
     >
-
-      
        <Box sx={{
         position: "absolute",
         color: "#fff",
-       
+        fontSize: "32px",
+       left: "35%",
+       marginTop: "30px"
        }}>
         <h2>Our Global Presence</h2>
        </Box>
@@ -70,8 +70,8 @@ const AcoustoScan = () => {
           <Box
             sx={{
               position: "absolute",
-              width: 20,
-              height: 20,
+              width: 18,
+              height: 18,
               borderRadius: "50%",
               background: "rgba(0, 255, 0, 0.8)",
               animation: "pulse 2s infinite",
@@ -87,7 +87,7 @@ const AcoustoScan = () => {
           <img
             src={item.markerIcon}
             alt={item.countryName}
-            width={23}
+            width={22}
             style={{
               cursor: "pointer",
               position: "relative",
