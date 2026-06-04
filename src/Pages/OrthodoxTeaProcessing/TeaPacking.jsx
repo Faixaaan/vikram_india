@@ -6,36 +6,18 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
     Breadcrumbs,
     Link as MLink,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
     Container,
-    colors,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
 import '../../App.css'
-import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import CFM from '../../../src/Assets/CFM.jpg'
-import DryingImag from "../../../src/Assets/Drying_img.jpg"; // update your image
-import controllerImage from "../../../src/Assets/auto_controller.jpg";
-import heatingImage from '../../../src/Assets/heating-Arrangment.jpg'
-
-
-
 
 const leftMenu = [
     "WITHERING",
@@ -46,24 +28,6 @@ const leftMenu = [
     "PACKING",
 
 ];
-
-const rollerSpecs = [
-    { label: "Normal Speed", r36: "60", r46: "48" },
-    { label: "Eccentricity", r36: "101 & 203 mm", r46: "101 & 203 mm" },
-    { label: "Travel of Table", r36: "202 mm Circular", r46: "202 mm Circular" },
-    { label: "Travel of Hood", r36: "406 mm Circular", r46: "406 mm Circular" },
-    { label: "Power Required", r36: "10 H.P. × 1440 RPM", r46: "20 H.P. × 1440 RPM" },
-    { label: "Capacity", r36: "130 Kg. Withered Leaf", r46: "240 Kg. Withered Leaf" },
-    { label: "Floor Space Required", r36: "2000 × 2100 mm", r46: "2250 × 2350 mm" },
-    { label: "Table", r36: "Single Piece High Quality Alloy Brass", r46: "-" },
-    { label: "Hood", r36: "Brass Sheet 10 SWG with stiffeners", r46: "-" },
-    { label: "Floating Cap", r36: "Single Piece High Quality Aluminium", r46: "-" },
-    { label: "Bearings", r36: "Heavy Duty Taper Roller & Ball Bearings", r46: "-" },
-    { label: "Pressure Cap", r36: "Automatic Lifting Gear & Height Indicator", r46: "-" },
-    { label: "Standard", r36: "Standard components with one set of spares", r46: "-" },
-];
-
-
 
 const TeaPacking = () => {
 
@@ -93,18 +57,18 @@ const TeaPacking = () => {
                     <MLink component={Link} to="/home" underline="hover" color="inherit">
                         Home
                     </MLink>
-                    <Typography color="inherit" sx={{  fontSize: "15px" }}>Product & Services</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Orthodox Tea Processing Machinery</Typography>
-                    <Typography color="text.primary" sx={{  fontSize: "15px" }}>Packing</Typography>
+                    <Typography color="inherit" sx={{ fontSize: "15px" }}>Product & Services</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Orthodox Tea Processing Machinery</Typography>
+                    <Typography color="text.primary" sx={{ fontSize: "15px" }}>Packing</Typography>
                 </Breadcrumbs>
 
-                
 
-                
+
+
 
                 <Grid container spacing={3}>
                     {/* Left Sidebar */}
-                    <Grid item size={{ xs: 12, md: 3 }} sx={{mt:2}}>
+                    <Grid item size={{ xs: 12, md: 3 }} sx={{ mt: 2 }}>
                         <Typography
                             sx={{
                                 fontWeight: 700,
@@ -117,7 +81,7 @@ const TeaPacking = () => {
                             Product & Services
                         </Typography>
 
-                       
+
 
                         <List sx={{ border: "1px solid #ddd" }}>
                             {leftMenu.map((item) => (
@@ -125,14 +89,25 @@ const TeaPacking = () => {
                                     key={item}
                                     component={Link}
                                     to={`/products/ctc/${`tea`}${item.toLowerCase().replace(/ /g, "-")}`}
+
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "PACKING" ? "green" : "transparent",
+
+                                        background:
+                                            item === "PACKING"
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
+
                                         color: item === "PACKING" ? "#fff" : "#000",
+
                                         "&:hover": {
-                                            backgroundColor: item === "PACKING" ? "green" : "#f5f5f5",
+                                            background:
+                                                item === "PACKING"
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                         },
-                                        fontFamily: "Roboto"
+
+                                        fontFamily: "Roboto",
                                     }}
                                 >
                                     <ListItemText
@@ -149,14 +124,14 @@ const TeaPacking = () => {
                     </Grid>
 
                     {/* Right Content Section */}
-                    <Grid item size={{ xs: 12, md: 9 }} sx={{mt:6}}>
+                    <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 6 }}>
                         <Typography
                             sx={{
                                 fontSize: "24px",
                                 fontWeight: 600,
                                 mb: 2,
                                 fontFamily: "Roboto",
-                                color:"red"
+                                color: "red"
                             }}
                         >
                             PACKING
@@ -192,21 +167,21 @@ const TeaPacking = () => {
 
                         <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                           Digital Weighing Scale
+                            Digital Weighing Scale
                         </Typography>
-                         <Typography sx={headingStyle}>
+                        <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
-                           Tea Storage Bins & Bin Loaders
+                            Tea Storage Bins & Bin Loaders
                         </Typography>
-                         <Typography sx={headingStyle}>
+                        <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
                             Vibrartory Platforms
                         </Typography>
-                         <Typography sx={headingStyle}>
+                        <Typography sx={headingStyle}>
                             <ChevronRightIcon sx={{ color: "red", fontSize: "24px" }} />
                             Packing Machines
                         </Typography>
-                        
+
 
 
 

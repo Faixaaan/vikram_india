@@ -6,28 +6,22 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+
   Breadcrumbs,
   Link as MLink,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+
   Container,
   Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import FanImage from "../../../Assets/logo 1.png"; // update your image
+
 import '../../../App.css'
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
-import image1 from '../../../Assets/machine-big-03.jpg'
+
 import EnquiryForm from "../../../Pages/HotDipGalvanization/Components/EnquiryForm";
 
 
@@ -312,7 +306,7 @@ const Withering = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section3_image} style={{ width: "100%" }} />
+                      <img src={data?.section3_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}

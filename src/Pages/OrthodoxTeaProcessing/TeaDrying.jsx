@@ -6,16 +6,8 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
   Breadcrumbs,
   Link as MLink,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
   Container,
   Button,
 } from "@mui/material";
@@ -27,7 +19,6 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
-import controllerImage from "../../../src/Assets/rolling.jpg";
 import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
@@ -40,43 +31,6 @@ const leftMenu = [
 
 
 ];
-
-const specifications = [
-  { label: "Type", value: "4 Wheel bi-planner chains (Opened/Closed)" },
-  { label: "Unit Load Capacity", value: "30–60 Kgs. (Maximum) Each Hook" },
-  { label: "Working Tension", value: "700 Kgs" },
-  { label: "Breaking Strength", value: "6000 Kgs." },
-  {
-    label: "Tracks",
-    value:
-      "Standard Track made of 4 / 3.15 mm thick covered section of Material MS (IS-2062).",
-  },
-  {
-    label: "Wheels",
-    value:
-      "Material Alloy steel with C3 Clearance. Lubricated & Sealed for Life.",
-  },
-  {
-    label: "Chain Link Plate",
-    value:
-      "32 x 4 mm Thick made of Carbon Steel duly heat treated.",
-  },
-  { label: "Pitch", value: '12" / 15"' },
-  {
-    label: "Axles",
-    value: "Made of Carbon Steel duly Heat Treated.",
-  },
-  {
-    label: "Drive Chain",
-    value: "1.5\" Pitch American Standard Dog Chain.",
-  },
-  {
-    label: "Drive Sprocket",
-    value:
-      "1.5\" Pitch suitable no. of teeth, 2 Nos. simplex sprocket.",
-  },
-];
-
 
 const TeaDrying = () => {
 
@@ -139,14 +93,25 @@ const TeaDrying = () => {
                   key={item}
                   component={Link}
                   to={`/products/ctc/${`tea`}${item.toLowerCase().replace(/ /g, "-")}`}
+                  
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "DRYING PROCESS" ? "green" : "transparent",
+
+                    background:
+                      item === "DRYING PROCESS"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "DRYING PROCESS" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor: item === "DRYING PROCESS" ? "green" : "#f5f5f5",
+                      background:
+                        item === "DRYING PROCESS"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
-                    fontFamily: "Roboto"
+
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -161,7 +126,23 @@ const TeaDrying = () => {
               ))}
             </List>
             <Box sx={{ mt: 4 }}>
-              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+              <Button variant="contained"
+               sx={{
+                  padding: "8px 15px!important",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  fontFamily: "Roboto",
+
+                  background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                    boxShadow: "none",
+                  },
+                }}
+                fullWidth onClick={() => setOpenEnquiry(true)}>
                 Enquiry Form
               </Button>
             </Box>

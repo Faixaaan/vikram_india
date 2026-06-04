@@ -6,16 +6,10 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
+
     Container,
     Button,
 } from "@mui/material";
@@ -27,8 +21,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../src/Api/Axios/axios";
 import { endpoints } from "../../../src/Api/EndPoints/endpoints";
-import controllerImage from "../../../src/Assets/rolling.jpg";
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
 
 
@@ -49,7 +42,7 @@ const leftMenu = [
 const GreenDrying = () => {
 
     const [data, setData] = useState([])
-     const [openEnquiry, setOpenEnquiry] = useState(false);
+    const [openEnquiry, setOpenEnquiry] = useState(false);
 
     const fetchDryingData = async () => {
         try {
@@ -105,14 +98,26 @@ const GreenDrying = () => {
                                     key={item}
                                     component={Link}
                                     to={`/products/ctc/${`green`}${item.toLowerCase().replace(/ /g, "-")}`}
+
+
                                     sx={{
                                         borderBottom: "1px solid #eee",
-                                        backgroundColor: item === "ROLLING AND SHAPING PROCESS" ? "green" : "transparent",
+
+                                        background:
+                                            item === "ROLLING AND SHAPING PROCESS"
+                                                ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                : "transparent",
+
                                         color: item === "ROLLING AND SHAPING PROCESS" ? "#fff" : "#000",
+
                                         "&:hover": {
-                                            backgroundColor: item === "ROLLING AND SHAPING PROCESS" ? "green" : "#f5f5f5",
+                                            background:
+                                                item === "ROLLING AND SHAPING PROCESS"
+                                                    ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                                                    : "#f5f5f5",
                                         },
-                                        fontFamily: "Roboto"
+
+                                        fontFamily: "Roboto",
                                     }}
                                 >
                                     <ListItemText
@@ -127,7 +132,23 @@ const GreenDrying = () => {
                             ))}
                         </List>
                         <Box sx={{ mt: 4 }}>
-                            <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+                            <Button variant="contained"
+                                sx={{
+                                    padding: "8px 15px!important",
+                                    fontSize: "16px",
+                                    fontWeight: "500",
+                                    fontFamily: "Roboto",
+
+                                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                                    boxShadow: "none",
+
+                                    "&:hover": {
+                                        background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                                        boxShadow: "none",
+                                    },
+                                }}
+                                fullWidth onClick={() => setOpenEnquiry(true)}>
                                 Enquiry Form
                             </Button>
                         </Box>

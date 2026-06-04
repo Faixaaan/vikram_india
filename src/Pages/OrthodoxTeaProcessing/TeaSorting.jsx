@@ -6,16 +6,8 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
   Breadcrumbs,
   Link as MLink,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
   Container,
   Button,
 } from "@mui/material";
@@ -105,14 +97,25 @@ const TeaSorting = () => {
                   key={item}
                   component={Link}
                   to={`/products/ctc/${`tea`}${item.toLowerCase().replace(/ /g, "-")}`}
+
                   sx={{
                     borderBottom: "1px solid #eee",
-                    backgroundColor: item === "SORTING,CLEANING,GRADING AND STORAGE SYSTEM" ? "green" : "transparent",
+
+                    background:
+                      item === "SORTING,CLEANING,GRADING AND STORAGE SYSTEM"
+                        ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                        : "transparent",
+
                     color: item === "SORTING,CLEANING,GRADING AND STORAGE SYSTEM" ? "#fff" : "#000",
+
                     "&:hover": {
-                      backgroundColor: item === "SORTING,CLEANING,GRADING AND STORAGE SYSTEM" ? "green" : "#f5f5f5",
+                      background:
+                        item === "SORTING,CLEANING,GRADING AND STORAGE SYSTEM"
+                          ? "linear-gradient(125deg, #14b91d, #1171b0)"
+                          : "#f5f5f5",
                     },
-                    fontFamily: "Roboto"
+
+                    fontFamily: "Roboto",
                   }}
                 >
                   <ListItemText
@@ -127,7 +130,23 @@ const TeaSorting = () => {
               ))}
             </List>
             <Box sx={{ mt: 4 }}>
-              <Button variant="contained" sx={{ padding: "8px 15px!important", fontSize: "16px", fontWeight: "500" }} fullWidth onClick={() => setOpenEnquiry(true)}>
+              <Button variant="contained"
+                sx={{
+                  padding: "8px 15px!important",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  fontFamily: "Roboto",
+
+                  background: "linear-gradient(125deg, #b92d14, #1171b0)",
+
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    background: "linear-gradient(125deg, #b92d14, #1171b0)",
+                    boxShadow: "none",
+                  },
+                }}
+                fullWidth onClick={() => setOpenEnquiry(true)}>
                 Enquiry Form
               </Button>
             </Box>

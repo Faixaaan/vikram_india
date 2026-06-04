@@ -49,7 +49,7 @@ const ProcessingCard = () => {
                 sx={{
                     width: "100%",
                     height: { xs: "220px", sm: "300px", md: "380px" },
-                    backgroundImage: `url(${cardDataa?.image1})`,
+                    backgroundImage: `url(${cardDataa?.tpm_banner})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     position: "relative",

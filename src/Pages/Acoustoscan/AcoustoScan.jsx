@@ -87,7 +87,7 @@ const AcoustoScan = () => {
           <img
             src={item.markerIcon}
             alt={item.countryName}
-            width={27}
+            width={23}
             style={{
               cursor: "pointer",
               position: "relative",
