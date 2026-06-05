@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import noticeReducer from "./slices/noticeSlice";
-import acoustoScanReducer from "./slices/acoustoScanSlice";
+import worldMapReducer from "./slices/worldMapSlice";
 
 export const store = configureStore({
   reducer: {
     notice: noticeReducer,
-    acoustoScan: acoustoScanReducer,
+    worldMap: worldMapReducer,
   },
 });

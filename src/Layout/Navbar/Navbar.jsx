@@ -51,7 +51,7 @@ const Navbar = () => {
 
   // NEW DROPDOWN STATE
   const [openAboutDesktop, setOpenAboutDesktop] = useState(false);
-  const [openAboutMobile, setOpenAboutMobile] = useState(false);
+
   const [data, setData] = useState({});
 
 

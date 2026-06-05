@@ -74,10 +74,12 @@ import Landing from "./Pages/Landing/Landing";
 import AllNotice from "./Pages/Home/Components/AllNotice";
 import MediaDetails from "./Pages/Home/Components/MediaDetails";
 import SuccessPage from "./Pages/Sucess/SuccessPage";
-import AcoustoScan from "./Pages/Acoustoscan/AcoustoScan";
+
 import TowerLineTransmission from "./Pages/Tlt/TowerLineTransmission";
 import Certificate from "./Pages/AboutUs/Certificate";
-import AcoustoScanDetails from "./Pages/Acoustoscan/AcoustoScanDetails";
+
+import WorldMapLocation from "./Pages/Worlmapsection/WorldMapLocation";
+import WorldMapLocationDetails from "./Pages/Worlmapsection/WorldMapLocationDetails";
 
 
 function App() {
@@ -225,13 +227,12 @@ function App() {
           <Route path="/products/garden-&-plantation-equipments/foreign-object-remover-tool" element={<ForeignObject />} />
           <Route path="/products/garden-&-plantation-equipments/laboratory-&-quality-assurance-tool" element={<Laboratory />} />
           <Route path="/thankyou-page" element={<SuccessPage />} />
-          <Route path="/acousto-scan" element={<AcoustoScan />} />
-          <Route
-            path="/acousto-scan/:country"
-            element={<AcoustoScanDetails />}
-          />
-
+          <Route path="/acousto-scan" element={<WorldMapLocation />} />
         </Route>
+          <Route
+            path="/:country"
+            element={<WorldMapLocationDetails />}
+          />
       </Routes>
 
     </BrowserRouter>
