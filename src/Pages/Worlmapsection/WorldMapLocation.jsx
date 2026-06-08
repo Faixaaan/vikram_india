@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Card,
@@ -20,6 +20,9 @@ const WorldMapLocation = () => {
 
   const isMobile = useMediaQuery("(max-width:1020px)");
 
+  const [imageLoaded, setImageLoaded] =
+    useState(false);
+
   const {
     settings,
     locations,
@@ -30,6 +33,10 @@ const WorldMapLocation = () => {
     dispatch(fetchMapSettings());
     dispatch(fetchMapLocations());
   }, [dispatch]);
+
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [settings?.background_image]);
 
   if (loading && !settings) {
     return (
@@ -125,17 +132,12 @@ const WorldMapLocation = () => {
                           xs: "85vw",
                           sm: "75vw",
                         },
-
                         display: "grid",
-
                         gridTemplateColumns:
-                          "repeat(2, 1fr)",
-
+                          "repeat(2,1fr)",
                         gridTemplateRows:
-                          "repeat(4, auto)",
-
+                          "repeat(4,auto)",
                         gap: 2,
-
                         scrollSnapAlign: "start",
                       }}
                     >
@@ -151,7 +153,6 @@ const WorldMapLocation = () => {
                             p: 2,
                             cursor: "pointer",
                             borderRadius: "14px",
-
                             transition: "all .3s",
 
                             "&:hover": {
@@ -160,7 +161,7 @@ const WorldMapLocation = () => {
                             },
 
                             background:
-                              "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+                              "linear-gradient(90deg,#1BAA63 0%,#276f9e 100%)",
 
                             textAlign: "center",
                             color: "#fff",
@@ -188,6 +189,20 @@ const WorldMapLocation = () => {
           sx={{
             position: "relative",
             width: "100%",
+
+            "@keyframes pulseMap": {
+              "0%": {
+                transform:
+                  "translate(-50%, -50%) scale(0.5)",
+                opacity: 1,
+              },
+
+              "100%": {
+                transform:
+                  "translate(-50%, -50%) scale(2.5)",
+                opacity: 0,
+              },
+            },
           }}
         >
           <Box
@@ -208,68 +223,74 @@ const WorldMapLocation = () => {
           <img
             src={settings?.background_image}
             alt={settings?.title}
+            onLoad={() =>
+              setImageLoaded(true)
+            }
             style={{
               width: "100%",
               display: "block",
             }}
           />
 
-          {locations?.map((item) => (
-            <Box
-              key={item.id}
-              sx={{
-                position: "absolute",
-
-                top: `${item.pin_position_top}%`,
-                left: `${item.pin_position_left}%`,
-
-                transform: "translate(-50%,-50%)",
-              }}
-            >
-              {/* Pulse Effect */}
+          {imageLoaded &&
+            locations?.map((item) => (
               <Box
+                key={item.id}
                 sx={{
                   position: "absolute",
-                  width: 18,
-                  height: 18,
-                  borderRadius: "50%",
-                  background:
-                    "rgba(0,255,0,0.8)",
-
-                  animation:
-                    "pulse 2s infinite",
-
-                  top: "50%",
-                  left: "50%",
-
+                  top: `${item.pin_position_top}%`,
+                  left: `${item.pin_position_left}%`,
                   transform:
                     "translate(-50%,-50%)",
-
-                  pointerEvents: "none",
                 }}
-              />
+              >
+                {/* Pulse Effect */}
+                <Box
+                  key={`pulse-${item.id}`}
+                  sx={{
+                    position: "absolute",
+                    width: 18,
+                    height: 18,
+                    borderRadius: "50%",
+                    background:
+                      "rgba(0,255,0,0.8)",
 
-              <img
-                src={item.pin_image}
-                alt={
-                  item.pin_location_title
-                }
-                width={22}
-                style={{
-                  cursor: "pointer",
-                  position: "relative",
-                  zIndex: 2,
-                }}
-                onClick={(e) => {
-                  e.stopPropagation();
+                    animation:
+                      "pulseMap 2s ease-out infinite",
 
-                  navigate(
-                    `/${item.pin_location_title_slug}`
-                  );
-                }}
-              />
-            </Box>
-          ))}
+                    animationDelay: `${item.id * 0.2}s`,
+
+                    top: "50%",
+                    left: "50%",
+
+                    transform:
+                      "translate(-50%,-50%)",
+
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <img
+                  src={item.pin_image}
+                  alt={
+                    item.pin_location_title
+                  }
+                  width={22}
+                  style={{
+                    cursor: "pointer",
+                    position: "relative",
+                    zIndex: 2,
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+
+                    navigate(
+                      `/${item.pin_location_title_slug}`
+                    );
+                  }}
+                />
+              </Box>
+            ))}
         </Box>
       )}
     </>
