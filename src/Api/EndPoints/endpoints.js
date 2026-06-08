@@ -42,6 +42,15 @@ export const endpoints = {
     galleryCategory: "/media-gallery-categories",
     cmsMedia: "/page/media"
   },
+
+
+  WorldMap: {
+    homeWorlMap: "/page/map_settings",
+    mapList: "/map-list",
+    mapSingle: (slug) => `/map-single/${slug}`,
+  },
+
+
   HomeCms: {
     getHomeCms: "/page/home",
     client: "/our-client"
@@ -72,9 +81,9 @@ export const endpoints = {
     queryForm: "/query-form"
   },
 
-   enqueryForm: {
+  enqueryForm: {
     submitenqueryForm: "/service-form"
-   },
+  },
 
   homeMedia: {
     getHomeMediaData: "/home-media"

@@ -1,37 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { Box, Card, Typography, useMediaQuery } from "@mui/material";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import {
+  Box,
+  Card,
+  Typography,
+  useMediaQuery,
+  CircularProgress,
+} from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../Api/Axios/axios";
-import { endpoints } from "../../Api/EndPoints/endpoints";
 
+import {
+  fetchMapLocations,
+  fetchMapSettings,
+} from "../../Redux/slices/worldMapSlice";
 
 const WorldMapLocation = () => {
   const navigate = useNavigate();
-  const [data, setdata] = useState([]);
+  const dispatch = useDispatch();
+
   const isMobile = useMediaQuery("(max-width:1020px)");
 
-  const locations = useSelector(
-    (state) => state.worldMap.locations
-  );
-
-  const fetchData = async () => {
-    try {
-      const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
-      setdata(res?.data?.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const {
+    settings,
+    locations,
+    loading,
+  } = useSelector((state) => state.worldMap);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    dispatch(fetchMapSettings());
+    dispatch(fetchMapLocations());
+  }, [dispatch]);
+
+  if (loading && !settings) {
+    return (
+      <Box
+        sx={{
+          minHeight: "300px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <>
       {isMobile ? (
-        // ================= MOBILE / TABLET UI =================
         <Box
           sx={{
             py: 4,
@@ -51,12 +68,12 @@ const WorldMapLocation = () => {
               },
             }}
           >
-            Our Global Presence
+            {settings?.title}
           </Typography>
 
           <img
-            src={data?.sec4img}
-            alt=""
+            src={settings?.background_image}
+            alt={settings?.title}
             style={{
               width: "100%",
               borderRadius: "16px",
@@ -91,15 +108,14 @@ const WorldMapLocation = () => {
               {Array.from(
                 {
                   length: Math.ceil(
-                    locations.length / 8
+                    (locations?.length || 0) / 8
                   ),
                 },
                 (_, pageIndex) => {
-                  const pageItems =
-                    locations.slice(
-                      pageIndex * 8,
-                      pageIndex * 8 + 8
-                    );
+                  const pageItems = locations.slice(
+                    pageIndex * 8,
+                    pageIndex * 8 + 8
+                  );
 
                   return (
                     <Box
@@ -120,53 +136,46 @@ const WorldMapLocation = () => {
 
                         gap: 2,
 
-                        scrollSnapAlign:
-                          "start",
+                        scrollSnapAlign: "start",
                       }}
                     >
-                      {pageItems.map(
-                        (item) => (
-                          <Card
-                            key={item.id}
-                            onClick={() =>
-                              navigate(
-                                `/${item.slug}`
-                              )
-                            }
+                      {pageItems.map((item) => (
+                        <Card
+                          key={item.id}
+                          onClick={() =>
+                            navigate(
+                              `/${item.pin_location_title_slug}`
+                            )
+                          }
+                          sx={{
+                            p: 2,
+                            cursor: "pointer",
+                            borderRadius: "14px",
+
+                            transition: "all .3s",
+
+                            "&:hover": {
+                              transform:
+                                "translateY(-2px)",
+                            },
+
+                            background:
+                              "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
+
+                            textAlign: "center",
+                            color: "#fff",
+                          }}
+                        >
+                          <Typography
                             sx={{
-                              p: 2,
-                              cursor: "pointer",
-                              borderRadius:
-                                "14px",
-
-                              transition:
-                                "all .3s",
-
-                              "&:hover": {
-                                transform:
-                                  "translateY(-2px)",
-                              },
-                              background: "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
-                              textAlign: "center",
-                              color: "#fff"
-                              
+                              fontWeight: 600,
+                              fontSize: "15px",
                             }}
                           >
-                            <Typography
-                              sx={{
-                                fontWeight:
-                                  600,
-                                fontSize:
-                                  "15px",
-                              }}
-                            >
-                              {
-                                item.countryName
-                              }
-                            </Typography>
-                          </Card>
-                        )
-                      )}
+                            {item.pin_location_title}
+                          </Typography>
+                        </Card>
+                      ))}
                     </Box>
                   );
                 }
@@ -175,7 +184,6 @@ const WorldMapLocation = () => {
           </Box>
         </Box>
       ) : (
-        // ================= DESKTOP UI (UNCHANGED) =================
         <Box
           sx={{
             position: "relative",
@@ -187,34 +195,38 @@ const WorldMapLocation = () => {
               position: "absolute",
               color: "#fff",
               fontSize: "32px",
-              left: "35%",
-              marginTop: "30px",
+              left: "50%",
+              top: "20px",
+              transform: "translateX(-50%)",
               zIndex: 5,
+              textAlign: "center",
             }}
           >
-            <h2>Our Global Presence</h2>
+            <h2>{settings?.title}</h2>
           </Box>
 
           <img
-            src={data?.sec4img}
-            alt=""
+            src={settings?.background_image}
+            alt={settings?.title}
             style={{
               width: "100%",
               display: "block",
             }}
           />
 
-          {locations.map((item) => (
+          {locations?.map((item) => (
             <Box
               key={item.id}
               sx={{
                 position: "absolute",
-                top: item.position.top,
-                left: item.position.left,
+
+                top: `${item.pin_position_top}%`,
+                left: `${item.pin_position_left}%`,
+
                 transform: "translate(-50%,-50%)",
               }}
             >
-              {/* Pulse Effect - SAME AS OLD CODE */}
+              {/* Pulse Effect */}
               <Box
                 sx={{
                   position: "absolute",
@@ -222,21 +234,26 @@ const WorldMapLocation = () => {
                   height: 18,
                   borderRadius: "50%",
                   background:
-                    "rgba(0, 255, 0, 0.8)",
+                    "rgba(0,255,0,0.8)",
+
                   animation:
                     "pulse 2s infinite",
+
                   top: "50%",
                   left: "50%",
+
                   transform:
                     "translate(-50%,-50%)",
+
                   pointerEvents: "none",
                 }}
               />
 
-              {/* Marker */}
               <img
-                src={item.markerIcon}
-                alt={item.countryName}
+                src={item.pin_image}
+                alt={
+                  item.pin_location_title
+                }
                 width={22}
                 style={{
                   cursor: "pointer",
@@ -245,7 +262,10 @@ const WorldMapLocation = () => {
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
-                  navigate(`/${item.slug}`);
+
+                  navigate(
+                    `/${item.pin_location_title_slug}`
+                  );
                 }}
               />
             </Box>
@@ -254,7 +274,6 @@ const WorldMapLocation = () => {
       )}
     </>
   );
-
 };
 
 export default WorldMapLocation;
