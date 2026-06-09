@@ -181,7 +181,7 @@ const Research = () => {
                             <Box sx={{ mt: 4 }}>
                                 <Grid container spacing={2} mt={2}>
                                     <Grid size={{ xs: 12, lg: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", lg: "left" } }} >
-                                        <img src={data?.section1_img} />
+                                        <img src={data?.section1_img} alt="" />
                                     </Grid>
                                     <Grid size={{ xs: 12, lg: 8 }} >
                                         <Typography sx={{ fontFamily: "", fontSize: "18px", lineHeight: "120%", marginBottom: "15px", fontWeight: "400", color: "#121111ff" }}

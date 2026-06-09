@@ -229,13 +229,12 @@ const WorldMapLocationDetails = () => {
         <Box
           sx={{
             display: "grid",
-
             gridTemplateColumns: {
               xs: "1fr",
-              md: "1fr 1fr",
+              md: "1.5fr 1fr",
             },
 
-            gap: 4,
+            gap: 3,
           }}
         >
           {/* Left */}
@@ -245,11 +244,11 @@ const WorldMapLocationDetails = () => {
               sx={{
                 mb: 3,
 
-                fontWeight: 700,
-
+                fontWeight: 800,
+                lineHeight: 1.2,
                 fontSize: {
                   xs: "30px",
-                  md: "48px",
+                  md: "38px",
                 },
               }}
             >
@@ -268,7 +267,7 @@ const WorldMapLocationDetails = () => {
             >
               {parse(
                 singleLocation?.inner_description ||
-                  ""
+                ""
               )}
             </Box>
           </Box>
@@ -279,35 +278,32 @@ const WorldMapLocationDetails = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
+              position: {
+                xs: "static",
+                md: "sticky",
+              },
+              top: 100,
+              alignSelf: "start",
+              height: "fit-content",
             }}
           >
             <img
               src={singleLocation?.inner_image}
-              alt={
-                singleLocation?.inner_title
-              }
+              alt={singleLocation?.inner_title}
               style={{
                 width: "100%",
                 borderRadius: "20px",
-                maxHeight: "450px",
                 objectFit: "cover",
               }}
             />
 
-            <Box
-              sx={{
-                mt: 3,
-              }}
-            >
+            <Box sx={{ mt: 3 }}>
               <Button
                 variant="contained"
                 fullWidth
-                onClick={() =>
-                  setOpenEnquiry(true)
-                }
+                onClick={() => setOpenEnquiry(true)}
                 sx={{
                   py: 1.5,
-
                   background:
                     "linear-gradient(125deg,#b92d14,#1171b0)",
 

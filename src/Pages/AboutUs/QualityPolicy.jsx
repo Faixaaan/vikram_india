@@ -14,9 +14,6 @@ import {
 import { Link } from "react-router-dom";
 import '../../App.css'
 
-import QMS from '../../Assets/Qms.jpg'
-import EMS from '../../Assets/ems.jpg'
-import OHSAS from '../../Assets/ohsas.jpg'
 
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -167,11 +164,9 @@ const QualityPolicy = () => {
                     {/* Right Content Section */}
                     <Grid item size={{ xs: 12, md: 9 }} sx={{ mt: 3 }}>
 
-
-
-
-
                         {/* Introduction */}
+
+                        
 
 
                         <Box>
@@ -190,7 +185,7 @@ const QualityPolicy = () => {
                                     <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" }, alignItems: "flex-start" }} >
                                         <img
                                             src={data?.image}
-                                            alt="quality"
+                                            alt=""
                                             style={{
                                                 width: "100%",
                                                 maxWidth: "280px",
@@ -240,17 +235,6 @@ const QualityPolicy = () => {
                                 </Grid>
 
                             </Box>
-
-
-
-
-                            {/* text */}
-
-
-
-
-
-
                         </Box>
 
                     </Grid>

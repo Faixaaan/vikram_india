@@ -275,11 +275,14 @@ const WorldMapLocation = () => {
                   alt={
                     item.pin_location_title
                   }
-                  width={22}
                   style={{
+                    width: "clamp(35px, 2vw, 60px)",
+                    height: "clamp(35px, 2vw, 60px)",
+                    objectFit: "contain",
                     cursor: "pointer",
                     position: "relative",
                     zIndex: 2,
+                    display: "block",
                   }}
                   onClick={(e) => {
                     e.stopPropagation();
