@@ -17,6 +17,9 @@ import {
 import { Link } from "react-router-dom";
 import "../../App.css";
 
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -25,25 +28,27 @@ const leftMenu = ["WORKING WITH US", "APPLY NOW"];
 
 const WorkingCareer = () => {
   const [currentImage, setCurrentImage] = useState(0);
-
   const [data, setData] = useState({})
+
+  const images = data?.image || [];
 
   const fetchCarrerData = async () => {
     try {
+      const resData = await axiosInstance.get(
+        endpoints.Career.cmsCareerData
+      );
 
-      const resData = await axiosInstance.get(endpoints.Career.cmsCareerData)
-      setData(resData?.data?.data)
-
+      setData(resData?.data?.data);
+      setCurrentImage(0);
+    } catch (err) {
+      console.log(err);
     }
-    catch (err) {
-      console.log(err)
-    }
-  }
+  };
 
 
-  const images = data?.images
-    ? JSON.parse(data.images)
-    : [];
+
+
+
 
   const handleNext = () => {
     if (!images.length) return;
@@ -144,67 +149,7 @@ const WorkingCareer = () => {
           </Grid>
 
           {/* Right Content Section */}
-          {/* <Grid item size={{ xs: 12, md: 9 }}>
-            <Accordion
 
-              sx={{
-                mt: 0,
-                mb: 2,
-                boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
-                borderRadius: "12px !important",
-                "&:before": { display: "none" }, 
-              }}
-            >
-            
-              <AccordionSummary sx={{
-                backgroundColor: "#f8f8f8",
-                borderBottom: "1px solid #eee",
-                borderRadius: "8px"
-              }} expandIcon={<ExpandMoreIcon />}>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 600,
-                  }}
-                >
-                  {data?.title}
-                </Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Grid container spacing={2} alignItems="center">
-
-                 
-                  <Grid item size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: "center" }}>
-                    <img
-                      src={data?.image}
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        borderRadius: "8px",
-                      }}
-                    />
-                  </Grid>
-
-            
-                  <Grid item xs={12} md={8} size={{ xs: 12, md: 8 }}>
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        lineHeight: "140%",
-                        fontWeight: 500,
-                        color: "#121111ff",
-                        fontFamily: "Roboto"
-                      }}
-                      dangerouslySetInnerHTML={{ __html: data?.description }}
-                    />
-                  </Grid>
-
-                </Grid>
-              </AccordionDetails>
-            </Accordion>
-          </Grid> */}
           <Grid item size={{ xs: 12, md: 9 }}>
             <Box>
 
@@ -257,7 +202,7 @@ const WorkingCareer = () => {
                   src={
                     images?.length
                       ? images[currentImage]
-                      : data?.image
+                      : ""
                   }
                   alt={data?.title}
                   sx={{
@@ -278,13 +223,11 @@ const WorkingCareer = () => {
                     left: 20,
                     transform: "translateY(-50%)",
 
-                    width: 55,
-                    height: 55,
+                    width: 60,
+                    height: 60,
 
                     borderRadius: "50%",
-
-                    background:
-                      "rgba(255,255,255,0.9)",
+                    background: "rgba(255,255,255,0.95)",
 
                     display: "flex",
                     alignItems: "center",
@@ -292,21 +235,19 @@ const WorkingCareer = () => {
 
                     cursor: "pointer",
 
-                    fontSize: "30px",
-                    fontWeight: 700,
+                    boxShadow: "0 12px 30px rgba(0,0,0,.15)",
+                    backdropFilter: "blur(10px)",
 
-                    boxShadow:
-                      "0 10px 30px rgba(0,0,0,.15)",
-
-                    transition: ".3s",
+                    transition: "all .3s ease",
 
                     "&:hover": {
-                      transform:
-                        "translateY(-50%) scale(1.08)",
+                      transform: "translateY(-50%) scale(1.08)",
+                      background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+                      color: "#fff",
                     },
                   }}
                 >
-                  ‹
+                  <ChevronLeftIcon sx={{ fontSize: 34 }} />
                 </Box>
 
                 {/* NEXT */}
@@ -318,13 +259,11 @@ const WorkingCareer = () => {
                     right: 20,
                     transform: "translateY(-50%)",
 
-                    width: 55,
-                    height: 55,
+                    width: 60,
+                    height: 60,
 
                     borderRadius: "50%",
-
-                    background:
-                      "rgba(255,255,255,0.9)",
+                    background: "rgba(255,255,255,0.95)",
 
                     display: "flex",
                     alignItems: "center",
@@ -332,21 +271,19 @@ const WorkingCareer = () => {
 
                     cursor: "pointer",
 
-                    fontSize: "30px",
-                    fontWeight: 700,
+                    boxShadow: "0 12px 30px rgba(0,0,0,.15)",
+                    backdropFilter: "blur(10px)",
 
-                    boxShadow:
-                      "0 10px 30px rgba(0,0,0,.15)",
-
-                    transition: ".3s",
+                    transition: "all .3s ease",
 
                     "&:hover": {
-                      transform:
-                        "translateY(-50%) scale(1.08)",
+                      transform: "translateY(-50%) scale(1.08)",
+                      background: "linear-gradient(90deg, #1BAA63, #276f9e)",
+                      color: "#fff",
                     },
                   }}
                 >
-                  ›
+                  <ChevronRightIcon sx={{ fontSize: 34 }} />
                 </Box>
               </Box>
               {/* CONTENT SECTION */}
@@ -369,9 +306,7 @@ const WorkingCareer = () => {
                 </Grid>
               </Grid>
 
-
               {/* EMPLOYEE BENEFITS */}
-
 
               <Box
                 sx={{
@@ -428,7 +363,7 @@ const WorkingCareer = () => {
                     textAlign: "center",
                   }}
                 >
-                  Employee Benefits
+                  {data?.section1_title}
                 </Typography>
 
                 {/* SINGLE CARD */}
@@ -442,16 +377,7 @@ const WorkingCareer = () => {
                   }}
                 >
                   <Grid container spacing={2}>
-                    {[
-                      "Career Growth",
-                      "Learning & Development",
-                      "Recognition & Rewards",
-                      "Work-Life Balance",
-                      "Flexible Working",
-                      "Health & Wellness",
-                      "Employee Discounts",
-                      "Team Events",
-                    ].map((item, index) => (
+                    {data?.benefits_list?.map((item, index) => (
                       <Grid
                         key={index}
                         size={{
