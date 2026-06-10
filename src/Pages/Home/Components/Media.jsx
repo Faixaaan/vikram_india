@@ -114,193 +114,203 @@ const Media = () => {
       </Box>
 
       {/* CARDS */}
-
-      <Box
-        ref={sliderRef}
+      <Container
+        maxWidth={false}
         sx={{
-          display: "flex",
-          gap: 4,
-          overflowX: "auto",
-          scrollBehavior: "smooth",
-          px: { xs: 2, md: 5 },
-
-          "&::-webkit-scrollbar": {
-            display: "none",
+          maxWidth: "1400px",
+          mx: "auto",
+          px: {
+            xs: 2,
+            md: 4,
           },
-
-          scrollbarWidth: "none",
         }}
       >
-        {mediaData.map((card) => (
-          <MotionBox
-            key={card.id}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.35 }}
-            sx={{
-              width: {
-                xs: "78vw",
-                sm: "320px",
-                md: "360px",
-              },
+        <Box
+          ref={sliderRef}
+          sx={{
+            display: "flex",
+            gap: 4,
+            overflowX: "auto",
+            scrollBehavior: "smooth",
+            px: { xs: 2, md: 5 },
 
-              minWidth: {
-                xs: "78vw",
-                sm: "320px",
-                md: "360px",
-              },
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
 
-              borderRadius: "32px",
-              overflow: "hidden",
-              flexShrink: 0,
-
-              background: "#000",
-
-              boxShadow:
-                "0 20px 60px rgba(0,0,0,.18)",
-
-              border:
-                "1px solid rgba(255,255,255,.08)",
-            }}
-          >
-            {/* IMAGE */}
-
-            <Box
+            scrollbarWidth: "none",
+          }}
+        >
+          {mediaData.map((card) => (
+            <MotionBox
+              key={card.id}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.35 }}
               sx={{
-                height: {
-                  xs: 180,
-                  md: 220,
+                width: {
+                  xs: "78vw",
+                  sm: "300px",
+                  md: "320px",
                 },
+
+                minWidth: {
+                  xs: "78vw",
+                  sm: "300px",
+                  md: "320px",
+                },
+
+                borderRadius: "32px",
                 overflow: "hidden",
+                flexShrink: 0,
+
+                background: "#000",
+
+                boxShadow:
+                  "0 20px 60px rgba(0,0,0,.18)",
+
+                border:
+                  "1px solid rgba(255,255,255,.08)",
               }}
             >
+              {/* IMAGE */}
+
               <Box
-                component="img"
-                src={card.image}
-                alt={card.title}
                 sx={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  transition: ".8s ease",
-
-                  "&:hover": {
-                    transform: "scale(1.08)",
+                  height: {
+                    xs: 180,
+                    md: 220,
                   },
-                }}
-              />
-            </Box>
-
-            {/* CONTENT */}
-
-            <Box
-              sx={{
-                p: {
-                  xs: 2,
-                  md: 2.5,
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  color: "#1BAA63",
-                  fontWeight: 700,
-                  fontSize: "13px",
-                  letterSpacing: "2px",
-                  mb: 2,
-                }}
-              >
-                {card.date}
-              </Typography>
-
-              <Typography
-                sx={{
-                  color: "#fff",
-                  fontWeight: 800,
-                  lineHeight: 1.2,
-                  mb: 2,
-                  fontSize: {
-                    xs: "1.1rem",
-                    md: "1.5rem",
-                  },
-                }}
-              >
-                {card.title}
-              </Typography>
-
-              <Typography
-                sx={{
-                  color: "rgba(255,255,255,.68)",
-                  lineHeight: 1.9,
-                  mb: 4,
-                  fontSize: {
-                    xs: "13px",
-                    md: "14px",
-                  },
-                }}
-              >
-                {card.description}
-              </Typography>
-
-
-              <Button
-                variant="contained"
-                sx={{
-                  mt: { xs: 1, md: 2 },
-                  px: { xs: 1.8, sm: 2.2, md: 2.4 },
-                  py: { xs: 0.7, sm: 0.9 },
-                  fontSize: { xs: "14px", sm: "18px" },
-                  borderRadius: "8px",
-                  textTransform: "none",
-                  fontWeight: 600,
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  minWidth: "110px",
-
-
-
-                  position: "relative",
                   overflow: "hidden",
-                  background: "#bd2304",
-                  zIndex: 1,
+                }}
+              >
+                <Box
+                  component="img"
+                  src={card.image}
+                  alt={card.title}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: ".8s ease",
 
-                  "& span": {
-                    position: "relative",
-                    zIndex: 2,
-                  },
+                    "&:hover": {
+                      transform: "scale(1.08)",
+                    },
+                  }}
+                />
+              </Box>
 
-                  "&:before": {
-                    content: '""',
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    width: 0,
-                    height: 0,
-                    background: "#000",
-                    borderRadius: "50%",
-                    transform: "translate(-12%, -50%)",
-                    transition: "all 1s ease",
-                    zIndex: 0,
-                  },
+              {/* CONTENT */}
 
-                  "&:hover:before": {
-                    width: "300%",
-                    height: "300%",
+              <Box
+                sx={{
+                  p: {
+                    xs: 2,
+                    md: 2.5,
                   },
                 }}
-                onClick={() =>
-                  navigate(
-                    `/media/details/${card.id}`
-                  )
-                }
-
               >
-                <span> Know More </span>
-              </Button>
-            </Box>
-          </MotionBox>
-        ))}
-      </Box>
+                <Typography
+                  sx={{
+                    color: "#1BAA63",
+                    fontWeight: 700,
+                    fontSize: "13px",
+                    letterSpacing: "2px",
+                    mb: 2,
+                  }}
+                >
+                  {card.date}
+                </Typography>
 
+                <Typography
+                  sx={{
+                    color: "#fff",
+                    fontWeight: 800,
+                    lineHeight: 1.2,
+                    mb: 2,
+                    fontSize: {
+                      xs: "1.1rem",
+                      md: "1.5rem",
+                    },
+                  }}
+                >
+                  {card.title}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    color: "rgba(255,255,255,.68)",
+                    lineHeight: 1.9,
+                    mb: 4,
+                    fontSize: {
+                      xs: "13px",
+                      md: "14px",
+                    },
+                  }}
+                >
+                  {card.description}
+                </Typography>
+
+
+                <Button
+                  variant="contained"
+                  sx={{
+                    mt: { xs: 1, md: 2 },
+                    px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                    py: { xs: 0.7, sm: 0.9 },
+                    fontSize: { xs: "14px", sm: "18px" },
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    fontWeight: 600,
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    minWidth: "110px",
+
+
+
+                    position: "relative",
+                    overflow: "hidden",
+                    background: "#bd2304",
+                    zIndex: 1,
+
+                    "& span": {
+                      position: "relative",
+                      zIndex: 2,
+                    },
+
+                    "&:before": {
+                      content: '""',
+                      position: "absolute",
+                      left: "50%",
+                      top: "50%",
+                      width: 0,
+                      height: 0,
+                      background: "#000",
+                      borderRadius: "50%",
+                      transform: "translate(-12%, -50%)",
+                      transition: "all 1s ease",
+                      zIndex: 0,
+                    },
+
+                    "&:hover:before": {
+                      width: "300%",
+                      height: "300%",
+                    },
+                  }}
+                  onClick={() =>
+                    navigate(
+                      `/media/details/${card.id}`
+                    )
+                  }
+
+                >
+                  <span> Know More </span>
+                </Button>
+              </Box>
+            </MotionBox>
+          ))}
+        </Box>
+      </Container>
       {/* PREV / NEXT BUTTONS */}
 
       {!isMobile && (

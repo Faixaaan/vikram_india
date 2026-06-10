@@ -14,6 +14,9 @@ import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 import { useNavigate } from "react-router-dom";
 
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -119,6 +122,22 @@ const EnquiryForm = ({ open, onClose }) => {
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style} component="form" onSubmit={handleSubmit}>
+        <IconButton
+          onClick={onClose}
+          sx={{
+            position: "absolute",
+            top: 10,
+            right: 10,
+            color: "#555",
+
+            "&:hover": {
+              color: "#c40613",
+              backgroundColor: "rgba(196,6,19,0.08)",
+            },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
         <Typography
           variant="h6"
           sx={{ mb: 2, fontWeight: 600, textAlign: "center", fontSize: "28px", fontFamily: "Roboto" }}

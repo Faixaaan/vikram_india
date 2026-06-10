@@ -161,7 +161,7 @@ const MediaDetails = () => {
         };
     };
 
-    // ❌ LOADING / NO DATA
+ 
     if (!media) {
         return <div style={{ color: "#fff", textAlign: "center" }}>Loading...</div>;
     }
@@ -175,7 +175,7 @@ const MediaDetails = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 background:
-                    "linear-gradient(135deg, #313698, #572578, #225a7a)",
+                    "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
                 p: { xs: 1, md: 3 },
             }}
         >
