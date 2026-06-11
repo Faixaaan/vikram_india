@@ -14,7 +14,6 @@ import {
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import group1 from '../../Assets/chairman.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 

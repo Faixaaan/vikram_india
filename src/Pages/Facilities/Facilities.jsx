@@ -12,6 +12,7 @@ import {
 
     Container,
 } from "@mui/material";
+import parse from "html-react-parser";
 
 import { Link } from "react-router-dom";
 
@@ -176,7 +177,7 @@ const Facilities = () => {
                                                     fontWeight: "400"
                                                 }}
                                             >
-                                                {data?.accordion1_desc1}
+                                                {parse(data?.accordion1_desc1 || "")}
                                             </Typography>
                                         </Grid>
 
@@ -190,44 +191,52 @@ const Facilities = () => {
 
                                 <Divider sx={{ paddingTop: "20px" }} />
                                 <Box sx={{ mt: 4 }}>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "18px",
+                                            fontFamily: "Roboto",
+                                            mb: 3,
+                                            fontWeight: 500,
+                                        }}
+                                    >
+                                        {data?.accordion1_title2}
+                                    </Typography>
 
-                                    <Grid container spacing={2}>
-                                        <Typography
-                                            sx={{
-                                                fontSize: "18px",
-                                                fontFamily: "Roboto",
-                                                textAlign: "justify",
-                                                fontWeight: "500"
-                                            }}
-                                        >
-                                            {data?.accordion1_title2}
-                                        </Typography>
+                                    <Grid
+                                        container
+                                        spacing={2}
+                                        alignItems="flex-start"
+                                    >
                                         <Grid item size={{ xs: 12, md: 5 }}>
-                                            <iframe src={data?.accordion1_link2} width="100%" height="300" style={{ border: "0" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            <iframe
+                                                src={data?.accordion1_link2}
+                                                width="100%"
+                                                height="300"
+                                                style={{
+                                                    border: 0,
+                                                    borderRadius: "8px",
+                                                }}
+                                                allowFullScreen
+                                                loading="lazy"
+                                                referrerPolicy="no-referrer-when-downgrade"
+                                            />
                                         </Grid>
+
                                         <Grid item size={{ xs: 12, md: 7 }}>
                                             <Typography
                                                 sx={{
                                                     fontSize: "16px",
                                                     fontFamily: "Roboto",
                                                     textAlign: "justify",
-                                                    fontWeight: "400"
+                                                    fontWeight: 400,
+                                                    // lineHeight: 1.8,
                                                 }}
                                             >
-                                                {data?.accordion1_desc2}
+                                                {parse(data?.accordion1_desc2 || "")}
                                             </Typography>
-
                                         </Grid>
-
-
                                     </Grid>
-
-
-
-
                                 </Box>
-
-
 
                             </AccordionDetails>
                         </Accordion>
@@ -254,14 +263,14 @@ const Facilities = () => {
                             <AccordionDetails>
 
                                 <Box>
-                                    <Grid container spacing={3} alignItems="center">
-                                        {/* RIGHT SIDE – Image (4 Grid) */}
-                                        <Grid item size={{ xs: 12, md: 6 }}>
+                                    <Grid container spacing={3}>
+
+                                        {/* Left Side Image */}
+                                        <Grid item size={{ xs: 12, sm: 6, md: 6 }}>
                                             <Box
                                                 sx={{
                                                     display: "flex",
                                                     justifyContent: "center",
-                                                    alignItems: "flex-start",
                                                 }}
                                             >
                                                 <img
@@ -274,67 +283,26 @@ const Facilities = () => {
                                                     }}
                                                 />
                                             </Box>
-                                            <Box>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: "18px",
-                                                        fontFamily: "Roboto",
-                                                        textAlign: "justify",
-                                                        fontWeight: "500",
-                                                        lineHeight: "120%",
-                                                    }}
-                                                >
-                                                    {data?.accordion2_desc1}
-                                                </Typography>
-                                            </Box>
                                         </Grid>
-                                        {/* LEFT SIDE – Paragraph (8 Grid) */}
-                                        <Grid item size={{ xs: 12, md: 6 }}>
-                                            <Box
+
+                                        {/* Right Side Description */}
+                                        <Grid item size={{ xs: 12, sm: 6, md: 6 }}>
+                                            <Typography
                                                 sx={{
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                    alignItems: "flex-start",
+                                                    fontSize: "16px",
+                                                    fontFamily: "Roboto",
+                                                    textAlign: "justify",
+                                                    fontWeight: "400",
+                                                    lineHeight: "120%",
                                                 }}
                                             >
-                                                <img
-                                                    src={data?.accordion2_image2}
-                                                    alt=""
-                                                    style={{
-                                                        width: "100%",
-                                                        height: "auto",
-                                                        maxWidth: "100%",
-                                                    }}
-                                                />
-                                            </Box>
-                                            <Box>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: "18px",
-                                                        fontFamily: "Roboto",
-                                                        textAlign: "justify",
-                                                        fontWeight: "500",
-                                                        lineHeight: "120%",
-                                                    }}
-                                                >
-                                                    {data?.accordion2_desc2}
-                                                </Typography>
-                                            </Box>
+                                                {parse(data?.accordion2_desc1 || "")}
+
+                                            </Typography>
                                         </Grid>
-
-
-
-                                    </Grid>
-                                    <Grid container spacing={3} alignItems="center">
-
-
-
-
-
 
                                     </Grid>
                                 </Box>
-
 
 
 

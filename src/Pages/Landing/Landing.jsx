@@ -18,6 +18,7 @@ export default function Landing() {
   const [open, setOpen] = useState(false);
   const [showVideo, setShowVideo] = useState(true);
   const navigate = useNavigate();
+  const [data, setData] = useState({});
 
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -44,12 +45,28 @@ export default function Landing() {
       try {
         const res = await axiosInstance.get(endpoints.HomeCms.getHomeCms);
         setCmsData(res?.data?.data || {});
+
       } catch (err) {
         console.log(err);
       }
     };
 
     fetchHomeCms();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+        const settingData = res?.data?.data || {};
+        setData(settingData);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const landvideo =
@@ -138,7 +155,7 @@ export default function Landing() {
         }}
       >
         <img
-          src="/logo.png"
+          src={data?.logo}
           alt="logo"
           style={{
             width: "100%",

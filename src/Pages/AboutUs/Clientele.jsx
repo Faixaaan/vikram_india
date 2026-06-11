@@ -348,7 +348,7 @@ const Clientele = () => {
                                             <Grid
                                                 item
                                                 size={{
-                                                    xs: isVerySmall ? 12 : 6, // 🔥 main logic
+                                                    xs: isVerySmall ? 12 : 6,
                                                     sm: 4,
                                                     md: 3
                                                 }}

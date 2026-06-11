@@ -14,11 +14,12 @@ import {
   Breadcrumbs,
   Link as MLink,
 } from "@mui/material";
-import blogImage from "../../Assets/blog.jpg";
+
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { Link } from 'react-router-dom';
+import parse from "html-react-parser";
 
 
 const Blog = () => {
@@ -142,7 +143,8 @@ const Blog = () => {
                       gutterBottom
                       sx={{ fontFamily: "Roboto", fontSize: "18px" }}
                     >
-                      {blog.title}
+                        {parse(blog.title || "")}
+                      
                     </Typography>
 
                     <Typography
@@ -150,7 +152,9 @@ const Blog = () => {
                       color="text.secondary"
                       sx={{ fontFamily: "Roboto", fontSize: "14px" }}
                     >
-                      {blog.excerpt}
+
+                           {parse(blog.excerpt || "")}
+                      
                     </Typography>
 
                     <Button

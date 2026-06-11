@@ -20,7 +20,7 @@ const Banner = () => {
   const [data, setData] = useState({});
   const [mobileBanners, setMobileBanners] = useState([]);
   const [[current, direction], setCurrent] = useState([0, 0]);
-
+const [logoData, setlogoData] = useState({});
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const logoRef = useRef(null);
@@ -51,6 +51,22 @@ const Banner = () => {
 
     fetchData();
   }, []);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+          const settingData = res?.data?.data || {};
+          setlogoData(settingData);
+  
+        } catch (err) {
+          console.log(err);
+        }
+      };
+  
+      fetchData();
+    }, []);
+  
 
   /* ================= MOBILE AUTO SLIDE ================= */
   useEffect(() => {
@@ -493,7 +509,7 @@ const Banner = () => {
 
           <Box
             component="img"
-            src={vikramindialogo}
+            src={logoData?.logo}
             alt="logo"
             sx={{
               width: 220,

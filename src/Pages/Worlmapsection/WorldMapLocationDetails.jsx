@@ -134,14 +134,14 @@ const WorldMapLocationDetails = () => {
             px: {
               xs: 1.5,
               sm: 2,
-              md: 3,
-            },
-
-            py: {
-              xs: 1,
-              sm: 1.5,
               md: 2,
             },
+
+            // py: {
+            //   xs: 1,
+            //   sm: 1.5,
+            //   md: 2,
+            // },
 
             borderRadius: {
               xs: "12px",
@@ -149,28 +149,8 @@ const WorldMapLocationDetails = () => {
             },
 
             zIndex: 10,
+            background: "#ffffff"
 
-            background:
-              "linear-gradient(90deg,#99e9ff 0%,#9bbbe2 100%)",
-
-            border:
-              "1px solid rgba(255,255,255,0.3)",
-
-            boxShadow:
-              "0 20px 50px rgba(0,0,0,0.18)",
-
-            overflow: "hidden",
-
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "8px",
-              background:
-                "linear-gradient(90deg,#00c6ff 0%,#0072ff 100%)",
-            },
           }}
         >
           <img

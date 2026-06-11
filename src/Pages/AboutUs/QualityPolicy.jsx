@@ -166,7 +166,7 @@ const QualityPolicy = () => {
 
                         {/* Introduction */}
 
-                        
+
 
 
                         <Box>
@@ -205,31 +205,40 @@ const QualityPolicy = () => {
                                         </Typography>
 
 
-                                        <Box
-                                            sx={{
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                alignItems: { xs: "flex-start", md: "center" },
-                                                mt: 5,
-                                                flexDirection: { xs: "column", md: "row" },
-                                                gap: 2,
-                                            }}
-                                        >
-                                            <Typography sx={{ fontFamily: "Roboto", fontSize: "14px", lineHeight: "120%" }}>
-                                                {data?.left_text}
-                                            </Typography>
-                                            <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
-                                                <img
-                                                    src={data?.sign_img}
-                                                    alt="signature"
-                                                    style={{
-                                                        width: "120px",
-                                                        height: "auto",
-                                                        objectFit: "contain",
+                                        {data?.sign_img && (
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "space-between",
+                                                    alignItems: { xs: "flex-start", md: "center" },
+                                                    mt: 5,
+                                                    flexDirection: { xs: "column", md: "row" },
+                                                    gap: 2,
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontFamily: "Roboto",
+                                                        fontSize: "14px",
+                                                        lineHeight: "120%",
                                                     }}
-                                                />
+                                                >
+                                                    {data?.left_text}
+                                                </Typography>
+
+                                                <Box sx={{ marginTop: { xs: "20px", sm: "0px" } }}>
+                                                    <img
+                                                        src={data?.sign_img}
+                                                        alt="signature"
+                                                        style={{
+                                                            width: "120px",
+                                                            height: "auto",
+                                                            objectFit: "contain",
+                                                        }}
+                                                    />
+                                                </Box>
                                             </Box>
-                                        </Box>
+                                        )}
                                     </Grid>
 
                                 </Grid>

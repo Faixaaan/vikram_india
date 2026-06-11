@@ -10,17 +10,13 @@ import {
   Button,
   Container
 } from "@mui/material";
-import blogImage from "../../Assets/blog.jpg";
+
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
+import parse from "html-react-parser";
 
-const recentPosts = [
-  "How Industry 4.0 Is Changing Manufacturing",
-  "Top 5 Quality Control Practices",
-  "Why Precision Matters in Engineering",
-  "Latest Trends in CNC Machining"
-];
+
 
 const BlogDetail = () => {
 
@@ -105,12 +101,15 @@ const BlogDetail = () => {
                     mb: 3
                   }}
                 >
-                  {blogDetailData?.title}
+                   {parse(blogDetailData?.title|| "")}
+                  
                 </Typography>
 
                 {/* Content */}
                 <Typography sx={contentStyle}>
-                  {blogDetailData?.description}
+                 
+                   {parse(blogDetailData?.description|| "")}
+
                 </Typography>
 
                 
