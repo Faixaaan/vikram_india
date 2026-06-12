@@ -87,17 +87,47 @@ const Blog = () => {
                 <Card
                   sx={{
                     height: "100%",
-                    boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
-                    borderRadius: 2
+                    borderRadius: "28px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(123, 123, 123, 0.49)",
+                    background: "#fff",
+                    boxShadow:
+                      "0 20px 60px rgba(0,0,0,.08)",
+                    transition: ".4s ease",
+
+                    "&:hover": {
+                      transform: "translateY(-4px)",
+                      boxShadow:
+                        "0 30px 80px rgba(0,0,0,.15)",
+                    },
+
+                    "&:hover .blog-image": {
+                      transform: "scale(1.08)",
+                    },
+
+                    "&:hover .category-badge::before": {
+                      left: "150%",
+                    },
                   }}
                 >
                   <Box sx={{ position: "relative" }}>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={blog.image}
-                      alt={blog.title}
-                    />
+                    <Box
+                      sx={{
+                        overflow: "hidden",
+                        position: "relative",
+                      }}
+                    >
+                      <CardMedia
+                        component="img"
+                        image={blog.image}
+                        alt={blog.title}
+                        className="blog-image"
+                        sx={{
+                          height: 260,
+                          transition: ".8s ease",
+                        }}
+                      />
+                    </Box>
 
                     {/* Date */}
                     <Box
@@ -118,18 +148,37 @@ const Blog = () => {
 
                     {/* Category */}
                     <Box
+                      className="category-badge"
                       sx={{
                         position: "absolute",
-                        top: 10,
-                        right: 10,
-                        background: "red",
+                        top: 16,
+                        right: 16,
+
+                        px: 2.2,
+                        py: 0.9,
+                        borderRadius: "999px",
                         color: "#fff",
-                        px: 1.5,
-                        py: 0.5,
-                        borderRadius: 1,
-                        fontSize: "16px",
-                        fontWeight: 600,
-                        fontFamily: "Roboto"
+
+                        background:
+                          "linear-gradient(135deg, rgba(196,6,19,.95), rgba(255,64,64,.9))",
+
+                        overflow: "hidden",
+
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: "-150%",
+                          width: "60%",
+                          height: "100%",
+
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent)",
+
+                          transform: "skewX(-25deg)",
+
+                          transition: "1s ease",
+                        },
                       }}
                     >
                       {blog.category_id}
@@ -143,8 +192,8 @@ const Blog = () => {
                       gutterBottom
                       sx={{ fontFamily: "Roboto", fontSize: "18px" }}
                     >
-                        {parse(blog.title || "")}
-                      
+                      {parse(blog.title || "")}
+
                     </Typography>
 
                     <Typography
@@ -153,8 +202,8 @@ const Blog = () => {
                       sx={{ fontFamily: "Roboto", fontSize: "14px" }}
                     >
 
-                           {parse(blog.excerpt || "")}
-                      
+                      {parse(blog.excerpt || "")}
+
                     </Typography>
 
                     <Button

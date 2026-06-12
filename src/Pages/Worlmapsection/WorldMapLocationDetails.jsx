@@ -137,12 +137,6 @@ const WorldMapLocationDetails = () => {
               md: 2,
             },
 
-            // py: {
-            //   xs: 1,
-            //   sm: 1.5,
-            //   md: 2,
-            // },
-
             borderRadius: {
               xs: "12px",
               md: "18px",
@@ -153,12 +147,17 @@ const WorldMapLocationDetails = () => {
 
           }}
         >
-          <img
+          <Box
+            component="img"
             src={logoData?.logo}
             alt="logo"
-            style={{
+            sx={{
               width: "100%",
-              maxWidth: "170px",
+              maxWidth: {
+                xs: "120px",
+                sm: "140px",
+                md: "170px",
+              },
               display: "block",
             }}
           />
@@ -312,6 +311,13 @@ const WorldMapLocationDetails = () => {
               textAlign="center"
               fontWeight={700}
               mb={6}
+              sx={{
+                fontSize: {
+                  xs: "28px",
+                  sm: "36px",
+                  md: "48px",
+                },
+              }}
             >
               {singleLocation?.faq_title}
             </Typography>

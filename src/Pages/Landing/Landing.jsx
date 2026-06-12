@@ -135,23 +135,14 @@ export default function Landing() {
           transform: { xs: "translateX(-50%)", md: "none" },
 
           px: { xs: 1, md: 2 },
-          py: { xs: 0.8, md: 1 },
+
           borderRadius: "20px",
-          background: "rgba(255, 255, 255, 0.31)",
-          backdropFilter: "blur(12px)",
+          background: "rgb(255, 255, 255)",
+
           boxShadow:
             "0 8px 32px rgba(0,0,0,.35), inset 0 0 20px rgba(255,255,255,.15)",
           border: "1px solid rgba(255,255,255,.25)",
           transition: ".4s ease",
-
-          "&:hover": {
-            boxShadow:
-              "0 12px 40px rgba(0,0,0,.45), inset 0 0 25px rgba(255,255,255,.25)",
-            transform: {
-              xs: "translateX(-50%) scale(1.03)",
-              md: "scale(1.03)",
-            },
-          },
         }}
       >
         <img
@@ -184,91 +175,75 @@ export default function Landing() {
         <Box
           sx={{
             position: "relative",
-            "::before, ::after": {
-              content: '""',
-              position: "absolute",
-              borderRadius: "50%",
-              filter: "blur(12px)",
-              opacity: 0.6,
-              animation: "float 6s ease-in-out infinite",
-            },
-            "::before": {
-              width: 60,
-              height: 60,
-              background: "#00ffff",
-              top: -20,
-              left: -20,
-            },
-            "::after": {
-              width: 40,
-              height: 40,
-              background: "#ff00ff",
-              bottom: -15,
-              right: -15,
-              animationDelay: "2s",
-            },
-            "@keyframes float": {
-              "0%,100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-20px)" },
-            },
           }}
         >
-          <Box
-            sx={{
-              position: "absolute",
-              width: 25,
-              height: 25,
-              borderRadius: "50%",
-              background: "#ffd86b",
-              top: "50%",
-              left: -10,
-              filter: "blur(8px)",
-              animation: "float2 5s ease-in-out infinite",
-            }}
-          />
-
-          <Box
-            sx={{
-              position: "absolute",
-              width: 20,
-              height: 20,
-              borderRadius: "50%",
-              background: "#7cf5ff",
-              bottom: -10,
-              left: "40%",
-              filter: "blur(8px)",
-              animation: "float2 7s ease-in-out infinite",
-            }}
-          />
-
           <Button
             variant="contained"
             onClick={handleEnter}
             sx={{
-              px: { xs: 2, md: 3 },
-              py: 1,
-              borderRadius: "30px",
-              background:
-                "linear-gradient(135deg, #ff416c, #ff4b2b)",
-              backdropFilter: "blur(12px)",
-              boxShadow:
-                "0 8px 30px rgba(0,0,0,.35), inset 0 0 15px rgba(255,255,255,.3)",
-              border: "1px solid rgba(255,255,255,.35)",
+              position: "relative",
+              overflow: "hidden",
+
+              px: { xs: 3, md: 4 },
+              py: 1.4,
+
+              borderRadius: "60px",
+
+              background: "linear-gradient(125deg, #14b91d , #1171b0)",
+
+             
+              WebkitBackdropFilter: "blur(20px)",
+
+              border: "1px solid rgba(255,255,255,.25)",
+
               color: "#fff",
-              fontWeight: 600,
-              fontSize: "20px",
-              transition: ".4s ease",
+
+              fontWeight: 700,
+              fontSize: {
+                xs: "16px",
+                md: "18px",
+              },
+
+              letterSpacing: "0.5px",
+              textTransform: "none",
+
+              boxShadow:
+                "0 20px 40px rgba(0,0,0,.25)",
+
+              transition: "all .4s ease",
+
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: "-150%",
+                width: "60%",
+                height: "100%",
+
+                background:
+                  "linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent)",
+
+                transform: "skewX(-25deg)",
+
+                transition: "1s ease",
+              },
+
               "&:hover": {
-                transform: "scale(1.05)",
+                transform: "translateY(-4px)",
+                // background: "rgba(255,255,255,.18)",
+
                 boxShadow:
-                  "0 12px 40px rgba(0,0,0,.45), inset 0 0 20px rgba(255,255,255,.4)",
+                  "0 30px 60px rgba(0,0,0,.35)",
+              },
+
+              "&:hover::before": {
+                left: "150%",
               },
             }}
           >
             Visit Our Website
           </Button>
         </Box>
-
 
       </Box>
 

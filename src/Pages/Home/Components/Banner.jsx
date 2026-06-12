@@ -20,7 +20,7 @@ const Banner = () => {
   const [data, setData] = useState({});
   const [mobileBanners, setMobileBanners] = useState([]);
   const [[current, direction], setCurrent] = useState([0, 0]);
-const [logoData, setlogoData] = useState({});
+  const [logoData, setlogoData] = useState({});
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const logoRef = useRef(null);
@@ -52,21 +52,21 @@ const [logoData, setlogoData] = useState({});
     fetchData();
   }, []);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
-          const settingData = res?.data?.data || {};
-          setlogoData(settingData);
-  
-        } catch (err) {
-          console.log(err);
-        }
-      };
-  
-      fetchData();
-    }, []);
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+        const settingData = res?.data?.data || {};
+        setlogoData(settingData);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   /* ================= MOBILE AUTO SLIDE ================= */
   useEffect(() => {
@@ -608,7 +608,7 @@ const [logoData, setlogoData] = useState({});
               sx={{
                 position: "absolute",
                 inset: 0,
-                background: "rgba(0,0,0,0.55)",
+                background: "rgba(0, 0, 0, 0.23)",
               }}
             />
 
@@ -629,7 +629,7 @@ const [logoData, setlogoData] = useState({});
               }}
             >
               {/* ===== Top Text ===== */}
-              <Box sx={{ mt: 2 }}>
+              <Box sx={{ mt: 8 }}>
                 <Typography
                   sx={{
                     fontSize: 26,
@@ -646,7 +646,7 @@ const [logoData, setlogoData] = useState({});
               {/* ===== Bottom Button ===== */}
               <Box
                 onClick={() =>
-                  navigate(getRouteByCounter(data[current]?.counter))
+                  navigate(getRouteByCounter(current + 1))
                 }
                 sx={{
                   mb: 2,
