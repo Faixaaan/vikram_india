@@ -63,7 +63,7 @@ const Drying = () => {
     });
   }, []);
   return (
-    <Box sx={{ padding: { xs: 2, md: 4 } }}>
+    <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
       <Container maxWidth='xl'>
         {/* Breadcrumb */}
         <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -190,7 +190,7 @@ const Drying = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section1_image} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} alt="" style={{ width: "100%" }} />
                     </Grid>
 
                     {/* LEFT CONTENT */}

@@ -6,21 +6,21 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Divider,
+
   Breadcrumbs,
   Link as MLink,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Paper,
+
   Container,
   Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
+
 import '../../App.css'
-import structure4 from '../../Assets/mm-structure-04.jpg'
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -60,7 +60,7 @@ const Introduction = () => {
     });
   }, []);
   return (
-    <Box sx={{ padding: { xs: 2, md: 4 } }}>
+    <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
       <Container maxWidth='xl'>
         {/* Breadcrumb */}
         <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -182,7 +182,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section1_image} style={{ width: "100%" }} />
+                      <img src={data?.section1_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -239,7 +239,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section2_image} style={{ width: "100%" }} />
+                      <img src={data?.section2_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -296,7 +296,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section3_image} style={{ width: "100%" }} />
+                      <img src={data?.section3_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -353,7 +353,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section4_image} style={{ width: "100%" }} />
+                      <img src={data?.section4_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -411,7 +411,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section5_image} style={{ width: "100%" }} />
+                      <img src={data?.section5_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}
@@ -469,7 +469,7 @@ const Introduction = () => {
                   <Grid container spacing={2}>
                     {/* RIGHT IMAGE */}
                     <Grid item size={{ xs: 12, md: 4 }}>
-                      <img src={data?.section6_image} style={{ width: "100%" }} />
+                      <img src={data?.section6_image} style={{ width: "100%" }} alt="" />
                     </Grid>
 
                     {/* LEFT CONTENT */}

@@ -529,7 +529,7 @@ const Banner = () => {
           data={{ subtitle: cards[0]?.title }}
           onClick={() => navigate(getRouteByCounter(1))}
           sx={{
-            top: "40px",
+            top: "140px",
             left: "40px",
           }}
         />
@@ -540,7 +540,7 @@ const Banner = () => {
           data={{ subtitle: cards[1]?.title }}
           onClick={() => navigate(getRouteByCounter(2))}
           sx={{
-            bottom: "320px",
+            bottom: "250px",
             left: "40px",
           }}
         />
@@ -551,7 +551,7 @@ const Banner = () => {
           data={{ subtitle: cards[2]?.title }}
           onClick={() => navigate(getRouteByCounter(3))}
           sx={{
-            top: "40px",
+            top: "140px",
             right: "-55px",
           }}
         />
@@ -562,7 +562,7 @@ const Banner = () => {
           data={{ subtitle: cards[3]?.title }}
           onClick={() => navigate(getRouteByCounter(4))}
           sx={{
-            bottom: "320px",
+            bottom: "250px",
             right: "-55px",
           }}
         />
@@ -629,7 +629,7 @@ const Banner = () => {
               }}
             >
               {/* ===== Top Text ===== */}
-              <Box sx={{ mt: 8 }}>
+              <Box sx={{ mt: 12 }}>
                 <Typography
                   sx={{
                     fontSize: 26,
@@ -649,7 +649,7 @@ const Banner = () => {
                   navigate(getRouteByCounter(current + 1))
                 }
                 sx={{
-                  mb: 2,
+                  mb: 4,
                   px: 5,
                   py: 1.6,
                   borderRadius: "50px",

@@ -6,16 +6,8 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
     Breadcrumbs,
     Link as MLink,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
     Container,
     Accordion,
     AccordionSummary,
@@ -24,18 +16,8 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
 import '../../App.css'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-
-import structure1 from '../../Assets/product-01.jpg'
-import structure2 from '../../Assets/product-02.jpg'
-import structure3 from '../../Assets/product-03.jpg'
-
-import structure4 from '../../Assets/product-04.jpg'
-import structure5 from '../../Assets/product-05.jpg'
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import EnquiryForm from "../HotDipGalvanization/Components/EnquiryForm";
@@ -51,12 +33,7 @@ const leftMenu = [
 
 ];
 
-const img = [
-    { img: structure1 },
-    { img: structure2 },
-    { img: structure3 },
 
-]
 
 const Product = () => {
 
@@ -90,7 +67,7 @@ const Product = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>

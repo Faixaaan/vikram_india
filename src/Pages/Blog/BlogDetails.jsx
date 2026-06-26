@@ -44,7 +44,7 @@ const BlogDetail = () => {
 
 
   return (
-    <Box sx={{ py: 6, px: { xs: 2, md: 6 }, background: "#f9f9f9" }}>
+    <Box sx={{ py: 6, px: { xs: 2, md: 6 }, background: "#f9f9f9",  mt: "100px" }}>
       <Container maxWidth="xl">
         {/* <Grid container spacing={4}> */}
 

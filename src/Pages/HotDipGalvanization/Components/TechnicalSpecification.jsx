@@ -6,29 +6,22 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Paper,
+
     Container,
     Button,
 } from "@mui/material";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-} from "@mui/material";
+
 
 import { Link } from "react-router-dom";
 
 import '../../../App.css'
-import structure4 from '../../../Assets/mm-structure-04.jpg'
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
@@ -46,29 +39,7 @@ const leftMenu = [
 
 ];
 
-const featureSpecData = [
-    {
-        feature: "Kettle Size",
-        specification:
-            "[12m x 1.1m x 1.6m]"
-    },
-    {
-        feature: "Annual Capacity",
-        specification:
-            "[24,000 MT per annum]."
-    },
-    {
-        feature: "Zinc Purity",
-        specification:
-            "We use Special High Grade (SHG) Zinc (99.995% purity) for superior finish and protection."
-    },
-    {
-        feature: "Standards Followed",
-        specification:
-            "Compliance with IS 2629, IS 4759, and ASTM A123."
-    },
 
-];
 
 const TechnicalSpecification = () => {
 
@@ -93,7 +64,7 @@ const TechnicalSpecification = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px" }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>

@@ -68,7 +68,7 @@ const Blog = () => {
 
 
   return (
-    <Box sx={{ py: 4, px: { xs: 2, md: 6 } }}>
+    <Box sx={{ py: 4, px: { xs: 2, md: 6 }, mt: "100px" }}>
       <Breadcrumbs sx={{ mb: 2, fontSize: "14px" }}>
         <MLink component={Link} to="/home" underline="hover" color="inherit">
           Home

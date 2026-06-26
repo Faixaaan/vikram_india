@@ -6,28 +6,17 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+  
     Breadcrumbs,
     Link as MLink,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
+
     Container,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import DryingImag from "../../../Assets/Drying_img.jpg"; // update your image
+
 import '../../../App.css'
-import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CFM from '../../../Assets/sorting_batch.jpg'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import speed_fiber from '../../../Assets/slow-speed.jpg'
-import vibro_screen from '../../../Assets/vibro-screen.jpg'
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 
@@ -73,7 +62,7 @@ const Utilities = () => {
 
 
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>

@@ -59,7 +59,7 @@ const GreenSteaming = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px" }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -182,7 +182,7 @@ const GreenSteaming = () => {
                                 <Grid container spacing={2}>
                                     {/* RIGHT IMAGE */}
                                     <Grid item size={{ xs: 12, md: 4 }}>
-                                        <img src={data?.section1_image} style={{ width: "100%" }} />
+                                        <img src={data?.section1_image} alt="" style={{ width: "100%" }} />
                                     </Grid>
 
                                     {/* LEFT CONTENT */}
@@ -243,7 +243,7 @@ const GreenSteaming = () => {
                                 <Grid container spacing={2}>
                                     {/* RIGHT IMAGE */}
                                     <Grid item size={{ xs: 12, md: 4 }}>
-                                        <img src={data?.section2_image} style={{ width: "100%" }} />
+                                        <img src={data?.section2_image} alt="" style={{ width: "100%" }} />
                                     </Grid>
 
                                     {/* LEFT CONTENT */}
@@ -304,7 +304,7 @@ const GreenSteaming = () => {
                                 <Grid container spacing={2}>
                                     {/* RIGHT IMAGE */}
                                     <Grid item size={{ xs: 12, md: 4 }}>
-                                        <img src={data?.section3_image} style={{ width: "100%" }} />
+                                        <img src={data?.section3_image} alt="" style={{ width: "100%" }} />
                                     </Grid>
 
                                     {/* LEFT CONTENT */}
@@ -359,22 +359,5 @@ const GreenSteaming = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "20px",
-    fontWeight: 600,
-    mt: 4,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
 
 export default GreenSteaming;

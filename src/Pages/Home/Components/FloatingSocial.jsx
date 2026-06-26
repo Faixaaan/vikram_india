@@ -5,22 +5,22 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import XIcon from "@mui/icons-material/X";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
 
 export default function FloatingSocial() {
     const [open, setOpen] = useState(true);
-
     const [data, setData] = useState({});
 
-    /* ================= FETCH DATA ================= */
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axiosInstance.get(endpoints.pageSetting.navFooter);
+                const res = await axiosInstance.get(
+                    endpoints.pageSetting.navFooter
+                );
                 const settingData = res?.data?.data || {};
                 setData(settingData);
-
             } catch (err) {
                 console.log(err);
             }
@@ -29,8 +29,6 @@ export default function FloatingSocial() {
         fetchData();
     }, []);
 
-
-    // ✅ Detect mobile screen
     const isMobile = useMediaQuery("(max-width:600px)");
 
     const socialItemStyle = (bg) => ({
@@ -43,6 +41,7 @@ export default function FloatingSocial() {
         justifyContent: "center",
         color: "#fff",
         cursor: "pointer",
+        textDecoration: "none",
 
         "& .label": {
             position: "absolute",
@@ -56,7 +55,7 @@ export default function FloatingSocial() {
             visibility: "hidden",
             pointerEvents: "none",
             transform: "translateX(10px)",
-            transition: "all 0.3s ease",
+            transition: "all .3s ease",
             fontSize: 14,
             fontWeight: 500,
         },
@@ -71,14 +70,22 @@ export default function FloatingSocial() {
     return (
         <Box
             component={motion.div}
-            drag={isMobile} // ✅ Only mobile e drag hobe
+            drag={isMobile ? true : "y"}
             dragMomentum={false}
-            dragConstraints={{
-                top: -300,
-                bottom: 300,
-                left: -window.innerWidth + 80,
-                right: 0,
-            }}
+            dragElastic={0}
+            dragConstraints={
+                isMobile
+                    ? {
+                        top: -300,
+                        bottom: 300,
+                        left: -window.innerWidth + 80,
+                        right: 0,
+                    }
+                    : {
+                        top: -500,
+                        bottom: 500,
+                    }
+            }
             sx={{
                 position: "fixed",
                 right: 0,
@@ -88,10 +95,12 @@ export default function FloatingSocial() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
-                cursor: isMobile ? "grab" : "default",
+                cursor: "grab",
+                userSelect: "none",
+
                 "&:active": {
-                    cursor: isMobile ? "grabbing" : "default",
-                }
+                    cursor: "grabbing",
+                },
             }}
         >
             <Box sx={{ position: "relative" }}>
@@ -100,22 +109,31 @@ export default function FloatingSocial() {
                     sx={{
                         background: "#000",
                         color: "#fff",
-                        borderRadius: open ? "10px 0 0 0" : "10px 0 0 10px",
+                        borderRadius: open
+                            ? "10px 0 0 0"
+                            : "10px 0 0 10px",
                         width: 45,
                         height: 30,
-                        "&:hover": { background: "#111" },
+
+                        "&:hover": {
+                            background: "#111",
+                        },
 
                         "&:hover .arrowLabel": {
                             opacity: !open ? 1 : 0,
-                            transform: !open ? "translateY(0)" : "translateY(10px)",
+                            transform: !open
+                                ? "translateY(0)"
+                                : "translateY(10px)",
                         },
                     }}
                 >
                     <ArrowForwardIosIcon
                         sx={{
                             fontSize: 18,
-                            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                            transition: "0.3s",
+                            transform: open
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                            transition: ".3s",
                         }}
                     />
 
@@ -134,7 +152,7 @@ export default function FloatingSocial() {
                                 whiteSpace: "nowrap",
                                 opacity: 0,
                                 transform: "translateY(10px)",
-                                transition: "0.3s ease",
+                                transition: ".3s ease",
                                 pointerEvents: "none",
                             }}
                         >
@@ -145,14 +163,22 @@ export default function FloatingSocial() {
             </Box>
 
             {open && (
-                <Box sx={{ borderRadius: "0 0 0 15px", overflow: "visible" }}>
+                <Box
+                    sx={{
+                        borderRadius: "0 0 0 15px",
+                        overflow: "visible",
+                    }}
+                >
                     <Box
                         component="a"
                         href="https://www.facebook.com/vikramindialtd/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         sx={socialItemStyle("#3b5998")}
                     >
-                        <Typography className="label">{data?.facebook}</Typography>
+                        <Typography className="label">
+                            {data?.facebook}
+                        </Typography>
                         <FacebookIcon />
                     </Box>
 
@@ -160,21 +186,45 @@ export default function FloatingSocial() {
                         component="a"
                         href="https://www.instagram.com/vikramindiakol/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         sx={socialItemStyle(
-                            "linear-gradient(45deg, #bc1888, #cc2366, #dc2743, #e6683c, #f09433)"
+                            "linear-gradient(45deg,#bc1888,#cc2366,#dc2743,#e6683c,#f09433)"
                         )}
                     >
-                        <Typography className="label">{data?.instagram}</Typography>
+                        <Typography className="label">
+                            {data?.instagram}
+                        </Typography>
                         <InstagramIcon />
                     </Box>
 
                     <Box
                         component="a"
-                        href="#"
+                        href=""
                         target="_blank"
-                        sx={{ ...socialItemStyle("#0077B5"), borderRadius: "0 0 0 10px" }}
+                        rel="noopener noreferrer"
+                        sx={socialItemStyle(
+                            "linear-gradient(45deg,#363636,#1f1f1f,#4c4c4c,#0d0d0d)"
+                        )}
                     >
-                        <Typography className="label">{data?.linkedin}</Typography>
+                        <Typography className="label">
+                            {data?.twitter}
+                        </Typography>
+                        <XIcon />
+                    </Box>
+
+                    <Box
+                        component="a"
+                        href="https://www.linkedin.com/company/vikram-india-official/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                            ...socialItemStyle("#0077B5"),
+                            borderRadius: "0 0 0 10px",
+                        }}
+                    >
+                        <Typography className="label">
+                            {data?.linkedin}
+                        </Typography>
                         <LinkedInIcon />
                     </Box>
                 </Box>

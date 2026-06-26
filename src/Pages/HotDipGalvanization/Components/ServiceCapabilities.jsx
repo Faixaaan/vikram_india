@@ -41,19 +41,7 @@ const leftMenu = [
 
 ];
 
-const featureSpecData = [
-    {
-        feature: "Captive Galvanizing",
-        specification:
-            "Integrated coating for our Solar Module Mounting Structures,ensuring seamless quality control from fabrication to finish."
-    },
-    {
-        feature: "Job Work (External)",
-        specification:
-            "High-volume galvanizing for outside clients including transmission towers, poles, pipes, and structural steel"
-    },
 
-];
 
 const ServiceCapabilities = () => {
 
@@ -78,7 +66,7 @@ const ServiceCapabilities = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px" }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>

@@ -61,7 +61,7 @@ const GalvanizingProcess = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px" }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -72,9 +72,6 @@ const GalvanizingProcess = () => {
                     <Typography color="text.primary" sx={{ fontSize: "15px" }}>Hot Dip Galvanization</Typography>
                     <Typography color="text.primary" sx={{ fontSize: "15px" }}>The Galvanizing Process</Typography>
                 </Breadcrumbs>
-
-
-
 
 
                 <Grid container spacing={3}>

@@ -6,7 +6,7 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+   
     Breadcrumbs,
     Link as MLink,
     Accordion,
@@ -17,14 +17,9 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
 import '../../App.css'
 
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import structure1 from '../../Assets/mm-structure-01.jpg'
-import structure2 from '../../Assets/mm-structure-02.jpg'
-import structure3 from '../../Assets/mm-structure-03.jpg'
-import structure4 from '../../Assets/mm-structure-04.jpg'
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
@@ -42,15 +37,11 @@ const leftMenu = [
 
 ];
 
-const img = [
-    { img: structure1 },
-    { img: structure2 },
-    { img: structure3 },
-]
+
 
 const Manufacturing = () => {
 
-    const [imageData, setImageData] = useState([])
+  
     const [data, setData] = useState([])
     const [openEnquiry, setOpenEnquiry] = useState(false);
     console.log(data, 'porduct_portfolio')
@@ -80,7 +71,7 @@ const Manufacturing = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -226,7 +217,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section1_image} style={{ width: "100%" }} />
+                                                <img src={data?.section1_image} alt="" style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -289,7 +280,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section2_image} style={{ width: "100%" }} />
+                                                <img src={data?.section2_image} alt="" style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -352,7 +343,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section3_image} style={{ width: "100%" }} />
+                                                <img src={data?.section3_image} alt="" style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -415,7 +406,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section4_image} style={{ width: "100%" }} />
+                                                <img src={data?.section4_image} alt="" style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -478,7 +469,7 @@ const Manufacturing = () => {
                                         <Grid container spacing={2}>
                                             {/* RIGHT IMAGE */}
                                             <Grid item size={{ xs: 12, md: 4 }}>
-                                                <img src={data?.section5_image} style={{ width: "100%" }} />
+                                                <img src={data?.section5_image} alt="" style={{ width: "100%" }} />
                                             </Grid>
 
                                             {/* LEFT CONTENT */}
@@ -526,24 +517,6 @@ const Manufacturing = () => {
             />
         </Box>
     );
-};
-
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
 };
 
 export default Manufacturing;

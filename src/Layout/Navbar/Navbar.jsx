@@ -11,6 +11,9 @@ import {
   ListItemText,
   Container,
 } from "@mui/material";
+
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 // import data.logo from "../../Assets/logo 1.png";
@@ -121,14 +124,37 @@ const Navbar = () => {
     <>
       <AppBar
         position="fixed"
+        elevation={0}
         sx={{
-          background: "#fff",
-          color: "#000",
-          paddingY: 1,
-          boxShadow: "0px 2px 10px rgba(0,0,0,0.1)",
-          top: showNavbar ? 0 : "-110px",
-          transition: "top 0.4s ease-in-out",
-          zIndex: 1100,
+          top: showNavbar ? 16 : "-120px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: {
+            xs: "95%",
+            xl: "90%",
+          },
+          maxWidth: "1600px",
+
+          borderRadius: "22px",
+
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+
+          background: "rgba(255,255,255,0.85)",
+
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+
+          border: "1px solid rgba(0,0,0,0.08)",
+
+          boxShadow: `
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(0,0,0,0.04),
+    0 10px 30px rgba(0,0,0,0.08)
+  `,
+
+          transition: "all .4s cubic-bezier(.4,0,.2,1)",
+          // zIndex: 1400,
         }}
       >
         <Container maxWidth="xl">
@@ -150,12 +176,54 @@ const Navbar = () => {
                       onMouseLeave={() => setOpenProductsDesktop(false)}
                     >
                       <Button
+                        key={item.title}
+                        disableRipple
+                        endIcon={
+                          <KeyboardArrowDownRoundedIcon
+                            sx={{
+                              transition: "0.3s ease",
+                              transform: openProductsDesktop
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
+                        }
                         sx={{
-                          fontSize: "16px",
-                          color: isActiveRoute(item.link) ? "#d32f2f" : "#000000",
-                          fontWeight: "600",
-                          "&:hover": { color: "#d32f2f" },
-                          fontFamily: "Roboto",
+                          px: 2.5,
+                          py: 1,
+                          borderRadius: "999px",
+
+                          fontSize: "14px",
+                          fontWeight: 600,
+
+
+                          color: isActiveRoute(item.link)
+                            ? "#fff"
+                            : "#111827",
+
+
+
+                          background: isActiveRoute(item.link)
+                            ? "linear-gradient(135deg,#c40613,#ff5757)"
+                            : "transparent",
+
+                          boxShadow: isActiveRoute(item.link)
+                            ? "0 8px 25px rgba(196,6,19,.35)"
+                            : "none",
+
+                          transition: "all .3s ease",
+
+                          "&:hover": {
+                            background: isActiveRoute(item.link)
+                              ? "linear-gradient(135deg,#c40613,#ff5757)"
+                              : "rgba(196,6,19,.08)",
+
+                            transform: "translateY(-2px)",
+
+                            color: isActiveRoute(item.link)
+                              ? "#fff"
+                              : "#c40613",
+                          },
                         }}
                       >
                         {item.title}
@@ -197,35 +265,39 @@ const Navbar = () => {
                     component={Link}
                     to={item.link}
                     sx={{
-                      fontSize: "16px",
-                      color: isActiveRoute(item.link) ? "#d32f2f" : "#000",
-                      fontWeight: "600",
-                      fontFamily: "Roboto",
-                      position: "relative",
-                      background: "transparent",
+                      px: 2.5,
+                      py: 1,
+                      borderRadius: "999px",
 
-                      "&::after": {
-                        content: '""',
-                        position: "absolute",
-                        left: "50%",
-                        bottom: "0px",
-                        width: "0%",
-                        height: "2px",
-                        backgroundColor: "#d32f2f",
-                        transition: "all 0.35s ease",
-                        transform: "translateX(-50%)",
-                      },
+                      fontSize: "14px",
+                      fontWeight: 600,
 
-                      "&:hover::after": {
-                        width: "100%",
-                      },
+                      color: isActiveRoute(item.link)
+                        ? "#fff"
+                        : "#111827",
+
+                      background: isActiveRoute(item.link)
+                        ? "linear-gradient(135deg,#c40613,#ff5757)"
+                        : "transparent",
+
+                      boxShadow: isActiveRoute(item.link)
+                        ? "0 8px 25px rgba(196,6,19,.35)"
+                        : "none",
+
+                      transition: "all .3s ease",
 
                       "&:hover": {
-                        background: "transparent",
-                        color: "#d32f2f",
+                        background: isActiveRoute(item.link)
+                          ? "linear-gradient(135deg,#c40613,#ff5757)"
+                          : "rgba(196,6,19,.08)",
+
+                        transform: "translateY(-2px)",
+
+                        color: isActiveRoute(item.link)
+                          ? "#fff"
+                          : "#c40613",
                       },
                     }}
-
                   >
                     {item.title}
                   </Button>
@@ -233,7 +305,20 @@ const Navbar = () => {
               })}
             </Box>
 
-            <IconButton sx={{ display: { xs: "flex", lg: "none" } }} onClick={handleDrawerToggle}>
+            <IconButton sx={{
+              display: { xs: "flex", lg: "none" }, width: 48,
+              height: 48,
+
+              background:
+                "rgba(196,6,19,.08)",
+
+              borderRadius: "14px",
+
+              "&:hover": {
+                background:
+                  "rgba(196,6,19,.15)",
+              },
+            }} onClick={handleDrawerToggle}>
               <MenuIcon />
             </IconButton>
           </Toolbar>
@@ -241,7 +326,21 @@ const Navbar = () => {
       </AppBar>
 
       {/* MOBILE DRAWER */}
-      <Drawer anchor="left" open={mobileOpen} onClose={handleDrawerToggle}>
+      <Drawer anchor="left" open={mobileOpen} onClose={handleDrawerToggle} PaperProps={{
+        sx: {
+          width: 300,
+
+          background:
+            "rgba(255,255,255,.95)",
+
+          backdropFilter:
+            "blur(20px)",
+
+          borderTopRightRadius: 24,
+          borderBottomRightRadius: 24,
+
+        },
+      }}>
         <Box sx={{ width: 260, paddingTop: 2 }}>
           <List>
             {pages.map((item) => {

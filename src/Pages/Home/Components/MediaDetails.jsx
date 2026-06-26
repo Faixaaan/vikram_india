@@ -176,7 +176,8 @@ const MediaDetails = () => {
                 justifyContent: "center",
                 background:
                     "linear-gradient(90deg, #1BAA63 0%, #276f9e 100%)",
-                p: { xs: 1, md: 3 },
+                // p: { xs: 1, md: 3 },
+                pt: "100px"
             }}
         >
             <Box

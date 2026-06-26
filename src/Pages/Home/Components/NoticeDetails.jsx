@@ -70,7 +70,8 @@ const NoticeDetails = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 py: 6,
-                gap: "40px"
+                gap: "40px",
+                pt: "150px"
             }}
         >
             <Box sx={{ display: "flex", justifyContent: "space-between", width: { xs: "50%", sm: "80%" }, margin: "0 auto", alignItems: "center", flexDirection: { xs: "column", sm: "row" }, gap: { xs: "20px", sm: "0px" } }} >

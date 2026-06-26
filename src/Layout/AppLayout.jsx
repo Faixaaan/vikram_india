@@ -8,7 +8,7 @@ export default function AppLayout() {
   return (
     <>
      {location.pathname !== "/" && <Navbar />}
-     {location.pathname !== "/" && <div style={{ height: "75px" }} />}
+     {/* {location.pathname !== "/" && <div style={{ height: "75px" }} />} */}
       <Outlet />
     {location.pathname !== "/" && <Footer />}
     {location.pathname !== "/" && <FloatingSocial />}

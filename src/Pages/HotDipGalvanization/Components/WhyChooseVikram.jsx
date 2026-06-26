@@ -6,13 +6,13 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+ 
     Breadcrumbs,
     Link as MLink,
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Paper,
+
     Container,
     Button,
 } from "@mui/material";
@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 
 import '../../../App.css'
-import structure4 from '../../../Assets/mm-structure-04.jpg'
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axiosInstance } from "../../../Api/Axios/axios";
 import { endpoints } from "../../../Api/EndPoints/endpoints";
@@ -62,7 +62,7 @@ const WhyChooseVikramIndia = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px" }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>

@@ -6,7 +6,7 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+
     Breadcrumbs,
     Link as MLink,
     Container,
@@ -17,22 +17,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import '../../App.css'
-import QMS from '../../Assets/Qms.jpg'
-import EMS from '../../Assets/ems.jpg'
-import OHSAS from '../../Assets/ohsas.jpg'
-import award1 from '../../Assets/eepcaward2016-17-thumb.png'
-import award2 from '../../Assets/eepcaward2014-15-thumb.png'
-import award3 from '../../Assets/eepcaward2013-14-thumb.png'
-import award4 from '../../Assets/thumbbb.png'
-import award5 from '../../Assets/EEPC-thumb.png'
-import award6 from '../../Assets/thumbe.png'
-import cert1 from '../../Assets/eepc-2016-17-cert.jpg'
-import cert2 from '../../Assets/eepc-2014-15-cert.jpg'
-import cert3 from '../../Assets/eepc-2013-14-cert.jpg'
-import cert4 from '../../Assets/2012-13-cert.jpg'
-import cert5 from '../../Assets/2011-12-cert.jpg'
-import cert6 from '../../Assets/2010-11-cert.jpg'
-import cert7 from '../../Assets/2008-09-cert.jpg'
+
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 
@@ -92,48 +77,6 @@ const AwardRecognition = () => {
 
 
 
-
-    const clientLogos = [
-        { img: award1, name: "EEPCIndia Star Performer 2016-2017" },
-        { img: award2, name: "EEPCIndia Star Performer 2014-2015" },
-        { img: award3, name: "EEPCIndia Star Performer 2013-2014" },
-        { img: award4, name: "EEPCIndia Star Performer 2012-2013" },
-
-        { img: award5, name: "Award by Engineering Export Promotion Council" },
-        { img: award6, name: "EEPCIndia Star Performer 2011-2012" },
-        { img: award1, name: "EEPCIndia Star Performer 2016-2017" },
-        { img: award2, name: "EEPCIndia Star Performer 2014-2015" },
-        { img: award3, name: "EEPCIndia Star Performer 2013-2014" },
-        { img: award4, name: "EEPCIndia Star Performer 2012-2013" },
-
-        { img: award5, name: "Award by Engineering Export Promotion Council" },
-        { img: award6, name: "EEPCIndia Star Performer 2011-2012" },
-
-    ];
-
-    const certificates = [
-        { img: cert1, name: "2016-2017" },
-        { img: cert2, name: "2014-2015" },
-        { img: cert3, name: "2013-2014" },
-        { img: cert4, name: "2012-2013" },
-
-        { img: cert5, name: "2011-12" },
-        { img: cert6, name: "2010-2011" },
-        { img: cert7, name: "2008-2009" },
-        { img: cert1, name: "2016-2017" },
-        { img: cert2, name: "2014-2015" },
-        { img: cert3, name: "2013-2014" },
-        { img: cert4, name: "2012-2013" },
-
-        { img: cert5, name: "2011-12" },
-        { img: cert6, name: "2010-2011" },
-        { img: cert7, name: "2008-2009" },
-
-
-
-
-    ];
-
     useEffect(() => {
         fetchImageData()
         window.scrollTo({
@@ -149,7 +92,7 @@ const AwardRecognition = () => {
 
 
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -451,22 +394,5 @@ const AwardRecognition = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
 
 export default AwardRecognition;

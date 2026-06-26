@@ -6,27 +6,24 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Divider,
+  
     Breadcrumbs,
     Link as MLink,
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Paper,
+   
     Container,
     Button,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
-import mmsStructure from "../../Assets/mms-structure.jpg"; // update your image
+
 import '../../App.css'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import structure1 from '../../Assets/tensile-1.jpg'
-import structure2 from '../../Assets/tensile-2.jpg'
 
-import structure4 from '../../Assets/tensile-03.jpg'
+
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import {
@@ -50,50 +47,7 @@ const leftMenu = [
 
 
 ];
-const featureSpecData = [
-    {
-        feature: "Advanced Machinery",
-        specification:
-            "Equipped with new technology broaching machines and band saw machines to handle complex slotting in high tensile steel products."
-    },
-    {
-        feature: "High Production Rate",
-        specification:
-            "With proper broaches, fixtures, and machines, more pieces are produced per hour than other machining methods."
-    },
-    {
-        feature: "High Accuracy",
-        specification:
-            "Machines provide high precision finish with tolerance up to ±0.0075 mm."
-    },
-    {
-        feature: "Single Pass Operation",
-        specification:
-            "Both roughing and finishing cuts are completed in one pass of the tool."
-    },
-    {
-        feature: "Versatile Operation",
-        specification:
-            "Can be used for both internal and external surface operations."
-    },
-    {
-        feature: "Complex Shape Machining",
-        specification:
-            "Any form that can be reproduced on a broach can be machined."
-    },
-    {
-        feature: "Efficient Cooling",
-        specification:
-            "Cutting fluid is effectively drawn into the cut during broaching."
-    }
-];
 
-
-const img = [
-    { img: structure1 },
-    { img: structure2 },
-
-]
 
 const HighTensile = () => {
 
@@ -136,7 +90,7 @@ const HighTensile = () => {
         });
     }, []);
     return (
-        <Box sx={{ padding: { xs: 2, md: 4 } }}>
+        <Box sx={{ padding: { xs: 2, md: 4 }, mt: "100px"  }}>
             <Container maxWidth='xl'>
                 {/* Breadcrumb */}
                 <Breadcrumbs sx={{ mb: 2, fontSize: "15px" }}>
@@ -359,22 +313,6 @@ const HighTensile = () => {
     );
 };
 
-const headingStyle = {
-    fontSize: "16px",
-    fontWeight: 400,
-    mt: 2,
-    mb: 2,
-    fontFamily: "Roboto",
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    px: 2,
-    py: 1.5,
-    borderTop: "3px solid #e5e5e5",
-    borderBottom: "3px solid #e5e5e5",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-    borderRadius: "6px",
-    background: "#fff"
-};
+
 
 export default HighTensile;

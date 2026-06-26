@@ -48,6 +48,7 @@ const AllNotice = () => {
         backgroundColor: "#f4f4f4",
         minHeight: "100vh",
         py: 6,
+        pt: "150px"
       }}
     >
 
