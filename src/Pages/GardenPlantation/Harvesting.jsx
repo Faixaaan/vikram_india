@@ -196,7 +196,7 @@ const Harvesting = () => {
 
                   {/* LEFT CONTENT */}
                   <Grid item size={{ xs: 12, md: 8 }}>
-                    <Typography
+                    {/* <Typography
                       sx={{
                         fontSize: "16px",
                         fontFamily: "Roboto",
@@ -205,7 +205,21 @@ const Harvesting = () => {
                       }}
                     >
                       {data?.sec1_description}
-                    </Typography>
+
+
+                    </Typography> */}
+
+                    <Typography
+                      sx={{
+                        fontSize: "16px",
+                        fontFamily: "Roboto",
+                        textAlign: "justify",
+                        mt: 0,
+                      }}
+                      dangerouslySetInnerHTML={{
+                        __html: data?.sec1_description,
+                      }}
+                    />
                   </Grid>
                 </Grid>
               </AccordionDetails>

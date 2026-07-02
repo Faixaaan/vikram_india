@@ -199,7 +199,7 @@ export default function FloatingSocial() {
 
                     <Box
                         component="a"
-                        href=""
+                        href="https://x.com/VikramIndia_Ltd"
                         target="_blank"
                         rel="noopener noreferrer"
                         sx={socialItemStyle(
