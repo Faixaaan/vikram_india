@@ -1,34 +1,36 @@
 import React, { useState } from "react";
-import { Box, Typography, Container } from "@mui/material";
-import bannerImg from "../../Assets/tower_line_transmission.png"; // change if needed
+import { Box, Typography, Container, Button } from "@mui/material";
+
 
 import { axiosInstance } from "../../Api/Axios/axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import PageComing from "../ComingSoon/PageComing";
+import { Link, useNavigate, } from "react-router-dom";
+
 
 const TowerLineTransmission = () => {
 
-    const tltbanner = bannerImg;
 
     const [data, setData] = useState([])
+    const navigate = useNavigate()
+    // const getData = async () => {
+    //     try {
+    //         const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction);
+    //         setData(res?.data?.data)
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
-    const getData = async () => {
-        try {
-            const res = await axiosInstance.get(endpoints.ModuleMounting.Introduction);
-            setData(res?.data?.data)
-        }
-        catch (err) {
-            console.log(err)
-        }
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+
+
+    const handleClick = () => {
+        navigate('/products/towerline-transmission/towerlineDetails')
     }
-
-    useEffect(() => {
-        getData()
-    }, [])
-
-
 
 
 
@@ -39,9 +41,7 @@ const TowerLineTransmission = () => {
                 sx={{
                     width: "100%",
                     height: { xs: "220px", sm: "300px", md: "380px" },
-                    //   backgroundImage: `url(${data?.banner})`,
-                    backgroundImage: `url(${tltbanner})`,
-
+                    backgroundImage: `url(${data?.banner})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     position: "relative",
@@ -72,8 +72,7 @@ const TowerLineTransmission = () => {
                                 mb: 2,
                             }}
                         >
-                            {/* {data?.title} */}
-                            Tower Line Transmission
+                            {data?.title}
                         </Typography>
 
                         {/* Breadcrumbs */}
@@ -93,9 +92,9 @@ const TowerLineTransmission = () => {
                                 component={Link}
                                 to=""
                                 underline="none"
-                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", textDecoration: "none" }}
+                                sx={{ color: "#fff", textdecoration: "none", fontSize: "15px", }}
                             >
-                                Tower Line Transmission
+                                Module Mounting Structure
                             </Typography>
 
 
@@ -103,12 +102,98 @@ const TowerLineTransmission = () => {
                     </Box>
 
                 </Container>
-
-
             </Box>
-                <PageComing />
+
+            {/* ================= CONTENT ================= */}
+            <Container maxWidth="xl">
+                <Box
+                    sx={{
+                        textAlign: "center",
+                        py: { xs: 4, sm: 5, md: "60px" },
+                        px: { xs: 2, sm: 3 },
+                        paddingBottom: "150px!important"
+                    }}
+                >
+                    {/* Title */}
 
 
+                    {/* Subtitle */}
+                    <Typography
+                        sx={{
+                            fontSize: { xs: "15px", sm: "16px", md: "17px" },
+                            fontWeight: 400,
+                            fontFamily: "Roboto",
+                            color: "#555",
+                            maxWidth: "1100px",
+                            mx: "auto",
+                            mb: 4,
+                            lineHeight: "1.4",
+                            textAlign: "center"
+                        }}
+                        dangerouslySetInnerHTML={{
+                            __html: data?.description
+                        }}
+                    >
+
+                    </Typography>
+
+
+                    <Button
+                        variant="contained"
+                        sx={{
+                            alignSelf: { xs: "stretch", sm: "flex-start" },
+                            mt: 2,
+                            px: { xs: 1.8, sm: 2.2, md: 2.4 },
+                            py: { xs: 0.7, sm: 0.8 },
+                            fontSize: { xs: "16px", sm: "17px" },
+                            borderRadius: "30px",
+                            textTransform: "none",
+                            fontWeight: 600,
+
+                            position: "relative",
+                            overflow: "hidden",
+
+                            background: "#bd2304",
+
+
+                            zIndex: 1,
+
+                            "& span": {
+                                position: "relative",
+                                zIndex: 2,
+                            },
+
+
+                            "&:before": {
+                                content: '""',
+                                position: "absolute",
+                                left: "50%",
+                                top: "50%",
+                                width: 0,
+                                height: 0,
+                                background: "#000",
+                                borderRadius: "50%",
+                                transform: "translate(-12%, -50%)",
+                                transition: "all 1s ease",
+                                zIndex: 0,
+                            },
+
+                            "&:hover:before": {
+                                width: "300%",
+                                height: "300%",
+                            },
+
+                            "&:hover": {
+                                background: "#bd2304",
+                            },
+                        }}
+                        onClick={handleClick}
+                    >
+                        <span>Learn More</span>
+                    </Button>
+
+                </Box>
+            </Container>
         </>
     );
 };

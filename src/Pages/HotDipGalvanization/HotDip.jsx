@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { endpoints } from "../../Api/EndPoints/endpoints";
 import { axiosInstance } from "../../Api/Axios/axios";
 import { Link } from "react-router-dom";

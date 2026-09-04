@@ -80,6 +80,7 @@ import Certificate from "./Pages/AboutUs/Certificate";
 
 import WorldMapLocation from "./Pages/Worlmapsection/WorldMapLocation";
 import WorldMapLocationDetails from "./Pages/Worlmapsection/WorldMapLocationDetails";
+import TowerDetails from "./Pages/Tlt/TowerDetails";
 
 
 function App() {
@@ -130,6 +131,9 @@ function App() {
           />
           <Route path="/products/ctc/workshop-equipment" element={<Workshop />} />
           <Route path="/products/mms/infrastructure-&-machinery" element={<Introduction />} />
+          <Route path="/products/towerline-transmission/towerlineDetails" element={<TowerDetails />} />
+
+          
           <Route
             path="/products/mms/product-&-portfolio"
             element={<Manufacturing />}

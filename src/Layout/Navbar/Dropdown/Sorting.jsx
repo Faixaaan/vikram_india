@@ -370,7 +370,7 @@ const Sorting = () => {
                           mt: 0
                         }}
                         dangerouslySetInnerHTML={{
-                          __html: data?.section3_desc || ""
+                          __html: data?.section4_desc || ""
                         }}
 
                       >
@@ -428,7 +428,7 @@ const Sorting = () => {
                           mt: 0
                         }}
                         dangerouslySetInnerHTML={{
-                          __html: data?.section1_desc || ""
+                          __html: data?.section5_desc || ""
                         }}
 
                       >
